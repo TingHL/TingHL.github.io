@@ -14,16 +14,15 @@
 <meta property="og:description" content="数据库相关面经 与数据库相关的面经  1. 索引索引：帮助数据库高效获取数据的数据结构。索引是在基于数据库表创建的，包含一个表中某些列的值以及记录中对应的地址，并把这些值存储在一个数据结构中。    分类角度 索引名称    数据结构 B+树、Hash索引、R-Tree等   存储层面 聚簇索引、非聚簇索引   逻辑层面 主键索引、普通索引、复合索引、唯一索引、空间索引等   Inodb存储引擎默">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192637889.png">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/InnoDBMyISAM">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/78">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/76">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/75">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/73">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/72">
-<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/70">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192805770.png">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192818510.png">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192829152.png">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192839596.png">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192849062.png">
+<meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192859701.png">
 <meta property="og:image" content="http://example.com/2021/02/25/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/137084-20180524194122461-804315041.png">
 <meta property="article:published_time" content="2021-02-25T11:18:26.000Z">
-<meta property="article:modified_time" content="2021-02-25T11:26:50.145Z">
+<meta property="article:modified_time" content="2021-02-25T11:29:31.603Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="数据库">
@@ -144,7 +143,6 @@
 <p><strong>聚簇索引表：在聚簇索引表中，主键索引的叶节点存储行数据（包括主键值），二级索引的叶结点存储行的主键值</strong>。使用的是B+树作为索引的存储结构，非叶子节点都是索引关键字，但非叶子节点中的关键字中不存储对应记录的具体内容或内容地址。叶子节点上的数据是主键与具体记录(数据内容)。</p>
 <p><strong>非聚簇索引表：表数据和索引是分成两部分存储的，主键索引和二级索引存储上没有任何区别</strong>。使用的是<strong>B+树作为索引的存储结构</strong>，所有的节点都是索引，<strong>叶子节点存储的是索引+索引对应的记录的数据</strong>。</p>
 <p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192637889.png" alt="image-20210225192637889"></p>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/InnoDBMyISAM" alt="img"></p>
 <h2 id="1-3-聚簇索引优缺点"><a href="#1-3-聚簇索引优缺点" class="headerlink" title="1.3 聚簇索引优缺点"></a>1.3 聚簇索引优缺点</h2><p><strong>优点</strong></p>
 <ol>
 <li>当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。</li>
@@ -213,18 +211,18 @@
 <li><p>任意节点的左右子树也分别是二叉查找树；</p>
 </li>
 <li><p>没有键值相等的节点；</p>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/78" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192805770.png" alt="image-20210225192805770"></p>
 </li>
 </ol>
 <p>上图为一个普通的二叉查找树，按照中序遍历的方式可以从小到大的顺序排序输出：2、3、5、6、7、8。</p>
 <p>对上述二叉树进行查找，如查键值为5的记录，先找到根，其键值是6，6大于5，因此查找6的左子树，找到3；而5大于3，再找其右子树；一共找了3次。如果按2、3、5、6、7、8的顺序来找同样需求3次。用同样的方法在查找键值为8的这个记录，这次用了3次查找，而顺序查找需要6次。计算平均查找次数得：顺序查找的平均查找次数为（1+2+3+4+5+6）/ 6 = 3.3次，二叉查找树的平均查找次数为（3+3+3+2+2+1）/6=2.3次。二叉查找树的平均查找速度比顺序查找来得更快。</p>
 <p><strong>局限性及应用</strong></p>
 <p>一个二叉查找树是由n个节点随机构成，所以，<strong>对于某些情况，二叉查找树会退化成一个有n个节点的线性链</strong>。如下图：</p>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/76" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192818510.png" alt="image-20210225192818510"></p>
 <p>大家看上图，如果我们的根节点选择是最小或者最大的数，那么二叉查找树就完全退化成了线性结构。上图中的平均查找次数为（1+2+3+4+5+5）/6=3.16次，和顺序查找差不多。显然这个二叉树的查询效率就很低，因此若想最大性能的构造一个二叉查找树，需要这个二叉树是平衡的（这里的平衡从一个显著的特点可以看出这一棵树的高度比上一个输的高度要大，在相同节点的情况下也就是不平衡），从而引出了一个新的定义-平衡二叉树AVL。</p>
 <h2 id="AVL树-平衡二叉树"><a href="#AVL树-平衡二叉树" class="headerlink" title="AVL树 平衡二叉树"></a>AVL树 平衡二叉树</h2><p><strong>AVL树 带有平衡条件的二叉查找树</strong></p>
 <p><strong>AVL树是带有平衡条件的二叉查找树</strong>，一般是用<strong>平衡因子差值判断是否平衡并通过旋转来实现平衡，左右子树树高不超过1</strong>，和红黑树相比，它是<strong>严格的平衡二叉树，平衡条件必须满足（所有节点的左右子树高度差不超过1）</strong>。不管我们是执行插入还是删除操作，只要不满足上面的条件，就要通过旋转来保持平衡，而旋转是非常耗时的，由此我们可以知道<strong>AVL树适合用于插入删除次数比较少，但查找多的情况</strong>。</p>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/75" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192829152.png" alt="image-20210225192829152"></p>
 <p><strong>局限性</strong></p>
 <p>由于维护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果应用场景中对插入删除不频繁，只是对查找要求较高，那么AVL还是较优于红黑树。</p>
 <h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><strong>一种二叉查找树，但在每个节点增加一个存储位表示节点的颜色，可以是red或black</strong>。通过对任何一条从根到叶子的路径上各个节点着色的方式的限制，红黑树确保没有一条路径会比其它路径长出两倍。它是<strong>一种弱平衡二叉树</strong>（由于是弱平衡，可以推出，相同的节点情况下，AVL树的高度低于红黑树），相对于要求严格的AVL树来说，它的旋转次数变少，所以对于搜索、插入、删除操作多的情况下，我们就用红黑树。</p>
@@ -236,7 +234,7 @@
 <li><strong>对于任一节点而言，其到叶节点树尾端NULL指针的每一条路径都包含相同数目的黑节点；</strong></li>
 <li>每条路径都包含相同的黑节点；</li>
 </ol>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/73" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192839596.png" alt="image-20210225192839596"></p>
 <h2 id="B-B-树"><a href="#B-B-树" class="headerlink" title="B B+树"></a>B B+树</h2><p><strong>B树：有序数组+平衡多叉树</strong></p>
 <p><strong>B+树：有序数组链表+平衡多叉树</strong></p>
 <p><strong>B树 平衡多路搜索树</strong></p>
@@ -254,12 +252,12 @@
 <li>非叶子结点的指针：P[1], P[2], …, P[M]；其中P[1]指向关键字小于K[1]的子树，P[M]指向关键字大于K[M-1]的子树，其它P[i]指向关键字属于(K[i-1], K[i])的子树；</li>
 <li>所有叶子结点位于同一层；</li>
 </ol>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/72" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192849062.png" alt="image-20210225192849062"></p>
 <p>这里只是一个简单的B树，在实际中B树节点中关键字很多的，上面的图中比如35节点，35代表一个key(索引)，而小黑块代表的是这个key所指向的内容在内存中实际的存储位置，是一个指针。</p>
 <h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p><strong>B+树是应文件系统所需而产生的一种B树的变形树（文件的目录一级一级索引，只有最底层的叶子节点（文件）保存数据）非叶子节点只保存索引，不保存实际的数据，数据都保存在叶子节点中</strong>。</p>
 <p><strong>B+树的性质(下面提到的都是和B树不相同的性质)</strong></p>
 <p>1、非叶子节点的子树指针与关键字个数相同；<br>2、非叶子节点的子树指针p[i]，指向关键字值属于[k[i],k[i+1]]的子树。(B树是开区间,也就是说B树不允许关键字重复,B+树允许重复)；<br>3、为所有叶子节点增加一个链指针；<br>4、所有关键字都在叶子节点出现(稠密索引)。 (且链表中的关键字恰好是有序的)；<br>5、非叶子节点相当于是叶子节点的索引(稀疏索引)，叶子节点相当于是存储(关键字)数据的数据层；</p>
-<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/70" alt="这里写图片描述"></p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/image-20210225192859701.png" alt="image-20210225192859701"></p>
 <p>非叶子节点（比如5，28，65）只是一个key（索引），实际的数据存在叶子节点上（5，8，9）才是真正的数据或指向真实数据的指针。</p>
 <p><strong>应用</strong></p>
 <p>1、B和B+树主要用在文件系统以及数据库做索引，比如MySQL；</p>
