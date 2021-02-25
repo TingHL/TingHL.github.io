@@ -101,6 +101,371 @@
 <li>java 基础知识相关的面经整理</li>
 <li></li>
 </ul>
+<h1 id="1-1-Java-类"><a href="#1-1-Java-类" class="headerlink" title="1.1 Java 类"></a>1.1 Java 类</h1><h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><p>collection 接口是Set、Queue、List的父接口。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Modifier and Type</th>
+<th align="left">Method and Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>add(E e)</code><br>Ensures that this collection contains the specified element (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>addAll(Collection&lt;? extends E&gt; c)</code><br>Adds all of the elements in the specified collection to this collection (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>void</code></td>
+<td align="left"><code>clear()</code><br>Removes all of the elements from this collection (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>contains(Object o)</code><br>Returns <code>true</code> if this collection contains the specified element.</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>containsAll(Collection&lt;?&gt; c)</code><br>Returns <code>true</code> if this collection contains all of the elements in the specified collection.</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>equals(Object o)</code><br>Compares the specified object with this collection for equality.</td>
+</tr>
+<tr>
+<td align="left"><code>int</code></td>
+<td align="left"><code>hashCode()</code><br>Returns the hash code value for this collection.</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>isEmpty()</code><br>Returns <code>true</code> if this collection contains no elements.</td>
+</tr>
+<tr>
+<td align="left"><code>Iterator&lt;E&gt;</code></td>
+<td align="left"><code>iterator()</code><br>Returns an iterator over the elements in this collection.</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>remove(Object o)</code><br>Removes a single instance of the specified element from this collection, if it is present (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>removeAll(Collection&lt;?&gt; c)</code><br>Removes all of this collection’s elements that are also contained in the specified collection (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>boolean</code></td>
+<td align="left"><code>retainAll(Collection&lt;?&gt; c)</code><br>Retains only the elements in this collection that are contained in the specified collection (optional operation).</td>
+</tr>
+<tr>
+<td align="left"><code>int</code></td>
+<td align="left"><code>size()</code><br>Returns the number of elements in this collection.</td>
+</tr>
+<tr>
+<td align="left"><code>default Spliterator&lt;E&gt;</code></td>
+<td align="left"><code>spliterator()</code><br>Creates a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html"><code>Spliterator</code></a> over the elements in this collection.</td>
+</tr>
+<tr>
+<td align="left"><code>default Stream&lt;E&gt;</code></td>
+<td align="left"><code>stream()</code><br>Returns a sequential <code>Stream</code> with this collection as its source.</td>
+</tr>
+<tr>
+<td align="left"><code>Object[]</code></td>
+<td align="left"><code>toArray()</code><br>Returns an array containing all of the elements in this collection.</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;T&gt; T[]</code></td>
+<td align="left"><code>toArray(T[] a)</code><br>Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.</td>
+</tr>
+</tbody></table>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>AbstractSet, ConcurrentHashMap.KeySetView, ConcurrentSkipListSet, CopyOnWriteArraySet, EnumSet, HashSet, JobStateReasons, LinkedHashSet, TreeSet</p>
+<p>类方法</p>
+<table>
+<thead>
+<tr>
+<th>修饰符和类型</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>boolean</code></td>
+<td><code>add(E e)</code> <br>Adds the specified element to this set if it is not already present (optional operation).</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>clear()</code><br>Removes all of the elements from this set (optional operation).</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>contains(Object o)</code><br>Returns <code>true</code> if this set contains the specified element.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>removeAll(Collection&lt;?&gt; c)</code><br>Removes from this set all of its elements that are contained in the specified collection (optional operation).  集合取非交集</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>retainAll(Collection&lt;?&gt; c)</code><br>Retains only the elements in this set that are contained in the specified collection (optional operation). 集合取交集</td>
+</tr>
+</tbody></table>
+<p><strong>遍历方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;String&gt; set=<span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法一：集合类的通用遍历方式</span></span><br><span class="line">Iterator it1=set.iterator();</span><br><span class="line"><span class="keyword">while</span>(it1.hasNext())&#123;</span><br><span class="line">    it1.next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二：集合类的通用遍历方式</span></span><br><span class="line"><span class="keyword">for</span>(Interator it2=set.iterator();it2.hasNext();)&#123;</span><br><span class="line">    it2.next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法三：增强型for遍历循环</span></span><br><span class="line"><span class="keyword">for</span>(String value:set)&#123;</span><br><span class="line">    value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Object[]</code></td>
+<td><code>toArray()</code><br>Returns an array containing all of the elements in this list in proper sequence (from first to last element).</td>
+</tr>
+<tr>
+<td><code>&lt;T&gt; T[]</code></td>
+<td><code>toArray(T[] a)</code><br>Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.<br>示例：listArrays.toArray(new int [ listArrays.size() ] [ ]);</td>
+</tr>
+</tbody></table>
+<h3 id="Deque-双端队列"><a href="#Deque-双端队列" class="headerlink" title="Deque 双端队列"></a>Deque 双端队列</h3><p><strong>特征</strong></p>
+<p>两头进，两头出，双端队列（Double Ended Queue）</p>
+<ul>
+<li>既可以添加到队尾，也可以添加到队首</li>
+<li>既可以从队首获取，也可以从队尾获取</li>
+</ul>
+<p><strong>实现类</strong></p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html">ArrayDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentLinkedDeque.html">ConcurrentLinkedDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingDeque.html">LinkedBlockingDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html">LinkedList</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Queue</th>
+<th>Deque</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">添加元素到队尾</td>
+<td align="left">add(E e) / offer(E e)</td>
+<td>addLast(E e) / offerLast(E e)</td>
+</tr>
+<tr>
+<td align="left">取队首元素并删除</td>
+<td align="left">E remove() / E poll()</td>
+<td>E removeFirst() / E pollFirst()</td>
+</tr>
+<tr>
+<td align="left">取队首元素但不删除</td>
+<td align="left">E element() / E peek()</td>
+<td>E getFirst() / E peekFirst()</td>
+</tr>
+<tr>
+<td align="left">添加元素到队首</td>
+<td align="left">无</td>
+<td>addFirst(E e) / offerFirst(E e)</td>
+</tr>
+<tr>
+<td align="left">取队尾元素并删除</td>
+<td align="left">无</td>
+<td>E removeLast() / E pollLast()</td>
+</tr>
+<tr>
+<td align="left">取队尾元素但不删除</td>
+<td align="left">无</td>
+<td>E getLast() / E peekLast()</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>E</code></td>
+<td><code>remove()</code><br>Retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque).</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>remove(Object o)</code><br>Removes the first occurrence of the specified element from this deque.</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>contains(Object o)</code><br/>Returns <code>true</code> if this deque contains the specified element.</td>
+</tr>
+</tbody></table>
+<h3 id="Queue-队列"><a href="#Queue-队列" class="headerlink" title="Queue 队列"></a>Queue 队列</h3><p>特殊的线性表，只允许在表的前端进行删除操作，在表的后端进行插入操作。</p>
+<p><strong>构造函数</strong></p>
+<p>实现了接口的类有：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractQueue.html">AbstractQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ArrayBlockingQueue.html">ArrayBlockingQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html">ArrayDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentLinkedDeque.html">ConcurrentLinkedDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentLinkedQueue.html">ConcurrentLinkedQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/DelayQueue.html">DelayQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingDeque.html">LinkedBlockingDeque</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingQueue.html">LinkedBlockingQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html">LinkedList</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html">LinkedTransferQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/PriorityBlockingQueue.html">PriorityBlockingQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html">PriorityQueue</a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html">SynchronousQueue</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;T&gt; queue=<span class="keyword">new</span> LinkedList&lt;T&gt;();</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法</strong></p>
+<p>新方法包括<strong>offer(e)、poll()、peek()</strong></p>
+<p><strong>offer add 区别：</strong></p>
+<p>一些队列有大小限制，因此如果想在一个满的队列中加入一个新项，多出的项就会被拒绝。</p>
+<p>offer 方法就可以起作用了。它不是对调用 add() 方法抛出一个 unchecked 异常，而只是得到由 <u>offer() 返回的 false</u>。</p>
+<p><strong>poll remove 区别：</strong></p>
+<p>remove() 和 poll() 方法都是从队列中删除第一个元素。remove() 的行为与 Collection 接口的版本相似， 但是<u>新的 poll() 方法在用空集合调用时不是抛出异常，返回 null</u>。因此新的方法更适合容易出现异常条件的情况。</p>
+<p><strong>peek element区别：</strong></p>
+<p>element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，<u>在队列为空时， element() 抛出一个异常，而 peek() 返回 null</u>。</p>
+<p><strong>contains(Ojbect o)</strong></p>
+<p>returns true if this deque contains the specified element.</p>
+<p><strong>remove(Object o)</strong></p>
+<p>removes the first occurrence of the specified element from this deque.</p>
+<h3 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h3><ul>
+<li><p>一种无界的，线程不安全的队列</p>
+</li>
+<li><p>一种通过数组实现的，并拥有优先级的队列</p>
+</li>
+<li><p>元素要求必须是可比较的对象， 如果不是就必须明确指定比较器</p>
+</li>
+<li><p>通过二叉小顶堆实现，不允许放入null元素，也不允许插入不可比较的对象（没有实现Comparable接口的对象），头指针指向最小的那个元素。默认情况下，PriorityQueue使用自然排序法，最小元素先出列。</p>
+</li>
+<li><p>PriorityQueue优先级规则，方式有2种：</p>
+<ol>
+<li>添加元素自身实现了Comparable接口，确保元素是可以排序的对象</li>
+<li>添加元素没有实现Comparable接口，在创建PriorityQueue队列时直接指定比较器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;Student&gt; q=<span class="keyword">new</span> PriorityQueue&lt;Student&gt;(<span class="keyword">new</span> Comparator&lt;Student&gt;()&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1,Student o2)</span></span>&#123;</span><br><span class="line">       <span class="comment">//按照分数低到搞，分数相等按名字</span></span><br><span class="line">       <span class="keyword">if</span>(o1.getScore()==o2.getScore())</span><br><span class="line">           <span class="keyword">return</span> o1.getName().compareTo(o2.getName());</span><br><span class="line">       <span class="keyword">return</span> o1.getScore()-o2.getScore();</span><br><span class="line">   &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>peek()</code>和<code>element()</code>操作是常数时间，<code>add()</code>, <code>offer()</code>, 无参数的<code>remove()</code>以及<code>poll()</code>方法的时间复杂度都是*log(N)*。</p>
+</li>
+<li><p>可以使用<code>PriorityQueue</code>构造大小堆</p>
+</li>
+</ul>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>​    <strong>boolean containsKey(Object key)</strong></p>
+<p>​        Returns true if this map contians a mapping for the specified key.</p>
+<p>​    <strong>boolean containsValue(Object value)</strong></p>
+<p>​        Return true if this map maps one or more keys to the specified value.</p>
+<p>​    <strong>Set&lt;K&gt; keySet()</strong></p>
+<p>​        Returns a Set view of the keys contained in this map.</p>
+<h2 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>static int</code></td>
+<td><code>getNumericValue(char ch)</code><br>Returns the <code>int</code> value that the specified Unicode character represents.<br>eg: char numChar=’9’; <br>Charater.getNumericValue(numChar);//结果为9</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>String[]</code></td>
+<td><code>split(String regex)</code> <br>Splits this string around matches of the given <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum">regular expression</a>. <br>处理尾部的空字符串，不处理中间的空字符串和开头的空字符串。例如：”,aa,bb,cc,dd,,,”.split(“,”) –&gt; 5个数组：空 aa bb cc dd<br>以空格为依据，进行分割<code>String[] arrays=string.split(&quot;\\s+&quot;);</code></td>
+</tr>
+<tr>
+<td>String[]</td>
+<td><code>split(String regex,int limit)</code><br>Splits this string around matches of the given regular expression</td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>trim()</code> <br>Returns a string whose value is this string, with any leading and trailing whitspace removed.<br>Returns: A string whose value is this string, with any leading and trailing white space removed, or this string if it has no leading or trailing white space.</td>
+</tr>
+<tr>
+<td>char[]</td>
+<td><code>toCharArray()</code><br>Converts this string to a new character array.</td>
+</tr>
+<tr>
+<td>static String</td>
+<td><code>valueOf(boolean b | char c | char[] data | char[] data, int offset, int count | double d | float f | int i | long l | Object obj)</code> <br>returns the string representation of the type arguments.</td>
+</tr>
+<tr>
+<td>构造器</td>
+<td><code>String(char[] value)</code></td>
+</tr>
+<tr>
+<td>构造器</td>
+<td><code>String(char[] value, int offset, int count)</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">trim</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = value.length;</span><br><span class="line">    <span class="keyword">int</span> st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span>[] val = value;    <span class="comment">/* avoid getfield opcode */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((st &lt; len) &amp;&amp; (val[st] &lt;= <span class="string">&#x27; &#x27;</span>)) &#123;</span><br><span class="line">        st++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> ((st &lt; len) &amp;&amp; (val[len - <span class="number">1</span>] &lt;= <span class="string">&#x27; &#x27;</span>)) &#123;</span><br><span class="line">        len--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//首尾部分有空格，则substring返回一个new string，否则还是this 指向的字符串</span></span><br><span class="line">    <span class="keyword">return</span> ((st &gt; <span class="number">0</span>) || (len &lt; value.length)) ? substring(st, len) : <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>StringBuilder</td>
+<td>append(boolean | char | char[] | char[] str, int offset, int len | CharSequence s | CharSequence s, int start, int end | double | float | int | long | Object | String | StringBuffer ) <br>Appends the specified X to the  this sequence</td>
+</tr>
+<tr>
+<td>StringBuilder</td>
+<td>insert(int offset, boolean b |  int offset, char c |  xxxx ) <br> inserts the string representation of the X argument into this sequence.</td>
+</tr>
+<tr>
+<td>StringBuilder</td>
+<td>reverse()<br>Causes this character sequence to be replaced by the reverse of the sequence. <br>Returns: a reference to this object.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="StringBuffer和StringBuilder的区别"><a href="#StringBuffer和StringBuilder的区别" class="headerlink" title="StringBuffer和StringBuilder的区别"></a>StringBuffer和StringBuilder的区别</h3><ul>
+<li>都是final类，都不允许被继承；StringBuffer和StringBuilder类长度是可以改变的；</li>
+<li>StringBuffer类是线程安全的，StringBuilder不是线程安全的；</li>
+</ul>
+<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><p><strong>public static<T> List<T> asList(T… a)</strong></p>
+<p>This method also provides a convenient way to create a fixed-size list initialized to contain several elements:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; stooges = Arrays.asList(<span class="string">&quot;Larry&quot;</span>, <span class="string">&quot;Moe&quot;</span>, <span class="string">&quot;Curly&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>Type Parameters:</strong></p>
+<p><code>T</code> - the class of the objects in the array</p>
+</li>
+<li><p><strong>Parameters:</strong></p>
+<p><code>a</code> - the array by which the list will be backed</p>
+</li>
+<li><p><strong>Returns:</strong></p>
+<p>a list view of the specified array</p>
+</li>
+</ul>
+<p><strong>static void sort(byte/char/double/float/int/long/Object/short[] a | byte/char/double/float/int/long/Object/short[] a, int fromIndex, int toIndex | )</strong></p>
+<p>Sorts the specified range of the array into ascending order.</p>
+<p><strong>static &lt;T&gt; void sort(T[] a, Comparator&lt;? super T&gt; c)</strong></p>
+<p>Sorts the specified array of objects according to the order induced by the specified comparator.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//intervals 二维数组类型[][2] </span></span><br><span class="line">Arrays.sort(interverls,<span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;()&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] interval1,<span class="keyword">int</span>[] interval2)</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> interval1[<span class="number">0</span>]-interval2[<span class="number">0</span>];</span><br><span class="line">   &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/">https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/</a></li>
+<li></li>
+</ul>
+<p>HashMap采用<strong>Entry数组来存储key-value对（Entry数组中的每一个元素，都是Entry实例（键值对组成了一个Entry实体，同时具有一个指针结构），Entry类实际上是一个单向的链表结构</strong>，它具有Next指针，可以连接下一个Entry实体。 <strong>只是在JDK1.8中，链表长度大于8的时候，链表会转成红黑树</strong>。</p>
+<p>非同步、不保证有序（比如插入的顺序）、不在保证序列不随时间变化</p>
+<p>哈希表的初始化大小为2的幂次，默认容量16，默认负载因子0.75，<u>当size&gt;=threshold（table.length*loadFactor）时，需对哈希表进行扩容，将会创建原来HashMap大小两倍的bucket数组</u>。</p>
+<p><img src="/images/java%E9%9D%A2%E7%BB%8F/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" alt="img"></p>
+<p><img src="/images/java%E9%9D%A2%E7%BB%8F/image-20210112195801751.png" alt="image-20210112195801751"></p>
+<p><img src="/images/java%E9%9D%A2%E7%BB%8F/20180407075230628" alt="img"></p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>通过hash的方法，通过put和get存储和获取对象。</p>
+<p>存储对象时，将K/V 传给put 方法时，它调用hashCode 计算hash，并进一步计算从而得到bucket 位置，进一步存储，HashMap会根据当前bucket 的占用情况自动调整容量（超过Load Facotr，则resize 为原来的2倍）。</p>
+<p>获取对象时，将K传给get，它调用hashCode计算hash，并进一步计算从而得到bucket位置，进一步调用equals()方法确定键值对。如果发生碰撞的时候，HashMap通过链表将产生碰撞冲突的元素组织起来，在Java 8中，如果一个bucket中碰撞冲突的元素超过某个限制(默认是8)，则使用红黑树来替换链表，从而提高速度。</p>
 
       
     </div>
