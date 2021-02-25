@@ -459,8 +459,14 @@
 <p>HashMap采用<strong>Entry数组来存储key-value对（Entry数组中的每一个元素，都是Entry实例（键值对组成了一个Entry实体，同时具有一个指针结构），Entry类实际上是一个单向的链表结构</strong>，它具有Next指针，可以连接下一个Entry实体。 <strong>只是在JDK1.8中，链表长度大于8的时候，链表会转成红黑树</strong>。</p>
 <p>非同步、不保证有序（比如插入的顺序）、不在保证序列不随时间变化</p>
 <p>哈希表的初始化大小为2的幂次，默认容量16，默认负载因子0.75，<u>当size&gt;=threshold（table.length*loadFactor）时，需对哈希表进行扩容，将会创建原来HashMap大小两倍的bucket数组</u>。</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" alt="img"></p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210112195801751.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210112195801751.png" alt="image-20210112195801751"></p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180407075230628" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180407075230628" alt="img"></p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>通过hash的方法，通过put和get存储和获取对象。</p>
 <p>存储对象时，将K/V 传给put 方法时，它调用hashCode 计算hash，并进一步计算从而得到bucket 位置，进一步存储，HashMap会根据当前bucket 的占用情况自动调整容量（超过Load Facotr，则resize 为原来的2倍）。</p>
@@ -503,11 +509,15 @@
 <li><p>计算下标，使用&amp;操作</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(n - <span class="number">1</span>) &amp; hash  <span class="comment">//n 数组长度</span></span><br></pre></td></tr></table></figure>
 
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/293b52fc-d932-11e4-854d-cb47be67949a.png" class="">
+
 </li>
 </ol>
 <p><img src="java%E9%9D%A2%E7%BB%8F/293b52fc-d932-11e4-854d-cb47be67949a.png" alt="hash"></p>
 <h3 id="RESIZE的实现"><a href="#RESIZE的实现" class="headerlink" title="RESIZE的实现"></a>RESIZE的实现</h3><p>bucket扩大为原来的两倍，重新计算index，把节点放到新的bucket中。因为使用的是2次幂的扩展(指长度扩为原来2倍)，所以，<strong>元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置</strong>。</p>
 <p>在扩充HashMap的时候，不需要重新计算hash，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”。可以看看下图为16扩充为32的resize示意图：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" alt="resize16-32"></p>
 <h3 id="hash冲突的解决方法"><a href="#hash冲突的解决方法" class="headerlink" title="hash冲突的解决方法"></a>hash冲突的解决方法</h3><ol>
 <li><p>开放定址法</p>
@@ -540,28 +550,45 @@
 <h4 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h4><p>假设HashMap初始化大小为4，插入个3节点，不巧的是，这3个节点都hash到同一个位置，如果按照默认的负载因子的话，插入第3个节点就会扩容，为了验证效果，假设负载因子是1。以下是节点移动的相关逻辑。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历原理table中每个位置中的链表，并对每个元素进行重新hash，在新的newTable中找到相应的位置，并插入</span></span><br><span class="line"><span class="comment">//构建新表的时候是逆序插入的 旧表：table[3]=a-&gt;b-c&gt;  新表：table[7]=c-&gt;b-&gt;a</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">    <span class="comment">//遍历旧table 表 插入到新表newTable中</span></span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">            <span class="comment">//rehash表示是否需要重新计算哈希</span></span><br><span class="line">            <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">            e.next = newTable[i];</span><br><span class="line">            newTable[i] = e;</span><br><span class="line">            e = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205336093.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205336093.png" alt="image-20210111205336093"></p>
 <p>插入第4个节点时，发生rehash，假设现在有两个线程同时进行，线程1和线程2，两个线程都会新建新的数组。</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205400627.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205400627.png" alt="image-20210111205400627"></p>
 <p>假设 <strong>线程2</strong> 在执行到<code>Entry&lt;K,V&gt; next = e.next;</code>之后，cpu时间片用完了，这时变量e指向节点a，变量next指向节点b。</p>
 <p><strong>线程1</strong>继续执行，很不巧，a、b、c节点rehash之后又是在同一个位置7，开始移动节点</p>
 <p>第一步，移动节点a</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205438384.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205438384.png" alt="image-20210111205438384"></p>
 <p>第二步，移动节点b</p>
+<p>​    <img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205448825.png" class=""></p>
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205448825.png" alt="image-20210111205448825"></p>
 <p>注意，这里的顺序是反过来的，继续移动节点c</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205458812.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205458812.png" alt="image-20210111205458812"></p>
 <p>这个时候 <strong>线程1</strong> 的时间片用完，内部的table还没有设置成新的newTable， <strong>线程2</strong> 开始执行，这时内部的引用关系如下：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205512412.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205512412.png" alt="image-20210111205512412"></p>
 <p>这时，在 <strong>线程2</strong> 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Entry&lt;K,V&gt; <span class="keyword">next</span> = e.<span class="keyword">next</span>;</span><br><span class="line">int i = indexFor(e.hash, newCapacity);</span><br><span class="line">e.<span class="keyword">next</span> = newTable[i];</span><br><span class="line">newTable[i] = e;</span><br><span class="line">e = <span class="keyword">next</span>;</span><br></pre></td></tr></table></figure>
 
 <p>执行之后的引用关系如下图</p>
+<img class="-20210111205527864.png">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205527864.png" alt="image-20210111205527864"></p>
 <p>执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205539540.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205539540.png" alt="image-20210111205539540"></p>
 <p>变量e又重新指回节点a，只能继续执行循环体，这里仔细分析下：<br> 1、执行完<code>Entry&lt;K,V&gt; next = e.next;</code>，目前节点a没有next，所以变量next指向null；<br> 2、<code>e.next = newTable[i];</code> 其中 newTable[i] 指向节点b，那就是把a的next指向了节点b，这样a和b就相互引用了，形成了一个环；<br> 3、<code>newTable[i] = e</code> 把节点a放到了数组i位置；<br> 4、<code>e = next;</code> 把变量e赋值为null，因为第一步中变量next就是指向null；</p>
 <p>所以最终的引用关系是这样的：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205550291.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205550291.png" alt="image-20210111205550291"></p>
 <p>节点a和b互相引用，形成了一个环，当在数组该位置get寻找对应的key时，就发生了死循环。</p>
 <p>另外，如果线程2把newTable设置成到内部的table，节点c的数据就丢了，看来还有数据遗失的问题。<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1e9cf0ac07f4">https://www.jianshu.com/p/1e9cf0ac07f4</a></p>
@@ -575,14 +602,20 @@
 </li>
 <li></li>
 </ol>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180406223843235" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180406223843235" alt="img"></p>
 <h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>Segment[]数组、HashEntry数组组成，数组加链表</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/5cd1d2c5ce95c.jpg" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/5cd1d2c5ce95c.jpg" alt="img"></p>
 <p>核心成员变量：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Segment 数组，存放数据时首先需要定位到具体的 Segment 中。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">final</span> Segment&lt;K,V&gt;[] segments;</span><br><span class="line"><span class="keyword">transient</span> Set&lt;K&gt; keySet;</span><br><span class="line"><span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br></pre></td></tr></table></figure>
 
 <p>Segment是ConcurrentHashMap的一个内部类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Segment</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">ReentrantLock</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">2249069246763182397L</span>;   </span><br><span class="line">       <span class="comment">// 和 HashMap 中的 HashEntry 作用一样，真正存放数据的桶</span></span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">volatile</span> HashEntry&lt;K,V&gt;[] table;</span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> count;</span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> modCount;</span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> threshold;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">float</span> loadFactor;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/5cd1d2c635c69.jpg" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/5cd1d2c635c69.jpg" alt="img"></p>
 <p>和 HashMap 非常类似，唯一的区别就是其中的核心数据如 value ，以及链表都是 volatile 修饰的，保证了获取时的可见性。</p>
@@ -711,7 +744,9 @@
 <li>数组的长度不可变，集合长度可变</li>
 <li>数组可以存储基本数据类型，也可以存储引用数据类型，集合只能存储引用类型的数据</li>
 </ul>
-<h1 id="6-异常处理机制"><a href="#6-异常处理机制" class="headerlink" title="6. 异常处理机制"></a>6. 异常处理机制</h1><h2 id="Java异常分类"><a href="#Java异常分类" class="headerlink" title="Java异常分类"></a>Java异常分类</h2><p><img src="java%E9%9D%A2%E7%BB%8F/exception%20Java" alt="Java异常体系结构"></p>
+<h1 id="6-异常处理机制"><a href="#6-异常处理机制" class="headerlink" title="6. 异常处理机制"></a>6. 异常处理机制</h1><h2 id="Java异常分类"><a href="#Java异常分类" class="headerlink" title="Java异常分类"></a>Java异常分类</h2><img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/exceptionJava" class="">
+
+<p><img src="java%E9%9D%A2%E7%BB%8F/exceptionJava" alt="Java异常体系结构"></p>
 <p>面向对象的方式处理异常，用对象表示一个（或一类）异常，**任何异常都是<code>Throwable</code>类或其子类对象；Throwable有两个子类，分别是：<code>Error</code>和<code>Exception</code>**；</p>
 <ul>
 <li> <code>Error</code>：系统错误类，是程序运行时Java内部的错误，一般是由硬件或操作系统引起的，开发人员一般无法处理，这类异常发生时，只能关闭程序。 </li>
@@ -726,6 +761,8 @@
 
 <p>catch语句块中声明的异常对象（<code>catch(Exception_n e)</code>）封装了该异常的信息，可以通过该异常对象的一些方法来获取这些信息： <code>String getMessage()</code>：用来获取有关异常事件的详细信息。 <code>void printStackTrace()</code>：用来跟踪异常事件发生时执行堆栈的内容。 <code>finally语句块</code>：该语句块一般用于释放资源等操作。无论try语句块中是否有异常，finally语句块都会执行。</p>
 <h3 id="try-catch-finally执行流程（最基本的情况）"><a href="#try-catch-finally执行流程（最基本的情况）" class="headerlink" title="try-catch-finally执行流程（最基本的情况）"></a>try-catch-finally执行流程（最基本的情况）</h3><p>try-catch-finally执行流程最基本的情况，所谓<strong>最基本的情况就是没有用到throw关键字、return关键字等</strong>。 首先，执行try中的代码，如果 try中的代码没有发生异常，那么catch中的代码就不执行，等try中的代码执行完毕后直接执行finally中的代码；如果 try中的代码发生了异常(假设发生异常的代码语句是xxx),那么try中xxx下面的代码就不会执行了，会立即跳转到catch中去匹配异常，若匹配到了对应的catch中声明的异常对象，那么就执行该catch语句块中的代码，并且后面的catch语句块就不再执行。等catch语句块中的代码执行完毕，就执行finally语句块中的代码。此时，整个try-catch-finally才算执行完毕。</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201031233848208.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201031233848208.png" alt="image-20201031233848208"></p>
 <h2 id="声明抛出异常"><a href="#声明抛出异常" class="headerlink" title="声明抛出异常"></a>声明抛出异常</h2><p><u>声明抛出异常是一个子句</u>，它只能写在方法头部的后面,其格式如下： <code>throws &lt;异常列表&gt;</code> 举例：<code>public void fun() throws IOException&#123;......&#125;</code> <u>若在一个方法中声明抛出异常，那么调用该方法的调用者就必须对该异常进行处理，调用者处理该异常有两种方式：</u></p>
 <ol>
@@ -736,18 +773,24 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a=<span class="number">1</span>/<span class="number">0</span>; <span class="comment">//发生异常的代码</span></span><br><span class="line">        System.out.println(<span class="string">&quot;算术异常！！！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(ArithmeticException | NumberFormatException e)&#123;</span><br><span class="line">        System.out.println(e.getMessage()); <span class="comment">//打印异常信息，并没有抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException(<span class="string">&quot;抛出算术异常！！！&quot;</span>); <span class="comment">//抛出算术异常</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行finally代码块！！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;已经抛出算术异常！！！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上述代码的运行结果如下图所示：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/exception_results" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/exception_results" alt="代码运行结果1"></p>
 <p>try中的<code>int a=1/0;</code>语句发生了算术异常（除数为0），直接跳转到catch中去匹配异常对象，匹配到了ArithmeticException异常对象，然后执行catch中的代码：打印异常信息，抛出异常。<strong>但是，在catch中抛出异常之前，会先执行finally中的代码，等finally中的代码执行完毕，再回到catch中抛出异常</strong>，而catch中的异常抛出后，整个方法就结束了，方法中剩下的代码就不执行了。 以上就是上述代码的完整执行流程。</p>
 <h2 id="异常屏蔽问题"><a href="#异常屏蔽问题" class="headerlink" title="异常屏蔽问题"></a>异常屏蔽问题</h2><p><u>如果在try-catch-finally代码块中，try、catch以及finally中都有异常抛出，那么最终只能抛出finally代码块中的异常。这就是<strong>异常屏蔽</strong>问题</u>。 请看下面的代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果try、catch以及finally中都有异常抛出，那么最终只能抛出finally中的异常，try和catch中的异常抛出会被屏蔽</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">try</span>&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;try&quot;</span>);</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;try中抛出异常！！！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;catch&quot;</span>);</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;catch中抛出异常！！！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">finally</span>&#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;finally中抛出异常！！！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>上述代码的运行结果为：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/try_finally4" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/try_finally4" alt="代码运行结果2"></p>
 <p>首先执行try中的代码：<code>打印“try”</code>；然后在try中抛出异常，那么在try中的异常抛出<strong>之前</strong>，要去catch中匹配异常对象并执行catch代码块，于是，匹配到了Exception对象并执行catch中的代码：<code>打印“catch”</code>，然后抛出异常；那么，在抛出catch中的异常之前，要先执行finally中的代码：<code>打印“finally”</code>，并<code>抛出finally中的异常</code>，此时整个方法执行结束，前面的两个异常不会被抛出。这就是所谓的<strong>异常屏蔽</strong>。</p>
 <h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><p>如果在tr-catch-finally代码块中有return，那么执行流程又是怎样的呢？ 请看下面的代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test5</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">1</span>/<span class="number">0</span>; <span class="comment">//发生异常的代码</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;catch&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>; <span class="comment">//禁止在finally中使用return语句，这里只是举例说明，在实际开发中禁止使用</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>在main方法中执行上述方法，结果为：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/try_finally3" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/try_finally3" alt="代码运行结果5"></p>
 <p>try中<code>int a=1/0;</code>语句发生了异常，那么就跳转到catch中去匹配并执行catch中的代码，而catch中要返回整数2，在执行catch中的<code>return 2;</code>语句之前，要先去执行finally中的代码，因为finally中有<code>return 3;</code>语句，所以当执行到finally中的return语句后，整个方法就结束了，catch以及try中的return语句就不会执行了。 请继续看下面的代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test8</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// try中没有异常发生</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">1</span>/<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;catch&quot;</span>);</span><br><span class="line"><span class="comment">//            throw new RuntimeException(&quot;catch抛出异常！！！&quot;);</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>; <span class="comment">//禁止在finally中使用return语句，这里只是举例说明，在实际开发中禁止使用</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -756,6 +799,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">test8</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// try中没有异常发生</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> a=<span class="number">1</span>/<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;try中的异常&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;catch&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;finally&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>; <span class="comment">//禁止在finally中使用return语句，这里只是举例说明，在实际开发中禁止使用</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>上述代码的运行结果如下图所示：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201031235019349.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201031235019349.png" alt="image-20201031235019349"></p>
 <p>try中没有发生异常的代码，但try中抛出了异常，那么在抛出try中的异常之前，会先去匹配catch声明的异常对象并执行catch中的代码，因为catch中有return语句，那么在执行catch中的return语句之前，会先去执行finally中的代码，因为finally代码块中有return语句，所以当finally中的return语句执行完毕后，整个方法就结束了。前面的return语句就不会被执行了。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
@@ -822,10 +867,16 @@
 <h3 id="程序内存分区场景下"><a href="#程序内存分区场景下" class="headerlink" title="程序内存分区场景下"></a>程序内存分区场景下</h3><h3 id="数据结构场景下"><a href="#数据结构场景下" class="headerlink" title="数据结构场景下"></a>数据结构场景下</h3><p><strong>栈是一种操作受限的线性表，其限制是指只仅允许在栈顶（Top）进行插入和删除操作</strong>。这种受限的运算使栈拥有“<strong>先进后出</strong>”的特性（First In Last Out，简称FILO）。</p>
 <p><strong>栈分顺序栈和链式栈两种</strong>。栈是一种线性结构，所以可以使用数组或链表（单向链表、双向链表或循环链表）作为底层数据结构。使用数组实现的栈叫做顺序栈，使用链表实现的栈叫做链式栈，二者的区别是顺序栈中的元素地址连续，链式栈中的元素地址不连续。</p>
 <p>栈的结构如下图所示：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180701201845613" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180701201845613" alt="这里写图片描述"></p>
 <p><strong>堆是一种常用的树形结构，是一种特殊的完全二叉树，当且仅当满足所有节点的值总是不大于或不小于其父节点的值的完全二叉树被称之为堆</strong>。堆的这一特性称之为堆序性。因此，在一个堆中，根节点是最大（或最小）节点。如果根节点最小，称之为小顶堆（或小根堆），如果根节点最大，称之为大顶堆（或大根堆）。<strong>堆的左右孩子没有大小的顺序</strong>。下面是一个小顶堆示例：</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTY0NjI2NTM3" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTY0NjI2NTM3" alt="这里写图片描述"></p>
 <p>堆的存储一般都用数组来存储堆，i节点的父节点下标就为( i – 1 ) / 2 。它的左右子节点下标分别为 2 ∗ i + 1 和 2 ∗ i + 2。如第0个节点左右子节点下标分别为1和2。</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTYwODE2Nzgx" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTYwODE2Nzgx" alt="这里写图片描述"></p>
 <h1 id="8-ArrayList和LinkedList"><a href="#8-ArrayList和LinkedList" class="headerlink" title="8. ArrayList和LinkedList"></a>8. ArrayList和LinkedList</h1><p><strong>都实现List接口的类，都是元素的容器，用于存放对象的引用；都可以对存放的元素进行增删改查的操作，进行排序。</strong></p>
 <h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><p>ArrayList：<strong>数组的形式实现存储，实现了RandomAccess接口，利用数组下标进行元素的访问，因此对元素的随机访问速度非常快。</strong></p>
@@ -835,6 +886,8 @@
 <p>每一个元素（结点）的地址不连续，通过引用找到当前结点的上一个结点和下一个结点，即插入和删除效率较高，只需要常数时间，而get和set则较为低效。</p>
 <p>LinkedList的方法和使用和ArrayList大致相同，由于LinkedList是链表实现的，所以额外提供了在头部和尾部添加/删除元素的方法，也没有ArrayList扩容的问题了。</p>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>在需要频繁读取集合中的元素时，使用ArrayList效率较高，而在插入和删除操作较多时，使用LinkedList效率较高。</p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180407072842696" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180407072842696" alt="img"></p>
 <h1 id="9-ArrayList和Vector的区别"><a href="#9-ArrayList和Vector的区别" class="headerlink" title="9. ArrayList和Vector的区别"></a>9. ArrayList和Vector的区别</h1><ol>
 <li>vector在add的时候使用了同步函数，方法上加上了synchronized关键字，ArrayList的add方法没有加上这个关键字</li>
@@ -955,11 +1008,15 @@
 <p>软引用就是把对象用<code>SoftReference</code> 包裹一下，当需要从软引用对象获取包裹的对象，使用get方法就可以</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SoftReference&lt;引用类型或自定义的类T&gt; objectClassSoftReference=<span class="keyword">new</span> SoftReference&lt;引用类型或自定义的类T&gt;(<span class="keyword">new</span> 引用类型或自定义的类T);</span><br><span class="line">引用类型或自定义的类T t=objectClassSoftReference.get();</span><br></pre></td></tr></table></figure>
 
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201101234004306.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201101234004306.png" alt="image-20201101234004306"></p>
 <h2 id="弱引用-Weak-Reference"><a href="#弱引用-Weak-Reference" class="headerlink" title="弱引用 Weak Reference"></a>弱引用 Weak Reference</h2><p>弱引用的使用类似于软引用，<strong>关键字变成WeakReference</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WeakReference&lt;<span class="keyword">byte</span>[]&gt; weakReference=<span class="keyword">new</span> WeakReference&lt;<span class="keyword">byte</span>[]&gt;(<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>*<span class="number">1024</span>*<span class="number">10</span>]);</span><br><span class="line">System.out.println(weakReference.get())</span><br></pre></td></tr></table></figure>
 
 <p><strong>弱引用的特点是不管内存是否足够，只要发生GC，都会被回收</strong></p>
+<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201101234407140.png" class="">
+
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201101234407140.png" alt="image-20201101234407140"></p>
 <h2 id="虚引用（幻影引用）PhantomReference"><a href="#虚引用（幻影引用）PhantomReference" class="headerlink" title="虚引用（幻影引用）PhantomReference"></a>虚引用（幻影引用）PhantomReference</h2><p>必须与<code>ReferenceQueue</code>一起使用，当 <code>GC</code> 准备回收一个对象，如果发现它有虚引用，就会在回收之前，把这个 <strong>虚引用</strong> 加入到与之关联的 <code>ReferenceQueue</code> 中。</p>
 <p><strong>无法通过虚引用来获取对一个对象的真实引用</strong>，为一个对象设置虚引用关联的唯一目的就是希望能在这个对象被收集器回收时收到一个系统通知。</p>
