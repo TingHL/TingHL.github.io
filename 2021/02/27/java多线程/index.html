@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>java多线程 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="多线程 Java多线程相关面经  1. 创建线程的方式三种方式：  实现Runnable接口的run方法 继承Thread类并重写run方法 使用FutureTask方式  继承Thread类并重写run方法调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源） 优势：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentTh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java多线程">
+<meta property="og:url" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多线程 Java多线程相关面经  1. 创建线程的方式三种方式：  实现Runnable接口的run方法 继承Thread类并重写run方法 使用FutureTask方式  继承Thread类并重写run方法调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源） 优势：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentTh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+<meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
+<meta property="og:image" content="http://example.com/2021/Code/blogs/%25E9%259D%25A2%25E7%25BB%258F/images/image-20201108111945743.png">
+<meta property="article:published_time" content="2021-02-27T00:51:07.000Z">
+<meta property="article:modified_time" content="2021-02-27T00:52:41.778Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-java多线程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-02-27T00:51:07.000Z" itemprop="datePublished">2021-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      java多线程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li>Java多线程相关面经</li>
+</ul>
+<h1 id="1-创建线程的方式"><a href="#1-创建线程的方式" class="headerlink" title="1. 创建线程的方式"></a>1. 创建线程的方式</h1><p>三种方式：</p>
+<ol>
+<li>实现Runnable接口的run方法</li>
+<li>继承Thread类并重写run方法</li>
+<li>使用FutureTask方式</li>
+</ol>
+<h2 id="继承Thread类并重写run方法"><a href="#继承Thread类并重写run方法" class="headerlink" title="继承Thread类并重写run方法"></a>继承Thread类并重写run方法</h2><p><strong><em>调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源）</em></strong></p>
+<p><strong>优势</strong>：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentThread() 方法； </p>
+<p><strong>劣势</strong>：是Java 不支持多继承，如果继承了Thread 类，那么就不能再继承其他类；没有相关返回值。</p>
+<h2 id="实现Runnable接口的run方法"><a href="#实现Runnable接口的run方法" class="headerlink" title="实现Runnable接口的run方法"></a>实现Runnable接口的run方法</h2><p><strong>优势</strong>：可以继承其他类</p>
+<p><strong>劣势</strong>：没有返回值</p>
+<h2 id="使用FutureTask方式"><a href="#使用FutureTask方式" class="headerlink" title="使用FutureTask方式"></a>使用FutureTask方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutionException;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//继承Thread类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;I am a child thread&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//继承Runnable接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableTask</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;I am a child thread&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建任务，类似于Runnable</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CallerTask</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        MyThread myThread=<span class="keyword">new</span> MyThread();</span><br><span class="line">        myThread.start();</span><br><span class="line"></span><br><span class="line">        RunnableTask runnableTask=<span class="keyword">new</span> RunnableTask();</span><br><span class="line">        <span class="keyword">new</span> Thread(runnableTask).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(runnableTask).start();</span><br><span class="line">		</span><br><span class="line">        <span class="comment">//创建异步任务</span></span><br><span class="line">        FutureTask&lt;String&gt; futureTask=<span class="keyword">new</span> FutureTask&lt;&gt;(<span class="keyword">new</span> CallerTask());</span><br><span class="line">        <span class="comment">//启动线程</span></span><br><span class="line">        <span class="keyword">new</span> Thread(futureTask).start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//线程执行完成返回结果</span></span><br><span class="line">            String result=futureTask.get();</span><br><span class="line">            System.out.println(result);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (ExecutionException | InterruptedException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-wait-sleep区别"><a href="#2-wait-sleep区别" class="headerlink" title="2. wait sleep区别"></a>2. wait sleep区别</h1><ol>
+<li>每个对象都有一个锁来控制同步访问，<code>synchronized</code>关键字可以和对象的锁交互，来实现同步方法或同步块。<code>sleep()</code>方法会让正在执行的线程主动让出CPU（然后CPU就可以去执行其他任务），在<code>sleep</code>指定时间后CPU再回到该线程继续往下执行(注意：<strong>sleep方法只让出了CPU，而并不会释放同步资源锁</strong>！！！)；<strong>wait()方法则是指当前线程让自己暂时退让出同步资源锁，以便其他正在等待该资源的线程得到该资源进而运行，只有调用了notify()方法，之前调用wait()的线程才会解除wait状态，可以去参与竞争同步资源锁，进而得到执行</strong>。（注意：notify的作用相当于叫醒睡着的人，而并不会给他分配任务，就是说notify只是让之前调用wait的线程有权利重新参与线程的调度）；</li>
+<li>sleep()方法可以在任何地方使用；wait()方法则只能在同步方法或同步块中使用；</li>
+<li>sleep()是线程线程类（Thread）的方法，调用会暂停此线程指定的时间，但监控依然保持，不会释放对象锁，到时间自动恢复；wait()是Object的方法，调用会放弃对象锁，进入等待队列，待调用notify()/notifyAll()唤醒指定的线程或者所有线程，才会进入锁池，再次获得对象锁才会进入运行状态</li>
+</ol>
+<h1 id="3-ThreadLocal"><a href="#3-ThreadLocal" class="headerlink" title="3. ThreadLocal"></a>3. ThreadLocal</h1><p><strong>关于创建线程局部变量的类，使用ThreadLocal创建的变量只能被当前线程访问，其他线程无法访问和修改。</strong></p>
+<h2 id="3-1-创建，支持泛型"><a href="#3-1-创建，支持泛型" class="headerlink" title="3.1 创建，支持泛型"></a>3.1 创建，支持泛型</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;String&gt; mStringThreadLocal =<span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-set-get方法"><a href="#3-2-set-get方法" class="headerlink" title="3.2 set get方法"></a>3.2 set get方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mStringThreadLocal.set(<span class="string">&quot;droy.com&quot;</span>);</span><br><span class="line">mStringThreadLocal.get();</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-ThreadLocal初始值"><a href="#3-3-ThreadLocal初始值" class="headerlink" title="3.3 ThreadLocal初始值"></a>3.3 ThreadLocal初始值</h2><p>设置ThreadLocal的get初始值，需要重写<code>InitialValue</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;String&gt; mThreadLocal=<span class="keyword">new</span> ThreadLocal&lt;String&gt;()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">initialValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Thread.currentThread().getName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" alt="img"></p>
+<p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" alt="img"></p>
+<p><strong>Thread类中有一个ThreadLocalMap属性，ThreadLocalMap中Entry的key是ThreadLocal对象，value是Object类型</strong>，一个ThreadLocalMap可以有多个ThreadLocal。如图：Thread类源码中有ThreadLocal属性。</p>
+<img src="../../../Code/blogs/%25E9%259D%25A2%25E7%25BB%258F/images/image-20201108111945743.png" alt="image-20201108111945743" style="zoom:150%;" />
+
+<p>ThreadLocalMap 设计为ThreadLocal 静态内部类。</p>
+<p>ThreadLocalMap 是一个线程本地的值，它所有的方法都是private 的，也就意味着除了ThreadLocal 这个类，其他类是不能操作ThreadLocalMap 中的任何方法的，这样就可以对其他类是透明的。同时这个类的权限是包级别的，也就意味着只有同一个包下面的类才能引用ThreadLocalMap 这个类，这也是Thread 为什么可以引用ThreadLocalMap 的原因，因为他们在同一个包下面。</p>
+<p>虽然Thread 可以引用ThreadLocalMap，但是不能调用任何ThreadLocalMap 中的方法。这也就是我们平时都是通过ThreadLocal 来获取值和设置值。</p>
+<p><strong>ThreadLocal set方法</strong></p>
+<ol>
+<li>获取当前线程，根据当前线程获取对应的<code>ThreadLocalMap</code></li>
+<li>如果对应的<code>ThreadLocalMap</code>不为null，则调用其的set方法保存对应关系</li>
+<li>如果map为null，就最终调用<code>ThreadLocalMap</code>的构造方法创建一个<code>ThreadLocalMap</code>并保存对应关系</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    ThreadLocalMap map = getMap(t);</span><br><span class="line">    <span class="keyword">if</span> (map != <span class="keyword">null</span>)</span><br><span class="line">        map.set(<span class="keyword">this</span>, value);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> t.threadLocals;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>ThreadLocal get方法</strong></p>
+<ol>
+<li>获取当前线程，根据当前线程获取对应的<code>ThreadLocalMap</code></li>
+<li>在<code>ThreadLocalMap</code>当中获取该<code>ThreadLocal</code>对象对应的Entry节点，并且返回对应的值</li>
+<li>如果获取到的<code>ThreadLocalMap</code>为null，则证明还没有初始化，就调用setInitialValue方法<ul>
+<li>在调用setInitialValue方法的时候，会双重保证，再进行获取一次<code>ThreadLocalMap</code></li>
+<li>如果依然为null，就最终调用ThreadLocalMap的构造方法</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">//这里通过获取当前的线程</span></span><br><span class="line">       Thread t = Thread.currentThread();</span><br><span class="line">       <span class="comment">//通过线程来获取ThreadLocalMap ，还记得我们上面说的Thread 里面有一个ThreadLocalMap 属性吗？就是这里用上了</span></span><br><span class="line">       ThreadLocalMap map = getMap(t);</span><br><span class="line">       <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">           ThreadLocalMap.Entry e = map.getEntry(<span class="keyword">this</span>);</span><br><span class="line">           <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">               T result = (T)e.value;</span><br><span class="line">               <span class="keyword">return</span> result;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> setInitialValue();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ThreadLocalMap <span class="title">getMap</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> t.threadLocals;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-对象存放在哪里"><a href="#3-5-对象存放在哪里" class="headerlink" title="3.5 对象存放在哪里"></a>3.5 对象存放在哪里</h2><p>在Java中，栈内存归属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其所属线程中可见，即栈内存可以理解成线程的私有内存。而堆内存中的对象对所有线程可见。堆内存中的对象可以被所有线程访问。</p>
+<p><strong>那么是不是说ThreadLocal的实例以及其值存放在栈上呢？</strong></p>
+<p>其实不是，因为ThreadLocal实例实际上也是被其创建的类持有（更顶端应该是被线程持有）。而ThreadLocal的值其实也是被线程实例持有。</p>
+<p><strong>它们都是位于堆上，只是通过一些技巧将可见性修改成了线程可见。</strong></p>
+<h2 id="3-6-通过inheritableThreadLocal实现多个线程访问ThreadLocal的值"><a href="#3-6-通过inheritableThreadLocal实现多个线程访问ThreadLocal的值" class="headerlink" title="3.6 通过inheritableThreadLocal实现多个线程访问ThreadLocal的值"></a>3.6 通过inheritableThreadLocal实现多个线程访问ThreadLocal的值</h2><p>使用<code>InheritableThreadLocal</code>可以实现多个线程访问<code>ThreadLocal</code>的值。</p>
+<p>如下，我们在主线程中创建一个<code>InheritableThreadLocal</code>的实例，然后在子线程中得到这个<code>InheritableThreadLocal</code>实例设置的值。</p>
+<h2 id="3-7-使用场景"><a href="#3-7-使用场景" class="headerlink" title="3.7 使用场景"></a>3.7 使用场景</h2><ul>
+<li>实现单个线程单例以及单个线程上下文信息存储，比如交易id等</li>
+<li>实现线程安全，非线程安全的对象使用ThreadLocal之后就会变得线程安全，因为每个线程都会有一个对应的实例</li>
+<li>承载一些线程相关的数据，避免在方法中来回传递参数</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" data-id="ckln0wkiw0000a8to1wbfgvu1" data-title="java多线程" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java面经</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">java多线程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/">java面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/">操作系统面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/">数据库面经</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
