@@ -13,14 +13,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="多线程 Java多线程相关面经  1. 创建线程的方式三种方式：  实现Runnable接口的run方法 继承Thread类并重写run方法 使用FutureTask方式  继承Thread类并重写run方法调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源） 优势：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentTh">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
 <meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+<meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
 <meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
-<meta property="og:image" content="http://example.com/2021/Code/blogs/%25E9%259D%25A2%25E7%25BB%258F/images/image-20201108111945743.png">
+<meta property="og:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png">
 <meta property="article:published_time" content="2021-02-27T00:51:07.000Z">
-<meta property="article:modified_time" content="2021-02-27T00:52:41.778Z">
+<meta property="article:modified_time" content="2021-02-27T01:08:20.529Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+<meta name="twitter:image" content="http://example.com/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -128,10 +130,16 @@
 <h2 id="3-3-ThreadLocal初始值"><a href="#3-3-ThreadLocal初始值" class="headerlink" title="3.3 ThreadLocal初始值"></a>3.3 ThreadLocal初始值</h2><p>设置ThreadLocal的get初始值，需要重写<code>InitialValue</code>方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal&lt;String&gt; mThreadLocal=<span class="keyword">new</span> ThreadLocal&lt;String&gt;()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">initialValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Thread.currentThread().getName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" alt="img"></p>
+<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" class="">
+
+<p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" alt="img"></p>
+<img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" class="">
+
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" alt="img"></p>
 <p><strong>Thread类中有一个ThreadLocalMap属性，ThreadLocalMap中Entry的key是ThreadLocal对象，value是Object类型</strong>，一个ThreadLocalMap可以有多个ThreadLocal。如图：Thread类源码中有ThreadLocal属性。</p>
-<img src="../../../Code/blogs/%25E9%259D%25A2%25E7%25BB%258F/images/image-20201108111945743.png" alt="image-20201108111945743" style="zoom:150%;" />
+
+
+<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png" alt="image-20201108111945743" style="zoom:150%;" />
 
 <p>ThreadLocalMap 设计为ThreadLocal 静态内部类。</p>
 <p>ThreadLocalMap 是一个线程本地的值，它所有的方法都是private 的，也就意味着除了ThreadLocal 这个类，其他类是不能操作ThreadLocalMap 中的任何方法的，这样就可以对其他类是透明的。同时这个类的权限是包级别的，也就意味着只有同一个包下面的类才能引用ThreadLocalMap 这个类，这也是Thread 为什么可以引用ThreadLocalMap 的原因，因为他们在同一个包下面。</p>
