@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>网络面经 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="网络 计算机网络相关面经  1. HTTP和HTTPS区别HTTPS和HTTP的区别主要如下：   　　1. HTTP（HyperText Transfer Protocol，超文本传输协议），HTTPS（HyperText Transfer Protocol Secure，超文本传输安全协议）         　　2. HTTP 信息是明文传输，HTTPS 则是使用具有安全性的 SSL 加密传输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络面经">
+<meta property="og:url" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网络 计算机网络相关面经  1. HTTP和HTTPS区别HTTPS和HTTP的区别主要如下：   　　1. HTTP（HyperText Transfer Protocol，超文本传输协议），HTTPS（HyperText Transfer Protocol Secure，超文本传输安全协议）         　　2. HTTP 信息是明文传输，HTTPS 则是使用具有安全性的 SSL 加密传输">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201025150046492.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201025150046492.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast2">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast2">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20160126223713317">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20160126223713317">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/watermark">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/watermark">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/tcp-connection-closed-four-way-handshake.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/tcp-connection-closed-four-way-handshake.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107174844042.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107174844042.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175402542.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175402542.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175426170.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175426170.png">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524102010286">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524102010286">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524103121705">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524103121705">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524111634561">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524111634561">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509220932437">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509220932437">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221015859">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221015859">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221032109">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221032109">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221048265">
+<meta property="og:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221048265">
+<meta property="article:published_time" content="2021-02-27T02:26:38.000Z">
+<meta property="article:modified_time" content="2021-02-28T09:19:16.352Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="面经">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-网络面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-27T02:26:38.000Z" itemprop="datePublished">2021-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      网络面经
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><ul>
+<li>计算机网络相关面经</li>
+</ul>
+<h1 id="1-HTTP和HTTPS区别"><a href="#1-HTTP和HTTPS区别" class="headerlink" title="1. HTTP和HTTPS区别"></a>1. HTTP和HTTPS区别</h1><p>HTTPS和HTTP的区别主要如下：</p>
+<p>  　　1. HTTP（HyperText Transfer Protocol，超文本传输协议），HTTPS（HyperText Transfer Protocol Secure，超文本传输安全协议）<br>         　　2. HTTP 信息是明文传输，HTTPS 则是使用具有安全性的 SSL 加密传输协议。<br>                　　3. HTTPS 协议需要到CA（签证机构，Certificate Authority）申请证书，一般免费证书较少，因而需要一定费用。<br>                        　　3. http 和https 使用的是完全不同的连接方式，用的端口也不一样，前者是<strong>80</strong>，后者是<strong>443</strong>。<br>                    　　5. http的连接很简单，是<strong>无状态的</strong>（对事务处理没有记忆能力，如果后续处理需要前面的信息，则它需要重传；另一方面，服务器不需要先前信息时它的应答就较快）；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https" alt="image-20201025110137880"></p>
+<h1 id="2-Cookie和session"><a href="#2-Cookie和session" class="headerlink" title="2. Cookie和session"></a>2. Cookie和session</h1><h2 id="Cookie机制"><a href="#Cookie机制" class="headerlink" title="Cookie机制"></a>Cookie机制</h2><p>在客户端保持状态的方案。</p>
+<p><strong>生成</strong>：当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 <code>Set-Cookie</code> 选项。浏览器收到响应后通常会保存Cookie，之后对该服务器每一次请求中都通过 <code>Cookie</code> 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。</p>
+<p><strong>使用</strong>：由浏览器按照一定的原则在后台自动发送给服务器的，浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
+<p><strong>内容</strong>：包括<strong>名字，值，过期时间，路径和域</strong>。路径与域一起构成cookie的作用范围。</p>
+<p><strong>过期时间</strong>：若不设置过期时间，则表示这个cookie的生命期为浏览器会话期间，关闭浏览器窗口，cookie就消失。这种生命期为浏览器会话期的cookie被称为会话cookie。会话cookie一般不存储在硬盘上而是保存在内存里。若设置了过期时间，浏览器就会把cookie保存到硬盘上，关闭后再次打开浏览器，这些cookie仍然有效直到超过设定的过期时间。存储在硬盘上的cookie可以在不同的浏览器进程间共享，比如两个IE窗口。而对于保存在内存里的cookie，不同的浏览器有不同的处理方式。</p>
+<h2 id="Session机制"><a href="#Session机制" class="headerlink" title="Session机制"></a>Session机制</h2><p>session机制采用的是在服务器端保持状态的方案，借助Cookie来进行信息处理，进行请求处理时，服务器端会在客户端建立一个cookie。session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构来保存信息。</p>
+<p><strong>创建</strong>：当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相关联的session id，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。</p>
+<p>经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如： </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;testform&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/xxx&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;jsessionid&quot;</span> <span class="attr">value</span>=<span class="string">&quot;ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>实际上这种技术可以简单的用对action应用URL重写来代替。</p>
+<h2 id="cookie-和session-的区别"><a href="#cookie-和session-的区别" class="headerlink" title="cookie 和session 的区别"></a><strong>cookie 和session 的区别</strong></h2><ul>
+<li>cookie数据存放在客户的浏览器上，session数据放在服务器上</li>
+<li>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session</li>
+<li>session会在一定时间内保存在服务器上。当访问增多，会占用服务器的性能， 考虑到减轻服务器性能方面，应当使用COOKIE</li>
+<li>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie</li>
+</ul>
+<h1 id="3-从输入URL到页面加载过程（一次完整的HTTP请求过程）"><a href="#3-从输入URL到页面加载过程（一次完整的HTTP请求过程）" class="headerlink" title="3. 从输入URL到页面加载过程（一次完整的HTTP请求过程）"></a>3. 从输入URL到页面加载过程（一次完整的HTTP请求过程）</h1><ol>
+<li>DNS解析</li>
+<li>TCP连接 （TCP的3次握手，建立TCP连接）</li>
+<li>发送HTTP请求（建立TCP连接后，发起http请求）</li>
+<li>服务器处理请求并返回HTTP报文</li>
+<li>浏览器解析渲染页面（浏览器获取相关资源后，进行渲染，展现给用户）</li>
+<li>连接结束</li>
+</ol>
+<h2 id="3-1-DNS解析"><a href="#3-1-DNS解析" class="headerlink" title="3.1 DNS解析"></a>3.1 DNS解析</h2><p>Domain Name System（域名系统，域名与IP地址相互映射的分布式数据库）</p>
+<p>将URL解析为IP地址（网址转换为IP地址），<u>DNS解析是一个递归查询的过程</u>。</p>
+<p>查找<a href="http://www.google.com的IP地址过程：">www.google.com的IP地址过程：</a></p>
+<ol>
+<li><p>浏览器首先搜索自身的DNS缓存，看自身缓存中是否有对应URL的条目</p>
+</li>
+<li><p>如果浏览器自身DNS缓存没有，会搜索操作系统本身的DNS缓存、hosts文件等</p>
+</li>
+<li><p>如果hosts文件中没有找到对应的条目，浏览器会发起一个DNS系统调用。<strong>首先在本地域名服务器</strong>中查询IP地址，如果没有找到的情况下，本地域名服务器会向<strong>根域名服务器</strong>53号端口发送一个请求，如果根域名服务器也不存在该域名时，根域名返回顶级域名查询对应的顶级域域名的IP地址，本地域名会向com顶级域名服务器发送一个请求，依次类推下去。（本地 DNS 服务器没有缓存不能直接将域名转换为 IP 地址，需要采用递归或者迭代查询的方式依次向根域名服务器、顶级域名服务器、权威域名服务器发起查询请求，直至找到一个或一组 IP 地址，返回给浏览器。）。直到最后本地域名服务器得到google的IP地址并把它缓存到本地，供下次查询使用。</p>
+<p>可以看出网址的解析是一个从右向左的过程: com -&gt; google.com -&gt; <a href="http://www.google.com。但是你是否发现少了点什么，根域名服务器的解析过程呢？事实上，真正的网址是www.google.com.，并不是我多打了一个.，这个.对应的就是根域名服务器，默认情况下所有的网址的最后一位都是.，既然是默认情况下，为了方便用户，通常都会省略，浏览器在请求DNS的时候会自动加上，所有网址真正的解析过程为">www.google.com。但是你是否发现少了点什么，根域名服务器的解析过程呢？事实上，真正的网址是www.google.com.，并不是我多打了一个.，这个.对应的就是根域名服务器，默认情况下所有的网址的最后一位都是.，既然是默认情况下，为了方便用户，通常都会省略，浏览器在请求DNS的时候会自动加上，所有网址真正的解析过程为</a>: . -&gt; .com -&gt; google.com. -&gt; <a target="_blank" rel="noopener" href="http://www.google.com../">www.google.com.。</a></p>
+</li>
+</ol>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201025150046492.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201025150046492.png" alt="image-20201025150046492"></p>
+<h3 id="DNS优化"><a href="#DNS优化" class="headerlink" title="DNS优化"></a>DNS优化</h3><p>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</p>
+<h3 id="DNS负载均衡"><a href="#DNS负载均衡" class="headerlink" title="DNS负载均衡"></a>DNS负载均衡</h3><p>DNS可以返回一个合适的机器（一个URL有多个IP地址）的IP给用户，例如可以根据每台机器的负载量，该机器离用户地理位置的距离等等，这种过程就是DNS负载均衡，又叫做DNS重定向。大家耳熟能详的CDN(Content Delivery Network)就是利用DNS的重定向技术，DNS服务器会返回一个跟用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。</p>
+<h2 id="3-2-TCP连接"><a href="#3-2-TCP连接" class="headerlink" title="3.2 TCP连接"></a>3.2 TCP连接</h2><p>HTTP协议是使用TCP作为传输层协议的</p>
+<h3 id="发起TCP的3次握手"><a href="#发起TCP的3次握手" class="headerlink" title="发起TCP的3次握手"></a>发起TCP的3次握手</h3><p>最开始的时候客户端和服务器都处于closed状态，主动打开的是客户端，被动打开的是服务器。</p>
+<p>拿到域名对应的IP地之后，User-Agent（一般是指<strong>浏览器</strong>）会以一个<strong>随机端口</strong>（1024&lt;端口&lt;65535）向服务器的web程序（常用的有httpd，nginx等）80端口<strong>发起TCP的连接请求</strong>。这个连接请求（原始的http请求经过TCP/IP层模型层层包装）到达服务器后（这中间通过各种路由设备，局域网除外），进入到网卡，然后进入到内核的TCP/IP协议栈（用于识别这个连接请求，解封包，一层层剥开），还有可能要经过Netfilter防火墙（属于内核的模块）的过滤，最终到达web程序（本文就以Nginx为例）最终建立TCP/IP连接，如下图:</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png" alt="image-20201014110229792"></p>
+<ol>
+<li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态；</li>
+<li>TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中：<strong>确认位ACK=0</strong>，<strong>同步位SYN=1</strong>，选择一个<strong>初始序列号 seq=x</strong> ，此时，<u>TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。</u></li>
+<li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。<strong>确认报文中应该确认位ACK=1，同步位SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y</strong>，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。</li>
+<li>TCP客户进程收到确认后，还要向服务器给出确认。<strong>确认报文的 确认位ACK=1，确认号 ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立</strong>，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。</li>
+<li>当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。</li>
+</ol>
+<p>注：</p>
+<ol>
+<li><strong>确认位ACK</strong>，仅当ACK=1时，确认号字段才有效。TCP规定，在连接建立后所有报文的传输都必须把ACK置1；</li>
+<li><strong>同步位SYN</strong>，在连接建立时用来同步序号。当SYN=1，ACK=0，表明是连接请求报文，若同意连接，则响应报文中应该使SYN=1，ACK=1；</li>
+</ol>
+<h2 id="3-3-发送HTTP请求"><a href="#3-3-发送HTTP请求" class="headerlink" title="3.3 发送HTTP请求"></a>3.3 发送HTTP请求</h2><p>请求行、请求报头、请求正文、请求参数</p>
+<h2 id="3-4-服务器处理请求并返回HTTP报文"><a href="#3-4-服务器处理请求并返回HTTP报文" class="headerlink" title="3.4 服务器处理请求并返回HTTP报文"></a>3.4 服务器处理请求并返回HTTP报文</h2><p>后端从在固定的端口接收到TCP报文开始，这一部分对应于编程语言中的socket。它会对TCP连接进行处理，对HTTP协议进行解析，并按照报文格式进一步封装成HTTP Request对象，供上层使用。</p>
+<h2 id="3-5-浏览器解析渲染页面"><a href="#3-5-浏览器解析渲染页面" class="headerlink" title="3.5 浏览器解析渲染页面"></a>3.5 浏览器解析渲染页面</h2><h2 id="3-6-连接结束"><a href="#3-6-连接结束" class="headerlink" title="3.6 连接结束"></a>3.6 连接结束</h2><h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>五层体系结构包括：应用层、运输层、网络层、数据链路层和物理层。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast" alt="三种模型结构"></p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast2" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/SouthEast2" alt="这里写图片描述"></p>
+<h2 id="第五层——应用层-application-layer"><a href="#第五层——应用层-application-layer" class="headerlink" title="第五层——应用层(application layer)"></a>第五层——应用层(application layer)</h2><p><strong>应用层(application layer)：</strong>是体系结构中的最高，直接为用户的应用进程（例如电子邮件、文件传输和终端仿真）提供服务。</p>
+<p>应用层协议很多，如支持万维网应用的HTTP协议，支持电子邮件的SMTP协议，支持文件传送的FTP协议，DNS，POP3，SNMP，Telnet等等。</p>
+<h2 id="第四层——运输层-transport-layer"><a href="#第四层——运输层-transport-layer" class="headerlink" title="第四层——运输层(transport layer)"></a>第四层——运输层(transport layer)</h2><p><strong>运输层(transport layer)：</strong>负责向两个<strong>主机进程之间</strong>的通信提供服务。由于一个主机可同时运行多个进程，因此运输层有复用和分用的功能</p>
+<ul>
+<li>复用，多个应用层进程可同时使用下面运输层的服务。</li>
+<li>分用，把收到的信息分别交付给上面应用层中相应的进程。</li>
+</ul>
+<p><strong>主要使用以下两种协议：</strong><br><strong>传输控制协议TCP(Transmission Control Protocol)**：<u>面向连接的，数据传输的单位是报文段，能够提供可靠的交付。</u><br>**用户数据包协议UDP(User Datagram Protocol)：</strong><u>无连接的，数据传输的单位是用户数据报，不保证提供可靠的交付，只能提供“尽最大努力交付”。</u></p>
+<h2 id="第三层——网络层-network-layer"><a href="#第三层——网络层-network-layer" class="headerlink" title="第三层——网络层(network layer)"></a>第三层——网络层(network layer)</h2><ul>
+<li>网络层(network layer)主要包括以下两个任务：<ul>
+<li>负责为分组交换网上的<strong>不同主机提供通信服务</strong>。在发送数据时，网络层把运输层产生的报文段或用户数据报封装成分组或包进行传送。在TCP/IP体系中，由于网络层使用IP协议，因此分组也叫做<strong>IP数据报</strong>，或简称为数据报。</li>
+<li>选中合适的路由，使源主机运输层所传下来的分组，能够通过网络中的路由器找到目的主机。</li>
+</ul>
+</li>
+<li>协议：<strong>IP</strong>,ICMP,IGMP,<strong>ARP,RARP</strong></li>
+</ul>
+<h2 id="第二层——数据链路层-data-link-layer"><a href="#第二层——数据链路层-data-link-layer" class="headerlink" title="第二层——数据链路层(data link layer)"></a>第二层——数据链路层(data link layer)</h2><ul>
+<li><strong>数据链路层(data link layer)：</strong>简称为链路层，两个主机之间的数据传输，总是在一段一段的链路上传送的，也就是说，在两个相邻结点之间传送数据是直接传送的(点对点)，这时就需要使用专门的链路层的协议。</li>
+<li>在两个相邻结点之间传送数据时，<strong>数据链路层将网络层交下来的IP数据报组装成帧</strong>(framing)，在两个相邻结点之间的链路上“透明”地传送帧中的数据。</li>
+<li>每一帧包括数据和必要的控制信息(如同步信息、地址信息、差错控制等)。典型的帧长是几百字节到一千多字节。</li>
+<li>”透明”是一个很重要的术语。它表示，某一个实际存在的事物看起来却好像不存在一样。”在数据链路层透明传送数据”表示无论什么样的比特组合的数据都能够通过这个数据链路层。因此，对所传送的数据来说，这些数据就“看不见”数据链路层。或者说，数据链路层对这些数据来说是透明的。<br>(1)在接收数据时，控制信息使接收端能知道一个帧从哪个比特开始和到哪个比特结束。这样，数据链路层在收到一个帧后，就可从中提取出数据部分，上交给网络层。<br>(2)控制信息还使接收端能检测到所收到的帧中有无差错。如发现有差错，数据链路层就简单地丢弃这个出了差错的帧，以免继续传送下去白白浪费网络资源。如需改正错误，就由运输层的TCP协议来完成。</li>
+</ul>
+<h2 id="第一层——物理层-physical-layer"><a href="#第一层——物理层-physical-layer" class="headerlink" title="第一层——物理层(physical layer)"></a>第一层——物理层(physical layer)</h2><ul>
+<li><strong>物理层(physical layer)：</strong>在物理层上所传数据的单位是比特，其任务就是透明地传送比特流。</li>
+</ul>
+<h2 id="数据在各层之间的传递过程"><a href="#数据在各层之间的传递过程" class="headerlink" title="数据在各层之间的传递过程"></a>数据在各层之间的传递过程</h2><img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20160126223713317" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20160126223713317" alt="这里写图片描述"></p>
+<h1 id="7层模型"><a href="#7层模型" class="headerlink" title="7层模型"></a>7层模型</h1><h2 id="第七层：应用层"><a href="#第七层：应用层" class="headerlink" title="第七层：应用层"></a><strong>第七层：应用层</strong></h2><p><strong>HTTP、TFTP、SNMP、FTP、SMTP、DNS、Telnet</strong></p>
+<p>定义了用于在网络中进行通信和数据传输的接口 - 用户程式；提供标准服务，比如虚拟终端、文件以及任务的传输和处理；</p>
+<h2 id="第六层：表示层"><a href="#第六层：表示层" class="headerlink" title="第六层：表示层"></a><strong>第六层：表示层</strong></h2><p>掩盖不同系统间的数据格式的不同性； 指定独立结构的数据传输格式； 数据的编码和解码；加密和解密；压缩和解压缩</p>
+<h2 id="第五层：会话层"><a href="#第五层：会话层" class="headerlink" title="第五层：会话层"></a><strong>第五层：会话层</strong></h2><p>管理用户会话和对话； 控制用户间逻辑连接的建立和挂断；报告上一层发生的错误</p>
+<h2 id="第四层：传输层"><a href="#第四层：传输层" class="headerlink" title="第四层：传输层"></a><strong>第四层：传输层</strong></h2><p><strong>报文段/用户数据报</strong> <strong>TCP、UDP</strong></p>
+<p>管理网络中端到端的信息传送； 通过错误纠正和流控制机制提供可靠且有序的数据包传送；提供面向无连接的数据包的传送；</p>
+<h2 id="第三层：网络层"><a href="#第三层：网络层" class="headerlink" title="第三层：网络层"></a><strong>第三层：网络层</strong></h2><p><strong>数据报</strong> <strong>IP</strong>、<strong>ICMP</strong>、RIP、OSPF、BGP、IGMP</p>
+<p>定义网络设备间如何传输数据；根据唯一的网络设备地址路由数据包；提供流和拥塞控制以防止网络资源的损耗；</p>
+<h2 id="第二层：数据链路层"><a href="#第二层：数据链路层" class="headerlink" title="第二层：数据链路层"></a><strong>第二层：数据链路层</strong></h2><p><strong>帧</strong>  SLIP、CSLIP、PPP、<strong>ARP</strong>(地址解析协议，根据IP地址获取物理地址）、<strong>RARP</strong>、MTU</p>
+<p>定义操作通信连接的程序；<strong>封装数据包为数据帧；监测和纠正数据包传输错误</strong></p>
+<h2 id="第一层：物理层"><a href="#第一层：物理层" class="headerlink" title="第一层：物理层"></a><strong>第一层：物理层</strong></h2><p> <strong>比特</strong> ISO2110、IEEE802、IEEE802.2</p>
+<p>定义通过网络设备发送数据的物理方式；作为网络媒介和设备间的接口；定义光学、电气以及机械特性。主要作用是传输比特流。</p>
+<p>总结：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用层</td>
+<td>应用层是网络体系中最高的一层，也是唯一面向用户的一层，也可视为为用户提供常用的应用程序，每个网络应用都对应着不同的协议。</td>
+<td>HTTP、TFTP, FTP, NFS, WAIS、SMTP</td>
+</tr>
+<tr>
+<td align="center">表示层</td>
+<td><strong>主要负责数据格式的转换</strong>，确保一个系统的应用层发送的消息可以被另一个系统的应用层读取，编码转换，数据解析，管理数据的解密和加密，<strong>同时也对应用层的协议进行翻译</strong></td>
+<td>Telnet, Rlogin, SNMP, Gopher</td>
+</tr>
+<tr>
+<td align="center">会话层</td>
+<td><strong>负责网络中两节点间会话的建立，在数据传输中维护计算机网络中两台计算机之间的通信连接，并决定何时终止通信</strong></td>
+<td>SMTP, DNS</td>
+</tr>
+<tr>
+<td align="center">传输层</td>
+<td>是整个网络关键的部分，是实现两个用户进程间端到端的可靠通信，处理数据包的错误等传输问题。是向下通信服务最高层，向上用户功能最底层。即向网络层提供服务，向会话层提供独立于网络层的传送服务和可靠的透明数据传输。</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td align="center">网络层</td>
+<td>逻辑地址寻址，实现不同网络之间的路径选择。（控制子网的运行，如逻辑编址、分组传输、路由选择）</td>
+<td>IP, ICMP, ARP, RARP, AKP, UUCP</td>
+</tr>
+<tr>
+<td align="center">数据链路层</td>
+<td>物理寻址，同时将原始比特流转变为逻辑传输路线。<br>物理地址（MAC地址），网络设备的唯一身份标识。</td>
+<td>FDDI, Ethernet, Arpanet, PDN, SLIP, PPP，STP。HDLC,SDLC,帧中继</td>
+</tr>
+<tr>
+<td align="center">物理层</td>
+<td>机械、电子、定时接口通信信道上的原始比特流传输</td>
+<td>IEEE 802.1A, IEEE 802.2到IEEE 802</td>
+</tr>
+</tbody></table>
+<h1 id="四层模型"><a href="#四层模型" class="headerlink" title="四层模型"></a>四层模型</h1><ul>
+<li>链路层：负责封装和解封装IP报文，发送和接受ARP/RARP报文等。</li>
+<li>网络层：负责路由以及把分组报文发送给目标网络或主机。</li>
+<li>传输层：负责对报文进行分组和重组，并以TCP或UDP协议格式封装报文。</li>
+<li>应用层：负责向用户提供应用程序，比如HTTP、FTP、Telnet、DNS、SMTP等。</li>
+</ul>
+<h1 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h1><p>子网掩码是一种用来指明一个IP地址所标示的主机处于哪个子网中。子网掩码不能单独存在，它必须结合IP地址一起使用。<strong>子网掩码只有一个作用，就是将某个IP地址划分成<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80">网络地址</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80">主机地址</a>两部分。</strong></p>
+<p>子网掩码是一个32位地址，对于A类地址来说，默认的子网掩码是255.0.0.0；对于B类地址来说默认的子网掩码是255.255.0.0；对于C类地址来说默认的子网掩码是255.255.255.0。</p>
+<h1 id="报文-报文段-分组-包-数据报-帧-数据流"><a href="#报文-报文段-分组-包-数据报-帧-数据流" class="headerlink" title="报文 报文段 分组 包 数据报 帧 数据流"></a>报文 报文段 分组 包 数据报 帧 数据流</h1><ol>
+<li><p><strong>报文 message **<br>将位于</strong>应用层**的信息分组称为报文。报文是网络中交换与传输的数据单元，也是网络传输的单元。报文包含了将要发送的完整的数据信息，其长短不需一致。报文在传输过程中会不断地封装成分组、包、帧来传输，封装的方式就是添加一些控制信息组成的首部，那些就是报文头。</p>
+</li>
+<li><p><strong>报文段 segment</strong></p>
+<p>通常是指起始点和目的地都是<strong>传输层</strong>的信息单元。</p>
+</li>
+<li><p><strong>分组/包 packet **<br>分组是在网络中传输的二进制格式的单元，为了提供通信性能和可靠性，每个用户发送的数据会被分成多个更小的部分。在每个部分的前面加上一些必要的控制信息组成的首部，有时也会加上尾部，就构成了一个分组。它的起始和目的地是</strong>网络层**。. </p>
+</li>
+<li><p><strong>数据报 datagram **<br>面向无连接的数据传输，其工作过程类似于报文交换。采用数据报方式传输时，被传输的分组称为数据报。通常是指起始点和目的地都使用无连接网络服务的的</strong>网络层**的信息单元。</p>
+</li>
+<li><p><strong>帧 frame **<br>帧是</strong>数据链路层**的传输单元。它将上层传入的数据添加一个头部和尾部，组成了帧。它的起始点和目的点都是数据链路层。</p>
+</li>
+<li><p>**数据单元 data unit **</p>
+<p>指许多信息单元。常用的数据单元有服务数据单元（SDU）、协议数据单元（PDU）。</p>
+<p>SDU是在同一机器上的两层之间传送信息。PDU是发送机器上每层的信息发送到接收机器上的相应层（同等层间交流用的）。</p>
+<p>应用层——消息</p>
+</li>
+</ol>
+<p>传输层——数据段/报文段(segment) (注：TCP叫TCP报文段，UDP叫UDP数据报,也有人叫UDP段)</p>
+<p>网络层——分组、数据包（packet）</p>
+<p>链路层——帧（frame）</p>
+<p>物理层——P-PDU（bit）</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/watermark" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/watermark" alt="img"></p>
+<p>其实，segment，datagram，packet，frame是存在于同条记录中的，是基于所在协议层不同而取了不同的名字。我们可以用一个形象的例子对数据包的概念加以说明：我们在邮局邮寄产品时，虽然产品本身带有自己的包装盒，但是在邮寄的时候只用产品原包装盒来包装显然是不行的。必须把内装产品的包装盒放到一个邮局指定的专用纸箱里，这样才能够邮寄。这里，产品包装盒相当于数据包，里面放着的产品相当于可用的数据，而专用纸箱就相当于帧，且一个帧中通常只有一个数据包。</p>
+<h1 id="POST-GET区别"><a href="#POST-GET区别" class="headerlink" title="POST GET区别"></a>POST GET区别</h1><ul>
+<li><p>都包含请求头、请求行，post多了&lt;request-body&gt;。</p>
+</li>
+<li><p>get多用来查询，请求参数放在url中，以<code>?</code>分割<code>URL</code>和传输数据，多个参数用<code>&amp;</code>连接，直接可以在URL中看到内容，POST是放在报文内部的，用户无法直接看到，POST的安全性高于GET的安全性。</p>
+<p>login.action?name=hyddd&amp;password=idontknow&amp;verify=%E4%BD%A0 %E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如： %E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。</p>
+<p>post用来提交，把提交的数据放置在HTTP包的包体&lt;request-body&gt;中。</p>
+</li>
+<li><p>HTTP协议没有对传输的数据大小进行限制，HTTP协议规范也没有对URL长度进行限制</p>
+<p>GET提交的数据长度是有限制的，因为URL长度有限制，具体的长度限制视浏览器而定。而POST没有。</p>
+</li>
+</ul>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>最开始的时候客户端和服务器都处于closed状态，主动打开的是客户端，被动打开的是服务器。</p>
+<p>拿到域名对应的IP地之后，User-Agent（一般是指<strong>浏览器</strong>）会以一个<strong>随机端口</strong>（1024&lt;端口&lt;65535）向服务器的web程序（常用的有httpd，nginx等）80端口<strong>发起TCP的连接请求</strong>。这个连接请求（原始的http请求经过TCP/IP层模型层层包装）到达服务器后（这中间通过各种路由设备，局域网除外），进入到网卡，然后进入到内核的TCP/IP协议栈（用于识别这个连接请求，解封包，一层层剥开），还有可能要经过Netfilter防火墙（属于内核的模块）的过滤，最终到达web程序（本文就以Nginx为例）最终建立TCP/IP连接，如下图:</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201014110229792.png" alt="image-20201014110229792"></p>
+<ol>
+<li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态；</li>
+<li>TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中：<strong>确认位ACK=0</strong>，<strong>同步位SYN=1</strong>，选择一个<strong>初始序列号 seq=x</strong> ，此时，<u>TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。</u></li>
+<li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。<strong>确认报文中应该确认位ACK=1，同步位SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y</strong>，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。</li>
+<li>TCP客户进程收到确认后，还要向服务器给出确认。<strong>确认报文的 确认位ACK=1，确认号 ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立</strong>，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。</li>
+<li>当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。</li>
+</ol>
+<p>注：</p>
+<ol>
+<li><strong>确认位ACK</strong>，仅当ACK=1时，确认号字段才有效。TCP规定，在连接建立后所有报文的传输都必须把ACK置1；</li>
+<li><strong>同步位SYN</strong>，在连接建立时用来同步序号。当SYN=1，ACK=0，表明是连接请求报文，若同意连接，则响应报文中应该使SYN=1，ACK=1；</li>
+</ol>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>四次挥手(Four-way handshake)，也叫做改进的三次握手。客户端或服务器均可主动发起挥手动作，在 socket 编程中，任何一方执行 <code>close()</code> 操作即可产生挥手操作。</p>
+<ul>
+<li><p>第一次挥手(FIN=1，seq=x)</p>
+<p>假设客户端想要关闭连接，客户端发送一个 FIN 标志位置为1的包，表示自己已经没有数据可以发送了，但是仍然可以接受数据。</p>
+<p>发送完毕后，客户端进入 <code>FIN_WAIT_1</code> 状态。</p>
+</li>
+<li><p>第二次挥手(ACK=1，ACKnum=x+1)</p>
+<p>服务器端确认客户端的 FIN 包，发送一个确认包，表明自己接受到了客户端关闭连接的请求，但还没有准备好关闭连接。</p>
+<p>发送完毕后，服务器端进入 <code>CLOSE_WAIT</code> 状态，客户端接收到这个确认包之后，进入 <code>FIN_WAIT_2</code> 状态，等待服务器端关闭连接。</p>
+</li>
+<li><p>第三次挥手(FIN=1，seq=y)</p>
+<p>服务器端准备好关闭连接时，向客户端发送结束连接请求，FIN 置为1。</p>
+<p>发送完毕后，服务器端进入 <code>LAST_ACK</code> 状态，等待来自客户端的最后一个ACK。</p>
+</li>
+<li><p>第四次挥手(ACK=1，ACKnum=y+1)</p>
+<p>客户端接收到来自服务器端的关闭请求，发送一个确认包，并进入 <code>TIME_WAIT</code>状态，等待可能出现的要求重传的 ACK 包。</p>
+<p>服务器端接收到这个确认包之后，关闭连接，进入 <code>CLOSED</code> 状态。</p>
+<p>客户端等待了某个固定时间（<strong>两个最大段生命周期</strong>2MSL，2 Maximum Segment Lifetime）之后，没有收到服务器端的 ACK ，认为服务器端已经正常关闭连接，于是自己也关闭连接，进入 <code>CLOSED</code> 状态。</p>
+</li>
+</ul>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/tcp-connection-closed-four-way-handshake.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/tcp-connection-closed-four-way-handshake.png" alt="four-way-handshake"></p>
+<h2 id="TCP状态"><a href="#TCP状态" class="headerlink" title="TCP状态"></a>TCP状态</h2><h3 id="1-三次握手的TCP状态"><a href="#1-三次握手的TCP状态" class="headerlink" title="1. 三次握手的TCP状态"></a>1. 三次握手的TCP状态</h3><p><strong>LISTEN：侦听来自远方的TCP端口的连接请求</strong></p>
+<p>有提供某种服务才会处于LISTEN状态，TCP状态的变化就是某个端口的状态变化，提供一个服务就打开一个端口。</p>
+<p><strong>SYN-SENT：客户端的SYN_SENT 状态（同步已发送状态）</strong></p>
+<p>在发送连接请求后等待匹配的连接请求</p>
+<p><strong>SYN-RECEIVED：服务器端握手状态SYN_RCVD（同步已接收状态）</strong></p>
+<p>在收到和发送一个连接请求后等待对方对连接请求的确认</p>
+<p><strong>ESTABLISHED：代表一个打开的连接</strong></p>
+<p>ESTABLISHED状态是表示两台机器正在传输数据，观察这个状态最主要的就是看哪个程序正在处于ESTABLISHED状态。</p>
+<h3 id="2-四次挥手的TCP状态"><a href="#2-四次挥手的TCP状态" class="headerlink" title="2. 四次挥手的TCP状态"></a>2. 四次挥手的TCP状态</h3><p><strong>FIN_WAIT_1</strong></p>
+<p>等待远程TCP连接终端请求，或者先前的连接中断请求的确认。主动关闭端应用程序调用close，于是其TCP发出FIN请求主动关闭连接，之后进入FIN_WAIT1状态。</p>
+<p><strong>FIN_WAIT_2</strong></p>
+<p>主动关闭端接到ACK后，进入FIN_WAIT_2状态。在这个状态下，应用程序还有接受数据的能力，但是已经无法发送数据。</p>
+<p><strong>CLOSE_WAIT</strong></p>
+<p>被动关闭端TCP接到FIN后，就发出ACK以回应FIN请求，并进入CLOSE_WAIT状态。</p>
+<p><strong>LAST_ACK</strong></p>
+<p>被动关闭端一段时间后，接收到文件结束符的应用程序将调用CLOSE关闭连接，这导致它的TCP也发送一个FIN，等待对方的ACK，就进入了LAST_ACK状态。</p>
+<p><strong>TIME_WAIT</strong></p>
+<p>等待足够的时间以确保远程TCP接收到连接中断请求的确认，在主动关闭端接收到FIN后，TCP就发送ACK包，并进入TIME_WAIT状态。</p>
+<p><strong>CLOSED</strong></p>
+<p>被动关闭端在接收到ACK包后，就进入了closed状态</p>
+<h2 id="TCP网络常用命令"><a href="#TCP网络常用命令" class="headerlink" title="TCP网络常用命令"></a>TCP网络常用命令</h2><ol>
+<li><p><code>netstat -nat</code> 查看TCP各个状态的数量</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107174844042.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107174844042.png" alt="image-20201107174844042"></p>
+</li>
+<li><p><code>lsof -i:port</code> 可以检测到打开套接字的状况</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175402542.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175402542.png" alt="image-20201107175402542"></p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175426170.png" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201107175426170.png" alt="image-20201107175426170"></p>
+</li>
+<li></li>
+</ol>
+<h2 id="TCP-UDP的区别"><a href="#TCP-UDP的区别" class="headerlink" title="TCP/UDP的区别"></a>TCP/UDP的区别</h2><p><strong>对比</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="left">UDP</th>
+<th>TCP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">是否连接</td>
+<td align="left">无连接</td>
+<td>面向连接</td>
+</tr>
+<tr>
+<td align="center">是否可靠</td>
+<td align="left">不可靠传输，不使用流量控制和拥塞控制</td>
+<td>可靠传输，使用流量控制和拥塞控制</td>
+</tr>
+<tr>
+<td align="center">连接对象个数</td>
+<td align="left">支持一对一，一对多，多对一和多对多交互通信</td>
+<td>只能是一对一通信</td>
+</tr>
+<tr>
+<td align="center">传输方式</td>
+<td align="left"><strong>面向报文</strong>（UDP对应用层传递下来的报文，不做操作，保留这些报文的边界。应用层交给UDP多长的报文，UDP就照样发送）</td>
+<td><strong>面向字节流</strong>（应用程序和TCP的交互是一次一个数据块（大小不等），TCP把应用程序看成是一串无结构的字节流。TCP有缓冲，可以截短发送，也可以等待积累足够多的字节再构成报文段发送出去）</td>
+</tr>
+<tr>
+<td align="center">首部开销</td>
+<td align="left">首部开销小，仅8字节</td>
+<td>首部最小20字节，最大60字节</td>
+</tr>
+<tr>
+<td align="center">适用场景</td>
+<td align="left">适用于实时应用（IP电话、视频会议、直播等）</td>
+<td>适用于要求可靠传输的应用，例如文件传输</td>
+</tr>
+</tbody></table>
+<p> <strong>总结</strong></p>
+<ul>
+<li>TCP向上层提供面向连接的可靠服务 ，UDP向上层提供无连接不可靠服务。</li>
+<li>虽然 UDP 并没有 TCP 传输来的准确，但是也能在很多实时性要求高的地方有所作为</li>
+<li>对数据准确性要求高，速度可以相对较慢的，可以选用TCP</li>
+</ul>
+<h2 id="TCP-如何保证传输可靠性"><a href="#TCP-如何保证传输可靠性" class="headerlink" title="TCP 如何保证传输可靠性"></a>TCP 如何保证传输可靠性</h2><p><strong>TCP协议保证数据传输可靠性的方式主要有：校验和、序列号、确认应答、超时重传、连接管理、流量控制、拥塞控制</strong></p>
+<ul>
+<li><p>校验和</p>
+<p>在数据传输的过程中，将发送的数据段都<u>当做一个16位的整数</u>。将这些整数加起来（数据划以16位进行划分，累加），并且前面的进位不能丢弃，补在后面，最后取反，得到校验和。<br>发送方：在发送数据之前计算检验和，并进行校验和的填充。<br>接收方：收到数据后，对数据以同样的方式进行计算，求出校验和，与发送方的进行比对。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524102010286" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524102010286" alt="这里写图片描述"></p>
+<p>注意：如果接收方比对校验和与发送方不一致，那么数据一定传输有误。但是<strong>如果接收方比对校验和与发送方一致，数据不一定传输成功。</strong></p>
+</li>
+<li><p>序列号和确认应答</p>
+<p>序列号：TCP传输时将每个字节的数据都进行了编号，这就是序列号。<br>确认应答：TCP传输的过程中，每次接收方收到数据后，都会对传输方进行确认应答。也就是发送ACK报文。这个ACK报文当中带有对应的确认序列号，告诉发送方，接收到了哪些数据，下一次的数据从哪里发。</p>
+<p>序列号的作用不仅仅是应答的作用，有了序列号能够将接收到的数据根据序列号排序，并且去掉重复序列号的数据。这也是TCP传输可靠性的保证之一。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524103121705" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524103121705" alt="这里写图片描述"></p>
+</li>
+<li><p>超时重传</p>
+<p>如果发送方发送完数据后，迟迟没有等到接收方的ACK报文，这该怎么办呢？而没有收到ACK报文的原因可能是什么呢？</p>
+<p>首先，发送方没有介绍到响应的ACK报文原因可能有两点：</p>
+<ol>
+<li>数据在传输过程中由于网络原因等直接全体丢包，接收方根本没有接收到。</li>
+<li>接收方接收到了响应的数据，但是发送的ACK报文响应却由于网络原因丢包了。</li>
+</ol>
+<p>TCP在解决这个问题的时候引入了一个新的机制，叫做<strong>超时重传机制</strong>。简单理解就是发送方在发送完数据后等待一个时间，时间到达没有接收到ACK报文，那么对刚才发送的数据进行重新发送。如果是刚才第一个原因，接收方收到二次重发的数据后，便进行ACK应答。如果是第二个原因，接收方发现接收的数据已存在（判断存在的根据就是序列号，所以上面说序列号还有去除重复数据的作用），那么直接丢弃，仍旧发送ACK应答。</p>
+<p>那么发送方发送完毕后等待的时间是多少呢？如果这个等待的时间过长，那么会影响TCP传输的整体效率，如果等待时间过短，又会导致频繁的发送重复的包。如何权衡？</p>
+<p>由于TCP传输时保证能够在任何环境下都有一个高性能的通信，因此这个最大超时时间（也就是等待的时间）是动态计算的。</p>
+<blockquote>
+<p>在Linux中（BSD Unix和Windows下也是这样）超时以500ms为一个单位进行控制，每次判定超时重发的超时时间都是500ms的整数倍。重发一次后，仍未响应，那么等待2<em>500ms的时间后，再次重传。等待4</em>500ms的时间继续重传。以一个指数的形式增长。累计到一定的重传次数，TCP就认为网络或者对端出现异常，强制关闭连接。</p>
+</blockquote>
+</li>
+<li><p>连接管理</p>
+<p>连接管理就是三次握手与四次挥手的过程</p>
+</li>
+<li><p>流量控制</p>
+<p>TCP根据接收端对数据的处理能力，决定发送端的发送速度，这个机制就是流量控制。</p>
+<p><strong>在TCP协议的报头信息当中，有一个16位字段的窗口大小</strong>。窗口大小的内容实际上是接收端接收数据缓冲区的剩余大小。这个数字越大，证明接收端接收缓冲区的剩余空间越大，网络的吞吐量越大。接收端会在确认应答发送ACK报文时，将自己的即时窗口大小填入，并跟随ACK报文一起发送过去。而发送方根据ACK报文里的窗口大小的值的改变进而改变自己的发送速度。如果接收到窗口大小的值为0，那么发送方将停止发送数据。并定期的向接收端发送窗口探测数据段，让接收端把窗口大小告诉发送端。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524111634561" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20180524111634561" alt="这里写图片描述"></p>
+<p>注：16位的窗口大小最大能表示65535个字节（64K），但是TCP的窗口大小最大并不是64K。在TCP首部中40个字节的选项中还包含了一个窗口扩大因子M，实际的窗口大小就是16为窗口字段的值左移M位。每移一位，扩大两倍。</p>
+</li>
+<li><p>拥塞控制</p>
+<p>TCP传输的过程中，发送端开始发送数据的时候，如果刚开始就发送大量的数据，那么就可能造成一些问题。网络可能在开始的时候就很拥堵，如果给网络中再扔出大量数据，那么这个拥堵就会加剧。拥堵的加剧就会产生大量的丢包，就对大量的超时重传，严重影响传输。</p>
+</li>
+<li><p>拥塞控制方法：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">慢开始( slow-start )和拥塞避免( congestion avoidance )、快重传( fast retransmit )和快恢复( fast recovery )</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法一：慢开始+拥塞避免</strong></p>
+<p>先探测一下网络状态，即由小到大逐渐增大发送窗口，也就是说，由小到大逐渐增大拥塞窗口数值。通常在刚刚开始发送报文段时，先把<strong>拥塞窗口 cwnd（congestion avoidance）</strong>设置为一个<strong>最大报文段MSS的数值</strong>。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509220932437" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509220932437" alt="img"></p>
+<p>每经过一个传输轮次，拥塞窗口 cwnd 就加倍。一个传输轮次所经历的时间其实就是往返时间RTT（Round-Trip Time）。不过“传输轮次”更加强调：把拥塞窗口cwnd所允许发送的报文段都连续发送出去，并收到了对已发送的最后一个字节的确认。</p>
+<p>慢开始的“慢”并不是指cwnd的增长速率慢，而是指在TCP开始发送报文段时先设置cwnd=1，使得发送方在开始时只发送一个报文段（目的是试探一下网络的拥塞情况），然后再逐渐增大cwnd（<u>以指数规律增长</u>）。</p>
+<p>为了防止拥塞窗口cwnd增长过大引起网络拥塞，还需要设置一个<strong>慢开始门限ssthresh</strong>状态变量。慢开始门限ssthresh的用法如下：</p>
+<ul>
+<li>cwnd &lt; ssthresh 时，使用上述的慢开始算法</li>
+</ul>
+</li>
+<li><p>cwnd &gt; ssthresh 时，停止使用慢开始算法而改用拥塞避免算法</p>
+<ul>
+<li>cwnd = ssthresh 时，既可使用慢开始算法，也可使用拥塞控制避免算法</li>
+</ul>
+<p>拥塞避免算法：让拥塞窗口cwnd缓慢地增大，即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1，而不是加倍。这样拥塞窗口cwnd按<u>线性规律缓慢增长</u>，比慢开始算法的拥塞窗口增长速率缓慢得多。</p>
+<p>无论在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞（其根据就是没有收到确认），就要把慢开始门限ssthresh设置为出现拥塞时的发送方窗口值的一半（但不能小于2）；然后把拥塞窗口cwnd重新设置为1，执行慢开始算法。这样做的目的就是要迅速减少主机发送到网络中的分组数，使得发生拥塞的路由器有足够时间把队列中积压的分组处理完毕。</p>
+<p>如下图，用具体数值说明了上述拥塞控制的过程。现在发送窗口的大小和拥塞窗口一样大。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221015859" class="">
+
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221015859" alt="img"></p>
+<ol>
+<li>当TCP连接进行初始化时，把拥塞窗口cwnd置为1。前面已说过，为了便于理解，图中的窗口单位不使用字节而使用报文段的个数。慢开始门限的初始值设置为16个报文段，即 cwnd = 16 。</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li><p>在执行慢开始算法时，拥塞窗口 cwnd 的初始值为1。以后发送方每收到一个对新报文段的确认ACK，就把拥塞窗口值另1，然后开始下一轮的传输（图中横坐标为传输轮次）。因此拥塞窗口cwnd随着传输轮次按指数规律增长。当拥塞窗口cwnd增长到慢开始门限值ssthresh时（即当cwnd=16时），就改为执行拥塞控制算法，拥塞窗口按线性规律增长。</p>
+</li>
+<li><p>假定拥塞窗口的数值增长到24时，网络出现超时（这很可能就是网络发生拥塞了）。更新后的ssthresh值变为12（即变为出现超时时的拥塞窗口数值24的一半），拥塞窗口再重新设置为1，并执行慢开始算法。当cwnd=ssthresh=12时改为执行拥塞避免算法，拥塞窗口按线性规律增长，每经过一个往返时间增加一个MSS的大小。</p>
+<p>强调：“拥塞避免”并非指完全能够避免了拥塞。利用以上的措施要完全避免网络拥塞还是不可能的。“拥塞避免”是说在拥塞避免阶段将拥塞窗口控制为按线性规律增长，<strong>使网络比较不容易出现拥塞。</strong></p>
+</li>
+</ol>
+<p>  <strong>方法二：快重传和快恢复</strong></p>
+<p>  如果发送方设置的超时计时器时限已到但还没有收到确认，那么很可能是网络出现了拥塞，致使报文段在网络中的某处被丢弃。这时，TCP马上把拥塞窗口 cwnd 减小到1，并执行慢开始算法，同时把慢开始门限值ssthresh减半。这是不使用快重传的情况。</p>
+<p>  <u>快重传算法首先要求接收方每收到一个失序的报文段后就立即发出重复确认（为的是使发送方及早知道有报文段没有到达对方）而不要等到自己发送数据时才进行捎带确认。</u></p>
+  <img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221032109" class="">
+
+<p>  <img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221032109" alt="img"></p>
+<p>  接收方收到了M1和M2后都分别发出了确认。现在假定接收方没有收到M3但接着收到了M4。显然，接收方不能确认M4，因为M4是收到的失序报文段。根据可靠传输原理，接收方可以什么都不做，也可以在适当时机发送一次对M2的确认。但按照快重传算法的规定，接收方应及时发送对M2的重复确认，这样做可以让发送方及早知道报文段M3没有到达接收方。发送方接着发送了M5和M6。接收方收到这两个报文后，也还要再次发出对M2的重复确认。这样，发送方共收到了接收方的四个对M2的确认，其中后三个都是重复确认。<u>快重传算法还规定，发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段</u>M3，而不必继续等待M3设置的重传计时器到期。由于发送方尽早重传未被确认的报文段，因此采用快重传后可以使整个网络吞吐量提高约20%。</p>
+<p>  与快重传配合使用的还有快恢复算法，其过程有以下两个要点：</p>
+<ul>
+<li><p>当发送方连续收到三个重复确认，就执行“乘法减小”算法，把慢开始门限ssthresh减半。这是为了预防网络发生拥塞。请注意：接下去不执行慢开始算法。</p>
+<ul>
+<li>由于发送方现在认为网络很可能没有发生拥塞，因此与慢开始不同之处是现在不执行慢开始算法（即拥塞窗口cwnd现在不设置为1），而是把cwnd值设置为慢开始门限ssthresh减半后的数值，然后开始执行拥塞避免算法（“加法增大”），使拥塞窗口缓慢地线性增大。</li>
+</ul>
+</li>
+</ul>
+<p>  下图给出了快重传和快恢复的示意图，并标明了“TCP Reno版本”。</p>
+<p>  区别：新的 TCP Reno 版本在快重传之后采用快恢复算法而不是采用慢开始算法。</p>
+<img src="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221048265" class="">
+
+<p>  <img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221048265" alt="img"></p>
+<p>也有的快重传实现是把开始时的拥塞窗口cwnd值再增大一点，即等于 ssthresh + 3 X MSS 。这样做的理由是：既然发送方收到三个重复的确认，就表明有三个分组已经离开了网络。这三个分组不再消耗网络的资源而是停留在接收方的缓存中。可见现在网络中并不是堆积了分组而是减少了三个分组。因此可以适当把拥塞窗口扩大了些。</p>
+<p>在采用快恢复算法时，慢开始算法只是在TCP连接建立时和网络出现超时时才使用。</p>
+<p>采用这样的拥塞控制方法使得TCP的性能有明显的改进。</p>
+<p>接收方根据自己的接收能力设定了接收窗口rwnd，并把这个窗口值写入TCP首部中的窗口字段，传送给发送方。因此，接收窗口又称为通知窗口。因此，从接收方对发送方的流量控制的角度考虑，发送方的发送窗口一定不能超过对方给出的接收窗口rwnd 。</p>
+<p>发送方窗口的上限值 = Min [ rwnd, cwnd ]：</p>
+<p>当rwnd &lt; cwnd 时，是接收方的接收能力限制发送方窗口的最大值。</p>
+<p>当cwnd &lt; rwnd 时，则是网络的拥塞限制发送方窗口的最大值。</p>
+<p>注：拥塞控制是防止过多的数据注入到网络中，防止网络中的路由器或链路不致过载。<strong>拥塞控制是全局性的过程</strong>，涉及到所有的主机、路由器，以及与降低网络传输性能有关的所有因素。</p>
+<p>拥塞控制的代价：需要获得网络内部流量分布的信息。在实施拥塞控制之前，还需要在结点之间交换信息和各种命令，以便选择控制的策略和实施控制。这样就产生了额外的开销。拥塞控制还需要将一些资源分配给各个用户单独使用，使得网络资源不能更好地实现共享。</p>
+<p>流量控制是指点对点通信量的控制，是端到端的问题。流量控制要做的是一直发送端发送数据的速率，以便使接收端来得及接收。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/" data-id="ckloxzqh20000i4tofrq97mlr" data-title="网络面经" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java虚拟机面经</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/">网络面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/">java虚拟机面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">java多线程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/">java面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/">操作系统面经</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
