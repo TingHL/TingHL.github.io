@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title></title>
+  <title>路漫漫其修远兮 吾将上下而求索</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="代码code 笔记notes">
 <meta property="og:type" content="website">
-<meta property="og:title">
+<meta property="og:title" content="路漫漫其修远兮 吾将上下而求索">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name">
+<meta property="og:site_name" content="路漫漫其修远兮 吾将上下而求索">
 <meta property="og:description" content="代码code 笔记notes">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="TingHL">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="路漫漫其修远兮 吾将上下而求索" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -44,7 +44,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo"></a>
+        <a href="/" id="logo">路漫漫其修远兮 吾将上下而求索</a>
       </h1>
       
     </div>
@@ -72,6 +72,813 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-JavaWeb-笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2021-02-28T13:38:11.000Z" itemprop="datePublished">2021-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaWeb%E7%9B%B8%E5%85%B3/">JavaWeb相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">JavaWeb 笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="监听器简介和分类"><a href="#监听器简介和分类" class="headerlink" title="监听器简介和分类"></a>监听器简介和分类</h1><h2 id="示例项目"><a href="#示例项目" class="headerlink" title="示例项目"></a>示例项目</h2><ul>
+<li><code>JavaWebListenerDemo</code></li>
+<li></li>
+</ul>
+<h2 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h2><p>监听对象、监听事件、触发行为</p>
+<h2 id="JavaWeb-监听器-Listener"><a href="#JavaWeb-监听器-Listener" class="headerlink" title="JavaWeb 监听器 Listener"></a>JavaWeb 监听器 Listener</h2><p><code>serverlet</code>，<code>filter</code>，<code>listener</code>：<code>JavaWeb</code>的三大组件</p>
+<h3 id="八个监听器"><a href="#八个监听器" class="headerlink" title="八个监听器"></a><strong>八个监听器</strong></h3><h4 id="按照监听对象"><a href="#按照监听对象" class="headerlink" title="按照监听对象"></a>按照监听对象</h4><p>分为三类：</p>
+<ol>
+<li><p>监听<code>ServletContext</code>事件</p>
+<p>​    <code>ServletContextListener</code>：</p>
+<p>​            作用：监听<code>ServletContext</code>生命周期（从创建到销毁的过程（服务器启动创建–服务器停止销毁））</p>
+<p>​    <code>ServletContextAttributeListener</code>：</p>
+<p>​            作用：监听<code>ServletContext</code>域中属性变化的；</p>
+</li>
+<li><p>监听<code>HttpSession</code>事件</p>
+<p>​    <code>HttpSessionListener</code>：</p>
+<p>​            作用：监听<code>HttpSession</code>的生命周期（session第一次使用的时候创建；session超时销毁或session手动设置失效（<code>session.invalidate</code>方法））</p>
+<p>​    <code>HttpSessionAttributeListener</code>：</p>
+<p>​            作用：监听<code>HttpSession</code>域中属性的变化（增删改）</p>
+<p>​    <code>HttpSessionActivitionListener</code>：</p>
+<p>​            作用：监听某个对象随着<code>HttpSession</code>活化钝化的过程</p>
+<p>​    <code>HttpSessionBindlingListener</code>：</p>
+<p>​            作用：监听某个对象保存（绑定）到session中和从session中移除（解绑）</p>
+</li>
+<li><p>监听<code>ServletRequest</code>事件</p>
+<p>​    <code>ServletRequestListener</code>：</p>
+<p>​            作用：监听request对象的生命周期（请求进来创建新的request，保存请求的详细信息，请求完成销毁request对象）</p>
+<p>​    <code>ServletRequestAttributeListener</code>：</p>
+<p>​            作用：监听request域中属性变化</p>
+</li>
+</ol>
+<h4 id="按照功能"><a href="#按照功能" class="headerlink" title="按照功能"></a>按照功能</h4><ol>
+<li><p>一类是：生命周期监听器</p>
+<p><strong><code>javax.servlet.ServletContextListener</code></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>contextDestroyed(ServletContextEvent sce)</code> <br> 销毁（服务器停止）调用<br>Receives notification that the <code>ServletContext</code> is about to be shut down.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>contextInitialized(ServletContextEvent sce)</code><br>初始化（服务器启动）调用<br>Receives notification that the web application initialization process is starting.</td>
+</tr>
+</tbody></table>
+<p><strong><code>javax.servlet.http.HttpSessionListener</code></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>sessionCreated(HttpSessionEvent se)</code><br>session创建（第一次使用session创建）<br>Receives notification that a session has been created.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>sessionDestroyed(HttpSessionEvent se)</code><br>session自动失效（超时timeout）、手动设置session失效（session.invalidate）<br>Receives notification that a session is about to be invalidated.</td>
+</tr>
+</tbody></table>
+<p><strong><code>javax.servlet.ServletRquestListener</code></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>requestDestroyed(ServletRequestEvent sre)</code><br> request销毁调用（当次请求结束）<br>Receives notification that a <code>ServletRequest</code> is about to go out of scope of the web application.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>requestInitialized(ServletRequestEvent sre)</code><br>request初始化（发起一个新请求）<br>Receives notification that a <code>ServletRequest</code> is about to come into scope of the web application.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>一类是：属性监听器 监听域中属性变化</p>
+<p><strong><code>javax.servlet.ServletContextAttributeListener</code></strong></p>
+<p><strong><code>javax.servlet.http.HttpSessionAttributeListener</code></strong></p>
+<p><strong><code>javax.servlet.ServletRequestAttributeListener</code></strong></p>
+<p>(均含有以下三种方法）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>attributeAdded(ServletContextAttributeEvent event)</code><br>Receives notification that an attribute has been added to the <code>ServletContext</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>attributeRemoved(ServletContextAttributeEvent event)</code><br>Receives notification that an attribute has been removed from the <code>ServletContext</code>.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>attributeReplaced(ServletContextAttributeEvent event)</code></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>一类是：对象监听器（session独有的监听器）</p>
+<p><strong>特点：不需要在<code>web.xml</code>中进行配置的监听器</strong></p>
+<p><strong><code>javax.servlet.http.HttpSessionActivationListener 保存到session域中的对象，活化和钝化的监听器</code></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>sessionDidActivate(HttpSessionEvent se)</code><br>Notification that the session has just been activated.<br>监听某个对象随着<code>HttpSession</code>已经活化（活化后调用）</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>sessionWillPassivate(HttpSessionEvent se)</code><br>Notification that the session is about to be passivated.<br>监听某个对象随着<code>HttpSession</code>将要钝化（钝化前调用）</td>
+</tr>
+</tbody></table>
+<p><strong><code>javax.servlet.http.HttpSessionBindingListener 对象被绑定到session域中的监听器</code></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>void</code></td>
+<td><code>valueBound(HttpSessionBindingEvent event)</code><br>Notifies the object that it is being bound to a session and identifies the session.<br>监听某个对象在session中绑定进来（保存进来）</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>valueUnbound(HttpSessionBindingEvent event)</code><br>Notifies the object that it is being unbound from a session and identifies the session.<br>监听某个对象在session中解绑（移除）</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h4 id="监听器如何工作"><a href="#监听器如何工作" class="headerlink" title="监听器如何工作"></a>监听器如何工作</h4><p>步骤如下：</p>
+<ol>
+<li>接口的实现</li>
+<li>在<code>web.xml</code>中进行注册</li>
+</ol>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.listener;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServletContextListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent servletContextEvent)</span> </span>&#123;</span><br><span class="line">        ServletContext servletContext = servletContextEvent.getServletContext();</span><br><span class="line">        System.out.println(<span class="string">&quot;初始化......&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;contextInitialized&quot;</span>+servletContext);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent servletContextEvent)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;销毁......contextDestroyed&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置全类名       --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>com.atguigu.listener.MyServletContextListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ol>
+<li><p><code>ServletContextListener</code> ：监听服务器启动停止</p>
+<ul>
+<li><p>推荐使用绝对路径</p>
+<p>以<code>/</code>开始的路径，要在页面使用需要加项目名     </p>
+</li>
+<li><p>服务器启动，做一些项目的预初始化操作（在实现<code>ServletContextListener</code>的类的<code>contextInitialized</code>方法中实现预初始化）</p>
+</li>
+<li><p>服务器关闭，做一些善后清理工作（在实现<code>ServletContextListener</code>的类的<code>contextDestroyed</code>的方法中实现）    </p>
+</li>
+</ul>
+</li>
+<li><p><code>HttpSessionBindingListener</code>：监听某个对象绑定到session域中</p>
+</li>
+</ol>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h4><ol>
+<li><p>JSP四大作用域（范围从小到大）：<code>PageContext域 --&gt; Request域 --&gt; Session域 --&gt; Application域</code></p>
+<p><strong>生命周期：</strong></p>
+<p>page：存在page中的变量，只作用于当前的<code>jsp</code>页面，当发生跳转、重定向、定时刷新时，将随之销毁；</p>
+<p>request：存在request中的变量，作用于一次HTTP请求到服务器处理结束，返回响应的整个过程，该变量可以随着forward的方式跳转到多个<code>jsp</code>中，一但刷新页面，它们将重新计算；</p>
+<p>session：存在Session中的变量，作用于一次会话中，从打开浏览器到关闭浏览器过程中，将一直累加；（若想在再次打开浏览器时，变量仍然存在，则可以将session的JSESSIONID存到Cookie中，在给cookie一个存活时间）</p>
+<p>application：存在application中的变量，作用于整个应用中，即从应用启动到应用结束，如果不进行手工删除，它们将一直可以使用，而且这些变量所有用户均可使用。</p>
+<p><strong>作用范围：</strong></p>
+<p>page：用户请求的当前页面；</p>
+<p>request：用户请求访问的当前组件，以及和当前web组件共享同一用户请求的web组件；</p>
+<p>session：同一个Http会话中的web组件共享；</p>
+<p>application：整个web应用的所有web组件共享，即只要是同一个服务器下的均可使用。</p>
+</li>
+<li><p><code>ServletContext  HttpSession  HttpServletRequest</code></p>
+<p>“会话”概念：浏览器开启–&gt;关闭</p>
+<p><code>ServletContext</code>：即<code>application</code>，置入其中的域属性是整个应用范围的，可以完成跨会话共享数据</p>
+<p><code>HttpSession</code>：置入其中的域属性是会话范围的，可以完成跨请求共享数据</p>
+<p><code>HttpServletRequest</code>：置入其中的域属性是请求范围的，可以跨Servlet共享数据，但是这些Servlet必须在同一个请求中</p>
+</li>
+<li><p>session的生命周期</p>
+<ul>
+<li><strong>创建</strong>：<ul>
+<li>第一次使用的时候创建<ul>
+<li>第一次访问JSP，因为session是内置使用的，所以第一次没有session，进行session创建</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>销毁</strong>：<ul>
+<li>session自动超时失效</li>
+<li>session手动设置失效 <code>session.invalidate()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h1 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h1><h2 id="示例项目-1"><a href="#示例项目-1" class="headerlink" title="示例项目"></a>示例项目</h2><ul>
+<li><code>internationalli8n</code></li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>为了让程序可以动态适配多国环境，包括：计数法、货币单位、日期表示等</p>
+<p>实际：多套系统适配不同的语言环境</p>
+<h2 id="Local-ResouceBundle类"><a href="#Local-ResouceBundle类" class="headerlink" title="Local ResouceBundle类"></a><code>Local ResouceBundle</code>类</h2><p>语言支持，来源于两个包：</p>
+<ul>
+<li><code>Locale</code>：</li>
+<li><code>ResourceBundle</code>：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Locale代表区域信息</span></span><br><span class="line"><span class="comment"> * 每一个区域可以使用一个Locale对象来进行表示</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocaleTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test01</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取所有的区域信息</span></span><br><span class="line">        <span class="comment">//zh_CN: 语言代码_国家代码</span></span><br><span class="line">        Locale[] availableLocales = Locale.getAvailableLocales();</span><br><span class="line">        <span class="keyword">for</span> (Locale locale:availableLocales) &#123;</span><br><span class="line">            System.out.println(locale);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * bookstore_zh_CN.properties  命名规则:自定义名称_语言代码_国家代码.properties</span></span><br><span class="line"><span class="comment">     * properties文件用于保存一些属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * Locale：区域信息</span></span><br><span class="line"><span class="comment">     * ResourceBundle：资源绑定，管理资源</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 1.将要按照区域信息不同要动态显示的信息放在配置文件（国际化配置文件）中</span></span><br><span class="line"><span class="comment">     *      命名要求： 基础名_语言代码_国家代码.properties</span></span><br><span class="line"><span class="comment">     * 2.ResourceBundler绑定所有的国际化资源文件（管理所有的国际化资源文件）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Locale china = Locale.CHINA;</span><br><span class="line">        Locale us=Locale.US;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.根据区域信息管理国际化资源文件</span></span><br><span class="line">        ResourceBundle bundle = ResourceBundle.getBundle(<span class="string">&quot;bookstore&quot;</span>,china);</span><br><span class="line">        <span class="comment">//2.根据当前区域动态的获取到国际化配置文件中某个key的值</span></span><br><span class="line">        String string=bundle.getString(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        System.out.println(string);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" class="">
+
+<p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" alt="image-20201216214443736"></p>
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" class="">
+
+<p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" alt="image-20201216214323204"></p>
+<h2 id="DateFormat-NumberFormat-MessageFormat类"><a href="#DateFormat-NumberFormat-MessageFormat类" class="headerlink" title="DateFormat NumberFormat MessageFormat类"></a><code>DateFormat NumberFormat MessageFormat</code>类</h2><ol>
+<li><p><code>DateFormat</code>日期格式化</p>
+<p>获取<code>DateFormat</code>实例化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getDateInstance();							<span class="comment">//获取实例，类似于2019-12-13</span></span><br><span class="line">getDateInstance(<span class="keyword">int</span> style,Locale aLocale); 	  <span class="comment">// Gets the date formatter with the given formatting style for the given locale.</span></span><br><span class="line">										  <span class="comment">//style：日期风格，包括FULL（完整）、LONG（长）、MEDIUM（中等）、SHORT（短）、DEFAULT（默认）</span></span><br><span class="line">getDateTimeInstance();					    <span class="comment">//获取到的实例类似于 2019-12-13 12:55:12:123</span></span><br><span class="line">getTimeInstance();						   <span class="comment">//获取到的实例类似于 12:55:12:123</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Locale canada=Locale.CANADA;</span><br><span class="line">    DateFormat dateInstanceataFormat = DateFormat.getDateInstance(DateFormat.SHORT, japan);</span><br><span class="line">    String format = dateInstanceataFormat.format(<span class="keyword">new</span> Date()); <span class="comment">//20/12/17</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>NumberFormat</code> 数字格式化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> salary=<span class="number">123413242.987</span>;</span><br><span class="line">NumberFormat numberFormat = NumberFormat.getInstance(italy);</span><br><span class="line">String format1 = numberFormat.format(salary); <span class="comment">//123.413.242,987</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>MessageFormat</code> 自定义消息格式化</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4.消息格式化，自定义消息（文本）格式化</span></span><br><span class="line"><span class="comment">//示例：张三喜欢李四，但是李四喜欢王五 人名信息动态获取，“喜欢”等词，就会根据国际化进行翻译或者显示</span></span><br><span class="line"><span class="comment">//国际化中编写规则，&#123;0&#125;表示占位符：likeinfo= &#123;0&#125; like &#123;1&#125;, but &#123;1&#125; like &#123;2&#125;  索引从0开始</span></span><br><span class="line"><span class="comment">//ResourceBundle 获取国际化配置文件 MessageFormat对获取到的信息传递参数</span></span><br><span class="line"><span class="comment">//MessageFormat：支持国际化配置文件中写动态占位符</span></span><br><span class="line">ResourceBundle bookstore = ResourceBundle.getBundle(<span class="string">&quot;bookstore&quot;</span>, china);</span><br><span class="line">String likeinfo = bookstore.getString(<span class="string">&quot;likeinfo&quot;</span>);  <span class="comment">//likeinfo= &#123;0&#125; 喜欢 &#123;1&#125;，但是 &#123;1&#125; 喜欢 &#123;2&#125;</span></span><br><span class="line">System.out.println(likeinfo);</span><br><span class="line"></span><br><span class="line">String format3 = MessageFormat.format(likeinfo, <span class="string">&quot;宝宝&quot;</span>, <span class="string">&quot;蓉蓉&quot;</span>, <span class="string">&quot;哲哲&quot;</span>);</span><br><span class="line">System.out.println(format3);  <span class="comment">//宝宝 喜欢 蓉蓉，但是 蓉蓉 喜欢 哲哲</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="FMT标签库"><a href="#FMT标签库" class="headerlink" title="FMT标签库"></a>FMT标签库</h2><p>支持国际化的标签库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix&#x3D;&quot;fmt&quot; uri&#x3D;&quot;http:&#x2F;&#x2F;java.sun.com&#x2F;jsp&#x2F;jstl&#x2F;fmt&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;TingHL&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;%--使用FMT标签库实现动态获取信息 完成以前的功能--%&gt;</span><br><span class="line">&lt;%--</span><br><span class="line">1.准备一个能够的区域信息</span><br><span class="line">2.使用ResourceBundle绑定国际化资源文件</span><br><span class="line">3.从国际化资源文件中获取值 可以继续格式化</span><br><span class="line">        其中，两者有重要的区别</span><br><span class="line">            $&#123;requestScope.loc&#125;&#x3D;&#x3D;request.getAttribute(&quot;loc&quot;,&quot;&quot;)</span><br><span class="line">            $&#123;param.loc&#125;&#x3D;&#x3D; request.getParameter(&quot;loc&quot;)</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;fmt:setLocale value&#x3D;&quot;$&#123;param.loc&#125;&quot;&#x2F;&gt; &lt;!-- 相当于 Locale locale&#x3D;new Locale(param.loc&#125;--&gt;</span><br><span class="line">&lt;fmt:setBundle basename&#x3D;&quot;bookstore&quot;&gt;&lt;&#x2F;fmt:setBundle&gt;</span><br><span class="line">&lt;h1&gt;</span><br><span class="line">    &lt;fmt:message key&#x3D;&quot;welcome&quot;&gt;</span><br><span class="line">        &lt;fmt:param&gt;李&lt;&#x2F;fmt:param&gt;</span><br><span class="line">        &lt;fmt:param&gt;</span><br><span class="line">            &lt;fmt:formatDate value&#x3D;&quot;&lt;%&#x3D;new Date()%&gt;&quot;&gt;&lt;&#x2F;fmt:formatDate&gt;</span><br><span class="line">        &lt;&#x2F;fmt:param&gt;</span><br><span class="line">    &lt;&#x2F;fmt:message&gt;</span><br><span class="line">&lt;&#x2F;h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action&#x3D;&quot;&quot;&gt;</span><br><span class="line">    &lt;fmt:message key&#x3D;&quot;username&quot; &#x2F;&gt;:&lt;input &#x2F;&gt;&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;fmt:message key&#x3D;&quot;password&quot;&#x2F;&gt;:&lt;input &#x2F;&gt;&lt;br&#x2F;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;&lt;fmt:message key&#x3D;&quot;loginBtn&quot;&#x2F;&gt;&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br><span class="line"></span><br><span class="line">&lt;a href&#x3D;&quot;login-change.jsp?loc&#x3D;zh_CN&quot;&gt;中文&lt;&#x2F;a&gt;</span><br><span class="line">&lt;a href&#x3D;&quot;login-change.jsp?loc&#x3D;en_US&quot;&gt;English&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="示例项目-2"><a href="#示例项目-2" class="headerlink" title="示例项目"></a>示例项目</h2><ul>
+<li><code>FileUploadAndDownload</code></li>
+<li><code>FileUploadAndDownloadDemo2</code></li>
+<li><code>FileUploadAndDownloadDemo3</code></li>
+</ul>
+<h2 id="文件上传下载"><a href="#文件上传下载" class="headerlink" title="文件上传下载"></a>文件上传下载</h2><p>​    上传：浏览器将本地的文件上传到服务器上，交给服务器保存</p>
+<p>​    下载：把服务器保存的内存下载到本地</p>
+<h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><ol>
+<li><p>文件上传必须是<code>post</code>类型的表单提交</p>
+<p>​    <code>get</code>不能携带大量数据</p>
+</li>
+<li><p>文件上传要用的不是这个，下面是普通表单提交数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;&quot; method=&quot;post&quot; enctype=&quot;application/x-www-form-urlencoded&quot;&gt;&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>文件上传表单：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;from action=&quot;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;&lt;/from&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>enctype</code> 属性规定在发送到服务器之前应该如何对表单数据进行编码。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>application/x-www-form-urlencoded</code></td>
+<td>在发送前编码所有字符（默认）</td>
+</tr>
+<tr>
+<td><code>multipart/form-data</code></td>
+<td>不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>文件上传的表单是一种新的解析方式</p>
+<p>普通的表单上传来的数据如下所示，其中<code>request.getParameter()可用</code>：</p>
+<p><code>username=xxxx&amp;password=yyyy</code></p>
+<p>文件上传的表单上传的数据如下所示，其中<code>request.getParameter()</code>不可用：</p>
+<p>​    分隔符</p>
+<p>​    部件1头信息</p>
+<p>​    空行</p>
+<p>​    部件1的内容</p>
+<p>​    分隔符</p>
+<p>​    部件2头信息</p>
+<p>​    空行</p>
+<p>​    部件2的内容</p>
+<p>​    分隔符</p>
+<p>​    。。。。</p>
+<p>示例如下，传统的获取方式失效：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">   </span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<form action="upload" method="post" enctype="multipart/form-data">
+       用户名：<input type="text" name="username"/><br>
+       头像：<input type="file" name="headerimg"/><br>
+       <input type="submit" value="上传"/>
+   </form>
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">   &#96;&#96;&#96;java</span><br><span class="line">String username&#x3D;request.getParameter(&quot;username&quot;);</span><br><span class="line">   System.out.println(&quot;username&quot;+username);&#x2F;&#x2F;username&#x3D;null</span><br></pre></td></tr></table></figure>
+
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">       <span class="comment">//文件以流的形式传递给服务器</span></span><br><span class="line">       <span class="comment">//common-io-2.0.jar简化所有流操作</span></span><br><span class="line">       ServletInputStream inputStream = req.getInputStream();</span><br><span class="line">       String s = IOUtils.toString(inputStream);</span><br><span class="line">       System.out.println(s);</span><br><span class="line">       resp.getWriter().write(<span class="string">&quot;ok...&quot;</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png" class="">   ![image-20201217171400052](JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png)
+
+<ol start="4">
+<li><p>文件上传到服务器的步骤：</p>
+<p>第一步：导包（两个）</p>
+<p><code>commons-fileupload-xx.jar</code>与<code>commons-io-x.jar</code></p>
+<p>第二步：调方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">       <span class="comment">//1.导包</span></span><br><span class="line">       <span class="comment">//2.解析 commons-fileupload-xx.jar中包含的方法</span></span><br><span class="line">       FileItemFactory factory=<span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">       ServletFileUpload upload=<span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">       <span class="comment">//上传文件包含中文</span></span><br><span class="line">       upload.setHeaderEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">try</span>&#123;</span><br><span class="line">           List&lt;FileItem&gt; items=upload.parseRequest(req);</span><br><span class="line">           <span class="comment">//自定义文件上传</span></span><br><span class="line">           parseFileItems(items,req);</span><br><span class="line">       &#125;<span class="keyword">catch</span> (FileUploadException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   </span><br><span class="line">       <span class="comment">//文件上传后，去首页index.jsp展示图片列表 文件上传成功后重定向到首页</span></span><br><span class="line">       resp.sendRedirect(req.getContextPath()+<span class="string">&quot;/index.jsp&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseFileItems</span><span class="params">(List&lt;FileItem&gt; items,HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       <span class="keyword">for</span>(FileItem item:items)&#123;</span><br><span class="line">           <span class="keyword">if</span>(item.isFormField())&#123;</span><br><span class="line">               <span class="comment">//</span></span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               <span class="comment">//1.把上传的图片保存在当前项目的pics中</span></span><br><span class="line">               InputStream is=item.getInputStream();</span><br><span class="line">   </span><br><span class="line">               <span class="comment">//细节一：如何获取某个文件或文件夹在服务器中的真正位置  </span></span><br><span class="line">               <span class="comment">//一个项目对应一个ServletContext</span></span><br><span class="line">               ServletContext servletContext=request.getServletContext();</span><br><span class="line">               String realPath = servletContext.getRealPath(<span class="string">&quot;/pics&quot;</span>);</span><br><span class="line">               <span class="comment">//自己运行环境时的真实路径：F:\Code\Codes\JavaWebPractise\FileUploadAndDownloadDemo2\out\artifacts\FileUploadAndDownloadDemo2_war_exploded\pics</span></span><br><span class="line">               <span class="comment">//获取到的真实路径到pics为止</span></span><br><span class="line">               System.out.println(<span class="string">&quot;真实路径：&quot;</span>+realPath);</span><br><span class="line">   </span><br><span class="line">               <span class="comment">//细节二： IE浏览器下获取到的文件是带路径的 为了提高兼容性 通过只获取最后一个文件名的方式获取文件名</span></span><br><span class="line">               <span class="comment">//获取文件分隔符分隔的最后一个文件名 使用String类的split()方法会出错 </span></span><br><span class="line">               <span class="keyword">int</span> lastIndexOf=item.getName().lastIndexOf(<span class="string">&quot;\\&quot;</span>);</span><br><span class="line">               String fileName=item.getName().substring(lastIndexOf+<span class="number">1</span>);</span><br><span class="line">               System.out.println(<span class="string">&quot;打印文件名：&quot;</span>+fileName);</span><br><span class="line">   </span><br><span class="line">               <span class="comment">//细节三：为了防止同名文件覆盖，可以给文件名+UUID</span></span><br><span class="line">               fileName = UUID.randomUUID().toString().replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;&quot;</span>)+fileName;</span><br><span class="line">               <span class="comment">//传递到服务器中，在项目中不会显示</span></span><br><span class="line">               FileOutputStream os = <span class="keyword">new</span> FileOutputStream(realPath + File.separator + fileName);</span><br><span class="line">   </span><br><span class="line">               IOUtils.copy(is,os);</span><br><span class="line">               os.close();</span><br><span class="line">               is.close();</span><br><span class="line">   </span><br><span class="line">               <span class="comment">//使用ImgUtils工具类 将上传的文件路径保存在域中 方便获取</span></span><br><span class="line">               ImgUtils.addImgPath(<span class="string">&quot;/pics/&quot;</span>+fileName);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">//保存了所有的图片路径</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; paths=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addImgPath</span><span class="params">(String path)</span></span>&#123;</span><br><span class="line">        paths.add(path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getAllPaths</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> paths;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中文乱码问题</p>
+<p>上传的文件包含中文</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileItemFactory factory=<span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">ServletFileUpload upload=<span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">upload.setHeaderEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>下载文件的文件名包含中文</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String file = req.getParameter(<span class="string">&quot;file&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> length= UUID.randomUUID().toString().replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;&quot;</span>).length();</span><br><span class="line"><span class="comment">//获取文件名</span></span><br><span class="line"><span class="keyword">int</span> lastIndexOf=file.lastIndexOf(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">String filename=file.substring(lastIndexOf+<span class="number">1</span>);</span><br><span class="line">filename = filename.substring(length);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;最终的文件名：&quot;</span>+filename);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解决中文文件名乱码</span></span><br><span class="line">filename=<span class="keyword">new</span> String(filename.getBytes(<span class="string">&quot;GBK&quot;</span>),<span class="string">&quot;ISO-8859-1&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page import=&quot;com.atguigu.servlet.ImgUtils&quot; %&gt;&lt;%--  import 引入ImgUtils工具类</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: TingHL</span><br><span class="line">  Date: 2020-12-17</span><br><span class="line">  Time: 21:38</span><br><span class="line">  To change this template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html;charset=GB2312&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>欢迎光临硅谷网上图库<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  &lt;%--  规定图片的样式 提前定义 --%&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">img</span>&#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    .imgs&#123;</span><br><span class="line"><span class="css">      <span class="attribute">float</span><span class="selector-pseudo">:left</span>;</span></span><br><span class="line"><span class="css">      <span class="attribute">width</span>: <span class="number">220px</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>选择上传文件 并将上传后的文件在此提供下载链接<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--上传 将相关资源上传到 通过uploadpic Servlet进行处理 并将上传到的图片全部显示在页面内中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">action</span>=<span class="string">&quot;uploadpic&quot;</span>&gt;</span></span><br><span class="line">  用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>/&gt;</span></span><br><span class="line">  图片：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pic&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  &lt;%-- 遍历所有的图片   --%&gt;</span><br><span class="line">  &lt;%-- items：要被循环的信息 var：代表当前条目的变量名称   --%&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">&quot;&lt;%=ImgUtils.getAllPaths()%&gt;&quot;</span> <span class="attr">var</span>=<span class="string">&quot;path&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;imgs&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/FileUploadAndDownloadDemo2_war_exploded/$&#123;path&#125;&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;download?file=$&#123;path&#125;&quot;</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UploadServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doPost(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.导包</span></span><br><span class="line">        <span class="comment">//2.解析</span></span><br><span class="line">        FileItemFactory factory=<span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">        ServletFileUpload upload=<span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">        upload.setHeaderEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            List&lt;FileItem&gt; items=upload.parseRequest(req);</span><br><span class="line">            <span class="comment">//自定义文件上传</span></span><br><span class="line">            parseFileItems(items,req);</span><br><span class="line">            <span class="comment">//文件上传后，去首页index.jsp展示图片列表</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (FileUploadException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//文件上传成功后重定向到首页</span></span><br><span class="line">        resp.sendRedirect(req.getContextPath()+<span class="string">&quot;/index.jsp&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">parseFileItems</span><span class="params">(List&lt;FileItem&gt; items,HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(FileItem item:items)&#123;</span><br><span class="line">            <span class="keyword">if</span>(item.isFormField())&#123;</span><br><span class="line">                String name=item.getFieldName();</span><br><span class="line">                <span class="comment">//解决普通输入项的数据的中文乱码问题</span></span><br><span class="line">                String value=item.getString(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;formfield域中属性   输入的field：&quot;</span>+name+<span class="string">&quot; 值为：&quot;</span>+value);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//1.把上传的图片保存在当前项目的pics中</span></span><br><span class="line">                InputStream is=item.getInputStream();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//如何获取某个文件或文件夹在服务器中的真正位置  重点细节一</span></span><br><span class="line">                <span class="comment">//一个项目对应一个ServletContext</span></span><br><span class="line">                ServletContext servletContext=request.getServletContext();</span><br><span class="line">                String realPath = servletContext.getRealPath(<span class="string">&quot;/pics&quot;</span>);</span><br><span class="line">                <span class="comment">//真实路径：F:\Code\Codes\JavaWebPractise\FileUploadAndDownloadDemo2\out\artifacts\FileUploadAndDownloadDemo2_war_exploded\pics</span></span><br><span class="line">                <span class="comment">//获取到的真实路径到pics为止</span></span><br><span class="line">                System.out.println(<span class="string">&quot;/pics的真实路径：&quot;</span>+realPath);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//细节二： IE浏览器下获取到的文件是带路径的 获取最后一个文件名</span></span><br><span class="line">                <span class="comment">//获取文件分隔符分隔的最后一个文件名 使用String类的split()方法会报错</span></span><br><span class="line">                System.out.println(<span class="string">&quot;item.getName():&quot;</span>+item.getName());</span><br><span class="line">                <span class="keyword">int</span> lastIndexOf=item.getName().lastIndexOf(<span class="string">&quot;\\&quot;</span>);</span><br><span class="line">                String fileName=item.getName().substring(lastIndexOf+<span class="number">1</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;打印文件名：&quot;</span>+fileName);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//细节三：为了防止同名文件覆盖，可以给文件名+UUID</span></span><br><span class="line">                fileName = UUID.randomUUID().toString().replace(<span class="string">&quot;-&quot;</span>,<span class="string">&quot;&quot;</span>)+fileName;</span><br><span class="line">                <span class="comment">//传递到服务器中，在项目中不会显示</span></span><br><span class="line">                FileOutputStream os = <span class="keyword">new</span> FileOutputStream(realPath + File.separator + fileName);</span><br><span class="line"></span><br><span class="line">                IOUtils.copy(is,os);</span><br><span class="line">                os.close();</span><br><span class="line">                is.close();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//使用ImgUtils工具类 将上传的文件路径保存在域中 方便获取</span></span><br><span class="line">                ImgUtils.addImgPath(<span class="string">&quot;/pics/&quot;</span>+fileName);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="HTML-CSS-JS-jquery选择器"><a href="#HTML-CSS-JS-jquery选择器" class="headerlink" title="HTML CSS JS jquery选择器"></a><code>HTML CSS JS jquery</code>选择器</h1><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li><p>Hyper Text markup language 超文本标记语言 （掌握）</p>
+</li>
+<li><p>标签</p>
+<p><code>&lt;p&gt;&lt;/p&gt;</code>段落标签</p>
+<p><code>&lt;table&gt;&lt;/table&gt;</code>表格  <tr> 行 <td> 列 </p>
+<p><code>&lt;form&gt;&lt;/form&gt;</code>表单</p>
+<p>​    <code>&lt;form action=&quot;提交的位置&quot; method=&quot;GET/POST&quot; enctype=&quot;application/x-www-form-urlencoding&gt;  &lt;/form&gt;&quot;</code></p>
+<p>​    <code>enctype=&quot;application/x-www-form-urlencoding&quot;</code>：默认的表单提交的编码方式</p>
+<p>​    <code>enctype=&quot;multipart/form-data&quot;</code>：文件上传</p>
+<p><code>&lt;script&gt;&lt;/script&gt;</code> 用于定义客户端脚本，编写js或者引入js</p>
+<p><code>&lt;link&gt;&lt;/link&gt;  </code> 定义文档与外部资源的关系，链接外部样式表</p>
+<p><code>&lt;style&gt;&lt;/style&gt;</code>编写样式</p>
+</li>
+<li></li>
+</ul>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
+<li><p>casecade style Sheet，层叠样式表，了解</p>
+</li>
+<li><p>作用：</p>
+<p>B/S开发：</p>
+<p>​    B端：结构（HTML）-表现（CSS）-行为（JavaScript）</p>
+</li>
+<li><p>常用的样式定义</p>
+<p>每个样式都有哪些样式，都去哪里查</p>
+<p>​    W3School CSS参考手册</p>
+</li>
+<li><p>语法</p>
+<p>选择器{</p>
+<p>​    样式名：样式值；</p>
+<p>​    样式名；样式值；</p>
+<p>​    …….</p>
+<p>}</p>
+</li>
+<li></li>
+</ul>
+<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
+<li><p>重点，掌握内容</p>
+</li>
+<li><p>JavaScript，脚本语言</p>
+</li>
+<li><p>基本语法</p>
+<p>声明变量，弱类型语言</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> temp=<span class="string">&quot;aaaa&quot;</span>;</span><br><span class="line">temp=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>声明对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    lastName:<span class="string">&quot;张三&quot;</span>;</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>声明方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hello=<span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用方法</span></span><br><span class="line">hello();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件</p>
+<p>用户和浏览器交互的行为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//表示：文档加载完成;(页面里面的所有内容全部都显示成功)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//两次window.onload=function()&#123;&#125; 最后一次有用</span></span><br><span class="line"></span><br><span class="line">$function()&#123;</span><br><span class="line">    <span class="comment">//表示：文档加载完成（dom准备就绪） 快于window.onload</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>常用事件：</p>
+<p>如何给一个元素绑定上事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">id</span>=<span class="string">&quot;aEle&quot;</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//按照id寻找元素</span><br><span class="line">var aEle=document.getElementById(&quot;aEle&quot;);</span><br><span class="line">aEle.onclick=function()&#123;</span><br><span class="line">	alter(&quot;你好&quot;);</span><br><span class="line">	//取消默认行为 return false；页面取消跳转</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>js文档；事件；每个对象的属性，去哪里查</p>
+<p>JS内置的对象：</p>
+<p>​    去JS –&gt; JavaScript参考手册中有内置的对象（了解）</p>
+<ul>
+<li><h2 id="JQUEY"><a href="#JQUEY" class="headerlink" title="JQUEY"></a>JQUEY</h2></li>
+<li><p>js库 </p>
+<p>jQuery — JavaScript 相当于 commons-io.jar – Java</p>
+</li>
+<li><p>精通掌握</p>
+</li>
+<li><p>重点</p>
+<ol>
+<li>选择器（一串特殊的字符串）</li>
+<li>文档操作（对dom的增删改）</li>
+<li>属性操作</li>
+</ol>
+</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><p><strong>基本</strong></p>
+<ul>
+<li>#id：$(“#btn01”) 找到一个id为指定值的标签</li>
+<li>element：$(“a”) 找到所有的a标签</li>
+<li>.class：$(“.mini”) 找到所有class为mini的元素</li>
+<li><code>*</code> ：<code>$(&quot;*&quot;)</code> 找到所有的元素</li>
+<li>selector1, selector2, selectorN ：<code>$(&#39;#btn01&quot;,&quot;#btn02&#39;,&quot;.big&quot;,&quot;form&quot;,&quot;#a01 *&quot;)</code> 表示找到id 为<code>btn01</code>，和<code>btn02</code>元素；以及class 为big 的元素，以及所有form表单，以及id 为<code>a01</code>下的所有元素</li>
+<li></li>
+</ul>
+<p><strong>层级</strong></p>
+<ul>
+<li>ancestor descendant ：找后代</li>
+<li>parent &gt; child：找子元素 <code>$(&quot;a &gt; # btn01&quot;)</code> 找到a 标签下id为 btn01 的子元素</li>
+<li>prev + next：找下一个兄弟 <code>$(#btn01 + .mini)</code> 找到id为btn01 的下一个同级元素，并且这个元素的class 是mini</li>
+<li>prev ~ siblings ：找所有的同辈兄弟 <code>$(&quot;#deleBtn01 ~ a&quot;)</code> 找到id 为 deleteBtn01 元素的所有兄弟元素，但是必须是a 标签</li>
+</ul>
+<p>重点：</p>
+<ul>
+<li><p><code>:first</code></p>
+</li>
+<li><p><code>:last</code></p>
+</li>
+<li><p><code>:eq(index)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;a:first&quot;)</span><br><span class="line">	找到第一个a标签</span><br><span class="line">$(&quot;:first&quot;)</span><br><span class="line">	找到文档中第一个标签，即&lt;html&gt;</span><br><span class="line">$(&quot;a :first&quot;)</span><br><span class="line">	找到a的第一个后代元素</span><br><span class="line">$(&quot;a &gt; :first&quot;)</span><br><span class="line">	找到a的第一个子元素</span><br><span class="line">$(&quot;#btn01 &gt; a:eq(1)&quot;)</span><br><span class="line">	找到btn01下的第二个a标签</span><br><span class="line">$(&quot;a:empty&quot;)</span><br><span class="line">	找到所有没有标签体的a元素，例如&lt;a&gt;&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">$(&quot;a[id]&quot;):有id属性的所有a标签</span><br><span class="line">$(&quot;a[id&#x3D;&#39;btn01&#39;]&quot;)：找到id为 btn01的a，等同于$(&quot;#btn01&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>:checked 找到所有选中的复选框、单选框等，不包括select中的option<br>:selected：匹配所有选中的option元素<br>find(expr | obj | ele)：<code>$(&quot;div&quot;).find(&quot;.mini&quot;)</code> 找到所有div下的class为mini的元素<br>children([expr]) ：<code>$(&quot;div&quot;).children(&quot;.mini&quot;)</code> 找到div下的所有class为mini的子元素<br>parent([expr])：<code>$(&quot;#div01&quot;).parent(&quot;.mini&quot;)</code> 找到id 为div01 的父元素，而且父元素的class必须是mini<br>parents([expr])：<code>$(&quot;#div01&quot;).parent(&quot;.mini&quot;)</code> 找到所有class为mini的祖先元素</p>
+<h3 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h3><p><strong>内部插入</strong><br><code>append(content|fn)</code><br><code>appendTo(content)</code><br><code>prepend(content|fn)</code><br><code>prependTo(content)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p01&quot;</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">append(content|fn): a.append(b): a里面添加b </span><br><span class="line">	$(&quot;#p01&quot;).append(&quot;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;hello&#x27;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;);</span><br><span class="line">	其效果等于：<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p01&quot;</span>&gt;</span>张三&lt; a href=&#x27;hello&#x27;&gt;hello<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">appendTo(content)：将前面的添加到后面的元素里面去</span><br><span class="line">	$(&quot;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;hello&#x27;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;).appendTo($(&quot;#p01&quot;));</span><br><span class="line"></span><br><span class="line">$(&quot;#p01&quot;).append(&quot;<span class="tag">&lt;<span class="name">a</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;).append(&quot;<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>&quot;)：这些可以链式调用</span><br><span class="line">哪些方法可以链式调用：</span><br><span class="line">	方法返回时jquery对象继续链式调用任何jquery方法：返回的是其本身</span><br><span class="line">	$(&quot;#p01&quot;).append(&quot;<span class="tag">&lt;<span class="name">a</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;).append(&quot;<span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span>&quot;)。clink(function()&#123;&#125;); 给p01绑定事件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>外部插入</strong><br><code>after(content|fn)</code><br><code>before(content|fn)</code><br><code>insertAfter(content)</code><br><code>insertBefore(content)</code><br><strong>包裹</strong><br><code>wrap(html|ele|fn)</code><br><code>unwrap()</code><br><code>wrapAll(html|ele)</code><br><code>wrapInner(html|ele|fn)</code><br><strong>替换</strong><br><code>replaceWith(content|fn)</code><br><code>replaceAll(selector)</code><br><strong>删除</strong><br><code>empty()</code><br><code>remove([expr])</code><br><code>detach([expr])</code><br><strong>复制</strong><br><code>clone([Even[,deepEven]])</code></p>
+<h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><p>获取到一个元素的属性值，文本内容，。。。。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;i01&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;hello&quot;</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>属性</strong><br><code>attr(name|pro|key,val|fn)</code>  自定义属性获取和设置，推荐使用attr<br><code>prop(n|p|k,v|f)</code>  标签原本自己的属性推荐使用prop，在与复选框使用时，使用prop进行属性操作</p>
+<p>示例如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#i01&quot;).attr(&quot;username&quot;); //获取属性值，张三  </span><br><span class="line">$(&quot;#i01&quot;).attr(&quot;username&quot;,&quot;李四&quot;); //设置属性值，李四</span><br><span class="line"></span><br><span class="line">$(&quot;#i01&quot;).prop(&quot;username&quot;); //获取属性值，张三</span><br><span class="line"></span><br><span class="line">$(&quot;a:first&quot;).attr(&quot;href&quot;) == $(&quot;a:first&quot;).prop(&quot;href&quot;); </span><br><span class="line">$(&quot;a:first&quot;).attr(&quot;haha&quot;); //自定义属性获取和使用，推荐使用attr；多选框属性选中，使用attr属性</span><br><span class="line">例如：</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">haha</span>=<span class="string">&quot;xwyz&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>多选框示例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;i01&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span>/&gt;</span>  <span class="comment">&lt;!-- 多选框有一个check属性 表明是否被选中--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">alter(xxx.attr(&quot;checked&quot;)); 选中，checked；未选中，undefined</span><br><span class="line">alter(xxx.prop(&quot;checked&quot;)); 选中，true；未选中，false  </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>HTML代码/文本/值</strong><br><code>html([val|fn])</code><br><code>text([val|fn])</code><br><code>val([val|fn|arr])</code></p>
+<p><strong>事件</strong></p>
+<p><strong>blur([[data],fn])</strong><br><strong>change([[data],fn])</strong><br><strong>click([[data],fn])</strong><br>dblclick([[data],fn])<br>error([[data],fn])<br>focus([[data],fn])<br>focusin([data],fn)<br>focusout([data],fn)<br>keydown([[data],fn])<br>keypress([[data],fn])<br>keyup([[data],fn])<br>mousedown([[data],fn])<br>mouseenter([[data],fn])<br>mouseleave([[data],fn])<br>mousemove([[data],fn])<br>mouseout([[data],fn])<br>mouseover([[data],fn])<br>mouseup([[data],fn])<br>resize([[data],fn])<br>scroll([[data],fn])<br>select([[data],fn])<br><strong>submit([[data],fn])</strong><br>unload([[data],fn])</p>
+<p><strong>核心函数</strong></p>
+<p>用法：</p>
+<ol>
+<li><p>传入参数为【函数】时，<code>$(function()&#123;&#125;)</code>相当于<code>window.onload=function()&#123;&#125;</code></p>
+</li>
+<li><p>选择器 <code>$(&quot;选择器&quot;)</code>  <code>$(&quot;#btn01&quot;)</code></p>
+</li>
+<li><p>传入参数为【HTML字符串】时，创建html元素（jquery 对象）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;hello&#x27;</span>&gt;</span>nihao<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;).prop(&quot;href&quot;,&quot;hello01&quot;);  //html对象.prop(&quot;&quot;)方法 更改属性</span><br><span class="line">$(&quot;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;hello&#x27;</span>&gt;</span>nihao<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;)[0].href=&quot;hello02&quot;;   // $(&quot;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;hello&#x27;</span>&gt;</span>nihao<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&quot;)[0] 为dom对象，对dom进行操作修改href</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>传入参数为【DOM对象时】：<code>$(this)</code></p>
+</li>
+</ol>
+<p>可以将<code>dom</code>对象转换为<code>jquery</code>对象</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(btn01).append();  //dom --&gt; jquery</span><br><span class="line">$(btn01)[0]; jquery--&gt;dom</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" class="">
+
+<p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" alt="image-20201221155235918"></p>
+<ol>
+<li><p>bin：可执行程序；tomcat在这里启动；<code>startup.bat</code> 启动命令（双击启动）；<code>shutdown.bat</code> （双击关闭）</p>
+</li>
+<li><p>conf：tomcat配置文件目录；</p>
+<p>​    server.xml：tomcat 的配置集中地方；端口配置</p>
+<p>​    web.xml：tomcat 所有web 项目都需要遵循的一个xml</p>
+</li>
+<li><p>lib：tomcat运行期间需要用到的jar包，例如el 表达式解析jar</p>
+</li>
+<li><p>logs：tomcat运行日志</p>
+</li>
+<li><p>temp：临时文件夹</p>
+</li>
+<li><p>webapps：集合tomcat中运行的项目；每一个项目都是一个文件夹的形式</p>
+</li>
+<li><p>work：存放运行期间编译的一些东西，例如jsp页面</p>
+</li>
+</ol>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><ol>
+<li><p>F12 会看请求头和请求体</p>
+</li>
+<li><p>发送请求的整个数据叫（请求报文）</p>
+<p>服务器传给浏览器的数据（响应报文）</p>
+<p>报文头部     空行    报文主体</p>
+<p>请求报文：请求首行+请求头+空行+请求体</p>
+<p>响应报文：响应首行+响应头+空行+响应体</p>
+</li>
+<li></li>
+</ol>
+<h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a><strong>简介</strong></h2><p>用来接受请求，处理请求，完成响应的一段小程序</p>
+<p>是JavaWeb的三大组件之一（Servlet、Filter、Listener）</p>
+<h2 id="Servlet体系"><a href="#Servlet体系" class="headerlink" title="Servlet体系"></a><strong>Servlet体系</strong></h2><p>Servlet：接口</p>
+<p><code>HttpServlet</code>：使用</p>
+<p>​    <code>doGet()</code></p>
+<p>​    <code>doPost()</code></p>
+<h2 id="Servlet使用"><a href="#Servlet使用" class="headerlink" title="Servlet使用"></a><strong>Servlet使用</strong></h2><p>步骤：</p>
+<ul>
+<li><p>编写servlet</p>
+</li>
+<li><p>在<code>web.xml</code>中进行配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span><span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span><span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span><span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span><span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="ServletConfig"><a href="#ServletConfig" class="headerlink" title="ServletConfig"></a>ServletConfig</h2><p>一个Servlet对应一个ServletConfig封装当前Servlet的配置信息</p>
+<h2 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h2><p>四大域对象之一（PageContext、ServletRequest、HttpSession、ServletContext）</p>
+<p>域对象：在域中保存一些数据，跨页面获取到保存的数据；多个资源之间共享数据的；</p>
+<p><code>ServletContext</code>作用：<br>     1）域对象<br>     2) <code>ServletContext</code> 获取当前项目信息，一个项目对应一个<code>ServletContext</code>，只是代表当前项目； <code>servletContext.getRealPath(&quot;/pics/aaa.jpg&quot;)</code> 只能获取到当前项目下的某个资源的路径 </p>
+<h2 id="HttpServletRequest"><a href="#HttpServletRequest" class="headerlink" title="HttpServletRequest"></a><code>HttpServletRequest</code></h2><p>代表请求。每一次发送请求，请求的详细信息会被<code>tomcat</code>自动封装成一个<code>request</code>对象，以后要获取当前请求的一些信息，使用<code>request</code>对象即可。</p>
+<p>作用：</p>
+<ol>
+<li>获取请求参数：<code>request.getParameter(&quot;hello&quot;)</code></li>
+<li>作为域对象保存数据；同一次请求期间可以共享数据</li>
+<li>获取到<code>HttpSession</code>对象：<code>request.getSession()</code></li>
+<li>转发 <code>request.getRequestDispatcher(&quot;/index.jsp&quot;).forward(request.response);</code>  //将当次的请求和响应交给另一个程序处理,在服务器内部进行</li>
+</ol>
+<p>服务器上保存了所有的页面和视频，动态程序等等。页面上的img，link(css)都是向服务器发送请求，<code>&lt;script src=&quot;jquery.js&quot;&gt;</code>给服务器发送请求</p>
+<h2 id="HttpServletResponse"><a href="#HttpServletResponse" class="headerlink" title="HttpServletResponse"></a><code>HttpServletResponse</code></h2><p>响应；交给浏览器的数据（响应首行、响应头（对浏览器的一些命令）和响应体（浏览器收到要解析的数据））；</p>
+<p>重定向：浏览器收到重定向命令后,发起新请求<br>    <code>response.sendRedirect(&quot;重定向地址&quot;);</code><br>    <code>response.sendRedirect(request.getContentPath()+&quot;/index.jsp&quot;)</code><br>    <code>request.getContentPath();</code> 获取项目名后，以<code>/</code>开始不已<code>/</code>结束</p>
+<p>请求<code>index.jsp</code>页面：servlet index.jsp –&gt; index.jsp.class –&gt; response.getWriter().write(“”);<br>回归到底层：服务器给浏览器发送数据，都是写出字符流或者字节流</p>
+<h2 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h2><ol>
+<li><p>请求乱码 浏览器发送给服务器的数据,服务器解析出来乱码</p>
+<p>GET POST: 页面上除过表单<code>method=&quot;post&quot;</code>外剩下的都是get请求</p>
+<p>GET请求乱码</p>
+<p>​    原因:所有的请求参数都是带在url地址上的,tomcat接收到这个请求就会调用默认的编码格式将其解码,并封装成request对象</p>
+<p>POST请求乱码</p>
+<p>​    原因:请求带来的数据都在请求体中存放;tomcat并不着急解析请求体,一旦调用<code>request.getParameter(&quot;p&quot;)</code>,将整个请求体使用默认编码格式全部解析完成</p>
+</li>
+<li><p>响应乱码 </p>
+<p>原因：直接写出去的数据，浏览器并不知道数据的内容类型以及编码格式等。浏览器使用默认的格式打开（UTF-8，gbk等）</p>
+<p>解决：给浏览器的数据说清楚是什么</p>
+<p>​    <code>response.setContentType(&quot;text/html;charset=utf-8&quot;)</code></p>
+</li>
+<li></li>
+</ol>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><ol>
+<li><p>相对路径：相对于当前资源所在的路径为标准</p>
+<p>不已<code>/</code>开始的路径就是相对路径</p>
+<p>示例：访问<code>http://localhost:8080/bookstore/upload/upload.jsp</code>，其中存在一个超链接<code>&lt;a href=&quot;index.jsp&quot;&gt;去index.jsp页面&lt;/a&gt;</code>  ，将会跳转到的位置是<code>http://localhost:8080/bookstore/upload/index.jsp</code></p>
+</li>
+<li><p>绝对路径</p>
+<p>以<code>/</code>开始的路径</p>
+<p>示例：访问<code>http://localhost:8080/bookstore/upload/upload.jsp</code>，其中存在一个超链接<code>&lt;a href=&quot;/index.jsp&quot;&gt;去index.jsp页面&lt;/a&gt;</code>，将会跳转到的位置是<code>http://locahost:8080/index.jsp</code></p>
+</li>
+</ol>
+<p>区分哪些是服务器解析的路径，哪些是浏览器解析的路径：</p>
+<p><code>response.sendRedirect(&quot;/index.jsp&quot;);</code>  //这个路径是浏览器访问的，加上项目名</p>
+<p>只要<code>html</code>标签里面（详见html标签列表）写的路径都是浏览器解析。除此之外都是服务器解析；<code>&lt;jsp:forward&gt;&lt;/jsp:forward&gt;</code>（jsp自定义的标签；目前见到的所有有前缀的标签都是服务器解析的）</p>
+<p>服务器解析的路径：</p>
+<p>​    <code>request.getRequestDispatcher(&quot;/index.jsp&quot;);</code>  //其效果就是当前项目下的<code>jsp</code>，项目名会自动加上去的</p>
+<p>浏览器解析的路径：</p>
+<p>​    在前面拼上服务器地址才是最终要去的路径；页面要写<code>/</code>开始的路径，我们需要 加上项目名</p>
+<p>以后推荐写绝对路径，加上项目名</p>
+<h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><p><code>index.jsp</code>(翻译 – 编译.class)</p>
+<p>静态资源：html页面，css，img，视频</p>
+<p>动态资源：Java代码（servlet程序）</p>
+<p><strong>JSP运行原理</strong>：</p>
+<p>服务器的<code>web.xml</code>中有一个<code>org.apache.jasper.servlet.JspServlet</code>：拦截<code>*.jsp</code></p>
+<ol>
+<li><p>向服务器发送请求<code>http://localhost:8080/4.PicStore/index.jsp</code></p>
+</li>
+<li><p><code>JspServlet</code>拦截到这个请求</p>
+</li>
+<li><p><code>JspsServlet</code>找到这个<code>index.jsp</code>，第一次请求，将其翻译成<code>index_jsp.java</code>，编译成<code>index_jsp.class</code></p>
+<p>以后每次直接去找到这个class即可</p>
+</li>
+<li><p>利用反射调用class 中的jspSerivice方法</p>
+</li>
+<li><p>将jsp 中的数据写出去</p>
+</li>
+</ol>
+<p><strong>4个域对象</strong></p>
+<p>共享数据的范围：从小到大，<code>pageContent request session application</code></p>
+<ol>
+<li><code>pageContent</code>：当前页面共享的数据在当前页面能够取出来</li>
+<li><code>request</code>：同一次请求共享的数据，同一请求期间可以共享（转发、重定向）；一旦<code>response</code>响应完成，当次请求就结束了</li>
+<li><code>session</code>：同一次会话期间数据共享（浏览器打开开始会话，浏览器关闭结束会话）</li>
+<li><code>application</code>：同一个web 应用中共享数据，只要服务器不关都可以使用</li>
+</ol>
+<h1 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h1><p><code>Jsp Standard Tag Libray</code> JSP标准标签库</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">&quot;要遍历的集合&quot;</span> <span class="attr">var</span>=<span class="string">&quot;每次遍历出的元素的变量名&quot;</span>&gt;</span></span><br><span class="line">    $&#123;每次遍历出的元素的变量名&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">&quot;判断条件&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="EL"><a href="#EL" class="headerlink" title="EL"></a>EL</h1><p>简化取值操作，只能取出11个对象中的值：</p>
+<ul>
+<li><p>4个域对象：</p>
+<p><code>pageScope</code>：</p>
+<p><code>requestScope</code>：<code>$&#123;requestScope.username&#125;</code> 从请求域中取出username的值</p>
+<p>​        <code>$&#123;requestScope.username&#125;=request.getAttribute(&quot;username&quot;);</code></p>
+<p><code>sessionScope</code>：<code>$&#123;&#125;</code></p>
+<p><code>applicationScope</code></p>
+</li>
+<li><p>7个其他的：</p>
+<p><code>param</code>：获取请求参数的  <code>$&#123;param.username&#125;=request.getParameter(&quot;useranme&quot;);</code></p>
+<p><code>paramValues</code>：获取请求参数的 <code>$&#123;paramValues.aihao&#125;=request.getParameters(&quot;username&quot;);</code> 获取多选框多选下拉列表的所有选择的内容</p>
+<p><code>header</code>：请求头</p>
+<p><code>headerValues</code>：</p>
+<p><code>cookie</code>：获取cookie的</p>
+<p><code>initParam</code>：获取<code>web.xml</code>中配置的初始化参数</p>
+</li>
+</ul>
+<h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><ul>
+<li><p>浏览器端保留少量数据的技术</p>
+</li>
+<li><p>特点</p>
+<ol>
+<li>保存少量</li>
+<li>都是纯文本</li>
+<li>保存的当前网站的cookie，每次访问这个网站都会携带</li>
+<li>默认不支持中文</li>
+</ol>
+</li>
+<li><p>服务器如何给浏览器发送保存cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie=<span class="keyword">new</span> Cookie(<span class="string">&quot;username&quot;</span>,<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+
+<p>浏览器一旦保存cookie以后，再次访问网站都会带上这个cookie</p>
+</li>
+<li><p>cookie有效时间</p>
+<p>默认时间：会话期间有效（浏览器只要不关，cookie就在）</p>
+<p>设置cookie的有效时间，以秒为单位<code>setMaxAge(int expiry)</code></p>
+<p>​        一个正数：表示多少秒后超时（cookie自动销毁）</p>
+<p>​        一个负数：表示cookie就是会话cookie，随浏览器同生共死</p>
+<p>​        0：立即失效</p>
+<p>​        cookie删除或者修改：都是同名cookie覆盖，示例如下：</p>
+<p>​        <code>Cookie cookie=new Cookie(&quot;username&quot;,&quot;zhansan&quot;);</code></p>
+<p>​        <code>cookie.setMaxAge(0); //同名cookie覆盖</code></p>
+<p>​        <code>response.setCookie(cookie) </code></p>
+</li>
+<li><p>cookie读取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cookie[] cookie=request.getCookies();</span><br><span class="line"><span class="keyword">for</span>(Cookie cookie2:cookies)&#123;</span><br><span class="line">    String key=cookie2.getName();</span><br><span class="line">    String value=cookie2.getValue();</span><br><span class="line">    <span class="keyword">if</span>(key.equals(<span class="string">&quot;username&quot;</span>))&#123;System.out.println(value);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ul>
+<li><p>服务器端保存当前会话大量数据的一种技术</p>
+</li>
+<li><p>session保存的数据能够在一个会话期间共享</p>
+</li>
+<li><p>会话控制：为什么在别的方法给session中保存的数据，在另外一个地方能够获取出来</p>
+<p>预先：</p>
+<p>1）和服务器进行交互期间，可能需要保存一些数据，服务器就为每个会话专门创建一个map，这个map用来保存数据，这个map我们称为session</p>
+<p>2）100个会话就有100个map，每次创建map的时候，这个map就有一个唯一标识：（JESSSIONID：会话ID）；</p>
+<p>利用浏览器每次访问都会带上其所有的cookie</p>
+<p>服务器只需要创建一块能保存数据的map，给这个map一个唯一标识（JESSSIONID），创建好以后保存这个map的标识</p>
+<p>以后浏览器每次访问都会带上这个map的标识，服务器就按照标识找到这个map，取出map中的数据</p>
+</li>
+<li><p>特别：</p>
+<ol>
+<li>会话关闭：默认是cookie消失：通过cookie持久化技术继续找到之前的session</li>
+<li>session失效：自动超时，手动设置失效</li>
+</ol>
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" class="">
+</li>
+<li><p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" alt="image-20201221223347948"></p>
+</li>
+<li><p><strong>令牌机制</strong></p>
+<p>访问页面的时候，生成一个令牌</p>
+<p>第一次访问页面生成一个令牌，只要不刷新页面，F5重新发送上一次请求，令牌不会变化，servlet 第一次收到令牌进行比对，比对完成，更换或者删除令牌；</p>
+<p>下一次直接去刷新发送上次的请求，由于带来的令牌还是上一次的，而这个令牌已经失效了。</p>
+<p>应用场景：防止表单重复提交，验证码。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">     String token=UUID.randomUUID().toString();</span><br><span class="line">   	//分给两处</span><br><span class="line">   	//1.移除服务器保存，可以拿到</span><br><span class="line">   	seesion.setAttribute(&quot;token&quot;,token);</span><br><span class="line">   //2.一处页面保存，每次发请求带上</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">atciont</span>=<span class="string">&quot;submint&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;token&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&lt;%=token%&gt;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SubmitServlet&#123;</span><br><span class="line">    <span class="comment">//1.拿到服务器保存的令牌</span></span><br><span class="line">    String token01=session.getAttribute(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">    <span class="comment">//2.拿到页面</span></span><br><span class="line">    String token02=request.getParameter(<span class="string">&quot;token&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(token01.equals(token02))&#123;</span><br><span class="line">        <span class="comment">//处理请求</span></span><br><span class="line">        session.setAttribute(<span class="string">&quot;token&quot;</span>,<span class="string">&quot;a&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//拒绝处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+<h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><p>Servlet、Filter、Listener（三大组件）<br>Servlet：处理请求<br>Filter：过滤拦截<br>Listener：监听器<br>三大组件基本都需要在<code>web.xml</code>中进行注册，除过Listener中的两个（活化钝化监听器，绑定解绑监听器）需要javaBean实现，不注册外，剩下的三大组件都需要注册</p>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li><p>实现<code>Filter</code>接口</p>
+</li>
+<li><p>去<code>web.xml</code>进行配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyFirstFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.atguigu.filter.MyFirstFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span><span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span><span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>url-pattern</code>的三种写法：</p>
+<ol>
+<li><p>精确匹配</p>
+<p><code>/pics/haha.jsp</code>，<code>/hello/login</code>：直接拦截指定的路径</p>
+</li>
+<li><p>路径匹配（模糊匹配）</p>
+<p><code>/pics/*</code>：拦截pics下的所有请求</p>
+</li>
+<li><p>后缀匹配（模糊匹配）</p>
+<p><code>*.jsp</code>：拦截所有以 <code>.jsp</code>结尾的请求</p>
+<p><code>/pics/*.jsp</code>：不能使用，错误</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">doFilter&#123;</span><br><span class="line">    <span class="comment">//放行请求</span></span><br><span class="line">    chain.doFilter(request,response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" class="">
+
+<p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" alt="image-20201226114017667"></p>
+<h1 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h1><p>监听器8个：<br><code>ServletRequest(2个), HttpSession(4个), ServletContext(2个)</code><br>2个：生命周期监听器、属性变化监听器<br>4个：<code>（HttpSession）</code>中有两个额外的（活化钝化监听器、绑定解绑监听器）</p>
+<p><strong>掌握的监听器</strong><br><code>ServletContextListener</code>：（生命周期监听器），监听<code>ServletContext</code>的创建和销毁（监听服务器的启动、停止）；服务器启动为当前项目创建<code>ServletContext</code>对象，服务器中止停止销毁创建的<code>ServletContext</code>。</p>
+<p><code>ServletContext</code>：一个web项目对应一个<code>ServletContext</code>，它代表当前web项目的信息；还可以作为最大的域对象在整个项目运行期间共享数据。</p>
+<p><strong>用法</strong></p>
+<ol>
+<li><p>实现对应的监听器接口</p>
+</li>
+<li><p>去<code>web.xml</code>中进行配置</p>
+<p>注意：有两个Listener是JavaBean需要实现的接口，<code>(HttpSessionActivitionListener, HttpSessionBindingListener)</code></p>
+</li>
+</ol>
+<h1 id="Ajax和json"><a href="#Ajax和json" class="headerlink" title="Ajax和json"></a>Ajax和json</h1><h2 id="示例项目-3"><a href="#示例项目-3" class="headerlink" title="示例项目"></a>示例项目</h2><ul>
+<li><code>AjaxAndJson</code></li>
+<li></li>
+</ul>
+<h2 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h2><p>轻量级的数据交换格式（和XML相比）</p>
+<p><strong>js对象</strong>：</p>
+<p><code>&#123;key:value,key:value&#125;</code></p>
+<p>value：可以有多种：</p>
+<ul>
+<li>基本的类型（字符串、数字、布尔值）</li>
+<li>数组 <code>&#123;lastName:&quot;李四&quot;, books:[&quot;西游记&quot;,&#123;&#125;,18]&#125;</code></li>
+<li>对象 </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> student;</span></span><br><span class="line">  student = &#123;</span><br><span class="line"><span class="javascript">    lastName: <span class="string">&quot;张三&quot;</span>,</span></span><br><span class="line">    age: 18,</span><br><span class="line"><span class="javascript">    car: &#123;<span class="attr">pp</span>: <span class="string">&quot;宝马&quot;</span>, <span class="attr">price</span>: <span class="string">&quot;$3000&quot;</span>&#125;,</span></span><br><span class="line"><span class="javascript">    infos: [&#123;<span class="attr">bookName</span>: <span class="string">&quot;西游记&quot;</span>, <span class="attr">price</span>: <span class="number">98.98</span>&#125;, <span class="number">18</span>, <span class="literal">true</span>]</span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="javascript">  <span class="comment">//js对象，属性操作特别方便</span></span></span><br><span class="line">  alert(student.car.pp);</span><br><span class="line">  alert(student.infos[2]);</span><br><span class="line">    </span><br><span class="line"><span class="javascript">  <span class="comment">//json的要求和js对象是一样的，只不过key必须是字符串</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">//js对象在声明的时候key是否加双引号是可以选择的</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> student2=&#123;</span></span><br><span class="line"><span class="javascript">    <span class="string">&quot;lastName&quot;</span>:<span class="string">&quot;张三&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="string">&quot;age&quot;</span>:<span class="number">18</span></span></span><br><span class="line">  &#125;;</span><br><span class="line">  alert(student2);</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="comment">//JSON(js内置的对象）：将js对象转换为json字符串（js对象的字符串表示法）</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> strJson=<span class="built_in">JSON</span>.stringify(student2);</span></span><br><span class="line">  alert(strJson);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果服务器返回给浏览器的数据是js对象，浏览器使用js解析就会很方便<br><code>JSON</code>：<code>js</code>对象进行传输（HTTP（只能传输文本））  </p>
+<h2 id="JS对象与JSON字符串转换"><a href="#JS对象与JSON字符串转换" class="headerlink" title="JS对象与JSON字符串转换"></a>JS对象与JSON字符串转换</h2><p>JS对象 –&gt; JSON字符串<br><code>var strJson=JSON.stringify(student2);</code><br>JSON字符串 –&gt; JS对象<br><code>var student=JSON.parse(strJson)</code></p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p>是一种无刷新页面与服务器的交互技术（页面不需要刷新就可以收到服务器响应的数据）<br>原来的交互：</p>
+<ul>
+<li>发送请求</li>
+<li>服务器收到请求，调用对应的servlet进行处理，servlet处理完成会有响应信息生成</li>
+<li>浏览器收到了服务器的响应数据，把之前的页面清除，展示新的数据</li>
+</ul>
+<p>现在的交互（<code>XMLHttpRequest</code>对象）：</p>
+<ul>
+<li><code>XMLHttpRequest</code>对象帮我们发送请求</li>
+<li>服务器收到请求，调用对应的servlet进行处理，servlet处理完成后会有响应信息生成</li>
+<li><code>XMLHttpResquest</code>对象收到数据（浏览器就感受不到这个数据了，对象收到了这个数据）</li>
+</ul>
+<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" class="">
+
+<p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" alt="image-20201227155116135"></p>
+<p>原生<code>jquery</code>比较麻烦，使用<code>jquery</code>包装后的Ajax</p>
+<h2 id="jquery中的Ajax"><a href="#jquery中的Ajax" class="headerlink" title="jquery中的Ajax"></a>jquery中的Ajax</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/" data-id="cklp9eznu00003cto54wfcwvo" data-title="JavaWeb 笔记" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-SQL基础教程-2th-笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -4318,431 +5125,12 @@ LockSupport::parkUntil()方法。
 
 
   
-    <article id="post-数据库面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/" class="article-date">
-  <time class="dt-published" datetime="2021-02-25T11:43:52.000Z" itemprop="datePublished">2021-02-25</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/">数据库面经</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ul>
-<li>数据库相关整理面经</li>
-</ul>
-<h1 id="1-索引"><a href="#1-索引" class="headerlink" title="1. 索引"></a>1. 索引</h1><p><strong>索引</strong>：帮助数据库高效获取数据的数据结构。索引是在基于数据库表创建的，<strong>包含一个表中某些列的值以及记录中对应的地址</strong>，并把这些值存储在一个数据结构中。</p>
-<table>
-<thead>
-<tr>
-<th align="left">分类角度</th>
-<th>索引名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">数据结构</td>
-<td>B+树、Hash索引、R-Tree等</td>
-</tr>
-<tr>
-<td align="left">存储层面</td>
-<td>聚簇索引、非聚簇索引</td>
-</tr>
-<tr>
-<td align="left">逻辑层面</td>
-<td>主键索引、普通索引、复合索引、唯一索引、空间索引等</td>
-</tr>
-</tbody></table>
-<p>Inodb存储引擎默认是B+ 树索引，MyISAM存储引擎默认是Fulltext 索引，Memory 存储引擎默认是Hash 索引</p>
-<h2 id="1-1-主键索引和非主键索引（二级索引）区别"><a href="#1-1-主键索引和非主键索引（二级索引）区别" class="headerlink" title="1.1 主键索引和非主键索引（二级索引）区别"></a>1.1 主键索引和非主键索引（二级索引）区别</h2><p>对于主键，关系数据库会自动创建主键索引，主键索引效率最高，因为主键保证绝对唯一。</p>
-<p>非主键索引的叶子节点存放的是<strong>主键的值</strong>，而主键索引的叶子节点存放的是<strong>整行数据</strong>。</p>
-<p>（二级索引：非主键索引也被称为<strong>二级索引</strong>，建立各列值与行键之间的映射关系）</p>
-<h2 id="1-2-聚簇索引-非聚簇索引"><a href="#1-2-聚簇索引-非聚簇索引" class="headerlink" title="1.2 聚簇索引 非聚簇索引"></a>1.2 聚簇索引 非聚簇索引</h2><p><strong>区别：叶节点是否存放一整行记录</strong></p>
-<p>InnoDB 主键使用的是聚簇索引，MyISAM 不管是主键索引，还是二级索引使用的都是非聚簇索引。</p>
-<p><strong>聚簇索引表：在聚簇索引表中，主键索引的叶节点存储行数据（包括主键值），二级索引的叶结点存储行的主键值</strong>。使用的是B+树作为索引的存储结构，非叶子节点都是索引关键字，但非叶子节点中的关键字中不存储对应记录的具体内容或内容地址。叶子节点上的数据是主键与具体记录(数据内容)。</p>
-<p><strong>非聚簇索引表：表数据和索引是分成两部分存储的，主键索引和二级索引存储上没有任何区别</strong>。使用的是<strong>B+树作为索引的存储结构</strong>，所有的节点都是索引，<strong>叶子节点存储的是索引+索引对应的记录的数据</strong>。</p>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/InnoDBMyISAM" class="">
-
-<h2 id="1-3-聚簇索引优缺点"><a href="#1-3-聚簇索引优缺点" class="headerlink" title="1.3 聚簇索引优缺点"></a>1.3 聚簇索引优缺点</h2><p><strong>优点</strong></p>
-<ol>
-<li>当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。</li>
-<li>当通过聚簇索引查找目标数据时理论上比非聚簇索引要快，因为非聚簇索引定位到对应主键时还要多一次目标记录寻址，即多一次I/O。</li>
-<li>使用覆盖索引扫描的查询可以直接使用页节点中的主键值。</li>
-</ol>
-<p><strong>缺点</strong></p>
-<ol>
-<li><p><strong>插入速度严重依赖于插入顺序</strong>，按照主键的顺序插入是最快的方式，否则将会出现页分裂，严重影响性能。因此，对于InnoDB表，我们一般都会定义一个自增的ID列为主键。</p>
-</li>
-<li><p><strong>更新主键的代价很高，因为将会导致被更新的行移动</strong>。因此，对于InnoDB表，我们一般定义主键为不可更新。</p>
-</li>
-<li><p><strong>二级索引访问需要两次索引查找，第一次找到主键值，第二次根据主键值找到行数据。</strong></p>
-<p>二级索引的叶节点存储的是主键值，而不是行指针（非聚簇索引存储的是指针或者说是地址），这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间。</p>
-</li>
-<li><p><strong>采用聚簇索引插入新值比采用非聚簇索引插入新值的速度要慢很多</strong>，因为插入要保证主键不能重复，判断主键不能重复，采用的方式在不同的索引下面会有很大的性能差距，聚簇索引遍历所有的叶子节点，非聚簇索引也判断所有的叶子节点，但是聚簇索引的叶子节点除了带有主键还有记录值，记录的大小往往比主键要大的多。这样就会导致聚簇索引在判定新记录携带的主键是否重复时进行昂贵的I/O代价。</p>
-</li>
-</ol>
-<h2 id="1-4-索引创建规则"><a href="#1-4-索引创建规则" class="headerlink" title="1.4 索引创建规则"></a>1.4 索引创建规则</h2><ol>
-<li>表的主键、外键必须有索引；</li>
-<li>数据量超过300的表应该有索引；</li>
-<li>经常与其他表进行连接的表，在连接字段上应该建立索引；</li>
-<li>经常出现在where子句中的字段，特别是大表的字段，应该建立索引；</li>
-<li>索引应该建在选择性高的字段上；</li>
-<li>索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引；</li>
-<li>复合索引的建立需要进行仔细分析，尽量考虑用单字段索引代替；</li>
-<li>频繁进行数据操作的表，不要建立太多的索引；</li>
-<li>删除无用的索引，避免对执行计划造成负面影响；</li>
-</ol>
-<h2 id="1-5-索引优缺点"><a href="#1-5-索引优缺点" class="headerlink" title="1.5 索引优缺点"></a>1.5 索引优缺点</h2><p><strong>优点：</strong></p>
-<ol>
-<li><strong>创建唯一性索引，保证数据库表中每一行数据的唯一性</strong></li>
-<li><strong>加快数据的检索速度</strong>，这也是创建索引的最主要的原因</li>
-<li><strong>加速表和表之间的连接</strong>，特别是在实现数据的参考完整性方面特别有意义。</li>
-<li><strong>在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。</strong></li>
-</ol>
-<p><strong>缺点：</strong></p>
-<ol>
-<li>创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加</li>
-<li>索引需要<strong>占用物理空间</strong>，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大</li>
-<li><strong>性能损失</strong>，当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的维护速度</li>
-</ol>
-<h1 id="2-优化"><a href="#2-优化" class="headerlink" title="2. 优化"></a>2. 优化</h1><h2 id="数据库优化"><a href="#数据库优化" class="headerlink" title="数据库优化"></a>数据库优化</h2><ol>
-<li>选取最适应的字段属性，字段的宽度设置的尽可能小，尽量将字段设置为not null</li>
-<li>使用连接（join）来代替子查询</li>
-<li>使用事务进行数据库连续操作，例如：<code>start transaction; xxxxx; xxxxx; commit;</code></li>
-<li>创建索引、复合索引、使用短索引</li>
-<li>不要在列上进行运算（将会在每个列上进行运算，全表扫描）</li>
-<li>不使用not in和&lt;&gt; 操作（因为会进行全表扫描）</li>
-<li>避免在where子句中使用or来连接条件，将会导致全表扫描</li>
-</ol>
-<h1 id="3-数据库锁的分类（粒度、级别）"><a href="#3-数据库锁的分类（粒度、级别）" class="headerlink" title="3. 数据库锁的分类（粒度、级别）"></a>3. 数据库锁的分类（粒度、级别）</h1><h1 id="4-B-树-跟适合做索引"><a href="#4-B-树-跟适合做索引" class="headerlink" title="4. B+树 跟适合做索引"></a>4. B+树 跟适合做索引</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xlgen157387/article/details/79450295">https://blog.csdn.net/xlgen157387/article/details/79450295</a></p>
-<p>背景知识：</p>
-<ul>
-<li><p>局部性原理与磁盘预读</p>
-<p>磁盘往往不是严格按需读取，而是每次都会预读，即使只需要一个字节，磁盘也会从这个位置开始，顺序读取一定长度的数据放入内存。</p>
-<p>依据于局部性原理：当一个数据被用到时，其附近的数据也通常也会马上被使用。由于磁盘顺序读取的效率很高，因此对于具有局部性的程序来说，预读可以提高I/O效率。</p>
-</li>
-</ul>
-<h2 id="二叉查找树-Binary-Search-Tree-BST"><a href="#二叉查找树-Binary-Search-Tree-BST" class="headerlink" title="二叉查找树 Binary Search Tree, BST"></a>二叉查找树 Binary Search Tree, BST</h2><p><strong>二叉查找树，有序二叉查找树</strong>，满足二叉查找树的一般性质，是指一棵空树具有如下性质：</p>
-<ol>
-<li><p>任意节点左子树不为空，则左子树的值均小于根节点的值；</p>
-</li>
-<li><p>任意节点右子树不为空，则右子树的值均大于于根节点的值；</p>
-</li>
-<li><p>任意节点的左右子树也分别是二叉查找树；</p>
-</li>
-<li><p>没有键值相等的节点；</p>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/78" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/78" alt="这里写图片描述"></p>
-</li>
-</ol>
-<p>上图为一个普通的二叉查找树，按照中序遍历的方式可以从小到大的顺序排序输出：2、3、5、6、7、8。</p>
-<p>对上述二叉树进行查找，如查键值为5的记录，先找到根，其键值是6，6大于5，因此查找6的左子树，找到3；而5大于3，再找其右子树；一共找了3次。如果按2、3、5、6、7、8的顺序来找同样需求3次。用同样的方法在查找键值为8的这个记录，这次用了3次查找，而顺序查找需要6次。计算平均查找次数得：顺序查找的平均查找次数为（1+2+3+4+5+6）/ 6 = 3.3次，二叉查找树的平均查找次数为（3+3+3+2+2+1）/6=2.3次。二叉查找树的平均查找速度比顺序查找来得更快。</p>
-<p><strong>局限性及应用</strong></p>
-<p>一个二叉查找树是由n个节点随机构成，所以，<strong>对于某些情况，二叉查找树会退化成一个有n个节点的线性链</strong>。如下图：</p>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/76" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/76" alt="这里写图片描述"></p>
-<p>大家看上图，如果我们的根节点选择是最小或者最大的数，那么二叉查找树就完全退化成了线性结构。上图中的平均查找次数为（1+2+3+4+5+5）/6=3.16次，和顺序查找差不多。显然这个二叉树的查询效率就很低，因此若想最大性能的构造一个二叉查找树，需要这个二叉树是平衡的（这里的平衡从一个显著的特点可以看出这一棵树的高度比上一个输的高度要大，在相同节点的情况下也就是不平衡），从而引出了一个新的定义-平衡二叉树AVL。</p>
-<h2 id="AVL树-平衡二叉树"><a href="#AVL树-平衡二叉树" class="headerlink" title="AVL树 平衡二叉树"></a>AVL树 平衡二叉树</h2><p><strong>AVL树 带有平衡条件的二叉查找树</strong></p>
-<p><strong>AVL树是带有平衡条件的二叉查找树</strong>，一般是用<strong>平衡因子差值判断是否平衡并通过旋转来实现平衡，左右子树树高不超过1</strong>，和红黑树相比，它是<strong>严格的平衡二叉树，平衡条件必须满足（所有节点的左右子树高度差不超过1）</strong>。不管我们是执行插入还是删除操作，只要不满足上面的条件，就要通过旋转来保持平衡，而旋转是非常耗时的，由此我们可以知道<strong>AVL树适合用于插入删除次数比较少，但查找多的情况</strong>。</p>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/75" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/75" alt="这里写图片描述"></p>
-<p><strong>局限性</strong></p>
-<p>由于维护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果应用场景中对插入删除不频繁，只是对查找要求较高，那么AVL还是较优于红黑树。</p>
-<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><strong>一种二叉查找树，但在每个节点增加一个存储位表示节点的颜色，可以是red或black</strong>。通过对任何一条从根到叶子的路径上各个节点着色的方式的限制，红黑树确保没有一条路径会比其它路径长出两倍。它是<strong>一种弱平衡二叉树</strong>（由于是弱平衡，可以推出，相同的节点情况下，AVL树的高度低于红黑树），相对于要求严格的AVL树来说，它的旋转次数变少，所以对于搜索、插入、删除操作多的情况下，我们就用红黑树。</p>
-<p><strong>性质</strong></p>
-<ol>
-<li>每个节点只有两种颜色：红或黑；</li>
-<li>根节点是黑的，每个叶节点(叶节点即树尾端NULL指针或NULL节点)都是黑的；</li>
-<li>如果一个节点是红的,那么它的两儿子结点都是黑的；</li>
-<li><strong>对于任一节点而言，其到叶节点树尾端NULL指针的每一条路径都包含相同数目的黑节点；</strong></li>
-<li>每条路径都包含相同的黑节点；</li>
-</ol>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/73" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/73" alt="这里写图片描述"></p>
-<h2 id="B-B-树"><a href="#B-B-树" class="headerlink" title="B B+树"></a>B B+树</h2><p><strong>B树：有序数组+平衡多叉树</strong></p>
-<p><strong>B+树：有序数组链表+平衡多叉树</strong></p>
-<p><strong>B树 平衡多路搜索树</strong></p>
-<p>为什么B类树可以进行优化磁盘读取速度呢？根据B类树的特点，构造一个多阶的B类树，然后在尽量多的在结点上存储相关的信息，保证层数尽量的少，以便后面我们可以更快的找到信息，磁盘的I/O操作也少一些，而且<strong>B类树是平衡树，每个结点到叶子结点的高度都是相同</strong>，这也保证了每个查询是稳定的。</p>
-<p>总的来说，B/B+树是为了磁盘或其它存储设备而设计的一种<strong>平衡多路查找树</strong>(相对于二叉，B树每个内节点有多个分支)，与红黑树相比，在相同的的节点的情况下，一颗B/B+树的高度远远小于红黑树的高度(在下面B/B+树的性能分析中会提到)。B/B+树上操作的时间通常由存取磁盘的时间和CPU计算时间这两部分构成，而CPU的速度非常快，所以B树的操作效率取决于访问磁盘的次数，关键字总数相同的情况下B树的高度越小，磁盘I/O所花的时间越少。</p>
-<p><strong>注意B-树就是B树，-只是一个符号。</strong></p>
-<p><strong>B树的性质</strong></p>
-<ol>
-<li>定义任意非叶子结点最多只有M个儿子，且M&gt;2；</li>
-<li>根结点的儿子数为[2, M]；</li>
-<li>除根结点以外的非叶子结点的儿子数为[M/2, M]；</li>
-<li>每个结点存放至少M/2-1（取上整）和至多M-1个关键字；（至少2个关键字）</li>
-<li>非叶子结点的关键字个数=指向儿子的指针个数-1；</li>
-<li>非叶子结点的关键字：K[1], K[2], …, K[M-1]；且K[i] &lt; K[i+1]；</li>
-<li>非叶子结点的指针：P[1], P[2], …, P[M]；其中P[1]指向关键字小于K[1]的子树，P[M]指向关键字大于K[M-1]的子树，其它P[i]指向关键字属于(K[i-1], K[i])的子树；</li>
-<li>所有叶子结点位于同一层；</li>
-</ol>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/72" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/72" alt="这里写图片描述"></p>
-<p>这里只是一个简单的B树，在实际中B树节点中关键字很多的，上面的图中比如35节点，35代表一个key(索引)，而小黑块代表的是这个key所指向的内容在内存中实际的存储位置，是一个指针。</p>
-<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p><strong>B+树是应文件系统所需而产生的一种B树的变形树（文件的目录一级一级索引，只有最底层的叶子节点（文件）保存数据）非叶子节点只保存索引，不保存实际的数据，数据都保存在叶子节点中</strong>。</p>
-<p><strong>B+树的性质(下面提到的都是和B树不相同的性质)</strong></p>
-<p>1、非叶子节点的子树指针与关键字个数相同；<br>2、非叶子节点的子树指针p[i]，指向关键字值属于[k[i],k[i+1]]的子树。(B树是开区间,也就是说B树不允许关键字重复,B+树允许重复)；<br>3、为所有叶子节点增加一个链指针；<br>4、所有关键字都在叶子节点出现(稠密索引)。 (且链表中的关键字恰好是有序的)；<br>5、非叶子节点相当于是叶子节点的索引(稀疏索引)，叶子节点相当于是存储(关键字)数据的数据层；</p>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/70" class="">
-
-<p><img src="%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/70" alt="这里写图片描述"></p>
-<p>非叶子节点（比如5，28，65）只是一个key（索引），实际的数据存在叶子节点上（5，8，9）才是真正的数据或指向真实数据的指针。</p>
-<p><strong>应用</strong></p>
-<p>1、B和B+树主要用在文件系统以及数据库做索引，比如MySQL；</p>
-<h2 id="B-B-树性能分析"><a href="#B-B-树性能分析" class="headerlink" title="B/B+树性能分析"></a>B/B+树性能分析</h2><p>n个节点的平衡二叉树的高度为H(即logn)，而n个节点的B/B+树的高度为logt((n+1)/2)+1；<br>　<br>若要作为内存中的查找表，B树却不一定比平衡二叉树好，尤其当m较大时更是如此。因为查找操作CPU的时间在B-树上是O(mlogtn)=O(lgn(m/lgt))，而m/lgt&gt;1；所以m较大时O(mlogtn)比平衡二叉树的操作时间大得多。因此在内存中使用B树必须取较小的m。（通常取最小值m=3，此时B-树中每个内部结点可以有2或3个孩子，这种3阶的B-树称为2-3树）。</p>
-<h2 id="为什么说B-树比B树更适合数据库索引？"><a href="#为什么说B-树比B树更适合数据库索引？" class="headerlink" title="为什么说B+树比B树更适合数据库索引？"></a>为什么说B+树比B树更适合数据库索引？</h2><ol>
-<li> <strong>B+树的磁盘读写代价更低</strong>：B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多，一次性读入内存的需要查找的关键字也就越多，相对IO读写次数就降低了。</li>
-<li> <strong>B+树的查询效率更加稳定</strong>：由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</li>
-<li> 由于B+树的数据都存储在叶子结点中，分支结点均为索引，方便扫库，只需要扫一遍叶子结点即可，但是B树因为其分支结点同样存储着数据，我们要找到具体的数据，需要进行一次中序遍历按序来扫，所以B+树更加适合在区间查询的情况，所以通常B+树用于数据库索引。</li>
-</ol>
-<p>PS：我在知乎上看到有人是这样说的,我感觉说的也挺有道理的：</p>
-<p>他们认为<strong>数据库索引采用B+树的主要原因是：B树在提高了IO性能的同时并没有解决元素遍历的效率低下的问题，正是为了解决这个问题，B+树应用而生。B+树只需要去遍历叶子节点就可以实现整棵树的遍历。而且在数据库中基于范围的查询是非常频繁的，而B树不支持这样的操作或者说效率太低。</strong></p>
-<h2 id="B-树索引为什么更适合作为索引的结构"><a href="#B-树索引为什么更适合作为索引的结构" class="headerlink" title="B+树索引为什么更适合作为索引的结构"></a>B+树索引为什么更适合作为索引的结构</h2><p><strong>Hash索引</strong></p>
-<p>只有Memory存储引擎显示支持Hash索引，是Memory表的默认索引类型。Hash索引把数据以hash形式组织起来，因此当查找某一条记录的时候，速度很快。但是，每个键只对应一个值，而且是散列的方式分布。所以，它并不支持范围查找和排序等功能。</p>
-<p><strong>B+树索引</strong></p>
-<p>是Innodb与MyISAM存储引擎默认的索引类型。B+树索引在查找单条记录的速度比不上Hash索引，但是因为更适合排序操作。</p>
-<ul>
-<li><p>带顺序访问指针的B+树</p>
-<p>B+树所有索引数据都在叶子节点上，并且增加了顺序访问指针，每个叶子节点都有指向相邻叶子节点的指针。提高了区间效率。</p>
-<p>例如：查询key为18到49的所有数据记录，当找到18后，只要顺着节点和指针顺序遍历就可以以此向访问到所有数据节点，极大提高区间查询效率。</p>
-</li>
-<li><p>减少了磁盘I/O读取</p>
-<p>数据库系统的设计巧妙利用了磁盘预读原理，将每一个节点的大小设置为等于一个页，这样每个节点需要一次I/O就可以完全载入。</p>
-</li>
-</ul>
-<p><strong>AVL 平衡二叉树不适合做索引的原因</strong></p>
-<p>因为索引是存在于索引文件中，其是存储与磁盘中的。因为索引通常很大，无法一次将全部索引加载到内存中，每次只能从磁盘中读取一个磁盘页的数据到内存中。</p>
-<p>平衡二叉树（AVL树）在逻辑结构上是平衡二叉树，物理实现是数组。然后由于在逻辑结构上相近的节点（例如父子节点）在物理结构上可能会相差很远。因此，每次读取的磁盘页的数据很多都是无用的数据。因此，查找过程中需要多次进行磁盘读取操作。</p>
-<p><strong>红黑树不适合做索引的原因</strong>：</p>
-<p>红黑树（平衡二叉树）结构，每次磁盘预读中很多数据无法使用，没有利用好磁盘预读的提供的数据；并且相对于B树而言，所进行的磁盘I/O操作更多。</p>
-<p><strong>B树做索引</strong></p>
-<p>B树的每个节点可以存储多个关键字，<u>将节点大小设置为磁盘页的大小</u>，充分利用磁盘预读的功能。每次读取磁盘页时就会读取一整个节点。也正因为每个节点存储着非常多的关键字，树的深度就会非常小。进而要执行的磁盘读取操作次数就会非常少，更多的是在内存中对读取进来的数据进行查找。</p>
-<p>B树的查询主要发生在内存中，而平衡二叉树的查询，则发生在磁盘读取中，因此，虽然B树查询的次数不比平衡二叉树的次数少，但是相比于磁盘I/O速度，内存中比较的耗时可以忽略不记。</p>
-<p><strong>B+树更适合作为索引</strong></p>
-<p>B树：有序数组+平衡多叉树</p>
-<p>B+树：有序数组链表+平衡多叉树</p>
-<p>B+树的关键字全部存放在叶子节点中，非叶子节点用来做索引，而叶子节点中有一个指针指向一下个叶子节点。做这个优化的目的是为了提高区间访问的性能（适合扫库和范围查询）。而正是这个特性决定了B+树更适合用来存储外部数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">“B+树还有一个最大的好处，方便扫库，B树必须用中序遍历的方法按序扫库，而B+树直接从叶子结点挨个扫一遍就完了，B+树支持range-query非常方便，而B树不支持。这是数据库选用B+树的最主要原因。 </span><br><span class="line">比如要查 5-10之间的，B+树一把到5这个标记，再一把到10，然后串起来就行了，B树就非常麻烦。B树的好处，就是成功查询特别有利，因为树的高度总体要比B+树矮。不成功的情况下，B树也比B+树稍稍占一点点便宜。 </span><br><span class="line">B树比如你的例子中查，17的话，一把就得到结果了， </span><br><span class="line">有很多基于频率的搜索是选用B树，越频繁query的结点越往根上走，前提是需要对query做统计，而且要对key做一些变化。 </span><br><span class="line">另外B树也好B+树也好，根或者上面几层因为被反复query，所以这几块基本都在内存中，不会出现读磁盘IO，一般已启动的时候，就会主动换入内存。”</span><br></pre></td></tr></table></figure>
-
-<h1 id="5-视图"><a href="#5-视图" class="headerlink" title="5. 视图"></a>5. 视图</h1><p>虚拟存在的表，逻辑表，本身不包含数据，作为一个select语句保存在数据字典中。通过视图可以展现基表（base table 基表：用来创建视图的表）的部分数据，视图数据来自定义视图的查询中使用的表，使用视图动态生成。</p>
-<h2 id="5-1-视图优点"><a href="#5-1-视图优点" class="headerlink" title="5.1 视图优点"></a>5.1 视图优点</h2><ul>
-<li>简单：使用视图的用户完全不需要关心后面对应的表的结构、关联条件和筛选条件，对用户来说已经是过滤好的复合条件的结果集。</li>
-<li>安全：使用视图的用户只能访问他们被允许查询的结果集，对表的权限管理并不能限制到某个行某个列，但是通过视图就可以简单的实现。</li>
-<li>数据独立：一旦视图的结构确定了，可以屏蔽表结构变化对用户的影响，源表增加列对视图没有影响；源表修改列名，则可以通过修改视图来解决，不会造成对访问者的影响。</li>
-</ul>
-<h2 id="5-2-视图创建-查看-更改"><a href="#5-2-视图创建-查看-更改" class="headerlink" title="5.2 视图创建 查看 更改"></a>5.2 视图创建 查看 更改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create [or replace][algorithm&#x3D;&#123;UNDIFINDED | MERGE | TEMPTABLE&#125;]</span><br><span class="line">view view_name [(column_names)]</span><br><span class="line">as select_statement</span><br><span class="line">[WITH [CASCADED | LOCAL] CHECK OPTION]</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>or replace :表示替换已有视图</p>
-</li>
-<li><p>algorithm：表示视图选择算法，默认算法是undefined，merger合并，template临时表</p>
-</li>
-<li><p>select_statement：表示select语句</p>
-</li>
-<li><p>[WITH [CASCADED | LOCAL] CHECK OPTION]：表示视图在更新时保证在视图的权限范围之内</p>
-<p>cascade是默认值，表示更新视图的时候，要满足视图和表的相关条件</p>
-<p>local表示更新视图的时候，要满足该视图定义的一个条件即可</p>
-<p>TIPS：推荐使用WHIT [CASCADED|LOCAL] CHECK OPTION选项，可以保证数据的安全性</p>
-</li>
-</ol>
-<h3 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create view V_F_player;</span><br></pre></td></tr></table></figure>
-
-<h3 id="视图更改"><a href="#视图更改" class="headerlink" title="视图更改"></a>视图更改</h3><p>create or replace view 语句修改视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create or replace view view_name as select 语句;</span><br></pre></td></tr></table></figure>
-
-<p>alter语句修改视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ALTER</span><br><span class="line">    [ALGORITHM &#x3D; &#123;UNDEFINED | MERGE | TEMPTABLE&#125;]</span><br><span class="line">    [DEFINER &#x3D; &#123; user | CURRENT_USER &#125;]</span><br><span class="line">    [SQL SECURITY &#123; DEFINER | INVOKER &#125;]</span><br><span class="line">VIEW view_name [(column_list)]</span><br><span class="line">AS select_statement</span><br><span class="line">    [WITH [CASCADED | LOCAL] CHECK OPTION]</span><br></pre></td></tr></table></figure>
-
-<p>修改视图是指修改数据库中已存在的表的定义，当基表的某些字段发生改变时，可以通过修改视图来保持视图和基本表之间一致</p>
-<h3 id="视图删除"><a href="#视图删除" class="headerlink" title="视图删除"></a>视图删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drop view [IF EXISTS]</span><br><span class="line">view_name[,view_name]...</span><br></pre></td></tr></table></figure>
-
-<h1 id="6-事务级别"><a href="#6-事务级别" class="headerlink" title="6. 事务级别"></a>6. 事务级别</h1><h2 id="6-1-事务并发可能产生的情况"><a href="#6-1-事务并发可能产生的情况" class="headerlink" title="6.1 事务并发可能产生的情况"></a>6.1 事务并发可能产生的情况</h2><ul>
-<li>脏读（Dirty Read）：一个事务读到了另一个未提交事务修改过的数据</li>
-<li>不可重复读（Non-Repeatable Read）：(强调数据的修改）一个事务只能读到另一个已经提交的事务修改过的数据，并且其他事务每对该数据进行一次修改并提交后，该事务都能查询得到最新值。</li>
-<li>幻读（Phantom）：（强调数据条数的变化，新增或删除）一个事务先根据某些条件查询出一些记录，之后另一个事务又向表中插入了符合这些条件的记录，原先的事务再次按照该条件查询时，能把另一个事务插入的记录也读出来。（幻读在读未提交、读已提交、可重复读隔离级别都可能会出现）</li>
-<li>丢失更新：两个事务同时读取同一条记录，A先修改记录，B也修改记录（B是不知道A修改过），B提交数据后B的修改结果覆盖了A的修改结果。</li>
-</ul>
-<h2 id="6-2-事务的隔离级别"><a href="#6-2-事务的隔离级别" class="headerlink" title="6.2 事务的隔离级别"></a>6.2 事务的隔离级别</h2><p><strong>四种隔离级别</strong>：<strong>未提交读、已提交读、可重复读、可串行化。</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>隔离级别</strong></th>
-<th><strong>脏读</strong></th>
-<th><strong>丢失更新</strong></th>
-<th><strong>不可重复读</strong></th>
-<th><strong>幻读</strong></th>
-<th><strong>并发模型</strong></th>
-<th><strong>更新冲突检测</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>未提交读：Read Uncommited</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-<td>悲观</td>
-<td>否</td>
-</tr>
-<tr>
-<td>已提交读：Read commited</td>
-<td>否</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-<td>悲观</td>
-<td>否</td>
-</tr>
-<tr>
-<td>可重复读：Repeatable Read</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>是</td>
-<td>悲观</td>
-<td>否</td>
-</tr>
-<tr>
-<td>可串行化：Serializable</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>否</td>
-<td>悲观</td>
-<td>否</td>
-</tr>
-</tbody></table>
-<ol>
-<li><strong>未提交读：隔离级别最低，允许脏读。在读取数据时不会检查或使用任何锁。（产生脏读、丢失更新、不可重复读、幻读）</strong>一个事务正在处理某一个数据，对其进行操作，但是同时没有提交事务，允许另一个事务进行访问。也就是说一个事务可以访问另一个事务正在处理的数据。</li>
-<li><strong>已提交读</strong>：<strong>只读取提交的数据并等待其他事务释放排他锁。(解决脏读，不能解决丢失更新、不可重复读、幻读）</strong>只能读取别人提交后的值，事务进行的中间值不会读取到</li>
-<li><strong>可重复读</strong>：<strong>会保持共享锁直至事务结束。（不能解决幻读）</strong>事务处理过程中多次读取同一个数据的时候，这个值不会发生改变，其值都和第一次查询到的数据是一致的</li>
-<li><strong>可串行化</strong>：<strong>不仅会锁定所影响的数据，而且锁定范围</strong>。是最严格的隔离级别，要求所有的事务都被串行执行，即事务只能一个接一个的进行处理，不能并发执行</li>
-</ol>
-<h1 id="7-ACID"><a href="#7-ACID" class="headerlink" title="7. ACID"></a>7. ACID</h1><p><strong>原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</strong></p>
-<p><strong>原子性</strong>：操作必须全部完成或者不完成，不允许只执行一半。</p>
-<p><strong>一致性</strong>：最终目标是一致性，确保数据库从一个状态成功转换为另一个状态。事务开始之前和事务结束之后，数据库的完整性约束没有被破坏。数据库事务不能破坏数据的完整性和义务逻辑上的一致性。</p>
-<p><strong>隔离性</strong>：线程安全，在并发事务下，多个事务都有自己的事务空间，相互独立不干扰。一个事务中是感觉不到其他并发事务的存在。</p>
-<p><strong>持久性</strong>：当事务完成后，该事务对数据库所作的更改便持久的保存在数据库中，并不会被回滚，事务一旦被提交，则持久化保存在数据库中。当进行硬盘修改的时候，发生宕机、停电，根据日志进行数据的回滚。</p>
-<h1 id="8-左-右-全连接"><a href="#8-左-右-全连接" class="headerlink" title="8 左/右/全连接"></a>8 左/右/全连接</h1><h2 id="8-1-内连接"><a href="#8-1-内连接" class="headerlink" title="8.1 内连接"></a>8.1 内连接</h2><p>内连接：只返回满足连接条件的数据。</p>
-<h3 id="inner-join-或join-等值连接或者内连接"><a href="#inner-join-或join-等值连接或者内连接" class="headerlink" title="inner join 或join 等值连接或者内连接"></a>inner join 或join 等值连接或者内连接</h3><p>只返回两个表中连接字段相等的行（达到匹配条件的行）。    JOIN: 如果表中有至少一个匹配，则返回行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select empno,ename,sal,dname,loc from emp,dept</span><br><span class="line">where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)</span><br><span class="line"> </span><br><span class="line">select empno,ename,job,sal,dept.deptno,dname,loc</span><br><span class="line">from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-2-外连接"><a href="#8-2-外连接" class="headerlink" title="8.2 外连接"></a>8.2 外连接</h2><p>外连接：除了<strong>返回满足连接条件的行以外，还返回左（右）表中，不满足条件的行</strong>，称为左（右）连接</p>
-<h3 id="left-join-左连接"><a href="#left-join-左连接" class="headerlink" title="left join 左连接"></a>left join 左连接</h3><p>返回包括<strong>左表中的所有记录和右表中连接字段相等的记录</strong>。    </p>
-<p>left join: 即使右表中没有匹配，也从左表返回所有的行（左表中的所有行都存在）</p>
-<h3 id="right-join-右连接"><a href="#right-join-右连接" class="headerlink" title="right join 右连接"></a>right join 右连接</h3><p>返回包括<strong>右表中的所有记录和左表中连接字段相等的记录</strong>。    </p>
-<p>right join: 即使左表中没有匹配，也从右表返回所有的行（右表中的所有行都存在）</p>
-<h3 id="full-join-全外连接"><a href="#full-join-全外连接" class="headerlink" title="full join 全外连接"></a>full join 全外连接</h3><p>返回<strong>左右表中所有的记录和左右表中连接字段相等的记录</strong>。    </p>
-<p>full join: 只要其中一个表中存在匹配，就返回行 </p>
-<h1 id="9-具体操作示例"><a href="#9-具体操作示例" class="headerlink" title="9. 具体操作示例"></a>9. 具体操作示例</h1><h2 id="9-1-统计60分以上每一个分数有多少人"><a href="#9-1-统计60分以上每一个分数有多少人" class="headerlink" title="9.1 统计60分以上每一个分数有多少人"></a>9.1 统计60分以上每一个分数有多少人</h2><p><strong>表结构</strong>student_info</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>profession</th>
-<th>score</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>姓名</td>
-<td>专业</td>
-<td>分数</td>
-</tr>
-</tbody></table>
-<p><strong>按分数段统计</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">count(case when score between 60 and 70 then 1 end) as 60-70,</span><br><span class="line">count(case when score between 70 and 80 then 1 end) as 70-80,</span><br><span class="line">count(case when score between 80 and 90 then 1 end) as 80-90,</span><br><span class="line">count(case when score between 90 and 100 then 1 end) as 90-100</span><br><span class="line">from student_info;</span><br></pre></td></tr></table></figure>
-
-<p><strong>按分数段和专业统计</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">count(case when score between 60 and 70 then 1 end) as 60-70,</span><br><span class="line">count(case when score between 70 and 80 then 1 end) as 70-80,</span><br><span class="line">count(case when score between 80 and 90 then 1 end) as 80-90,</span><br><span class="line">count(case when score between 90 and 100 then 1 end) as 90-100</span><br><span class="line">from student_info</span><br><span class="line">group by profession;</span><br></pre></td></tr></table></figure>
-
-<h2 id="9-2-mysql表新添加一列"><a href="#9-2-mysql表新添加一列" class="headerlink" title="9.2 mysql表新添加一列"></a>9.2 mysql表新添加一列</h2><p>在这个表增加一列。当然可以新建表建立联系满足需求。但就仅新增一列这个问题，可以有以下操作：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> ...  <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> .... </span><br></pre></td></tr></table></figure>
-
-<p><strong>在表的最后一列增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> </span><br></pre></td></tr></table></figure>
-
-<p><strong>在指定的位置增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> AFTER `column_name`;</span><br></pre></td></tr></table></figure>
-
-<p><strong>在第一列增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
-
-<h1 id="10-Mysql数据库连接池"><a href="#10-Mysql数据库连接池" class="headerlink" title="10. Mysql数据库连接池"></a>10. Mysql数据库连接池</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数据库连接池（Connection pooling）是程序启动时建立足够的数据库连接，并将这些连接组成一个连接池，由程序动态地对池中的连接进行申请，使用，释放。</p>
-<h2 id="传统的连接机制和数据库连接池运行机制"><a href="#传统的连接机制和数据库连接池运行机制" class="headerlink" title="传统的连接机制和数据库连接池运行机制"></a>传统的连接机制和数据库连接池运行机制</h2><p>传统统链接:   一般来说，Java应用程序访问数据库的过程是：</p>
-<ol>
-<li>装载数据库驱动程序；</li>
-<li>通过JDBC建立数据库连接；</li>
-<li>访问数据库，执行SQL语句；</li>
-<li>断开数据库连接。</li>
-</ol>
-<p>数据库连接池的机制：</p>
-<ol>
-<li>程序初始化时创建连接池</li>
-<li>使用时向连接池申请可用连接</li>
-<li>使用完毕，将连接返还给连接池</li>
-<li>程序退出时，断开所有连接，并释放资源</li>
-</ol>
-<img src="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/137084-20180524194122461-804315041.png" class="">
-
-<p><strong>数据库连接池负责分配,管理和释放数据库连接,它允许应用程序重复使用一个现有的数据库连接,而不是重新建立一个</strong>。</p>
-<p>数据库连接池在初始化时将创建一定数量的数据库连接放到连接池中, 这些数据库连接的数量是由<strong>最小数据库连接数</strong>来设定的.无论这些数据库连接是否被使用,连接池都将一直保证至少拥有这么多的连接数量.连接池的<strong>最大数据库连接数量</strong>限定了这个连接池能占有的最大连接数,当应用程序向连接池请求的连接数超过最大连接数量时,这些请求将被加入到等待队列中.</p>
-<p><strong>DB连接池必须要确保某一时间内一个 conn 只能分配给一个线程。不同 conn 的事务是相互独立的。</strong> （不同两个线程共用一个连接Connection对象）</p>
-<h2 id="连接池的优势"><a href="#连接池的优势" class="headerlink" title="连接池的优势"></a>连接池的优势</h2><ol>
-<li>减少创建连接的时间。连接池中的连接是已准备好的、可重复使用的，获取后可以直接访问数据库，因此减少了连接创建的次数和时间。</li>
-<li>简化编程模式。当使用连接池时，每一个单独的线程能够像创建一个自己的JDBC连接一样操作，允许用户直接使用JDBC编程技术。</li>
-<li>控制资源的使用。如果不使用连接池，每次访问数据库都需要创建一个连接，这样系统的稳定性受系统连接需求影响很大，很容易产生资源浪费和高负载异常。连接池能够使性能最大化，将资源利用控制在一定的水平之下。连接池能控制池中的连接数量，增强了系统在大量用户应用时的稳定性。</li>
-</ol>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>工作原理主要由三部分组成，分别为<strong>连接池的建立</strong>、<strong>连接池中连接的使用管理</strong>、<strong>连接池的关闭</strong>。</p>
-<p>第一、连接池的建立。一般在系统初始化时，连接池会根据系统配置建立，并在池中创建了几个连接对象，以便使用时能从连接池中获取。连接池中的连接不能随意创建和关闭，这样避免了连接随意建立和关闭造成的系统开销。Java中提供了很多容器类可以方便的构建连接池，例如Vector、Stack等。</p>
-<p>第二、连接池的管理。连接池管理策略是连接池机制的核心，连接池内连接的分配和释放对系统的性能有很大的影响。其管理策略是：</p>
-<ul>
-<li><p>当客户请求数据库连接时，首先查看连接池中是否有空闲连接，如果存在空闲连接，则将连接分配给客户使用；如果没有空闲连接，则查看当前所开的连接数是否已经达到最大连接数，如果没达到就重新创建一个连接给请求的客户；如果达到就按设定的最大等待时间进行等待，如果超出最大等待时间，则抛出异常给客户。</p>
-</li>
-<li><p>当客户释放数据库连接时，先判断该连接的引用次数是否超过了规定值，如果超过就从连接池中删除该连接，否则保留为其他客户服务。</p>
-<p>该策略保证了数据库连接的有效复用，避免频繁的建立、释放连接所带来的系统资源开销。</p>
-</li>
-</ul>
-<p>第三、连接池的关闭。当应用程序退出时，关闭连接池中所有的连接，释放连接池相关的资源，该过程正好与创建相反。</p>
-<h1 id="11-数据库锁"><a href="#11-数据库锁" class="headerlink" title="11. 数据库锁"></a>11. 数据库锁</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/" data-id="ckllmu0jp0003wcto7mohhalq" data-title="数据库面经" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -4752,7 +5140,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb%E7%9B%B8%E5%85%B3/">JavaWeb相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a></li></ul>
     </div>
   </div>
 
@@ -4762,7 +5150,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
     </div>
   </div>
 
@@ -4772,7 +5160,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
+      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
     </div>
   </div>
 
@@ -4794,6 +5182,10 @@ LockSupport::parkUntil()方法。
       <ul>
         
           <li>
+            <a href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">JavaWeb 笔记</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/">SQL基础教程 2th 笔记</a>
           </li>
         
@@ -4807,10 +5199,6 @@ LockSupport::parkUntil()方法。
         
           <li>
             <a href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/">网络面经</a>
           </li>
         
       </ul>
