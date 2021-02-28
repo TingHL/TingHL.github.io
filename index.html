@@ -71,6 +71,371 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-设计模式面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-28T09:30:28.000Z" itemprop="datePublished">2021-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/">设计模式面经</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><ul>
+<li>设计模式相关面经</li>
+<li></li>
+</ul>
+<h1 id="1-单例"><a href="#1-单例" class="headerlink" title="1. 单例"></a>1. 单例</h1><p><u>确保一个类仅有一个实例，并提供一个访问它的全局访问点</u></p>
+<ol>
+<li><p>只有<code>private</code> 构造方法，确保外部无法实例化</p>
+</li>
+<li><p>通过<code>private static</code>变量持有唯一实例，保证全局唯一性</p>
+</li>
+<li><p>通过<code>public static</code>方法返回此唯一实例，使外部调用方法能获取到实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="comment">//静态字段引用唯一实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE=<span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//通过静态方法返回实例</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//private 构造方法保证外部无法实例化</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>单例就是所有的请求都用一个对象来处理，比如我们常用的service和dao层的对象通常都是单例的，而多例则指每个请求用一个新的对象来处理，比如action; </p>
+<ol>
+<li>单例模式和多例模式属于对象模式。</li>
+<li>单例模式的对象在整个系统中只有一份，多例模式可以有多个实例。</li>
+<li>它们都不对外提供构造方法，即构造方法都为私有。</li>
+</ol>
+<h1 id="2-多例"><a href="#2-多例" class="headerlink" title="2. 多例"></a>2. 多例</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/" data-id="ckloyep5e00003kto1qm8hnr5" data-title="设计模式面经" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-28T09:25:29.000Z" itemprop="datePublished">2021-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/">Linux面经</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ul>
+<li>Linux相关的面经</li>
+<li></li>
+</ul>
+<h1 id="1-Linux命令行"><a href="#1-Linux命令行" class="headerlink" title="1. Linux命令行"></a>1. Linux命令行</h1><h2 id="1-1-查看进程"><a href="#1-1-查看进程" class="headerlink" title="1.1 查看进程"></a>1.1 查看进程</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ps</span> aux</span><br><span class="line"></span><br><span class="line"><span class="built_in">ps</span>命令查找与进程相关的PID号：</span><br><span class="line">    <span class="built_in">ps</span> a 显示现行终端机下的所有程序，包括其他用户的程序。</span><br><span class="line">    <span class="built_in">ps</span> <span class="literal">-A</span> 显示所有程序。</span><br><span class="line">    <span class="built_in">ps</span> c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</span><br><span class="line">    <span class="built_in">ps</span> <span class="literal">-e</span> 此参数的效果和指定<span class="string">&quot;A&quot;</span>参数相同。</span><br><span class="line">    <span class="built_in">ps</span> e 列出程序时，显示每个程序所使用的环境变量。</span><br><span class="line">    <span class="built_in">ps</span> f 用ASCII字符显示树状结构，表达程序间的相互关系。</span><br><span class="line">    <span class="built_in">ps</span> <span class="literal">-H</span> 显示树状结构，表示程序间的相互关系。</span><br><span class="line">    <span class="built_in">ps</span> <span class="literal">-N</span> 显示所有的程序，除了执行<span class="built_in">ps</span>指令终端机下的程序之外。</span><br><span class="line">    <span class="built_in">ps</span> s 采用程序信号的格式显示程序状况。</span><br><span class="line">    <span class="built_in">ps</span> S 列出程序时，包括已中断的子程序资料。</span><br><span class="line">    <span class="built_in">ps</span> <span class="literal">-t</span>&lt;终端机编号&gt; 指定终端机编号，并列出属于该终端机的程序的状况。</span><br><span class="line">    <span class="built_in">ps</span> u 以用户为主的格式来显示程序状况。</span><br><span class="line">    <span class="built_in">ps</span> x 显示所有程序，不以终端机来区分。</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-杀死进程"><a href="#1-2-杀死进程" class="headerlink" title="1.2 杀死进程"></a>1.2 杀死进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 xxx </span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-查看端口"><a href="#1-3-查看端口" class="headerlink" title="1.3 查看端口"></a>1.3 查看端口</h2><h4 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:端口号</span><br><span class="line">lsof -i &#x2F;&#x2F;需要root权限</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/image-20201004234034814.png" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/image-20201004234034814.png" alt="image-20201004234034814"></p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/lsof.png" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/lsof.png" alt="img"></p>
+<h4 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h4><p><strong>netstat -tunlp</strong> 用于显示 tcp，udp 的端口和进程等相关情况。</p>
+<p>netstat 查看端口占用语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep 端口号</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-t (tcp) 仅显示tcp相关选项</li>
+<li>-u (udp)仅显示udp相关选项</li>
+<li>-n 拒绝显示别名，能显示数字的全部转化为数字</li>
+<li>-l 仅列出在Listen(监听)的服务状态</li>
+<li>-p 显示建立相关链接的程序名</li>
+</ul>
+<p>例如查看 8000 端口的情况，使用以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># netstat -tunlp | grep 8000</span><br><span class="line">tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      26993&#x2F;nodejs   </span><br></pre></td></tr></table></figure>
+
+<p>更多命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp   &#x2F;&#x2F;查看当前所有tcp端口</span><br><span class="line">netstat -ntulp | grep 80   &#x2F;&#x2F;查看所有80端口使用情况</span><br><span class="line">netstat -ntulp | grep 3306   &#x2F;&#x2F;查看所有3306端口使用情况</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-4-查看日志"><a href="#1-4-查看日志" class="headerlink" title="1.4 查看日志"></a>1.4 查看日志</h2><ol>
+<li><p>tail</p>
+<p>显示一个文件最后的几行</p>
+<p>-n 显示行号，相当于nl命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail -100f test.log //实时监控100行日志</span><br><span class="line">tail -n 10 test.log  //查询日志尾部最后10行的日志</span><br><span class="line">tail -n +10 test.log //查询10行之后的所有日志</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>head</p>
+<p>显示文件的前几行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">head -n 10 test.log //查询日志文件中的头10行日志</span><br><span class="line">head -n +10 test.log //查询日志文件除了最后10行的其他所有日志</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cat</p>
+<p>concatenate files and print on the standard output</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n test.log | grep &quot;debug&quot; //查询关键字的日志</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tac</p>
+<p>concatenate and print files in reverse</p>
+</li>
+<li><p>echo</p>
+<p>在标准输出上显示一段字符</p>
+</li>
+<li><p>more</p>
+</li>
+<li><p>sed</p>
+<p>可以查找日志文件特定的一段，根据时间的一个范围查询，可以按照行号和时间范围查询</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;5,10p&#x27; filename //按照行号，只查看文件的第5行到第10行</span><br><span class="line"></span><br><span class="line">sed -n &#x27;/2014-12-17 16:17:20/,/2014-12-17 16:17:36/p&#x27; test.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>less</p>
+</li>
+</ol>
+<h2 id="1-5-chown"><a href="#1-5-chown" class="headerlink" title="1.5 chown"></a>1.5 <strong>chown</strong></h2><p><strong>更改文件的所有者或组。</strong>命令由单词change owner组合而成。</p>
+<p><strong>1，更改文件的所有者：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown jim program.c </span><br><span class="line">文件 program.c 的所有者更改为 jim。作为所有者 jim 可以使用 chmod 命令允许或拒绝其他用户访问 program.c。</span><br></pre></td></tr></table></figure>
+
+<p><strong>2，更改目录的所有者：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chown -R john:build &#x2F;tmp&#x2F;src</span><br><span class="line"></span><br><span class="line">john:build 所有者：所在组</span><br><span class="line"></span><br><span class="line">将目录 &#x2F;tmp&#x2F;src 中所有文件的所有者和组更改为用户 john 和组 build</span><br><span class="line">- R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。</span><br><span class="line">- v 显示chown命令所做的工作。</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-chmod"><a href="#1-6-chmod" class="headerlink" title="1.6 chmod"></a>1.6 chmod</h2><p>改变文件和目录的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-cfvR] [--help] [--version] mode file ...</span><br></pre></td></tr></table></figure>
+
+<p>说明 : Linux/Unix 的文件权限分为三级 : <strong>拥有者、群组、其他</strong>。利用 chmod 控制文件如何被他人所调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">参数 :</span><br><span class="line">mode : 权限设定字串，格式如下 : [ugoa...][[+-&#x3D;][rwxX]…][,...]，其中</span><br><span class="line">u 表示该档案的拥有者，g 表示与该档案的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。</span><br><span class="line"></span><br><span class="line">+ 表示增加权限、- 表示取消权限、&#x3D; 表示唯一设定权限。</span><br><span class="line"></span><br><span class="line">r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。</span><br><span class="line">-c : 若该档案权限确实已经更改，才显示其更改动作</span><br><span class="line">-f : 若该档案权限无法被更改也不要显示错误讯息</span><br><span class="line">-v : 显示权限变更的详细资料</span><br><span class="line">-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更)</span><br><span class="line">–help : 显示辅助说明</span><br><span class="line">–version : 显示版本</span><br></pre></td></tr></table></figure>
+
+<p>范例 :将档案 file1.txt 设为所有人皆可读取 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod ugo+r file1.txt </span><br><span class="line"></span><br><span class="line">chmod a+r file1.txt</span><br></pre></td></tr></table></figure>
+
+<p>将档案 file1.txt 与 file2.txt 设为该档案拥有者 与其所属同一个群体者可写入，但其他以外的人则不可写入 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod ug+w,o-w file1.txt file2.txt </span><br></pre></td></tr></table></figure>
+
+<p>将 ex1.py 设定为只有该档案拥有者可以执行 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x ex1.py </span><br></pre></td></tr></table></figure>
+
+<p>将目前目录下的所有档案与子目录皆设为任何人可读取 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R a+r *</span><br></pre></td></tr></table></figure>
+
+<p><strong>chmod也可以用数字来表示权限如 chmod 777 file</strong></p>
+<p><strong>语法为：chmod abc file</strong></p>
+<p><strong>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。</strong></p>
+<p>r=4，w=2，x=1 若要rwx属性则4+2+1=7； 若要rw-属性则4+2=6； 若要r-x属性则4+1=5。 范例： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod a=rwx file </span><br><span class="line">chmod 777 file </span><br><span class="line">chmod ug=rwx,o=x file </span><br><span class="line">chmod 771 file </span><br></pre></td></tr></table></figure>
+
+<p>若用chmod 4755 filename可使此程序具有root的权限</p>
+<p><strong>nohup</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不挂断执行命令</span><br><span class="line"></span><br><span class="line">nohup Command [Arg ...] [&amp;]</span><br><span class="line"></span><br><span class="line">无论是否将 nohup 命令的输出重定向到终端，输出都将附加到当前目录的 nohup.out 文件中。</span><br><span class="line">如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。</span><br><span class="line">如果没有文件能创建或打开以用于追加，那么 Command 参数指定的命令不可调用。</span><br></pre></td></tr></table></figure>
+
+<p><strong>scp</strong></p>
+<p>Linux之间复制文件和目录</p>
+<p><strong>语法</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp [可选参数] file_source file_target</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">-C 允许压缩</span><br><span class="line">-p 保留源文件</span><br><span class="line">-r 递归复制整个目录</span><br></pre></td></tr></table></figure>
+
+<p>从本地复制到远程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder</span><br></pre></td></tr></table></figure>
+
+<p>从远程复制到本地</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp remote_username@remote_ip:remote_folder local_folder	</span><br></pre></td></tr></table></figure>
+
+<p><strong>wget</strong></p>
+<p>下载文件</p>
+<p><strong>ifconfig</strong></p>
+<p>查看和配置Linux系统的网络接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看所有网络接口及其状态</span><br><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>whereis</strong></p>
+<p>查看某些命令的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查找命令位置</span><br><span class="line">whereis ls</span><br></pre></td></tr></table></figure>
+
+<p><strong>tail</strong></p>
+<p>显示文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 默认显示文件最后10行</span><br><span class="line">tail filename.txt</span><br><span class="line"></span><br><span class="line"># -n 指定要显示的行数</span><br><span class="line">tail -n filename.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>cat</strong></p>
+<p>查看文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看多个文件的内容</span><br><span class="line">cat file1 file2</span><br><span class="line"></span><br><span class="line"># -n 在每行的前面加上行号</span><br><span class="line">cat -n file1 </span><br></pre></td></tr></table></figure>
+
+<p><strong>less</strong></p>
+<p>显示文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 显示大型日志文件内容</span><br><span class="line">less huge-log-file.log</span><br></pre></td></tr></table></figure>
+
+<p><strong>tee</strong></p>
+<p><strong>more</strong></p>
+<p><strong>dd</strong></p>
+<p><strong>fdisk</strong></p>
+<p><strong>grep</strong></p>
+<p>在文件中查找字符串（不分区大小） -i</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i &quot;待检索字段&quot; 待检索文件</span><br></pre></td></tr></table></figure>
+
+<p>在文件夹中递归查询包含指定字符串的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;待检索字符&quot; *	</span><br></pre></td></tr></table></figure>
+
+<p>输出成功匹配的行，以及该行之后的三行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -A 3 -i &quot;待检索字符&quot; 待检索文件	</span><br></pre></td></tr></table></figure>
+
+<p><strong>systemed</strong></p>
+<p><strong>tar</strong></p>
+<p>解压文件、创建文件</p>
+<p><strong>压缩文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cvf 压缩生成的文件名.tar 待压缩文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>解压文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf 压缩文件.tar</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看压缩文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar tvf 压缩文件.tar</span><br></pre></td></tr></table></figure>
+
+<p><strong>gzip</strong></p>
+<p>创建和解压压缩文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个压缩文件</span><br><span class="line">gzip test.txt</span><br><span class="line"></span><br><span class="line"># 解压*.gz文件</span><br><span class="line">gzip -d test.txt.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>unzip</strong></p>
+<p>解压*.zip文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
+
+<p><strong>ps</strong></p>
+<p>显示正在运行中的进程信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-e # 显示所有</span><br><span class="line">-f # Do full-format listing</span><br><span class="line">-H # show process hierarchy</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看正在运行的所有进程</span>  </span><br><span class="line">ps -ef | more</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以树状结构显示正在运行的进程</span></span><br><span class="line">ps -efH | more</span><br></pre></td></tr></table></figure>
+
+<p><strong>free</strong></p>
+<p>显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存等情况</p>
+<p><strong>ssh</strong></p>
+<p>登录到远程主机</p>
+<p><strong>sort</strong></p>
+<p>对文件内容进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 以升序对文件内容排序</span><br><span class="line">sort 文件</span><br><span class="line"># 以降序对文件内容排序</span><br><span class="line">sort -r 文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>rm</strong></p>
+<p>删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 删除文件前先确认 -i</span><br><span class="line">rm -i 文件</span><br><span class="line"></span><br><span class="line"># 递归删除文件夹下所有文件，并删除该文件夹</span><br><span class="line">rm -r 文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>cp</strong></p>
+<p><strong>mv</strong></p>
+<p><strong>kill</strong></p>
+<p>终止一个进程，kill -9 终止该进程</p>
+<p><strong>ls</strong></p>
+<p>显示文件相关属性</p>
+<p><strong>ll (ls -l)</strong></p>
+<p>罗列出当前文件或目录的详细信息，含有时间、读写权限、大小、时间等信息 </p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/xx121" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/xx121" alt="img"></p>
+<p><strong>pwd</strong></p>
+<p>当前工作目录</p>
+<p><strong>cd</strong></p>
+<p>切换工作目录</p>
+<p><strong>find</strong></p>
+<p>查找指定文件名的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -iname &quot;MyProgram.c&quot; # -i 不区分大小写 -name 文件名称	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 对找到的文件执行某个命令</span><br><span class="line">find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Linux内核的CPU调度算法"><a href="#2-Linux内核的CPU调度算法" class="headerlink" title="2. Linux内核的CPU调度算法"></a>2. Linux内核的CPU调度算法</h1><h2 id="2-1-先来先服务-FCFS-first-come-first-service"><a href="#2-1-先来先服务-FCFS-first-come-first-service" class="headerlink" title="2.1 先来先服务 FCFS: first come first service"></a>2.1 先来先服务 FCFS: first come first service</h2><p>如果早就绪的进程排在就绪队列的前面，迟就绪的进程排在就绪队列的后面，那么先来先服务总是把当前处于就绪队列之首的那个进程调度到运行状态。只考虑进程进入就绪队列的先后，而不考虑它的下一个CPU周期的长短及其他因素。</p>
+<p>按照进程进入就绪队列的先后顺序调度并分配处理机执行。先来先服务调度算法是一种<strong>非抢占式的算法</strong>，先进入<strong>就绪队列</strong>的进程，先分配处理机运行。一旦一个进程占有了处理机，它就<strong>一直运行下去，直到该进程完成工作或者因为等待某事件发生而不能继续运行时才释放处理机</strong>。</p>
+<ol>
+<li>系统只要有按FIFO规则建立的后备作业队列或就绪进程队列即可，就是一个作业控制块JCB或进程控制块PCB加入队列时加在相应队列末尾。</li>
+<li>调度退出队列时从相应队列首开始顺序扫描，将相关的JCB或PCB调度移出相应队列。</li>
+</ol>
+<p><strong>优点：有利于长作业以及CPU繁忙的作业</strong></p>
+<p><strong>缺点：不利于短作业以及I/O繁忙的作业</strong></p>
+<p>流程图：</p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110446449" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110446449" alt="img"></p>
+<p>执行过程：</p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110456793" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110456793" alt="img"></p>
+<h2 id="2-2-短作业-进程-优先调度算法"><a href="#2-2-短作业-进程-优先调度算法" class="headerlink" title="2.2 短作业(进程)优先调度算法"></a>2.2 短作业(进程)优先调度算法</h2><p>对预计执行时间短的作业（进程）优先分派处理机，通常后来的短作业<strong>不抢占正在执行的作业</strong></p>
+<p>优点：</p>
+<ul>
+<li><p>比FCFS改善平均周转时间和平均带权周转时间，缩短作业的等待时间；</p>
+</li>
+<li><p>提高系统的吞吐量；</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>对长作业非常不利，可能长时间得不到执行；</li>
+<li>未能依据作业的紧迫程度来划分执行的优先级；</li>
+<li>难以准确估计作业（进程）的执行时间，从而影响调度性能。</li>
+</ul>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110508309" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110508309" alt="img"></p>
+<h2 id="2-3-轮转法"><a href="#2-3-轮转法" class="headerlink" title="2.3 轮转法"></a>2.3 轮转法</h2><p>时间片轮转法类似于“轮流坐庄”的思想，条件是：各作业近似认为“同时”到达，题中条件是后面作业依次比前一个作业迟到一个时间单位，分析时要严格按照RR调度算法的实现思想：<strong>系统把所有就绪进程按先入先出的原则排成一个队列。新来的进程加到就绪队列末尾。每当执行进程调度时，进程调度程序总是选出就绪队列的队首进程，让它在CPU上运行一个时间片的时间。当进程用完分给它的时间片后，调度程序便停止该进程的运行，并把它放入就绪队列的末尾</strong>。</p>
+<p>流程图：</p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110521419" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110521419" alt="img"></p>
+<h2 id="2-4-多级反馈队列算法"><a href="#2-4-多级反馈队列算法" class="headerlink" title="2.4 多级反馈队列算法"></a>2.4 多级反馈队列算法</h2><p><strong>设置多个就绪队列，分别赋予不同的优先级</strong>，如逐级降低，队列1的优先级最高。<strong>每个队列执行时间片的长度也不同，规定优先级越低则时间片越长</strong>，如逐级加倍。</p>
+<p>新进程进入内存后，先投入队列1的末尾，按FCFS算法调度；若按队列1一个时间片未能执行完，则降低投入到队列2的末尾，同样按FCFS算法调度；如此下去，降低到最后的队列，则按“时间片轮转”算法调度直到完成。</p>
+<p>仅当较高优先级的队列为空，才调度较低优先级的队列中的进程执行。如果进程执行时有新进程进入较高优先级的队列，则<strong>抢先</strong>执行新进程，并把被抢先的进程投入原队列的末尾。</p>
+<p>多级反馈队列调度算法又称反馈循环队列或多队列策略，主要思想是将就绪进程分为两级或多级，系统相应建立两个或多个就绪进程队列，较高优先级的队列一般分配给较短的时间片。处理器调度先从高级就绪进程队列中选取可占有处理器的进程，只有在选不到时，才从较低级的就绪进程队列中选取。</p>
+<p>优点：</p>
+<ul>
+<li>为提高系统吞吐量和缩短平均周转时间而照顾短进程。</li>
+<li>为获得较好的I/O设备利用率和缩短响应时间而照顾I/O型进程。</li>
+<li>不必估计进程的执行时间，动态调节</li>
+</ul>
+<p>流程图：</p>
+<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110532293" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110532293" alt="img"></p>
+<h2 id="2-5-算法比较"><a href="#2-5-算法比较" class="headerlink" title="2.5 算法比较"></a>2.5 算法比较</h2><img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110542997" class="">
+
+<p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110542997" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/" data-id="ckloycpty0000g4to7mja106t" data-title="Linux面经" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-date">
@@ -3011,7 +3376,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a></li></ul>
     </div>
   </div>
 
@@ -3021,7 +3386,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
     </div>
   </div>
 
@@ -3031,7 +3396,7 @@ LockSupport::parkUntil()方法。
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
+      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
     </div>
   </div>
 
@@ -3053,6 +3418,14 @@ LockSupport::parkUntil()方法。
       <ul>
         
           <li>
+            <a href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/">设计模式面经</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/">Linux面经</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
           </li>
         
@@ -3062,14 +3435,6 @@ LockSupport::parkUntil()方法。
         
           <li>
             <a href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/">java虚拟机面经</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">java多线程</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/">java面经</a>
           </li>
         
       </ul>
