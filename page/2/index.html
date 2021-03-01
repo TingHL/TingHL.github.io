@@ -73,6 +73,157 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-操作系统面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-25T12:02:45.000Z" itemprop="datePublished">2021-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/">操作系统面经</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="操作系统面经"><a href="#操作系统面经" class="headerlink" title="操作系统面经"></a>操作系统面经</h1><ul>
+<li>与操作系统相关的面经知识</li>
+<li></li>
+</ul>
+<h1 id="1-死锁"><a href="#1-死锁" class="headerlink" title="1. 死锁"></a>1. 死锁</h1><p>死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。</p>
+<h2 id="死锁原因"><a href="#死锁原因" class="headerlink" title="死锁原因"></a>死锁原因</h2><ol>
+<li><strong>竞争资源</strong>：请求同一有限资源的进程数多于可用资源数</li>
+<li><strong>进程推进顺序非法</strong>：进程执行中，请求和释放资源顺序不合理，如资源等待链</li>
+<li><strong>资源分配不当</strong>：</li>
+</ol>
+<h2 id="死锁产生的必要条件"><a href="#死锁产生的必要条件" class="headerlink" title="死锁产生的必要条件"></a>死锁产生的必要条件</h2><ol>
+<li><strong>互斥条件</strong>：进程对所分配的资源进行排他性的使用（一个资源每次只能被一个进程使用）</li>
+<li><strong>请求和保持条件</strong>：进程被阻塞的时候并不释放所申请到的资源</li>
+<li><strong>不可剥夺条件</strong>：进程对于已经申请到的资源在使用完成之前，不可以被剥夺</li>
+<li><strong>环路等待条件</strong>：发生死锁的进程之间存在的一个 进程-资源 环形等待链</li>
+</ol>
+<h2 id="死锁的处理"><a href="#死锁的处理" class="headerlink" title="死锁的处理"></a>死锁的处理</h2><p><strong>预防死锁</strong>：破坏产生死锁的4个必要条件中的一个或者多个；实现起来比较简单，但是如果限制过于严格会降低系统资源利用率以及吞吐量<br><strong>避免死锁</strong>：在资源的动态分配中，防止系统进入不安全状态(可能产生死锁的状态)-如<strong>银行家算法（避免死锁）</strong><br><strong>检测死锁</strong>：允许系统运行过程中产生死锁，在死锁发生之后，采用一定的算法进行检测，并确定与死锁相关的资源和进程，采取相关方法清除检测到的死锁。实现难度大<br><strong>解除死锁</strong>：与死锁检测配合，将系统从死锁中解脱出来（撤销进程或者剥夺资源）。对检测到的和死锁相关的进程以及资源，通过撤销或者挂起的方式，释放一些资源并将其分配给处于阻塞状态的进程，使其转变为就绪态。实现难度大。</p>
+<p><strong>补充：银行家算法</strong></p>
+<p>当一个进程申请使用资源的时候，银行家算法通过先 <strong>试探</strong> 分配给该进程资源，然后通过安全性算法判断分配后的系统是否处于安全状态，若不安全则试探分配作废，让该进程继续等待。</p>
+<img src="/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/image-20210227093655172.png" class="">
+
+<p><img src="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/image-20210227093655172.png" alt="image-20210227093655172"></p>
+<ul>
+<li>首先是银行家算法中的<strong>进程</strong>：包含进程Pi的需求资源数量（最大需求资源数量MAX），已分配给该进程的资源A（Allocation），还需要的资源数量N（Need=M-A）</li>
+<li>Available为空闲资源数量，即资源池（注意：资源池的剩余资源数量+已分配给所有进程的资源数量=系统中的资源总量）</li>
+</ul>
+<p>假设资源P1申请资源，银行家算法先<strong>试探</strong>的分配给它（当然先要看看当前资源池中的资源数量够不够），若申请的资源数量小于等于Available，然后接着判断分配给P1后剩余的资源，能不能使进程队列的某个进程执行完毕，若没有进程可执行完毕，则系统处于不安全状态（即此时没有一个进程能够完成并释放资源，随时间推移，系统终将处于死锁状态）。</p>
+<p>若有进程可执行完毕，则假设回收已分配给它的资源（剩余资源数量增加），把这个进程标记为可完成，并继续判断队列中的其它进程，<strong>若所有进程都可执行完毕，则系统处于安全状态，并根据可完成进程的分配顺序生成安全序列</strong>（如{P0，P3，P2，P1}表示将申请后的剩余资源Work先分配给P0–&gt;回收（Work+已分配给P0的A0=Work）–&gt;分配给P3–&gt;回收（Work+A3=Work）–&gt;分配给P2–&gt;······满足所有进程）。</p>
+<p>如此就可避免系统存在潜在死锁的风险。</p>
+<h2 id="死锁-活锁-饥饿锁"><a href="#死锁-活锁-饥饿锁" class="headerlink" title="死锁 活锁 饥饿锁"></a>死锁 活锁 饥饿锁</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/universsky2015/article/details/106276609">https://blog.csdn.net/universsky2015/article/details/106276609</a></li>
+</ul>
+<ol>
+<li><p><strong>死锁</strong></p>
+<p>是指两个或两个以上的进程（或线程）在执行过程中，因争夺资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。</p>
+</li>
+<li><p><strong>活锁</strong></p>
+<p>多线程中出现了相互谦让，都主动将资源释放给别的线程使用，这样资源在多个线程之间跳动而又得不到执行，形成活锁。活锁不会被阻塞，而是不停检测一个永远不可能为真的条件。除去进程本身持有的资源外，活锁状态的进程会持续耗费宝贵的CPU时间。</p>
+</li>
+<li><p><strong>饥饿锁</strong></p>
+<p>一个或者多个线程因为种种原因无法获得所需要的资源，导致一直无法执行的状态。多线程中优先级高的会优先执行，并且抢占优先级低的资源，导致优先级低的线程无法得到执行。</p>
+</li>
+</ol>
+<p><strong>区别</strong></p>
+<ol>
+<li><strong>活锁与死锁的区别：</strong>活锁和死锁类似，不同之处在于处于活锁的线程或进程的状态是一直在不断改变的，活锁不会被阻塞，而是不停检测一个永远不可能为真的条件。除去进程本身持有的资源外，活锁状态的进程会持续耗费宝贵的<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=CPU%E6%97%B6%E9%97%B4&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">CPU时间</a>。活锁可以认为是一种特殊的饥饿。一个现实的活锁例子是两个人在狭小的走廊碰到，两个人都试着避让对方好让彼此通过，但是因为避让的方向都一样导致最后谁都不能通过走廊。简单的说就是，<u>活锁和死锁的主要区别是前者进程的状态可以改变但是却不能继续执行。</u></li>
+<li><strong>死锁活锁与饥饿的区别：</strong>进程会处于饥饿状态是因为持续地有其它优先级更高的进程请求相同的资源。不像死锁或者活锁，饥饿能够被解开。例如，当其它高优先级的进程都终止时并且没有更高优先级的进程到达。</li>
+</ol>
+<h1 id="2-线程和进程"><a href="#2-线程和进程" class="headerlink" title="2. 线程和进程"></a>2. 线程和进程</h1><h2 id="2-1-线程和进程的区别"><a href="#2-1-线程和进程的区别" class="headerlink" title="2.1 线程和进程的区别"></a>2.1 线程和进程的区别</h2><p>线程是比进程更轻量级地调度执行单位，线程的引入，把一个进程的资源分配与执行调度分开，各个线程既可以共享进程资源（内存地址、文件I/O等），又可以独立调度。</p>
+<p>线程是指进程内的一个执行单元，也是进程内的可调度实体。与进程的区别：</p>
+<ul>
+<li><p>调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位。</p>
+</li>
+<li><p>并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可并发执行。</p>
+</li>
+<li><p>拥有资源：进程是拥有资源的一个独立单位，线程不拥有系统资源，但可以访问隶属于进程的资源.</p>
+</li>
+<li><p>系统开销：在创建或撤消进程时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销。</p>
+</li>
+</ul>
+<h1 id="3-线程同步机制"><a href="#3-线程同步机制" class="headerlink" title="3. 线程同步机制"></a>3. 线程同步机制</h1><h2 id="3-1-互斥量-Mutex"><a href="#3-1-互斥量-Mutex" class="headerlink" title="3.1 互斥量 Mutex"></a>3.1 互斥量 Mutex</h2><p><strong>本质上是一把锁，在访问共享资源前对互斥量进行加锁，在访问完成后释放互斥量上的锁。</strong></p>
+<p>对互斥量进行加锁以后，任何其它试图再次对互斥量加锁的线程将会被阻塞直到当前线程释放该互斥锁。如果释放互斥锁时有多个线程阻塞，所有在该互斥锁上的阻塞线程都会变成可运行状态，第一个变为运行状态的线程可以对互斥量加锁，其它线程将会看到互斥锁依然被锁住，只能回去再次等待它重新变为可用。在这种情况下，每次只有一个线程可以向前执行。</p>
+<h2 id="3-2-信号量-Semaphore"><a href="#3-2-信号量-Semaphore" class="headerlink" title="3.2 信号量 Semaphore"></a>3.2 信号量 Semaphore</h2><p><strong>它允许多个线程在同一时刻访问同一资源，但是需要限制在同一时刻访问此资源的最大线程数目</strong>。信号量对象对线程的同步方式与前面几种方法不同，信号允许多个线程同时使用共享资源，这与操作系统中的PV 操作相同。它指出了同时访问共享资源的线程最大数目。</p>
+<p><strong>信号量S是一个整数</strong></p>
+<ul>
+<li><strong>S&gt;=0时，表示可供并发进程使用的资源实体数</strong></li>
+<li><strong>S&lt;0时，表示正在等待使用共享资源的进程数</strong></li>
+</ul>
+<p>P 操作申请资源：</p>
+<ol>
+<li>S减1；</li>
+<li>若S减1 后仍大于等于零，则进程继续执行；</li>
+<li>若S减1 后小于零，则该进程被阻塞后进入与该信号相对应的队列中，然后转入进程调度。</li>
+</ol>
+<p>V 操作释放资源：</p>
+<ol>
+<li> S加1；</li>
+<li> 如果<em>S&gt;0</em>，则该进程继续执行；否则释放队列中第一个等待信号量的进程(S&lt;=0，表明某个进程正在等待该资源，需要唤醒一个等待状态的进程，使之运行下去）。</li>
+</ol>
+<h2 id="3-3-临界区-Ciritical-Section"><a href="#3-3-临界区-Ciritical-Section" class="headerlink" title="3.3 临界区 Ciritical Section"></a>3.3 临界区 Ciritical Section</h2><p><strong>通过对多线程的串行化来访问公共资源或一段代码，速度快，适合控制数据访问</strong>。<strong>任意时刻只允许一个线程对共享资源进行访问</strong>，如果有多个线程试图访问公共资源，那么在有一个线程进入后，其他试图访问公共资源的线程将被挂起，并一直等到进入临界区的线程离开，临界区在被释放后，其他线程才可以抢占。</p>
+<h2 id="3-4-事件-Event"><a href="#3-4-事件-Event" class="headerlink" title="3.4 事件 Event"></a>3.4 事件 Event</h2><p>通过通知操作的方式来保持线程的同步，还可以方便实现对多个线程的优先级比较的操作 .</p>
+<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>互斥量与临界区的作用非常相似，但<strong>互斥量是可以命名的，可以跨越进程使用</strong>。所以创建互斥量需要的资源更多，所以如果只为了在进程内部是用的话使用临界区会带来速度上的优势并能够减少资源占用量。因为互斥量是跨进程的。互斥量一旦被创建，就可以通过名字打开它。而<strong>临界区(critical section)只能在进程内部各线程间使用</strong>。</p>
+<p><strong>互斥量（Mutex），信号量（Semaphore），事件（Event）都可以被跨越进程使用来进行同步数据操作</strong></p>
+<p><strong>通过互斥量可以指定资源被独占的方式使用</strong>，但如果有下面一种情况通过互斥量就无法处理，比如现在一位用户购买了一份三个并发访问许可的数据库系统，可以根据用户购买的访问许可数量来决定有多少个线程/进程能同时进行数据库操作，这时候如果利用互斥量就没有办法完成这个要求，信号灯对象可以说是一种资源计数器。</p>
+<ol>
+<li>临界区和互斥量都有“线程所有权”的概念，所以它们是不能用来实现线程间的同步的，只能用来实现互斥。</li>
+<li>事件和信号量都可以实现线程和进程间的互斥和同步。但是事件和信号量都无法解决遗弃问题。</li>
+<li>临界区的效率是最高的，因为它不是内核对象。但是临界区不能跨进程使用。 事件，互斥量，信号量都是内核对象，可以跨进程使用，但相应的效率也会低很多。</li>
+</ol>
+<h2 id="3-6-临界区-互斥量-信号量-事件的区别"><a href="#3-6-临界区-互斥量-信号量-事件的区别" class="headerlink" title="3.6 临界区 互斥量 信号量 事件的区别"></a>3.6 临界区 互斥量 信号量 事件的区别</h2><ul>
+<li>临界区（Critical Section）：<u>适合一个进程内的多线程</u>访问公共区域或代码段时使用</li>
+<li>互斥量 (Mutex)：<u>适合不同进程内多线程</u>访问公共区域或代码段时使用，与临界区相似</li>
+<li>信号量（Semaphore）：与临界区和互斥量不同，可以<u>实现多个线程同时访问公共区域数据。可以跨进程使用</u>。原理与操作系统中PV操作类似，先设置一个访问公共区域的线程最大连接数，每有一个线程访问共享区资源数就减一，直到资源数小于等于零</li>
+<li>事件（Event）：通过线程间触发事件实现同步互斥</li>
+</ul>
+<p><strong>同步和互斥</strong>：临界区和互斥量都有“线程所有权”的概念，所以它们是不能用来实现线程间的同步的，只能用来实现互斥。原因是由于创建临界区或互斥器的线程可以不用等待LeaveCriticalSection(),SetEvent()就可以无条件进入保护的程序段，因为它拥有这个权利。事件和信号量都可以实现线程和进程间的互斥和同步。</p>
+<p><strong>处理“遗弃”操作</strong>：互斥量可以很好的处理”遗弃“操作。若线程在未释放对象的时候就意外终止的，其它线程可以等待到一个WAIT_ABANDONED_0。但是事件和信号量都不能做到。事件和信号量都无法解决遗弃问题。</p>
+<p><strong>使用效率</strong>：临界区的效率是最高的，因为它不是内核对象，而其它的三个都是内核对象，要借助操作系统来实现，效率相对来说就比较低。但如果要跨进程使用还是要用到互斥器、事件对象和信号量。</p>
+<h1 id="4-进程间通讯方式"><a href="#4-进程间通讯方式" class="headerlink" title="4. 进程间通讯方式"></a>4. 进程间通讯方式</h1><h3 id="管道-有名管道-信号-信号量-共享内存-套接字"><a href="#管道-有名管道-信号-信号量-共享内存-套接字" class="headerlink" title="管道  有名管道 信号 信号量 共享内存 套接字"></a>管道  有名管道 信号 信号量 共享内存 套接字</h3><ol>
+<li><strong>管道</strong>：管道是一种半双工的通信方式，<strong>数据只能单向流动，而且只能在具有亲缘关系的进程之间使用</strong>。进程的亲缘关系通常是指父子进程关系。</li>
+<li><strong>有名管道（FIFO）</strong>：有名管道也是半双工的通信方式，但是<strong>允许在没有亲缘关系的进程之间使用</strong>，管道是先进先出的通信方式。</li>
+<li><strong>信号量</strong>：信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
+<li><strong>信号 ( signal )</strong> ：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</li>
+<li><strong>消息队列</strong>：消息队列是有消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</li>
+<li><strong>共享内存( shared memory )</strong> ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的进程间通信(IPC)方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制(如信号量) 配合使用，来实现进程间的同步和通信。</li>
+<li><strong>套接字( socket )</strong> ：套接字也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同机器间的进程通信。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/" data-id="ckllmu0ji0000wcto56z89mne" data-title="操作系统面经" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据库面经" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/25/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/" class="article-date">
@@ -512,7 +663,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb%E7%9B%B8%E5%85%B3/">JavaWeb相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B8%E5%85%B3/">JVM 虚拟机相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb%E7%9B%B8%E5%85%B3/">JavaWeb相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux%E7%9B%B8%E5%85%B3/">Linux相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis%E7%9B%B8%E5%85%B3/">Mybatis相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3/">操作系统相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3/">数据结构相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/">计算机网络相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%85%B3/">设计模式相关</a></li></ul>
     </div>
   </div>
 
@@ -522,7 +673,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
     </div>
   </div>
 
@@ -532,7 +683,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
+      <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/JavaWeb/" style="font-size: 10px;">JavaWeb</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 16.67px;">笔记</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E9%9D%A2%E7%BB%8F/" style="font-size: 20px;">面经</a>
     </div>
   </div>
 
@@ -541,7 +692,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
     </div>
   </div>
 
@@ -552,6 +703,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/">Mybatis 笔记</a>
+          </li>
         
           <li>
             <a href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">JavaWeb 笔记</a>
@@ -567,10 +722,6 @@
         
           <li>
             <a href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/">Linux面经</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
           </li>
         
       </ul>
