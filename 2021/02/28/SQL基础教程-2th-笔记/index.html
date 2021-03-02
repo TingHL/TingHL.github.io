@@ -411,14 +411,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    29 分
                 </div>
                 
 
@@ -524,9 +524,15 @@
 <li><p>单词之间使用半角空格或者换行进行分隔</p>
 </li>
 </ol>
-<h2 id="2-4-数据库"><a href="#2-4-数据库" class="headerlink" title="2.4 数据库"></a>2.4 数据库</h2><h2 id="数据库创建"><a href="#数据库创建" class="headerlink" title="数据库创建"></a>数据库创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database &lt;数据库名称&gt;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-数据库"><a href="#2-4-数据库" class="headerlink" title="2.4 数据库"></a>2.4 数据库</h2><h2 id="数据库创建"><a href="#数据库创建" class="headerlink" title="数据库创建"></a>数据库创建</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create database &lt;数据库名称&gt;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="2-5-表"><a href="#2-5-表" class="headerlink" title="2.5 表"></a>2.5 表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table &lt;表名&gt;</span><br><span class="line">(列名1 &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">列名2 &lt;数据类型&gt; &lt;该列所需约束&gt;，</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">&lt;该表中的约束条件1&gt;，&lt;该表中的约束条件2&gt;,...);</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-表"><a href="#2-5-表" class="headerlink" title="2.5 表"></a>2.5 表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table &lt;表名&gt;
+(列名1 &lt;数据类型&gt; &lt;该列所需约束&gt;，
+列名2 &lt;数据类型&gt; &lt;该列所需约束&gt;，
+.
+.
+.
+&lt;该表中的约束条件1&gt;，&lt;该表中的约束条件2&gt;,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p>半角英文字母、数字、下划线（_）作为数据库、表和列的名称</p>
@@ -534,7 +540,8 @@
 <li><p>在数据库中不能创建两个相同名称的表，在同一个表中也不能创建两个名称相同的列</p>
 </li>
 <li><p>设置默认值，通过<em>default</em>关键字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table 表名</span><br><span class="line">(列1 数据类型 default xxx)</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table 表名
+(列1 数据类型 default xxx)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h4 id="数字型、字符型和日期型"><a href="#数字型、字符型和日期型" class="headerlink" title="数字型、字符型和日期型"></a><strong>数字型、字符型和日期型</strong></h4><table>
 <thead>
@@ -562,16 +569,22 @@
 </tbody></table>
 <h4 id="约束的设置"><a href="#约束的设置" class="headerlink" title="约束的设置"></a>约束的设置</h4><p>除数据类型之外，对列中存储的数据进行限制或者追加条件的功能。</p>
 <p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">not null约束</span><br><span class="line">null约束</span><br><span class="line">primary key(product_id)  &#x2F;&#x2F;主键约束</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">not null约束
+null约束
+primary key(product_id)  &#x2F;&#x2F;主键约束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>键</strong>：指定特定数据时使用的列的组合</p>
-<h3 id="表的删除和更新"><a href="#表的删除和更新" class="headerlink" title="表的删除和更新"></a>表的删除和更新</h3><h4 id="表的删除"><a href="#表的删除" class="headerlink" title="表的删除"></a>表的删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table 表名;</span><br></pre></td></tr></table></figure>
+<h3 id="表的删除和更新"><a href="#表的删除和更新" class="headerlink" title="表的删除和更新"></a>表的删除和更新</h3><h4 id="表的删除"><a href="#表的删除" class="headerlink" title="表的删除"></a>表的删除</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop table 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="表定义的更新"><a href="#表定义的更新" class="headerlink" title="表定义的更新"></a>表定义的更新</h4><ul>
 <li><p>添加列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add column 列的定义;</span><br><span class="line"></span><br><span class="line">alter table product add column product_name_pinyin varchar(100) not null;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 add column 列的定义;
+
+alter table product add column product_name_pinyin varchar(100) not null;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>删除列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop column 列名;</span><br><span class="line"></span><br><span class="line">alter table product drop column product_name_pinyin;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 drop column 列名;
+
+alter table product drop column product_name_pinyin;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="表中数据"><a href="#表中数据" class="headerlink" title="表中数据"></a>表中数据</h3><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><ul>
 <li><p><strong>格式</strong></p>
@@ -582,7 +595,12 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" alt="image-20201020150711365"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 values(xxx,xxxx);</span><br><span class="line"></span><br><span class="line">START TRANSACTION;</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0001&#39;, &#39;T恤&#39; ,&#39;衣服&#39;, 1000, 500, &#39;2009-09-20&#39;);</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, &#39;2009-09-11&#39;);</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名 values(xxx,xxxx);
+
+START TRANSACTION;
+INSERT INTO Shohin VALUES (&#39;0001&#39;, &#39;T恤&#39; ,&#39;衣服&#39;, 1000, 500, &#39;2009-09-20&#39;);
+INSERT INTO Shohin VALUES (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, &#39;2009-09-11&#39;);
+COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>列清单的省略</strong></p>
 <p>省略表名后的列清单，values子句的值会默认按照从左到右的顺序赋予给每一列</p>
 </li>
@@ -591,7 +609,7 @@
 <p>前提：创建表时，<code>default</code>关键字约束设定默认值</p>
 <ol>
 <li><p>显式方式插入设定默认值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, DEFAULT, 790, &#39;2009-04-28&#39;);</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, DEFAULT, 790, &#39;2009-04-28&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>隐式方法插入设定默认值</p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020151834333.png" class="">
 
@@ -606,7 +624,8 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" alt="image-20201020152501318"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductType (product_type, sum_sale_price,sum_purchase_price) </span><br><span class="line">SELECT product_type, SUM(sale_price), SUM(purchase_price) FROM Product GROUP BY product_type;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT INTO ProductType (product_type, sum_sale_price,sum_purchase_price) 
+SELECT product_type, SUM(sale_price), SUM(purchase_price) FROM Product GROUP BY product_type;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="数据删除-delete-drop-truncate"><a href="#数据删除-delete-drop-truncate" class="headerlink" title="数据删除 delete drop truncate"></a>数据删除 delete drop truncate</h4><ul>
 <li><p><strong>drop和delete的区别</strong></p>
@@ -620,7 +639,7 @@
 <li><p><code>delete from 表名</code></p>
 </li>
 <li><p>指定删除对象进行删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 where 条件;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete from 表名 where 条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li></li>
 </ol>
 <p>delete 语句的删除对象并不是表或者列，而是记录（行）</p>
@@ -630,7 +649,7 @@
 </li>
 <li><p><strong>truncate</strong></p>
 <p>删除表中全部数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate 表名；</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">truncate 表名；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li></li>
 </ul>
 <h4 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h4><ul>
@@ -639,12 +658,24 @@
 <li><p><code>update 表名 set 列名=表达式;</code></p>
 </li>
 <li><p>指定条件的update语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;表达式</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update 表名
+set 列名&#x3D;表达式
+where 条件;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>使用null进行更新（NULL清空）— 未设置NOT NULL约束和主键约束的列</p>
 <p>将赋值表达式右边的值直接写为NULL即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;NULL</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update 表名
+set 列名&#x3D;NULL
+where 条件;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>多列更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*两种方法*&#x2F;</span><br><span class="line">update 表名</span><br><span class="line">set 列1&#x3D;列1操作表达式,列2&#x3D;列2操作表达式,...</span><br><span class="line">where 条件;</span><br><span class="line"></span><br><span class="line">-- 方法二在部分数据库中不具有适用性</span><br><span class="line">update 表名</span><br><span class="line">set (列1,列2,...)&#x3D;(列1操作表达式,列2操作表达式,...)</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;*两种方法*&#x2F;
+update 表名
+set 列1&#x3D;列1操作表达式,列2&#x3D;列2操作表达式,...
+where 条件;
+
+-- 方法二在部分数据库中不具有适用性
+update 表名
+set (列1,列2,...)&#x3D;(列1操作表达式,列2操作表达式,...)
+where 条件;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li></li>
 </ol>
 </li>
@@ -652,19 +683,31 @@
 <h1 id="3-查询"><a href="#3-查询" class="headerlink" title="3. 查询"></a>3. 查询</h1><h2 id="3-1-select基础"><a href="#3-1-select基础" class="headerlink" title="3.1 select基础"></a>3.1 select基础</h2><ul>
 <li>基础的select语句</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 列名,列名,...</span><br><span class="line">from 表名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 列名,列名,...
+from 表名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>查询结果中列的顺序和select子句中的顺序相同</p>
 <p>查询全部列时，使用**代表所有列的星号 *** （但是结果的显示顺序就没有办法进行设定，只能按照create tabel的定义对列进行排序）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li><p>设定别名</p>
 <p>使用<strong>as关键字</strong>为<strong>列设定别名</strong>，使用中文的时候，使用双引号（“）括起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select product_id as id,  </span><br><span class="line">	   product_name as name,</span><br><span class="line">	   purchase_price as price</span><br><span class="line">from Product;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_id as id,  
+	   product_name as name,
+	   purchase_price as price
+from Product;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <p>select product_id as “商品编号”,<br>         product_name as “商品名称”,<br>         purchase_price as “进货单价”<br>  from Product;</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 常数的查询</span><br><span class="line"></span><br><span class="line">  select语句书写常数，该列的值展示为常数</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;mysql</span><br><span class="line">  select &#39;商品&#39; as string, 38 as number,&#39;2009-02-24&#39; as data,product_id,product_name</span><br><span class="line">  from product;</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">  
+- 常数的查询
+
+  select语句书写常数，该列的值展示为常数
+
+  &#96;&#96;&#96;mysql
+  select &#39;商品&#39; as string, 38 as number,&#39;2009-02-24&#39; as data,product_id,product_name
+  from product;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  <img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019103613766.png" alt="image-20201019103613766"></p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019103613766.png" class="">
@@ -711,7 +754,8 @@
 <td></td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;SQL语句中使用运算表达式</span><br><span class="line">select product_name, sale_price,sale_price*2 as &#39;sale_price_x2&#39; from product;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;&#x2F;SQL语句中使用运算表达式
+select product_name, sale_price,sale_price*2 as &#39;sale_price_x2&#39; from product;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>数值大小比较的运算，返回结果的符号</p>
 <p><strong>所有包含NULL的算术计算，结果肯定是NULL</strong>，例如 5+NULL, 10-NULL, 1*NULL, NULL/9, NULL/0</p>
@@ -757,7 +801,7 @@
 <li><p>null的判断不通过比较运算符 通过 <code>is null</code>和<code>is not null</code></p>
 <p>判断是否是NULL的<code>is null</code>运算符</p>
 <p>判断不是NULL的运算符，<code>is not null</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from Product where purchase_price is null;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="3-3-逻辑运算符"><a href="#3-3-逻辑运算符" class="headerlink" title="3.3 逻辑运算符"></a>3.3 逻辑运算符</h2><table>
 <thead>
@@ -802,12 +846,14 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020191230341.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020191230341.png" alt="image-20201020191230341"></p>
-<h3 id="视图创建"><a href="#视图创建" class="headerlink" title="视图创建"></a>视图创建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create view 视图名称(视图列名1,视图列名2,...)</span><br><span class="line">as </span><br><span class="line">select 语句;</span><br></pre></td></tr></table></figure>
+<h3 id="视图创建"><a href="#视图创建" class="headerlink" title="视图创建"></a>视图创建</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create view 视图名称(视图列名1,视图列名2,...)
+as 
+select 语句;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop view 视图名称(视图列名1,视图列名2,...);</span><br></pre></td></tr></table></figure>
+<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop view 视图名称(视图列名1,视图列名2,...);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用cascade选项删除关联视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop view 视图名称(视图列名1,视图列名2,...) cascade;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop view 视图名称(视图列名1,视图列名2,...) cascade;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="优缺点-限制"><a href="#优缺点-限制" class="headerlink" title="优缺点 限制"></a>优缺点 限制</h3><p><strong>优点</strong></p>
 <ul>
@@ -872,7 +918,7 @@
 <li><p><u>NULL的判断不通过比较运算符 通过 <code>is null</code>和<code>is not null</code>进行数据的选中，提取</u>；如果通过比较运算符进行NULL判断，则不会取出含NULL的数据</p>
 <p>判断是否是NULL的运算符：<code>is null</code></p>
 <p>判断不是NULL的运算符：<code>is not null</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from Product where purchase_price is null;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>除真假之外的第三种值–不确定（UNKNOWN），<strong>SQL中的逻辑运算成为三值逻辑</strong></p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019213436268.png" class="">
 
@@ -919,32 +965,61 @@
 <p>（where筛选过滤后，执行group by关键字分组，再执行select语句）</p>
 <h3 id="数据库关键字的执行顺序"><a href="#数据库关键字的执行顺序" class="headerlink" title="数据库关键字的执行顺序"></a>数据库关键字的执行顺序</h3><p>执行顺序为：(标号为顺序)</p>
 <p>from  – on – join – where – group by – having – select –  distinct – order by – limit</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(7) SELECT</span><br><span class="line">(8) DISTINCT &lt;select_list&gt;</span><br><span class="line">(3) FROM &lt;join_type&gt; JOIN &lt;right_table&gt;</span><br><span class="line">(2) ON &lt;join_condition&gt;</span><br><span class="line">(4) WHERE &lt;where_condition&gt;</span><br><span class="line">(5) GROUP BY &lt;group_by_list&gt;</span><br><span class="line">(6) HAVING &lt;having_condition&gt;</span><br><span class="line">(9) ORDER BY &lt;order_by_condition&gt;</span><br><span class="line">(10) LIMIT &lt;limit_number&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">(7) SELECT
+(8) DISTINCT &lt;select_list&gt;
+(3) FROM &lt;join_type&gt; JOIN &lt;right_table&gt;
+(2) ON &lt;join_condition&gt;
+(4) WHERE &lt;where_condition&gt;
+(5) GROUP BY &lt;group_by_list&gt;
+(6) HAVING &lt;having_condition&gt;
+(9) ORDER BY &lt;order_by_condition&gt;
+(10) LIMIT &lt;limit_number&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="5-2-1-Group-by"><a href="#5-2-1-Group-by" class="headerlink" title="5.2.1 Group by"></a>5.2.1 Group by</h3><p>进行分组，在<strong>group by子句</strong>中指定的列称为<strong>聚合键和分组列</strong>，可以通过都好分隔指定多列。</p>
 <p><u>聚合键中包含NULL时，结果会以”不确定“行（空行）的形式表现出来。</u></p>
 <p><strong>常见问题</strong>：</p>
 <ul>
 <li><p><strong>使用group by子句时，把聚合键之外的列名不能出现在select子句中</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select product_name,purchase_price,count(*)</span><br><span class="line">from product</span><br><span class="line">group by purchase_prices;</span><br><span class="line"></span><br><span class="line">ERROR：列&quot;product,product_name&quot;必须包含在GROUP BY子句之中，或者必须在聚合函数内使用</span><br><span class="line">行1: SELECT product_name, purchase_price, COUNT(*)</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_name,purchase_price,count(*)
+from product
+group by purchase_prices;
+
+ERROR：列&quot;product,product_name&quot;必须包含在GROUP BY子句之中，或者必须在聚合函数内使用
+行1: SELECT product_name, purchase_price, COUNT(*)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>在group by子句中，不能使用select 子句中定义的别名</strong></p>
 <p>产生的原因：group by的执行顺序在select之前，在执行分组group by时，不知道别名是什么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select product_type as pt,count(*)</span><br><span class="line">from Product</span><br><span class="line">group by pt;   &#x2F;&#x2F;产生错误</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_type as pt,count(*)
+from Product
+group by pt;   &#x2F;&#x2F;产生错误<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>group by子句结果的显示是无序的</strong></p>
 <p>对于按照特定顺序进行排序，需要在select语句中进行指定</p>
 </li>
 <li><p><strong>只有select子句、having子句和order by子句能够使用count等聚合函数</strong>，使用where语句会发生错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select product_name,count(*)</span><br><span class="line">from product</span><br><span class="line">where count(*)&#x3D;2    &#x2F;&#x2F;不能在where子句中使用聚合</span><br><span class="line">group by product_type;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_name,count(*)
+from product
+where count(*)&#x3D;2    &#x2F;&#x2F;不能在where子句中使用聚合
+group by product_type;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li></li>
 </ul>
-<h2 id="5-3-聚合结果指定条件"><a href="#5-3-聚合结果指定条件" class="headerlink" title="5.3 聚合结果指定条件"></a>5.3 聚合结果指定条件</h2><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select 列名1,列名2, ...</span><br><span class="line">from 表名</span><br><span class="line">group by 列名1,列名2,...</span><br><span class="line">having 分组结果对应的条件</span><br></pre></td></tr></table></figure>
+<h2 id="5-3-聚合结果指定条件"><a href="#5-3-聚合结果指定条件" class="headerlink" title="5.3 聚合结果指定条件"></a>5.3 聚合结果指定条件</h2><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 列名1,列名2, ...
+from 表名
+group by 列名1,列名2,...
+having 分组结果对应的条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="having子句的构成要素"><a href="#having子句的构成要素" class="headerlink" title="having子句的构成要素"></a>having子句的构成要素</h3><ul>
 <li>常数</li>
 <li>聚合函数</li>
 <li>group by子句中指定的列名（即聚合键）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_type, AVG(sale_price)</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type</span><br><span class="line">HAVING AVG(sale_price) &gt;&#x3D; 2500;</span><br><span class="line"></span><br><span class="line">SELECT product_type, COUNT(*)</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type</span><br><span class="line">HAVING product_name &#x3D; &#39;圆珠笔&#39;;  &#x2F;&#x2F;报错，product_name必须要在group by子句中（即select子句中）</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT product_type, AVG(sale_price)
+FROM Product
+GROUP BY product_type
+HAVING AVG(sale_price) &gt;&#x3D; 2500;
+
+SELECT product_type, COUNT(*)
+FROM Product
+GROUP BY product_type
+HAVING product_name &#x3D; &#39;圆珠笔&#39;;  &#x2F;&#x2F;报错，product_name必须要在group by子句中（即select子句中）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>having和where</strong>：</p>
 <ul>
@@ -956,12 +1031,40 @@
 <p>order by 指定排列顺序</p>
 <p>位于select语句的末尾，对数据进行排序的操作必须在结果即将返回时执行</p>
 <p>order by子句中书写的列名称为<strong>排序键</strong></p>
-<figure class="highlight plain"><figcaption><span>by 列名 desc``` 降序排列，```order by 列名 asc```升序排列</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  排列顺序时&lt;u&gt;默认会使用升序进行排列&lt;&#x2F;u&gt;</span><br><span class="line"></span><br><span class="line">- **指定多个排序键**</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;order by 列名1,列名2,...&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- 排序键中，部分行数据包含NULL，这些NULL会在开头或者末尾进行汇总</span><br><span class="line"></span><br><span class="line">- **order by可以使用显示中用的别名，可正常执行**，order by的执行顺序在select子句之后执行</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;mysql</span><br><span class="line">  SELECT product_id AS id, product_name, sale_price AS sp, purchase_price</span><br><span class="line">  FROM Product</span><br><span class="line">  ORDER BY sp, id;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-order" data-language="order"><div class="caption"><span>by 列名 desc``` 降序排列，```order by 列名 asc```升序排列</span></div><code class="language-order">
+  排列顺序时&lt;u&gt;默认会使用升序进行排列&lt;&#x2F;u&gt;
+
+- **指定多个排序键**
+
+  &#96;&#96;&#96;order by 列名1,列名2,...&#96;&#96;&#96;
+
+- 排序键中，部分行数据包含NULL，这些NULL会在开头或者末尾进行汇总
+
+- **order by可以使用显示中用的别名，可正常执行**，order by的执行顺序在select子句之后执行
+
+  &#96;&#96;&#96;mysql
+  SELECT product_id AS id, product_name, sale_price AS sp, purchase_price
+  FROM Product
+  ORDER BY sp, id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>order by子句可以使用存在于表中、但并不包含在select子句之中的列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_name, sale_price, purchase_price</span><br><span class="line">FROM Product</span><br><span class="line">ORDER BY product_id;</span><br><span class="line"></span><br><span class="line">SELECT product_type, COUNT(*)</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type</span><br><span class="line">ORDER BY COUNT(*);</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT product_name, sale_price, purchase_price
+FROM Product
+ORDER BY product_id;
+
+SELECT product_type, COUNT(*)
+FROM Product
+GROUP BY product_type
+ORDER BY COUNT(*);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h1 id="6-事务"><a href="#6-事务" class="headerlink" title="6. 事务"></a>6. 事务</h1><p><strong>事务（transaction），对同一个处理单元中执行的一系列更新处理的集合。</strong></p>
-<h2 id="事务创建"><a href="#事务创建" class="headerlink" title="事务创建"></a>事务创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">事务开始语句;</span><br><span class="line"></span><br><span class="line">DML语句1;</span><br><span class="line">DML语句2;</span><br><span class="line">DML语句3;</span><br><span class="line">.......</span><br><span class="line"></span><br><span class="line">事务结束语句(COMMIT或者ROLLBACK);</span><br></pre></td></tr></table></figure>
+<h2 id="事务创建"><a href="#事务创建" class="headerlink" title="事务创建"></a>事务创建</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">事务开始语句;
+
+DML语句1;
+DML语句2;
+DML语句3;
+.......
+
+事务结束语句(COMMIT或者ROLLBACK);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020170501568.png" class="">
 
@@ -972,13 +1075,33 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" alt="image-20201020171315119"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION;</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">START TRANSACTION;
+-- 将运动T恤的销售单价降低1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price - 1000
+WHERE product_name &#x3D; &#39;运动T恤&#39;;
+-- 将T恤衫的销售单价上浮1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price + 1000
+WHERE product_name &#x3D; &#39;T恤衫&#39;;
+COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>rollback — 取消处理</strong></p>
 <p>rollback是取消事务包含的全部更新处理的结束指令</p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" alt="image-20201020171507324"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BEGIN TRANSACTION; ------------------- ①</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line">-- 数据表中数据不会发生任何变化,rollback之后，所有的处理都被取消了</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">BEGIN TRANSACTION; ------------------- ①
+-- 将运动T恤的销售单价降低1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price - 1000
+WHERE product_name &#x3D; &#39;运动T恤&#39;;
+-- 将T恤衫的销售单价上浮1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price + 1000
+WHERE product_name &#x3D; &#39;T恤衫&#39;;
+ROLLBACK;
+
+-- 数据表中数据不会发生任何变化,rollback之后，所有的处理都被取消了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>事务何时开始处理</strong></p>
 <p>几乎所有的数据库产品的事务都无需开始指令。</p>
 <p>不使用指令而悄悄开始事务的情况下，应该如何区分各个事务呢？通常会有如下两种情况：</p>
@@ -987,7 +1110,18 @@
 <li>直到用户执行COMMIT或者ROLLBACK为止算作一个事务</li>
 </ul>
 <p>通常的DBMS 都可以选择其中任意一种模式。默认使用自动提交模式的DBMS 有SQL Server、PostgreSQL 和MySQL 等。该模式下的DML 语句如下所示，每一条语句都括在事务的开始语句和结束语句之中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BEGIN TRANSACTION;</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">COMMIT;</span><br><span class="line">BEGIN TRANSACTION;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">BEGIN TRANSACTION;
+-- 将运动T恤的销售单价降低1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price - 1000
+WHERE product_name &#x3D; &#39;运动T恤&#39;;
+COMMIT;
+BEGIN TRANSACTION;
+-- 将T恤衫的销售单价上浮1000日元
+UPDATE Product
+SET sale_price &#x3D; sale_price + 1000
+WHERE product_name &#x3D; &#39;T恤衫&#39;;
+COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在默认使用B 模式的Oracle 中，事务都是直到用户自己执行提交或者回滚指令才会结束。</p>
 </li>
@@ -1126,7 +1260,13 @@
 <td></td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT CURRENT_TIMESTAMP,</span><br><span class="line">EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS year,</span><br><span class="line">EXTRACT(MONTH FROM CURRENT_TIMESTAMP) AS month,</span><br><span class="line">EXTRACT(DAY FROM CURRENT_TIMESTAMP) AS day,</span><br><span class="line">EXTRACT(HOUR FROM CURRENT_TIMESTAMP) AS hour,</span><br><span class="line">EXTRACT(MINUTE FROM CURRENT_TIMESTAMP) AS minute,</span><br><span class="line">EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CURRENT_TIMESTAMP,
+EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS year,
+EXTRACT(MONTH FROM CURRENT_TIMESTAMP) AS month,
+EXTRACT(DAY FROM CURRENT_TIMESTAMP) AS day,
+EXTRACT(HOUR FROM CURRENT_TIMESTAMP) AS hour,
+EXTRACT(MINUTE FROM CURRENT_TIMESTAMP) AS minute,
+EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021155704554.png" class="">
 
@@ -1185,13 +1325,18 @@
 <h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4><p>模糊匹配，需要进行字符串的部分一致查询时使用该谓词，其中部分一致可以分为前方一致、中间一致和后方一致三种类型。</p>
 <p>%：代表”0字符以上的任意字符串“</p>
 <p>_：代表任意一个字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%匹配表达式 -- 后方一致  例如 %dddd</span><br><span class="line">%匹配表达式%  -- 中间一致 %dddd%</span><br><span class="line">匹配表达式% -- 前方一致  dddd%</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">%匹配表达式 -- 后方一致  例如 %dddd
+%匹配表达式%  -- 中间一致 %dddd%
+匹配表达式% -- 前方一致  dddd%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="between"><a href="#between" class="headerlink" title="between"></a>between</h4><p>范围查询,，结果中包含value1和value2这两个临界值，不想让结果包含临界值，必须使用&lt; 和 &gt;。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">between value1 and value2;</span><br><span class="line">between xxx&gt;value1 and xxx&lt;value2;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">between value1 and value2;
+between xxx&gt;value1 and xxx&lt;value2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h4><p>选出值为NULL的列的值，不能使用=，只能使用特定的谓词IS NULL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_name, purchase_price</span><br><span class="line">FROM Product</span><br><span class="line">WHERE purchase_price IS NULL; -- where purchase_price is not null</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT product_name, purchase_price
+FROM Product
+WHERE purchase_price IS NULL; -- where purchase_price is not null<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="in和not-in-–-or的简单用法"><a href="#in和not-in-–-or的简单用法" class="headerlink" title="in和not in  – or的简单用法"></a>in和not in  – or的简单用法</h4><p><em>in(值, …)</em></p>
 <p><strong>IN和NOT IN是无法选取除NULL数据的</strong></p>
@@ -1209,7 +1354,13 @@
 <h2 id="7-3-CASE表达式"><a href="#7-3-CASE表达式" class="headerlink" title="7.3 CASE表达式"></a>7.3 CASE表达式</h2><p>case表达式是在区分情况时使用的</p>
 <h4 id="CASE表达式语法"><a href="#CASE表达式语法" class="headerlink" title="CASE表达式语法"></a>CASE表达式语法</h4><ul>
 <li><p>简单CASE表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CASE &lt;表达式&gt;</span><br><span class="line">	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	...</span><br><span class="line">	ELSE &lt;表达式&gt;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CASE &lt;表达式&gt;
+	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;
+	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;
+	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;
+	...
+	ELSE &lt;表达式&gt;
+END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171940542.png" class="">
 
@@ -1217,7 +1368,13 @@
 </li>
 <li><p>搜索CASE表达式</p>
 <p>CASE表达式中最后的END是不能省略的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CASE WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;</span><br><span class="line">	 ...</span><br><span class="line">	 ELSE &lt;表达式&gt;</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CASE WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;
+	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;
+	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;
+	 WHEN &lt;求值表达式&gt; THEN &lt;表达式&gt;
+	 ...
+	 ELSE &lt;表达式&gt;
+END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171042081.png" class="">
 
@@ -1246,7 +1403,17 @@
 <td></td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">select product_id,product_name</span><br><span class="line">from product</span><br><span class="line">union</span><br><span class="line">select product_id,product_name</span><br><span class="line">from product2;</span><br><span class="line"></span><br><span class="line">select product_id,product_name</span><br><span class="line">from product</span><br><span class="line">union ALL</span><br><span class="line">select product_id,product_name</span><br><span class="line">from product2;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_id,product_name
+from product
+union
+select product_id,product_name
+from product2;
+
+select product_id,product_name
+from product
+union ALL
+select product_id,product_name
+from product2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>注意事项：</strong></p>
 <ul>
@@ -1275,16 +1442,30 @@
 <td></td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product</span><br><span class="line">INTERSECT</span><br><span class="line">SELECT product_id, product_name</span><br><span class="line">FROM Product2</span><br><span class="line">ORDER BY product_id;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT product_id, product_name
+FROM Product
+INTERSECT
+SELECT product_id, product_name
+FROM Product2
+ORDER BY product_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="表差集-–-except"><a href="#表差集-–-except" class="headerlink" title="表差集 – except"></a>表差集 – except</h2><p>减法运算的EXCEPT（差集）。<strong>表的位置不同，得到的结果也不同</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select product_id,product_name</span><br><span class="line">from Product</span><br><span class="line">except </span><br><span class="line">select product_id,product_name</span><br><span class="line">from Product2</span><br><span class="line">order by product_id;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select product_id,product_name
+from Product
+except 
+select product_id,product_name
+from Product2
+order by product_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="联结（join-以列为单位对表进行联结）"><a href="#联结（join-以列为单位对表进行联结）" class="headerlink" title="联结（join 以列为单位对表进行联结）"></a>联结（join 以列为单位对表进行联结）</h2><p>union、intersect等集合运算，特征是以<strong>行方向为单位</strong>进行操作，导致记录行数的增减，不会导致列数的变化。</p>
 <p>联结（join），将其他表中的列添加过来，进行“添加列”的运算。</p>
 <h3 id="内连接Inner-join"><a href="#内连接Inner-join" class="headerlink" title="内连接Inner join"></a>内连接Inner join</h3><p>内连接：只返回满足连接条件的数据。</p>
 <p>只返回两个表中连接字段相等的行（达到匹配条件的行）。    JOIN: 如果表中有至少一个匹配，则返回行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select empno,ename,sal,dname,loc from emp,dept</span><br><span class="line">where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)</span><br><span class="line"> </span><br><span class="line">select empno,ename,job,sal,dept.deptno,dname,loc</span><br><span class="line">from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select empno,ename,sal,dname,loc from emp,dept
+where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)
+ 
+select empno,ename,job,sal,dept.deptno,dname,loc
+from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><p>外连接：除了<strong>返回满足连接条件的行以外，还返回左（右）表中，不满足条件的行</strong>，称为左（右）连接</p>
 <h4 id="left-join-左连接"><a href="#left-join-左连接" class="headerlink" title="left join 左连接"></a>left join 左连接</h4><p>返回包括<strong>左表中的所有记录和右表中连接字段相等的记录</strong>。     left join: 即使右表中没有匹配，也从左表返回所有的行（左表中的所有行都存在）</p>
@@ -1358,7 +1539,9 @@
 </tr>
 </tbody></table>
 <p>以上的这两个表，然后我们把它们进行连接查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons, Orders </span><br><span class="line">WHERE Persons.Id_P &#x3D; Orders.Id_P </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons, Orders 
+WHERE Persons.Id_P &#x3D; Orders.Id_P <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>结果集：</p>
 <table>
@@ -1391,7 +1574,11 @@
 </tr>
 </tbody></table>
 <p>如果使用关键词JOIN来从两个表中获取数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons</span><br><span class="line">INNER JOIN Orders</span><br><span class="line">ON Persons.Id_P &#x3D; Orders.Id_P</span><br><span class="line">ORDER BY Persons.LastNamem</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+INNER JOIN Orders
+ON Persons.Id_P &#x3D; Orders.Id_P
+ORDER BY Persons.LastNamem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>结果集：</p>
 <table>
@@ -1491,7 +1678,11 @@
 <td align="left">65</td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons</span><br><span class="line">LEFT JOIN Orders</span><br><span class="line">ON Persons.Id_P&#x3D;Orders.Id_P</span><br><span class="line">ORDER BY Persons.LastName</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+LEFT JOIN Orders
+ON Persons.Id_P&#x3D;Orders.Id_P
+ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>结果集：</p>
 <table>
@@ -1595,7 +1786,11 @@
 <td align="left">65</td>
 </tr>
 </tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons</span><br><span class="line">RIGHT JOIN Orders</span><br><span class="line">ON Persons.Id_P&#x3D;Orders.Id_P</span><br><span class="line">ORDER BY Persons.LastName</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+RIGHT JOIN Orders
+ON Persons.Id_P&#x3D;Orders.Id_P
+ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>结果集：</p>
 <table>
@@ -1702,7 +1897,11 @@
 </tr>
 </tbody></table>
 <p><strong>全连接（FULL JOIN）实例</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons</span><br><span class="line">FULL JOIN Orders</span><br><span class="line">ON Persons.Id_P&#x3D;Orders.Id_P</span><br><span class="line">ORDER BY Persons.LastName</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
+FROM Persons
+FULL JOIN Orders
+ON Persons.Id_P&#x3D;Orders.Id_P
+ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>结果集：</p>
 <table>
@@ -2491,7 +2690,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122k</span>&nbsp;字
+                class="white-color">118.3k</span>&nbsp;字
             
             
             

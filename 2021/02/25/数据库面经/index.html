@@ -638,7 +638,11 @@
 <p>B树：有序数组+平衡多叉树</p>
 <p>B+树：有序数组链表+平衡多叉树</p>
 <p>B+树的关键字全部存放在叶子节点中，非叶子节点用来做索引，而叶子节点中有一个指针指向一下个叶子节点。做这个优化的目的是为了提高区间访问的性能（适合扫库和范围查询）。而正是这个特性决定了B+树更适合用来存储外部数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">“B+树还有一个最大的好处，方便扫库，B树必须用中序遍历的方法按序扫库，而B+树直接从叶子结点挨个扫一遍就完了，B+树支持range-query非常方便，而B树不支持。这是数据库选用B+树的最主要原因。 </span><br><span class="line">比如要查 5-10之间的，B+树一把到5这个标记，再一把到10，然后串起来就行了，B树就非常麻烦。B树的好处，就是成功查询特别有利，因为树的高度总体要比B+树矮。不成功的情况下，B树也比B+树稍稍占一点点便宜。 </span><br><span class="line">B树比如你的例子中查，17的话，一把就得到结果了， </span><br><span class="line">有很多基于频率的搜索是选用B树，越频繁query的结点越往根上走，前提是需要对query做统计，而且要对key做一些变化。 </span><br><span class="line">另外B树也好B+树也好，根或者上面几层因为被反复query，所以这几块基本都在内存中，不会出现读磁盘IO，一般已启动的时候，就会主动换入内存。”</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">“B+树还有一个最大的好处，方便扫库，B树必须用中序遍历的方法按序扫库，而B+树直接从叶子结点挨个扫一遍就完了，B+树支持range-query非常方便，而B树不支持。这是数据库选用B+树的最主要原因。 
+比如要查 5-10之间的，B+树一把到5这个标记，再一把到10，然后串起来就行了，B树就非常麻烦。B树的好处，就是成功查询特别有利，因为树的高度总体要比B+树矮。不成功的情况下，B树也比B+树稍稍占一点点便宜。 
+B树比如你的例子中查，17的话，一把就得到结果了， 
+有很多基于频率的搜索是选用B树，越频繁query的结点越往根上走，前提是需要对query做统计，而且要对key做一些变化。 
+另外B树也好B+树也好，根或者上面几层因为被反复query，所以这几块基本都在内存中，不会出现读磁盘IO，一般已启动的时候，就会主动换入内存。”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="5-视图"><a href="#5-视图" class="headerlink" title="5. 视图"></a>5. 视图</h1><p>虚拟存在的表，逻辑表，本身不包含数据，作为一个select语句保存在数据字典中。通过视图可以展现基表（base table 基表：用来创建视图的表）的部分数据，视图数据来自定义视图的查询中使用的表，使用视图动态生成。</p>
 <h2 id="5-1-视图优点"><a href="#5-1-视图优点" class="headerlink" title="5.1 视图优点"></a>5.1 视图优点</h2><ul>
@@ -646,7 +650,10 @@
 <li>安全：使用视图的用户只能访问他们被允许查询的结果集，对表的权限管理并不能限制到某个行某个列，但是通过视图就可以简单的实现。</li>
 <li>数据独立：一旦视图的结构确定了，可以屏蔽表结构变化对用户的影响，源表增加列对视图没有影响；源表修改列名，则可以通过修改视图来解决，不会造成对访问者的影响。</li>
 </ul>
-<h2 id="5-2-视图创建-查看-更改"><a href="#5-2-视图创建-查看-更改" class="headerlink" title="5.2 视图创建 查看 更改"></a>5.2 视图创建 查看 更改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create [or replace][algorithm&#x3D;&#123;UNDIFINDED | MERGE | TEMPTABLE&#125;]</span><br><span class="line">view view_name [(column_names)]</span><br><span class="line">as select_statement</span><br><span class="line">[WITH [CASCADED | LOCAL] CHECK OPTION]</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-视图创建-查看-更改"><a href="#5-2-视图创建-查看-更改" class="headerlink" title="5.2 视图创建 查看 更改"></a>5.2 视图创建 查看 更改</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create [or replace][algorithm&#x3D;&#123;UNDIFINDED | MERGE | TEMPTABLE&#125;]
+view view_name [(column_names)]
+as select_statement
+[WITH [CASCADED | LOCAL] CHECK OPTION]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol>
 <li><p>or replace :表示替换已有视图</p>
@@ -661,16 +668,23 @@
 <p>TIPS：推荐使用WHIT [CASCADED|LOCAL] CHECK OPTION选项，可以保证数据的安全性</p>
 </li>
 </ol>
-<h3 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create view V_F_player;</span><br></pre></td></tr></table></figure>
+<h3 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show create view V_F_player;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="视图更改"><a href="#视图更改" class="headerlink" title="视图更改"></a>视图更改</h3><p>create or replace view 语句修改视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create or replace view view_name as select 语句;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create or replace view view_name as select 语句;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>alter语句修改视图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ALTER</span><br><span class="line">    [ALGORITHM &#x3D; &#123;UNDEFINED | MERGE | TEMPTABLE&#125;]</span><br><span class="line">    [DEFINER &#x3D; &#123; user | CURRENT_USER &#125;]</span><br><span class="line">    [SQL SECURITY &#123; DEFINER | INVOKER &#125;]</span><br><span class="line">VIEW view_name [(column_list)]</span><br><span class="line">AS select_statement</span><br><span class="line">    [WITH [CASCADED | LOCAL] CHECK OPTION]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER
+    [ALGORITHM &#x3D; &#123;UNDEFINED | MERGE | TEMPTABLE&#125;]
+    [DEFINER &#x3D; &#123; user | CURRENT_USER &#125;]
+    [SQL SECURITY &#123; DEFINER | INVOKER &#125;]
+VIEW view_name [(column_list)]
+AS select_statement
+    [WITH [CASCADED | LOCAL] CHECK OPTION]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>修改视图是指修改数据库中已存在的表的定义，当基表的某些字段发生改变时，可以通过修改视图来保持视图和基本表之间一致</p>
-<h3 id="视图删除"><a href="#视图删除" class="headerlink" title="视图删除"></a>视图删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drop view [IF EXISTS]</span><br><span class="line">view_name[,view_name]...</span><br></pre></td></tr></table></figure>
+<h3 id="视图删除"><a href="#视图删除" class="headerlink" title="视图删除"></a>视图删除</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop view [IF EXISTS]
+view_name[,view_name]...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h1 id="6-事务级别"><a href="#6-事务级别" class="headerlink" title="6. 事务级别"></a>6. 事务级别</h1><h2 id="6-1-事务并发可能产生的情况"><a href="#6-1-事务并发可能产生的情况" class="headerlink" title="6.1 事务并发可能产生的情况"></a>6.1 事务并发可能产生的情况</h2><ul>
 <li>脏读（Dirty Read）：一个事务读到了另一个未提交事务修改过的数据</li>
@@ -741,7 +755,11 @@
 <p><strong>持久性</strong>：当事务完成后，该事务对数据库所作的更改便持久的保存在数据库中，并不会被回滚，事务一旦被提交，则持久化保存在数据库中。当进行硬盘修改的时候，发生宕机、停电，根据日志进行数据的回滚。</p>
 <h1 id="8-左-右-全连接"><a href="#8-左-右-全连接" class="headerlink" title="8 左/右/全连接"></a>8 左/右/全连接</h1><h2 id="8-1-内连接"><a href="#8-1-内连接" class="headerlink" title="8.1 内连接"></a>8.1 内连接</h2><p>内连接：只返回满足连接条件的数据。</p>
 <h3 id="inner-join-或join-等值连接或者内连接"><a href="#inner-join-或join-等值连接或者内连接" class="headerlink" title="inner join 或join 等值连接或者内连接"></a>inner join 或join 等值连接或者内连接</h3><p>只返回两个表中连接字段相等的行（达到匹配条件的行）。    JOIN: 如果表中有至少一个匹配，则返回行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select empno,ename,sal,dname,loc from emp,dept</span><br><span class="line">where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)</span><br><span class="line"> </span><br><span class="line">select empno,ename,job,sal,dept.deptno,dname,loc</span><br><span class="line">from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select empno,ename,sal,dname,loc from emp,dept
+where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)
+ 
+select empno,ename,job,sal,dept.deptno,dname,loc
+from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="8-2-外连接"><a href="#8-2-外连接" class="headerlink" title="8.2 外连接"></a>8.2 外连接</h2><p>外连接：除了<strong>返回满足连接条件的行以外，还返回左（右）表中，不满足条件的行</strong>，称为左（右）连接</p>
 <h3 id="left-join-左连接"><a href="#left-join-左连接" class="headerlink" title="left join 左连接"></a>left join 左连接</h3><p>返回包括<strong>左表中的所有记录和右表中连接字段相等的记录</strong>。    </p>
@@ -768,22 +786,36 @@
 </tr>
 </tbody></table>
 <p><strong>按分数段统计</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">count(case when score between 60 and 70 then 1 end) as 60-70,</span><br><span class="line">count(case when score between 70 and 80 then 1 end) as 70-80,</span><br><span class="line">count(case when score between 80 and 90 then 1 end) as 80-90,</span><br><span class="line">count(case when score between 90 and 100 then 1 end) as 90-100</span><br><span class="line">from student_info;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 
+count(case when score between 60 and 70 then 1 end) as 60-70,
+count(case when score between 70 and 80 then 1 end) as 70-80,
+count(case when score between 80 and 90 then 1 end) as 80-90,
+count(case when score between 90 and 100 then 1 end) as 90-100
+from student_info;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>按分数段和专业统计</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">count(case when score between 60 and 70 then 1 end) as 60-70,</span><br><span class="line">count(case when score between 70 and 80 then 1 end) as 70-80,</span><br><span class="line">count(case when score between 80 and 90 then 1 end) as 80-90,</span><br><span class="line">count(case when score between 90 and 100 then 1 end) as 90-100</span><br><span class="line">from student_info</span><br><span class="line">group by profession;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 
+count(case when score between 60 and 70 then 1 end) as 60-70,
+count(case when score between 70 and 80 then 1 end) as 70-80,
+count(case when score between 80 and 90 then 1 end) as 80-90,
+count(case when score between 90 and 100 then 1 end) as 90-100
+from student_info
+group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="9-2-mysql表新添加一列"><a href="#9-2-mysql表新添加一列" class="headerlink" title="9.2 mysql表新添加一列"></a>9.2 mysql表新添加一列</h2><p>在这个表增加一列。当然可以新建表建立联系满足需求。但就仅新增一列这个问题，可以有以下操作：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> ...  <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> .... </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>在表的最后一列增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>tbname<span class="token punctuation">`</span>
+	<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">`</span>state<span class="token punctuation">`</span> <span class="token keyword">TINYINT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'0为添加1为编辑'</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>在指定的位置增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> AFTER `column_name`;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>tbname<span class="token punctuation">`</span>
+	<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">`</span>state<span class="token punctuation">`</span> <span class="token keyword">TINYINT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'0为添加1为编辑'</span> <span class="token keyword">AFTER</span> <span class="token punctuation">`</span>column_name<span class="token punctuation">`</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>在第一列增加新的一列</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `tbname`</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `state` TINYINT(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0为添加1为编辑&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>tbname<span class="token punctuation">`</span>
+	<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">`</span>state<span class="token punctuation">`</span> <span class="token keyword">TINYINT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'0为添加1为编辑'</span> <span class="token keyword">FIRST</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h1 id="10-Mysql数据库连接池"><a href="#10-Mysql数据库连接池" class="headerlink" title="10. Mysql数据库连接池"></a>10. Mysql数据库连接池</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数据库连接池（Connection pooling）是程序启动时建立足够的数据库连接，并将这些连接组成一个连接池，由程序动态地对池中的连接进行申请，使用，释放。</p>
 <h2 id="传统的连接机制和数据库连接池运行机制"><a href="#传统的连接机制和数据库连接池运行机制" class="headerlink" title="传统的连接机制和数据库连接池运行机制"></a>传统的连接机制和数据库连接池运行机制</h2><p>传统统链接:   一般来说，Java应用程序访问数据库的过程是：</p>
@@ -1569,7 +1601,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122k</span>&nbsp;字
+                class="white-color">118.3k</span>&nbsp;字
             
             
             
