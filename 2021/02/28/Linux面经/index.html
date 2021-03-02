@@ -368,12 +368,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E7%BB%8F/">
-                                <span class="chip bg-color">面经</span>
-                            </a>
-                        
                             <a href="/tags/Linux/">
                                 <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                <span class="chip bg-color">面经</span>
                             </a>
                         
                     </div>
@@ -475,16 +475,13 @@
 <li><p>tail</p>
 <p>显示一个文件最后的几行</p>
 <p>-n 显示行号，相当于nl命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail -100f test.log //实时监控100行日志</span><br><span class="line">tail -n 10 test.log  //查询日志尾部最后10行的日志</span><br><span class="line">tail -n +10 test.log //查询10行之后的所有日志</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tail -100f test.log //实时监控100行日志</span><br><span class="line">tail -n 10 test.log  //查询日志尾部最后10行的日志</span><br><span class="line">tail -n +10 test.log //查询10行之后的所有日志</span><br></pre></td></tr></table></figure></li>
 <li><p>head</p>
 <p>显示文件的前几行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">head -n 10 test.log //查询日志文件中的头10行日志</span><br><span class="line">head -n +10 test.log //查询日志文件除了最后10行的其他所有日志</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">head -n 10 test.log //查询日志文件中的头10行日志</span><br><span class="line">head -n +10 test.log //查询日志文件除了最后10行的其他所有日志</span><br></pre></td></tr></table></figure></li>
 <li><p>cat</p>
 <p>concatenate files and print on the standard output</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n test.log | grep &quot;debug&quot; //查询关键字的日志</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat -n test.log | grep &quot;debug&quot; //查询关键字的日志</span><br></pre></td></tr></table></figure></li>
 <li><p>tac</p>
 <p>concatenate and print files in reverse</p>
 </li>
@@ -495,8 +492,7 @@
 </li>
 <li><p>sed</p>
 <p>可以查找日志文件特定的一段，根据时间的一个范围查询，可以按照行号和时间范围查询</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;5,10p&#x27; filename //按照行号，只查看文件的第5行到第10行</span><br><span class="line"></span><br><span class="line">sed -n &#x27;/2014-12-17 16:17:20/,/2014-12-17 16:17:36/p&#x27; test.log</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;5,10p&#x27; filename //按照行号，只查看文件的第5行到第10行</span><br><span class="line"></span><br><span class="line">sed -n &#x27;/2014-12-17 16:17:20/,/2014-12-17 16:17:36/p&#x27; test.log</span><br></pre></td></tr></table></figure></li>
 <li><p>less</p>
 </li>
 </ol>
@@ -758,12 +754,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E7%BB%8F/">
-                                    <span class="chip bg-color">面经</span>
-                                </a>
-                            
                                 <a href="/tags/Linux/">
                                     <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E7%BB%8F/">
+                                    <span class="chip bg-color">面经</span>
                                 </a>
                             
                         </div>

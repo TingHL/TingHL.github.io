@@ -430,7 +430,7 @@
 <li>继承Thread类并重写run方法</li>
 <li>使用FutureTask方式</li>
 </ol>
-<h2 id="继承Thread类并重写run方法"><a href="#继承Thread类并重写run方法" class="headerlink" title="继承Thread类并重写run方法"></a>继承Thread类并重写run方法</h2><p><strong><em>调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源）</em></strong></p>
+<h2 id="继承Thread类并重写run方法"><a href="#继承Thread类并重写run方法" class="headerlink" title="继承Thread类并重写run方法"></a>继承Thread类并重写run方法</h2><p><em><strong>调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源）</strong></em></p>
 <p><strong>优势</strong>：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentThread() 方法； </p>
 <p><strong>劣势</strong>：是Java 不支持多继承，如果继承了Thread 类，那么就不能再继承其他类；没有相关返回值。</p>
 <h2 id="实现Runnable接口的run方法"><a href="#实现Runnable接口的run方法" class="headerlink" title="实现Runnable接口的run方法"></a>实现Runnable接口的run方法</h2><p><strong>优势</strong>：可以继承其他类</p>

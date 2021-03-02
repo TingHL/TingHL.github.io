@@ -531,9 +531,7 @@
 <li><p>在数据库中不能创建两个相同名称的表，在同一个表中也不能创建两个名称相同的列</p>
 </li>
 <li><p>设置默认值，通过<em>default</em>关键字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table 表名</span><br><span class="line">(列1 数据类型 default xxx)</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table 表名</span><br><span class="line">(列1 数据类型 default xxx)</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h4 id="数字型、字符型和日期型"><a href="#数字型、字符型和日期型" class="headerlink" title="数字型、字符型和日期型"></a><strong>数字型、字符型和日期型</strong></h4><table>
 <thead>
@@ -568,12 +566,9 @@
 
 <h4 id="表定义的更新"><a href="#表定义的更新" class="headerlink" title="表定义的更新"></a>表定义的更新</h4><ul>
 <li><p>添加列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add column 列的定义;</span><br><span class="line"></span><br><span class="line">alter table product add column product_name_pinyin varchar(100) not null;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add column 列的定义;</span><br><span class="line"></span><br><span class="line">alter table product add column product_name_pinyin varchar(100) not null;</span><br></pre></td></tr></table></figure></li>
 <li><p>删除列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop column 列名;</span><br><span class="line"></span><br><span class="line">alter table product drop column product_name_pinyin;</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 drop column 列名;</span><br><span class="line"></span><br><span class="line">alter table product drop column product_name_pinyin;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="表中数据"><a href="#表中数据" class="headerlink" title="表中数据"></a>表中数据</h3><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><ul>
 <li><p><strong>格式</strong></p>
@@ -584,8 +579,7 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" alt="image-20201020150711365"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 values(xxx,xxxx);</span><br><span class="line"></span><br><span class="line">START TRANSACTION;</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0001&#39;, &#39;T恤&#39; ,&#39;衣服&#39;, 1000, 500, &#39;2009-09-20&#39;);</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, &#39;2009-09-11&#39;);</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 values(xxx,xxxx);</span><br><span class="line"></span><br><span class="line">START TRANSACTION;</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0001&#39;, &#39;T恤&#39; ,&#39;衣服&#39;, 1000, 500, &#39;2009-09-20&#39;);</span><br><span class="line">INSERT INTO Shohin VALUES (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, &#39;2009-09-11&#39;);</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>列清单的省略</strong></p>
 <p>省略表名后的列清单，values子句的值会默认按照从左到右的顺序赋予给每一列</p>
 </li>
@@ -594,8 +588,7 @@
 <p>前提：创建表时，<code>default</code>关键字约束设定默认值</p>
 <ol>
 <li><p>显式方式插入设定默认值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, DEFAULT, 790, &#39;2009-04-28&#39;);</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, DEFAULT, 790, &#39;2009-04-28&#39;);</span><br></pre></td></tr></table></figure></li>
 <li><p>隐式方法插入设定默认值</p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020151834333.png" class="">
 
@@ -610,9 +603,7 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" alt="image-20201020152501318"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductType (product_type, sum_sale_price,sum_purchase_price) </span><br><span class="line">SELECT product_type, SUM(sale_price), SUM(purchase_price) FROM Product GROUP BY product_type;</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO ProductType (product_type, sum_sale_price,sum_purchase_price) </span><br><span class="line">SELECT product_type, SUM(sale_price), SUM(purchase_price) FROM Product GROUP BY product_type;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="数据删除-delete-drop-truncate"><a href="#数据删除-delete-drop-truncate" class="headerlink" title="数据删除 delete drop truncate"></a>数据删除 delete drop truncate</h4><ul>
 <li><p><strong>drop和delete的区别</strong></p>
@@ -626,8 +617,7 @@
 <li><p><code>delete from 表名</code></p>
 </li>
 <li><p>指定删除对象进行删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 where 条件;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 where 条件;</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 <p>delete 语句的删除对象并不是表或者列，而是记录（行）</p>
@@ -637,8 +627,7 @@
 </li>
 <li><p><strong>truncate</strong></p>
 <p>删除表中全部数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate 表名；</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate 表名；</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ul>
 <h4 id="数据更新"><a href="#数据更新" class="headerlink" title="数据更新"></a>数据更新</h4><ul>
@@ -647,15 +636,12 @@
 <li><p><code>update 表名 set 列名=表达式;</code></p>
 </li>
 <li><p>指定条件的update语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;表达式</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;表达式</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
 <li><p>使用null进行更新（NULL清空）— 未设置NOT NULL约束和主键约束的列</p>
 <p>将赋值表达式右边的值直接写为NULL即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;NULL</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update 表名</span><br><span class="line">set 列名&#x3D;NULL</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
 <li><p>多列更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*两种方法*&#x2F;</span><br><span class="line">update 表名</span><br><span class="line">set 列1&#x3D;列1操作表达式,列2&#x3D;列2操作表达式,...</span><br><span class="line">where 条件;</span><br><span class="line"></span><br><span class="line">-- 方法二在部分数据库中不具有适用性</span><br><span class="line">update 表名</span><br><span class="line">set (列1,列2,...)&#x3D;(列1操作表达式,列2操作表达式,...)</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*两种方法*&#x2F;</span><br><span class="line">update 表名</span><br><span class="line">set 列1&#x3D;列1操作表达式,列2&#x3D;列2操作表达式,...</span><br><span class="line">where 条件;</span><br><span class="line"></span><br><span class="line">-- 方法二在部分数据库中不具有适用性</span><br><span class="line">update 表名</span><br><span class="line">set (列1,列2,...)&#x3D;(列1操作表达式,列2操作表达式,...)</span><br><span class="line">where 条件;</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ol>
 </li>
@@ -666,15 +652,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 列名,列名,...</span><br><span class="line">from 表名</span><br></pre></td></tr></table></figure>
 
 <p>查询结果中列的顺序和select子句中的顺序相同</p>
-<p>查询全部列时，使用*<em>代表所有列的星号 **</em> （但是结果的显示顺序就没有办法进行设定，只能按照create tabel的定义对列进行排序）</p>
+<p>查询全部列时，使用**代表所有列的星号 *** （但是结果的显示顺序就没有办法进行设定，只能按照create tabel的定义对列进行排序）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>设定别名</p>
 <p>使用<strong>as关键字</strong>为<strong>列设定别名</strong>，使用中文的时候，使用双引号（“）括起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select product_id as id,  </span><br><span class="line">	   product_name as name,</span><br><span class="line">	   purchase_price as price</span><br><span class="line">from Product;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select product_id as id,  </span><br><span class="line">	   product_name as name,</span><br><span class="line">	   purchase_price as price</span><br><span class="line">from Product;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>select product_id as “商品编号”,<br>         product_name as “商品名称”,<br>         purchase_price as “进货单价”<br>  from Product;</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 常数的查询</span><br><span class="line"></span><br><span class="line">  select语句书写常数，该列的值展示为常数</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;mysql</span><br><span class="line">  select &#39;商品&#39; as string, 38 as number,&#39;2009-02-24&#39; as data,product_id,product_name</span><br><span class="line">  from product;</span><br></pre></td></tr></table></figure>
@@ -770,9 +754,7 @@
 <li><p>null的判断不通过比较运算符 通过 <code>is null</code>和<code>is not null</code></p>
 <p>判断是否是NULL的<code>is null</code>运算符</p>
 <p>判断不是NULL的运算符，<code>is not null</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="3-3-逻辑运算符"><a href="#3-3-逻辑运算符" class="headerlink" title="3.3 逻辑运算符"></a>3.3 逻辑运算符</h2><table>
 <thead>
@@ -887,8 +869,7 @@
 <li><p><u>NULL的判断不通过比较运算符 通过 <code>is null</code>和<code>is not null</code>进行数据的选中，提取</u>；如果通过比较运算符进行NULL判断，则不会取出含NULL的数据</p>
 <p>判断是否是NULL的运算符：<code>is null</code></p>
 <p>判断不是NULL的运算符：<code>is not null</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Product where purchase_price is null;</span><br></pre></td></tr></table></figure></li>
 <li><p>除真假之外的第三种值–不确定（UNKNOWN），<strong>SQL中的逻辑运算成为三值逻辑</strong></p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019213436268.png" class="">
 
@@ -908,7 +889,7 @@
 <tbody><tr>
 <td><strong>count</strong></td>
 <td>计算表中的记录数（行数）</td>
-<td>*<em>count(</em>)查找包含NULL在内的全部数据的行数；count(列名)会得到NULL之外的数据行数；**</td>
+<td><strong>count(*)查找包含NULL在内的全部数据的行数；count(列名)会得到NULL之外的数据行数；</strong></td>
 </tr>
 <tr>
 <td><strong>SUM</strong></td>
@@ -942,18 +923,15 @@
 <p><strong>常见问题</strong>：</p>
 <ul>
 <li><p><strong>使用group by子句时，把聚合键之外的列名不能出现在select子句中</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select product_name,purchase_price,count(*)</span><br><span class="line">from product</span><br><span class="line">group by purchase_prices;</span><br><span class="line"></span><br><span class="line">ERROR：列&quot;product,product_name&quot;必须包含在GROUP BY子句之中，或者必须在聚合函数内使用</span><br><span class="line">行1: SELECT product_name, purchase_price, COUNT(*)</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select product_name,purchase_price,count(*)</span><br><span class="line">from product</span><br><span class="line">group by purchase_prices;</span><br><span class="line"></span><br><span class="line">ERROR：列&quot;product,product_name&quot;必须包含在GROUP BY子句之中，或者必须在聚合函数内使用</span><br><span class="line">行1: SELECT product_name, purchase_price, COUNT(*)</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>在group by子句中，不能使用select 子句中定义的别名</strong></p>
 <p>产生的原因：group by的执行顺序在select之前，在执行分组group by时，不知道别名是什么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select product_type as pt,count(*)</span><br><span class="line">from Product</span><br><span class="line">group by pt;   &#x2F;&#x2F;产生错误</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select product_type as pt,count(*)</span><br><span class="line">from Product</span><br><span class="line">group by pt;   &#x2F;&#x2F;产生错误</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>group by子句结果的显示是无序的</strong></p>
 <p>对于按照特定顺序进行排序，需要在select语句中进行指定</p>
 </li>
 <li><p><strong>只有select子句、having子句和order by子句能够使用count等聚合函数</strong>，使用where语句会发生错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select product_name,count(*)</span><br><span class="line">from product</span><br><span class="line">where count(*)&#x3D;2    &#x2F;&#x2F;不能在where子句中使用聚合</span><br><span class="line">group by product_type;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select product_name,count(*)</span><br><span class="line">from product</span><br><span class="line">where count(*)&#x3D;2    &#x2F;&#x2F;不能在where子句中使用聚合</span><br><span class="line">group by product_type;</span><br></pre></td></tr></table></figure></li>
 <li></li>
 </ul>
 <h2 id="5-3-聚合结果指定条件"><a href="#5-3-聚合结果指定条件" class="headerlink" title="5.3 聚合结果指定条件"></a>5.3 聚合结果指定条件</h2><h3 id="having子句"><a href="#having子句" class="headerlink" title="having子句"></a>having子句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select 列名1,列名2, ...</span><br><span class="line">from 表名</span><br><span class="line">group by 列名1,列名2,...</span><br><span class="line">having 分组结果对应的条件</span><br></pre></td></tr></table></figure>
@@ -975,12 +953,9 @@
 <p>order by 指定排列顺序</p>
 <p>位于select语句的末尾，对数据进行排序的操作必须在结果即将返回时执行</p>
 <p>order by子句中书写的列名称为<strong>排序键</strong></p>
-<figure class="highlight plain"><figcaption><span>by 列名 desc``` 降序排列，```order by 列名 asc```升序排列</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  排列顺序时&lt;u&gt;默认会使用升序进行排列&lt;&#x2F;u&gt;</span><br><span class="line"></span><br><span class="line">- **指定多个排序键**</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;order by 列名1,列名2,...&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- 排序键中，部分行数据包含NULL，这些NULL会在开头或者末尾进行汇总</span><br><span class="line"></span><br><span class="line">- **order by可以使用显示中用的别名，可正常执行**，order by的执行顺序在select子句之后执行</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;mysql</span><br><span class="line">  SELECT product_id AS id, product_name, sale_price AS sp, purchase_price</span><br><span class="line">  FROM Product</span><br><span class="line">  ORDER BY sp, id;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><figcaption><span>by 列名 desc``` 降序排列，```order by 列名 asc```升序排列</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  排列顺序时&lt;u&gt;默认会使用升序进行排列&lt;&#x2F;u&gt;</span><br><span class="line"></span><br><span class="line">- **指定多个排序键**</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;order by 列名1,列名2,...&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- 排序键中，部分行数据包含NULL，这些NULL会在开头或者末尾进行汇总</span><br><span class="line"></span><br><span class="line">- **order by可以使用显示中用的别名，可正常执行**，order by的执行顺序在select子句之后执行</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;mysql</span><br><span class="line">  SELECT product_id AS id, product_name, sale_price AS sp, purchase_price</span><br><span class="line">  FROM Product</span><br><span class="line">  ORDER BY sp, id;</span><br></pre></td></tr></table></figure></li>
 <li><p>order by子句可以使用存在于表中、但并不包含在select子句之中的列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_name, sale_price, purchase_price</span><br><span class="line">FROM Product</span><br><span class="line">ORDER BY product_id;</span><br><span class="line"></span><br><span class="line">SELECT product_type, COUNT(*)</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type</span><br><span class="line">ORDER BY COUNT(*);</span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT product_name, sale_price, purchase_price</span><br><span class="line">FROM Product</span><br><span class="line">ORDER BY product_id;</span><br><span class="line"></span><br><span class="line">SELECT product_type, COUNT(*)</span><br><span class="line">FROM Product</span><br><span class="line">GROUP BY product_type</span><br><span class="line">ORDER BY COUNT(*);</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="6-事务"><a href="#6-事务" class="headerlink" title="6. 事务"></a>6. 事务</h1><p><strong>事务（transaction），对同一个处理单元中执行的一系列更新处理的集合。</strong></p>
 <h2 id="事务创建"><a href="#事务创建" class="headerlink" title="事务创建"></a>事务创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">事务开始语句;</span><br><span class="line"></span><br><span class="line">DML语句1;</span><br><span class="line">DML语句2;</span><br><span class="line">DML语句3;</span><br><span class="line">.......</span><br><span class="line"></span><br><span class="line">事务结束语句(COMMIT或者ROLLBACK);</span><br></pre></td></tr></table></figure>
@@ -994,15 +969,13 @@
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" alt="image-20201020171315119"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION;</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION;</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">COMMIT;</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>rollback — 取消处理</strong></p>
 <p>rollback是取消事务包含的全部更新处理的结束指令</p>
 <img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" alt="image-20201020171507324"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BEGIN TRANSACTION; ------------------- ①</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line">-- 数据表中数据不会发生任何变化,rollback之后，所有的处理都被取消了</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">BEGIN TRANSACTION; ------------------- ①</span><br><span class="line">-- 将运动T恤的销售单价降低1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price - 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;运动T恤&#39;;</span><br><span class="line">-- 将T恤衫的销售单价上浮1000日元</span><br><span class="line">UPDATE Product</span><br><span class="line">SET sale_price &#x3D; sale_price + 1000</span><br><span class="line">WHERE product_name &#x3D; &#39;T恤衫&#39;;</span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br><span class="line">-- 数据表中数据不会发生任何变化,rollback之后，所有的处理都被取消了</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>事务何时开始处理</strong></p>
 <p>几乎所有的数据库产品的事务都无需开始指令。</p>
 <p>不使用指令而悄悄开始事务的情况下，应该如何区分各个事务呢？通常会有如下两种情况：</p>
