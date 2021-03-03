@@ -1878,11 +1878,11 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1891,7 +1891,7 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
   </div>
   
             </div>
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -2072,6 +2072,23 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/",
+      identifier: "2021/02/28/SQL基础教程-2th-笔记/",
+      title     : "SQL基础教程 2th 笔记",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -2101,23 +2118,6 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/",
-      identifier: "2021/02/28/SQL基础教程-2th-笔记/",
-      title     : "SQL基础教程 2th 笔记",
-    });
-  }, window.DisqusJS);
-});
 </script>
 
 </body>
