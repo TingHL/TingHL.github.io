@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/linux-mian-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">Linux面经</a>
+            <a href="/2021/02/28/linux-mian-jing/" class="post-title-link" itemprop="url">Linux面经</a>
         </h2>
 
         <div class="post-meta">
@@ -237,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/Linux面经/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/linux-mian-jing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/linux-mian-jing/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -279,10 +279,10 @@
 <h2 id="1-3-查看端口"><a href="#1-3-查看端口" class="headerlink" title="1.3 查看端口"></a>1.3 查看端口</h2><h4 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h4><pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">lsof -i:端口号
 lsof -i &#x2F;&#x2F;需要root权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/image-20201004234034814.png" class="">
+<img src="/2021/02/28/linux-mian-jing/image-20201004234034814.png" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/image-20201004234034814.png" alt="image-20201004234034814"></p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/lsof.png" class="">
+<img src="/2021/02/28/linux-mian-jing/lsof.png" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/lsof.png" alt="img"></p>
 <h4 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h4><p><strong>netstat -tunlp</strong> 用于显示 tcp，udp 的端口和进程等相关情况。</p>
@@ -525,7 +525,7 @@ rm -r 文件<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p>显示文件相关属性</p>
 <p><strong>ll (ls -l)</strong></p>
 <p>罗列出当前文件或目录的详细信息，含有时间、读写权限、大小、时间等信息 </p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/xx121" class="">
+<img src="/2021/02/28/linux-mian-jing/xx121" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/xx121" alt="img"></p>
 <p><strong>pwd</strong></p>
@@ -548,11 +548,11 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <p><strong>优点：有利于长作业以及CPU繁忙的作业</strong></p>
 <p><strong>缺点：不利于短作业以及I/O繁忙的作业</strong></p>
 <p>流程图：</p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110446449" class="">
+<img src="/2021/02/28/linux-mian-jing/20170219110446449" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110446449" alt="img"></p>
 <p>执行过程：</p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110456793" class="">
+<img src="/2021/02/28/linux-mian-jing/20170219110456793" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110456793" alt="img"></p>
 <h2 id="2-2-短作业-进程-优先调度算法"><a href="#2-2-短作业-进程-优先调度算法" class="headerlink" title="2.2 短作业(进程)优先调度算法"></a>2.2 短作业(进程)优先调度算法</h2><p>对预计执行时间短的作业（进程）优先分派处理机，通常后来的短作业<strong>不抢占正在执行的作业</strong></p>
@@ -569,12 +569,12 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li>未能依据作业的紧迫程度来划分执行的优先级；</li>
 <li>难以准确估计作业（进程）的执行时间，从而影响调度性能。</li>
 </ul>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110508309" class="">
+<img src="/2021/02/28/linux-mian-jing/20170219110508309" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110508309" alt="img"></p>
 <h2 id="2-3-轮转法"><a href="#2-3-轮转法" class="headerlink" title="2.3 轮转法"></a>2.3 轮转法</h2><p>时间片轮转法类似于“轮流坐庄”的思想，条件是：各作业近似认为“同时”到达，题中条件是后面作业依次比前一个作业迟到一个时间单位，分析时要严格按照RR调度算法的实现思想：<strong>系统把所有就绪进程按先入先出的原则排成一个队列。新来的进程加到就绪队列末尾。每当执行进程调度时，进程调度程序总是选出就绪队列的队首进程，让它在CPU上运行一个时间片的时间。当进程用完分给它的时间片后，调度程序便停止该进程的运行，并把它放入就绪队列的末尾</strong>。</p>
 <p>流程图：</p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110521419" class="">
+<img src="/2021/02/28/linux-mian-jing/20170219110521419" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110521419" alt="img"></p>
 <h2 id="2-4-多级反馈队列算法"><a href="#2-4-多级反馈队列算法" class="headerlink" title="2.4 多级反馈队列算法"></a>2.4 多级反馈队列算法</h2><p><strong>设置多个就绪队列，分别赋予不同的优先级</strong>，如逐级降低，队列1的优先级最高。<strong>每个队列执行时间片的长度也不同，规定优先级越低则时间片越长</strong>，如逐级加倍。</p>
@@ -588,10 +588,10 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li>不必估计进程的执行时间，动态调节</li>
 </ul>
 <p>流程图：</p>
-<img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110532293" class="">
+<img src="/2021/02/28/linux-mian-jing/20170219110532293" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110532293" alt="img"></p>
-<h2 id="2-5-算法比较"><a href="#2-5-算法比较" class="headerlink" title="2.5 算法比较"></a>2.5 算法比较</h2><img src="/2021/02/28/Linux%E9%9D%A2%E7%BB%8F/20170219110542997" class="">
+<h2 id="2-5-算法比较"><a href="#2-5-算法比较" class="headerlink" title="2.5 算法比较"></a>2.5 算法比较</h2><img src="/2021/02/28/linux-mian-jing/20170219110542997" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110542997" alt="img"></p>
 
@@ -613,7 +613,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/shu-ju-jie-gou/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -627,7 +627,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">数据结构</a>
+            <a href="/2021/02/28/shu-ju-jie-gou/" class="post-title-link" itemprop="url">数据结构</a>
         </h2>
 
         <div class="post-meta">
@@ -665,8 +665,8 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/数据结构/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/shu-ju-jie-gou/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/shu-ju-jie-gou/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -684,7 +684,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
           <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/#more" rel="contents">
+              <a class="btn" href="/2021/02/28/shu-ju-jie-gou/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -708,7 +708,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -722,7 +722,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">网络面经</a>
+            <a href="/2021/02/27/wang-luo-mian-jing/" class="post-title-link" itemprop="url">网络面经</a>
         </h2>
 
         <div class="post-meta">
@@ -760,8 +760,8 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/网络面经/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/27/wang-luo-mian-jing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/wang-luo-mian-jing/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -781,7 +781,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/27/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/#more" rel="contents">
+              <a class="btn" href="/2021/02/27/wang-luo-mian-jing/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -805,7 +805,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java-xu-ni-ji-mian-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -819,7 +819,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">java虚拟机面经</a>
+            <a href="/2021/02/27/java-xu-ni-ji-mian-jing/" class="post-title-link" itemprop="url">java虚拟机面经</a>
         </h2>
 
         <div class="post-meta">
@@ -851,8 +851,8 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java虚拟机面经/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/27/java-xu-ni-ji-mian-jing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java-xu-ni-ji-mian-jing/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -871,7 +871,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li>虚拟机相关面经</li>
 </ul>
 <h1 id="1-Java虚拟机-运行时数据区域-不同于Java内存模型"><a href="#1-Java虚拟机-运行时数据区域-不同于Java内存模型" class="headerlink" title="1. Java虚拟机 运行时数据区域 不同于Java内存模型"></a>1. Java虚拟机 运行时数据区域 不同于Java内存模型</h1><p>Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：<strong>方法区、堆、虚拟机栈、本地方法栈、程序计数器。</strong></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201206213234668.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png" alt="image-20201206213234668"></p>
 <h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><ul>
@@ -891,7 +891,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li><p>定义了两类异常：StackOverflowError和OutOfMemeoryError异常。</p>
 </li>
 <li><p><strong>属于线程私有的数据区域，与线程同时创建，总数与线程关联，代表Java方法执行的内存模型</strong>。每个方法执行时都会创建一个栈桢来存储方法的的变量表、操作数栈、动态链接方法、返回值、返回地址等信息。每个方法从调用直结束就对于一个栈桢在虚拟机栈中的入栈和出栈过程，如下（图有误，应该为栈桢）：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20170608151435751" class="">
 
 <img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" alt="img" style="zoom: 80%;" />
 
@@ -900,7 +900,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3></li>
 <li><p>方法执行时，被分配的内存就在栈中，所以存储的局部变量就在栈中。当一段代码或者一个方法调用完毕后，栈中为这段代码所提供的基本数据类型或者对象的引用立即被释放。</p>
 <p><strong>栈内存属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其线程中可见</strong></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201101213502325.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201101213502325.png" class="">
 
 <img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201101213502325.png" alt="image-20201101213502325" style="zoom: 67%;" />
 
@@ -960,7 +960,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>可达性分析 Reachability Analysis（主流）</strong></p>
 <p>基本思路：通过一系列称为<u>“GC Root”的根对象作为起始节点集</u>，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GC Roots间没有任何引用链相连（从GC Root到这个对象不可达时），证明此对象是不可能再被使用的。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206211628499.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201206211628499.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206211628499.png" alt="image-20201206211628499"></p>
 <p>可作为GC Roots的对象包括（看哪些Java堆中的对象还在被使用，未使用不可达的对象会被后期垃圾收集）：</p>
@@ -1009,15 +1009,15 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li>老生代（Old Generation）通常使用“标记-清除”或“标记-整理”算法</li>
 <li>永久代（Perm Genration）主要存放元数据，例如Class、Method的元信息，与垃圾回收要回收的Java对象关系不大。当时对于新生代和老生代来说，该区域的划分对垃圾回收影响比较小。</li>
 </ol>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/ab15459b.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/ab15459b.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/ab15459b.png" alt="img"></p>
 <h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>两个阶段：标记阶段、清除阶段</p>
 <p>首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象（标记存活的对象，在标记完成后，统一回收所有未被标记的对象）。如下图所示：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637655" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/1460000023637655" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637655" alt="img"></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201207172345230.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201207172345230.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201207172345230.png" alt="image-20201207172345230"></p>
 <p>标记-清除算法的主要不足有两个：</p>
@@ -1028,18 +1028,18 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 </li>
 </ul>
 <h3 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h3><p><strong>将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。</strong><u>这种算法适用于对象存活率低的场景，比如新生代</u>。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。该算法示意图如下所示：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637653" class="">　　　　　　　　　　　
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/1460000023637653" class="">　　　　　　　　　　　
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637653" alt="img"></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200410220533227.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200410220533227.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200410220533227.png" alt="img"></p>
 <p>目前主流虚拟机都采用了<u>标记-复制算法进行新生代回收</u>。</p>
 <p><strong>JVM将堆内存划分为新生代与老年代</strong>，将新生代划分为一块较大的Eden（伊甸园）与2块较小的Survivor Space(幸存者区，From和To两块区域)，每次使用Eden和其中一块Survivor，然后在Eden –&gt;Survivor Space 以及From Survivor Space 与To Survivor Space 之间实行复制算法。 当回收时，将Eden和Survivor中还存活着的对象一次地复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。</p>
 <p>Eden区：From区：To区域的比例是8：1：1。始终有90%的空间是可以用来创建对象的，而剩下的10%用来存放回收后存活的对象。万一存活对象数量比较多，那么To域的内存可能不够存放，这个时候会借助老年代的空间。如下所示：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/heap.bmp" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/heap.bmp" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/heap.bmp" alt="heap.bmp-174kB"></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20160615082256469" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20160615082256469" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20160615082256469" alt="这里写图片描述"></p>
 <ol>
@@ -1048,11 +1048,11 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <li>可见部分对象会在From和To区域中复制来复制去，如此交换15次(由JVM参数MaxTenuringThreshold决定，这个参数默认是15)，最终如果还是存活，就存入到老年代</li>
 </ol>
 <h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3><p>标记-复制算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在<u>老年代</u>一般不能直接选用这种算法。<strong>标记整理算法的标记过程类似标记清除算法，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存</strong>，其作用原理及作用示意图如下图所示。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637657" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/1460000023637657" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637657" alt="在这里插入图片描述"></p>
 <p>标记整理算法的作用示意图：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637658" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/1460000023637658" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/1460000023637658" alt="img"></p>
 <p><strong>标记整理算法 标记清除算法区别</strong>：</p>
@@ -1060,7 +1060,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <h2 id="2-3-如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收"><a href="#2-3-如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收" class="headerlink" title="2.3 如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收"></a>2.3 如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收</h2><p>当老年代存活对象较多时，每次Minor GC查询老年代所有对象影响回收效率（因为GC会stop the world），所以在老年代有一个write barrier（写屏障）来管理card table（卡表），card table存放了所有老年代对象对新生代对象的引用。</p>
 <p>每次Minor GC通过查询card table来避免查询整个老年代，依次提高GC性能。</p>
 <p>一些相关定义：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200819184408997.PNG" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200819184408997.PNG" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200819184408997.PNG" alt="在这里插入图片描述"></p>
 <ol>
@@ -1079,7 +1079,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 </ol>
 <h1 id="3-虚拟机类加载机制"><a href="#3-虚拟机类加载机制" class="headerlink" title="3. 虚拟机类加载机制"></a>3. 虚拟机类加载机制</h1><p>Java虚拟机把描述类的数据从class文件<strong>加载</strong>到内存，并对数据进行<strong>校验</strong>、<strong>转换解析</strong>和<strong>初始化</strong>，最终形成可以被虚拟机直接使用的Java类型，这个过程称为虚拟机的类加载机制。（<u>类型的加载、连接和初始化过程都是在程序运行期间完成的</u>，<u>Java语言<strong>动态拓展</strong>的语言特性依赖于运行时<strong>动态加载</strong>和<strong>动态连接</strong></u>）</p>
 <h2 id="3-1-类加载的时机"><a href="#3-1-类加载的时机" class="headerlink" title="3.1 类加载的时机"></a>3.1 类加载的时机</h2><p>从被加载到虚拟机内存中开始到卸载出内存为止，整个声明周期包括：加载（Loading）、验证（Verification）、准备（Perperation）、解析（Resolution）、初始化（Initialization）、使用（Using）和卸载（Unloading）七个阶段，其中验证、准备、解析三个部分统称为连接（Linking）。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201207201954519.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201207201954519.png" class="">
 
 <img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201207201954519.png" alt="image-20201207201954519" style="zoom:80%;" />
 
@@ -1125,7 +1125,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的初始值为0 非123。因为此时尚未开始执行任何Java方法</span>
 <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的值为123. 类字段的字段属性表中存在ConstantValue属性，在准备阶段变量值会被初始化为ConstantValue属性所指定的初始值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201208220429240.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201208220429240.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201208220429240.png" alt="image-20201208220429240"></p>
 <h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将常量池内的符号引用替换为直接引用的过程。</p>
@@ -1181,7 +1181,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 </li>
 </ol>
 <p><strong>类加载器双亲委派模型</strong></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201215205024685.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20201215205024685.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201215205024685.png" alt="image-20201215205024685"></p>
 <p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器（父子关系一般不是以继承的关系来实现，而是通常使用组合关系复用父加载器代码）</p>
@@ -1189,7 +1189,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <p>好处：</p>
 <h1 id="4-Java内存模型-Java-Memory-Mode-JMM"><a href="#4-Java内存模型-Java-Memory-Mode-JMM" class="headerlink" title="4. Java内存模型 Java Memory Mode, JMM"></a>4. Java内存模型 Java Memory Mode, JMM</h1><p>本身是一种抽象的概念，并不真实存在，它描述的是一组规范或规则，通过这组规范<strong>定义了程序中各个变量（包括实例字段、静态字段和构成数组对象的元素，不包括线程私有的局部变量和方法参数）的访问方式</strong>。</p>
 <p><u>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存</u>(有些地方称为栈空间)，用于存储线程私有的数据，而<u>Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作(读取赋值等)必须在工作内存中进行</u>，首先要将变量从主内存拷贝的自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，工作内存中存储着主内存中的变量副本拷贝，前面说过，工作内存是每个线程的私有数据区域，因此<u>不同的线程间无法访问对方的工作内存，线程间的通信(传值)必须通过主内存来完成</u>，其简要访问过程如下图：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608221857890" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20170608221857890" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608221857890" alt="img"></p>
 <p><strong>JMM与Java内存区域的划分是不同的概念层次，更恰当说JMM描述的是一组规则，通过这组规则控制程序中各个变量在共享数据区域和私有数据区域的访问方式</strong>，<strong>JMM是围绕原子性，有序性、可见性</strong>展开的。</p>
@@ -1203,7 +1203,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 </ul>
 <p><strong>对实例对象中的成员方法</strong>，如果方法中包含本地变量是基本数据类型（boolean,byte,short,char,int,long,float,double），将直接存储在工作内存的帧栈结构中，但倘若本地变量是引用类型，那么该变量的引用会存储在工作内存的帧栈中，而对象实例将存储在主内存(共享数据区域，堆)中。</p>
 <p><strong>对实例对象的成员变量</strong>，不管它是基本数据类型或者包装类型(Integer、Double等)还是引用类型，都会被存储到堆区。至于static变量以及类本身相关信息将会存储在主内存中。需要注意的是，在主内存中的实例对象可以被多线程共享，倘若两个线程同时调用了同一个对象的同一个方法，那么两条线程会将要操作的数据拷贝一份到自己的工作内存中，执行完成操作后才刷新到主内存，简单示意图如下所示：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170609093435508" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20170609093435508" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170609093435508" alt="img"></p>
 <h2 id="4-1-JMM存在的必要性"><a href="#4-1-JMM存在的必要性" class="headerlink" title="4.1 JMM存在的必要性"></a>4.1 <strong>JMM存在的必要性</strong></h2><p>解决线程安全问题，JVM定义了一组规则，通过这组规则来决定一个线程对共享变量的写入何时对另一个线程可见，这组规则也称为Java内存模型（即JMM），<strong>JMM是围绕着程序执行的原子性、有序性、可见性展开的</strong>，下面我们看看这三个特性。</p>
@@ -1262,7 +1262,7 @@ LockSupport::parkUntil()方法。
 <li><p>结束：已终止线程的线程状态，线程已经结束执行</p>
 </li>
 </ul>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210115212340699.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20210115212340699.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210115212340699.png" alt="image-20210115212340699"></p>
 <h1 id="5-线程安全与锁优化"><a href="#5-线程安全与锁优化" class="headerlink" title="5. 线程安全与锁优化"></a>5. 线程安全与锁优化</h1><h2 id="5-1-线程安全的实现方法"><a href="#5-1-线程安全的实现方法" class="headerlink" title="5.1 线程安全的实现方法"></a>5.1 线程安全的实现方法</h2><h3 id="互斥同步"><a href="#互斥同步" class="headerlink" title="互斥同步"></a>互斥同步</h3><p>通过互斥实现同步，常见的方法有临界区（Cirtical Section）、互斥量（Mutex）和信号量（Semaphore）等</p>
@@ -1280,17 +1280,17 @@ LockSupport::parkUntil()方法。
 <h3 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h3><p>如果一系列的连续操作都是对同一个对象反复加锁和解锁，甚至加锁操作都出现在循环体之中，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
 <p>如果虚拟机探测到一串零碎的操作都对同一个对象加锁，将会把加锁同步的范围拓展（粗化）到整个操作序列的外部。</p>
 <h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><p>HotSpot虚拟机对象的内存布局中的Mark Word如下所示，是实现轻量级锁和偏向锁的关键。其是一个非固定的动态数据结构。在未锁定、轻量级锁定、重量级锁定（锁膨胀）、GC标记、可偏向等情况下的Mark Word状态如下。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117171657935.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20210117171657935.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117171657935.png" alt="image-20210117171657935"></p>
 <p><strong>轻量级锁工作过程</strong>：</p>
 <p>在代码即将进入同步块的时候，如果此同步对象没有被锁定（锁标志位为”01“状态），虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝（官方为这份拷贝加了一个Displaced前缀，即Displaced Mark Word）。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117173651574.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20210117173651574.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117173651574.png" alt="image-20210117173651574"></p>
 <p>然后虚拟机将使用CAS操作尝试把对象的Mark Word更新为指向Lock Record的指针。如果，这个更新动作成功了，即代表该线程拥有了这个对象的锁，并且对象Mark Word的锁标志位将转换为00，表示此对象处于轻量级锁定状态。如下图所示。</p>
 <p>如果这个更新操作失败了，意味着至少存在一条线程与当前线程竞争获取该对象的锁。虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧，如果是，说明当前线程已经拥有了这个对象的锁，那直接进入同步块继续执行就可以，否则说明这个锁对象已经被其他线程抢占了。如果出现两条以上的线程争用同一个锁的情况，那轻量级锁就不再有效，必须膨胀为重量级锁，锁标志的状态值变为”10“，此时Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也必须进入阻塞状态。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117203645569.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20210117203645569.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117203645569.png" alt="image-20210117203645569"></p>
 <p><strong>解锁过程</strong>：通过CAS操作来进行，如果对象的Mark Word仍然指向线程的锁记录，那就用CAS操作把对象当前的Mark Work和线程中复制的Displaced Mark Word替换回来。如果能够成功替换，那整个同步过程就顺利完成了；如果替换失败，则说明有其他线程尝试过获取该锁，就要在释放锁的同时，唤醒被挂起的线程。</p>
@@ -1299,12 +1299,12 @@ LockSupport::parkUntil()方法。
 <p>偏向锁会偏向于第一个获得它的线程，在接下来执行的过程中，该锁一直没有被其他的线程获取，则持有偏向锁的线程将用于不需要再进行同步。</p>
 <p>原理：如果虚拟机启用了偏向锁，那么当锁对象第一次被线程获取的时候，虚拟机会将对象头中的标志位设置为”01“，把偏向模式设置为“1”，表示进入偏向模式。同时，使用CAS操作把获取到这个锁的线程的ID记录在对象的Mark Word中。如果CAS操作成功，持有偏向锁的线程以后每次进入这个锁相关的同步块时，虚拟机都可以不再进行任何同步操作（例如加锁、解锁以及对Mark Word的更新操作等）。</p>
 <p>一旦出现另一个线程尝试去获取这个锁的情况，偏向模式就马上宣告结束。根据锁对象目前是否处于被锁定的状态决定是否撤销偏向（偏向模式设置为“0”），撤销后标志位恢复到未锁定（标志位为“01”）或轻量级锁定（标志位为“00”）的状态，后续的同步操作按照上面介绍的轻量级锁那样去执行。</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117211350851.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/image-20210117211350851.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20210117211350851.png" alt="image-20210117211350851"></p>
 <p>当一个对象已经计算过一致性哈希码之后，它就再也无法进入偏向锁状态；而当一个对象正处于偏向锁状态，又收到需要计算其一致性哈希请求时，它的偏向状态会被立即撤销，并且锁会膨胀为重量级锁。在重量级锁的视线中，对象头指向了重量级锁的位置，代表重量级锁的ObjectMonitor类里面有字段可以记录非加锁状态（标志位为“01”）下的Mark Word，其中自然可以存储原来的哈希码。</p>
 <p>偏向锁可以提高带有同步但无竞争的程序性能，但它同样是一个带有效益权衡性值的优化，如果程序中大多数的锁都总是被多个不同的线程访问，那偏向模式就是多余的。</p>
-<h1 id="6-对象从生成到回收"><a href="#6-对象从生成到回收" class="headerlink" title="6. 对象从生成到回收"></a>6. 对象从生成到回收</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200814182457196.png" class="">
+<h1 id="6-对象从生成到回收"><a href="#6-对象从生成到回收" class="headerlink" title="6. 对象从生成到回收"></a>6. 对象从生成到回收</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200814182457196.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200814182457196.png" alt="在这里插入图片描述"></p>
 <ol>
@@ -1322,7 +1322,7 @@ LockSupport::parkUntil()方法。
 <p><strong>并发安全问题</strong>：对象创建在虚拟机中十分频繁，修改指针所指向的位置，在并发情况下不是线程安全的，存在两个方案CAS和TLAB</p>
 <p><strong>CAS+失败重试</strong></p>
 <p>对分配内存空间的动作进行同步处理，实际上虚拟机采用CAS配上失败重试的方式保证更新操作的原子性</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/2020081714533669.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/2020081714533669.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/2020081714533669.png" alt="在这里插入图片描述"></p>
 <p><strong>本地线程分配缓存（TLAB）</strong></p>
@@ -1354,7 +1354,7 @@ LockSupport::parkUntil()方法。
 </li>
 <li></li>
 </ol>
-<h1 id="7-对象的内存布局"><a href="#7-对象的内存布局" class="headerlink" title="7. 对象的内存布局"></a>7. 对象的内存布局</h1><img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200814182932879.png" class="">
+<h1 id="7-对象的内存布局"><a href="#7-对象的内存布局" class="headerlink" title="7. 对象的内存布局"></a>7. 对象的内存布局</h1><img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200814182932879.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200814182932879.png" alt="在这里插入图片描述"></p>
 <p>在HopSpot虚拟机中，对象在内存中存储的布局可以分为3块区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。</p>
@@ -1365,7 +1365,7 @@ LockSupport::parkUntil()方法。
 <p>实例数据部分是对象真正存储的有效信息，程序在代码中所定义的各种类型的字段内容。无论是父类继承下来的，还是在子类中定义的，都需要记录起来</p>
 <p><strong>对齐填充</strong></p>
 <p>不是必然存在的，也没有贴别的含义。仅仅起着占位符的作用。</p>
-<h1 id="8-对象的访问定位"><a href="#8-对象的访问定位" class="headerlink" title="8. 对象的访问定位"></a>8. 对象的访问定位</h1><img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200817141924222.PNG" class="">
+<h1 id="8-对象的访问定位"><a href="#8-对象的访问定位" class="headerlink" title="8. 对象的访问定位"></a>8. 对象的访问定位</h1><img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200817141924222.PNG" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200817141924222.PNG" alt="在这里插入图片描述"></p>
 <p>Java程序通过栈上的reference数据来操作栈上的具体对象，主要有两种方式使用句柄和直接指针两种。</p>
@@ -1377,10 +1377,10 @@ LockSupport::parkUntil()方法。
 <p>使用句柄访问的最大好处是reference中存储的是稳定的句柄地址，在对象被移动（GC时对象被移动）时只会改变句柄中的实例数据指针，而reference本身不需要修改。</p>
 <p>使用指针访问方式的最大好处就是速度快，节省了一次指针定位的时间开销，由于对象的访问在Java中非常频繁，因此此类开销积少成多称为可观的执行成本。</p>
 <h1 id="9-对象的分配策略"><a href="#9-对象的分配策略" class="headerlink" title="9. 对象的分配策略"></a>9. 对象的分配策略</h1><p>对象分配流程图：</p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818182225456.PNG" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200818182225456.PNG" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818182225456.PNG" alt="在这里插入图片描述"></p>
-<img src="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818181924858.png" class="">
+<img src="/2021/02/27/java-xu-ni-ji-mian-jing/20200818181924858.png" class="">
 
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818181924858.png" alt="在这里插入图片描述"></p>
 <p><strong>栈上分配</strong></p>
@@ -1451,7 +1451,7 @@ LockSupport::parkUntil()方法。
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1465,7 +1465,7 @@ LockSupport::parkUntil()方法。
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">java多线程</a>
+            <a href="/2021/02/27/java-duo-xian-cheng/" class="post-title-link" itemprop="url">java多线程</a>
         </h2>
 
         <div class="post-meta">
@@ -1488,8 +1488,8 @@ LockSupport::parkUntil()方法。
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java多线程/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/27/java-duo-xian-cheng/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java-duo-xian-cheng/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1588,10 +1588,10 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" class="">
+<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><img src="/2021/02/27/java-duo-xian-cheng/16df734235a85d25" class="">
 
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" alt="img"></p>
-<img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" class="">
+<img src="/2021/02/27/java-duo-xian-cheng/16daf6a9b443c827" class="">
 
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" alt="img"></p>
 <p><strong>Thread类中有一个ThreadLocalMap属性，ThreadLocalMap中Entry的key是ThreadLocal对象，value是Object类型</strong>，一个ThreadLocalMap可以有多个ThreadLocal。如图：Thread类源码中有ThreadLocal属性。</p>
@@ -1681,7 +1681,7 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/25/java%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/25/java-mian-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1695,7 +1695,7 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">java面经</a>
+            <a href="/2021/02/25/java-mian-jing/" class="post-title-link" itemprop="url">java面经</a>
         </h2>
 
         <div class="post-meta">
@@ -1727,8 +1727,8 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/25/java面经/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/25/java-mian-jing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/25/java-mian-jing/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -2145,13 +2145,13 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
 <p>HashMap采用<strong>Entry数组来存储key-value对（Entry数组中的每一个元素，都是Entry实例（键值对组成了一个Entry实体，同时具有一个指针结构），Entry类实际上是一个单向的链表结构</strong>，它具有Next指针，可以连接下一个Entry实体。 <strong>只是在JDK1.8中，链表长度大于8的时候，链表会转成红黑树</strong>。</p>
 <p>非同步、不保证有序（比如插入的顺序）、不在保证序列不随时间变化</p>
 <p>哈希表的初始化大小为2的幂次，默认容量16，默认负载因子0.75，<u>当size&gt;=threshold（table.length*loadFactor）时，需对哈希表进行扩容，将会创建原来HashMap大小两倍的bucket数组</u>。</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" class="">
+<img src="/2021/02/25/java-mian-jing/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/v2-64c734c92d1827767698d19cb8b9d79b_720w.jpg" alt="img"></p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210112195801751.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210112195801751.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210112195801751.png" alt="image-20210112195801751"></p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180407075230628" class="">
+<img src="/2021/02/25/java-mian-jing/20180407075230628" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180407075230628" alt="img"></p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>通过hash的方法，通过put和get存储和获取对象。</p>
@@ -2272,12 +2272,12 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
 <li><p>计算下标，使用&amp;操作</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> hash  <span class="token comment">//n 数组长度</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/293b52fc-d932-11e4-854d-cb47be67949a.png" class=""></li>
+<img src="/2021/02/25/java-mian-jing/293b52fc-d932-11e4-854d-cb47be67949a.png" class=""></li>
 </ol>
 <p><img src="java%E9%9D%A2%E7%BB%8F/293b52fc-d932-11e4-854d-cb47be67949a.png" alt="hash"></p>
 <h3 id="RESIZE的实现"><a href="#RESIZE的实现" class="headerlink" title="RESIZE的实现"></a>RESIZE的实现</h3><p>bucket扩大为原来的两倍，重新计算index，把节点放到新的bucket中。因为使用的是2次幂的扩展(指长度扩为原来2倍)，所以，<strong>元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置</strong>。</p>
 <p>在扩充HashMap的时候，不需要重新计算hash，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”。可以看看下图为16扩充为32的resize示意图：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" class="">
+<img src="/2021/02/25/java-mian-jing/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/d7acbad8-d941-11e4-9493-2c5e69d084c0.png" alt="resize16-32"></p>
 <h3 id="hash冲突的解决方法"><a href="#hash冲突的解决方法" class="headerlink" title="hash冲突的解决方法"></a>hash冲突的解决方法</h3><ol>
@@ -2344,28 +2344,28 @@ map<span class="token punctuation">.</span><span class="token function">put</spa
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205336093.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205336093.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205336093.png" alt="image-20210111205336093"></p>
 <p>插入第4个节点时，发生rehash，假设现在有两个线程同时进行，线程1和线程2，两个线程都会新建新的数组。</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205400627.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205400627.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205400627.png" alt="image-20210111205400627"></p>
 <p>假设 <strong>线程2</strong> 在执行到<code>Entry&lt;K,V&gt; next = e.next;</code>之后，cpu时间片用完了，这时变量e指向节点a，变量next指向节点b。</p>
 <p><strong>线程1</strong>继续执行，很不巧，a、b、c节点rehash之后又是在同一个位置7，开始移动节点</p>
 <p>第一步，移动节点a</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205438384.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205438384.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205438384.png" alt="image-20210111205438384"></p>
 <p>第二步，移动节点b</p>
-<p>​    <img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205448825.png" class=""></p>
+<p>​    <img src="/2021/02/25/java-mian-jing/image-20210111205448825.png" class=""></p>
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205448825.png" alt="image-20210111205448825"></p>
 <p>注意，这里的顺序是反过来的，继续移动节点c</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205458812.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205458812.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205458812.png" alt="image-20210111205458812"></p>
 <p>这个时候 <strong>线程1</strong> 的时间片用完，内部的table还没有设置成新的newTable， <strong>线程2</strong> 开始执行，这时内部的引用关系如下：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205512412.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205512412.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205512412.png" alt="image-20210111205512412"></p>
 <p>这时，在 <strong>线程2</strong> 中，变量e指向节点a，变量next指向节点b，开始执行循环体的剩余逻辑。</p>
@@ -2380,12 +2380,12 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205527864.png" alt="image-20210111205527864"></p>
 <p>执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205539540.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205539540.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205539540.png" alt="image-20210111205539540"></p>
 <p>变量e又重新指回节点a，只能继续执行循环体，这里仔细分析下：<br> 1、执行完<code>Entry&lt;K,V&gt; next = e.next;</code>，目前节点a没有next，所以变量next指向null；<br> 2、<code>e.next = newTable[i];</code> 其中 newTable[i] 指向节点b，那就是把a的next指向了节点b，这样a和b就相互引用了，形成了一个环；<br> 3、<code>newTable[i] = e</code> 把节点a放到了数组i位置；<br> 4、<code>e = next;</code> 把变量e赋值为null，因为第一步中变量next就是指向null；</p>
 <p>所以最终的引用关系是这样的：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20210111205550291.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20210111205550291.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205550291.png" alt="image-20210111205550291"></p>
 <p>节点a和b互相引用，形成了一个环，当在数组该位置get寻找对应的key时，就发生了死循环。</p>
@@ -2400,11 +2400,11 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 </li>
 <li></li>
 </ol>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180406223843235" class="">
+<img src="/2021/02/25/java-mian-jing/20180406223843235" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180406223843235" alt="img"></p>
 <h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>Segment[]数组、HashEntry数组组成，数组加链表</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/5cd1d2c5ce95c.jpg" class="">
+<img src="/2021/02/25/java-mian-jing/5cd1d2c5ce95c.jpg" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/5cd1d2c5ce95c.jpg" alt="img"></p>
 <p>核心成员变量：</p>
@@ -2426,7 +2426,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
     <span class="token keyword">final</span> <span class="token keyword">float</span> loadFactor<span class="token punctuation">;</span>      
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/5cd1d2c635c69.jpg" class="">
+<img src="/2021/02/25/java-mian-jing/5cd1d2c635c69.jpg" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/5cd1d2c635c69.jpg" alt="img"></p>
 <p>和 HashMap 非常类似，唯一的区别就是其中的核心数据如 value ，以及链表都是 volatile 修饰的，保证了获取时的可见性。</p>
@@ -2655,7 +2655,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 <li>数组的长度不可变，集合长度可变</li>
 <li>数组可以存储基本数据类型，也可以存储引用数据类型，集合只能存储引用类型的数据</li>
 </ul>
-<h1 id="6-异常处理机制"><a href="#6-异常处理机制" class="headerlink" title="6. 异常处理机制"></a>6. 异常处理机制</h1><h2 id="Java异常分类"><a href="#Java异常分类" class="headerlink" title="Java异常分类"></a>Java异常分类</h2><img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/exceptionJava" class="">
+<h1 id="6-异常处理机制"><a href="#6-异常处理机制" class="headerlink" title="6. 异常处理机制"></a>6. 异常处理机制</h1><h2 id="Java异常分类"><a href="#Java异常分类" class="headerlink" title="Java异常分类"></a>Java异常分类</h2><img src="/2021/02/25/java-mian-jing/exceptionJava" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/exceptionJava" alt="Java异常体系结构"></p>
 <p>面向对象的方式处理异常，用对象表示一个（或一类）异常，**任何异常都是<code>Throwable</code>类或其子类对象；Throwable有两个子类，分别是：<code>Error</code>和<code>Exception</code>**；</p>
@@ -2696,7 +2696,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 
 <p>catch语句块中声明的异常对象（<code>catch(Exception_n e)</code>）封装了该异常的信息，可以通过该异常对象的一些方法来获取这些信息： <code>String getMessage()</code>：用来获取有关异常事件的详细信息。 <code>void printStackTrace()</code>：用来跟踪异常事件发生时执行堆栈的内容。 <code>finally语句块</code>：该语句块一般用于释放资源等操作。无论try语句块中是否有异常，finally语句块都会执行。</p>
 <h3 id="try-catch-finally执行流程（最基本的情况）"><a href="#try-catch-finally执行流程（最基本的情况）" class="headerlink" title="try-catch-finally执行流程（最基本的情况）"></a>try-catch-finally执行流程（最基本的情况）</h3><p>try-catch-finally执行流程最基本的情况，所谓<strong>最基本的情况就是没有用到throw关键字、return关键字等</strong>。 首先，执行try中的代码，如果 try中的代码没有发生异常，那么catch中的代码就不执行，等try中的代码执行完毕后直接执行finally中的代码；如果 try中的代码发生了异常(假设发生异常的代码语句是xxx),那么try中xxx下面的代码就不会执行了，会立即跳转到catch中去匹配异常，若匹配到了对应的catch中声明的异常对象，那么就执行该catch语句块中的代码，并且后面的catch语句块就不再执行。等catch语句块中的代码执行完毕，就执行finally语句块中的代码。此时，整个try-catch-finally才算执行完毕。</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201031233848208.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20201031233848208.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201031233848208.png" alt="image-20201031233848208"></p>
 <h2 id="声明抛出异常"><a href="#声明抛出异常" class="headerlink" title="声明抛出异常"></a>声明抛出异常</h2><p><u>声明抛出异常是一个子句</u>，它只能写在方法头部的后面,其格式如下： <code>throws &lt;异常列表&gt;</code> 举例：<code>public void fun() throws IOException&#123;......&#125;</code> <u>若在一个方法中声明抛出异常，那么调用该方法的调用者就必须对该异常进行处理，调用者处理该异常有两种方式：</u></p>
@@ -2722,7 +2722,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述代码的运行结果如下图所示：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/exception_results" class="">
+<img src="/2021/02/25/java-mian-jing/exception_results" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/exception_results" alt="代码运行结果1"></p>
 <p>try中的<code>int a=1/0;</code>语句发生了算术异常（除数为0），直接跳转到catch中去匹配异常对象，匹配到了ArithmeticException异常对象，然后执行catch中的代码：打印异常信息，抛出异常。<strong>但是，在catch中抛出异常之前，会先执行finally中的代码，等finally中的代码执行完毕，再回到catch中抛出异常</strong>，而catch中的异常抛出后，整个方法就结束了，方法中剩下的代码就不执行了。 以上就是上述代码的完整执行流程。</p>
@@ -2745,7 +2745,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述代码的运行结果为：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/try_finally4" class="">
+<img src="/2021/02/25/java-mian-jing/try_finally4" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/try_finally4" alt="代码运行结果2"></p>
 <p>首先执行try中的代码：<code>打印“try”</code>；然后在try中抛出异常，那么在try中的异常抛出<strong>之前</strong>，要去catch中匹配异常对象并执行catch代码块，于是，匹配到了Exception对象并执行catch中的代码：<code>打印“catch”</code>，然后抛出异常；那么，在抛出catch中的异常之前，要先执行finally中的代码：<code>打印“finally”</code>，并<code>抛出finally中的异常</code>，此时整个方法执行结束，前面的两个异常不会被抛出。这就是所谓的<strong>异常屏蔽</strong>。</p>
@@ -2766,7 +2766,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在main方法中执行上述方法，结果为：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/try_finally3" class="">
+<img src="/2021/02/25/java-mian-jing/try_finally3" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/try_finally3" alt="代码运行结果5"></p>
 <p>try中<code>int a=1/0;</code>语句发生了异常，那么就跳转到catch中去匹配并执行catch中的代码，而catch中要返回整数2，在执行catch中的<code>return 2;</code>语句之前，要先去执行finally中的代码，因为finally中有<code>return 3;</code>语句，所以当执行到finally中的return语句后，整个方法就结束了，catch以及try中的return语句就不会执行了。 请继续看下面的代码：</p>
@@ -2805,7 +2805,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述代码的运行结果如下图所示：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201031235019349.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20201031235019349.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201031235019349.png" alt="image-20201031235019349"></p>
 <p>try中没有发生异常的代码，但try中抛出了异常，那么在抛出try中的异常之前，会先去匹配catch声明的异常对象并执行catch中的代码，因为catch中有return语句，那么在执行catch中的return语句之前，会先去执行finally中的代码，因为finally代码块中有return语句，所以当finally中的return语句执行完毕后，整个方法就结束了。前面的return语句就不会被执行了。</p>
@@ -2880,15 +2880,15 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 <h3 id="程序内存分区场景下"><a href="#程序内存分区场景下" class="headerlink" title="程序内存分区场景下"></a>程序内存分区场景下</h3><h3 id="数据结构场景下"><a href="#数据结构场景下" class="headerlink" title="数据结构场景下"></a>数据结构场景下</h3><p><strong>栈是一种操作受限的线性表，其限制是指只仅允许在栈顶（Top）进行插入和删除操作</strong>。这种受限的运算使栈拥有“<strong>先进后出</strong>”的特性（First In Last Out，简称FILO）。</p>
 <p><strong>栈分顺序栈和链式栈两种</strong>。栈是一种线性结构，所以可以使用数组或链表（单向链表、双向链表或循环链表）作为底层数据结构。使用数组实现的栈叫做顺序栈，使用链表实现的栈叫做链式栈，二者的区别是顺序栈中的元素地址连续，链式栈中的元素地址不连续。</p>
 <p>栈的结构如下图所示：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180701201845613" class="">
+<img src="/2021/02/25/java-mian-jing/20180701201845613" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180701201845613" alt="这里写图片描述"></p>
 <p><strong>堆是一种常用的树形结构，是一种特殊的完全二叉树，当且仅当满足所有节点的值总是不大于或不小于其父节点的值的完全二叉树被称之为堆</strong>。堆的这一特性称之为堆序性。因此，在一个堆中，根节点是最大（或最小）节点。如果根节点最小，称之为小顶堆（或小根堆），如果根节点最大，称之为大顶堆（或大根堆）。<strong>堆的左右孩子没有大小的顺序</strong>。下面是一个小顶堆示例：</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTY0NjI2NTM3" class="">
+<img src="/2021/02/25/java-mian-jing/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTY0NjI2NTM3" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTY0NjI2NTM3" alt="这里写图片描述"></p>
 <p>堆的存储一般都用数组来存储堆，i节点的父节点下标就为( i – 1 ) / 2 。它的左右子节点下标分别为 2 ∗ i + 1 和 2 ∗ i + 2。如第0个节点左右子节点下标分别为1和2。</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTYwODE2Nzgx" class="">
+<img src="/2021/02/25/java-mian-jing/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTYwODE2Nzgx" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzA0MTYwODE2Nzgx" alt="这里写图片描述"></p>
 <h1 id="8-ArrayList和LinkedList"><a href="#8-ArrayList和LinkedList" class="headerlink" title="8. ArrayList和LinkedList"></a>8. ArrayList和LinkedList</h1><p><strong>都实现List接口的类，都是元素的容器，用于存放对象的引用；都可以对存放的元素进行增删改查的操作，进行排序。</strong></p>
@@ -2899,7 +2899,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 <p>每一个元素（结点）的地址不连续，通过引用找到当前结点的上一个结点和下一个结点，即插入和删除效率较高，只需要常数时间，而get和set则较为低效。</p>
 <p>LinkedList的方法和使用和ArrayList大致相同，由于LinkedList是链表实现的，所以额外提供了在头部和尾部添加/删除元素的方法，也没有ArrayList扩容的问题了。</p>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>在需要频繁读取集合中的元素时，使用ArrayList效率较高，而在插入和删除操作较多时，使用LinkedList效率较高。</p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/20180407072842696" class="">
+<img src="/2021/02/25/java-mian-jing/20180407072842696" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/20180407072842696" alt="img"></p>
 <h1 id="9-ArrayList和Vector的区别"><a href="#9-ArrayList和Vector的区别" class="headerlink" title="9. ArrayList和Vector的区别"></a>9. ArrayList和Vector的区别</h1><ol>
@@ -3087,7 +3087,7 @@ strongReference<span class="token operator">=</span><span class="token keyword">
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">SoftReference</span><span class="token operator">&lt;</span>引用类型或自定义的类<span class="token class-name">T</span><span class="token operator">></span> objectClassSoftReference<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">SoftReference</span><span class="token operator">&lt;</span>引用类型或自定义的类<span class="token class-name">T</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">new</span> 引用类型或自定义的类<span class="token class-name">T</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 引用类型或自定义的类<span class="token class-name">T</span> t<span class="token operator">=</span>objectClassSoftReference<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201101234004306.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20201101234004306.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201101234004306.png" alt="image-20201101234004306"></p>
 <h2 id="弱引用-Weak-Reference"><a href="#弱引用-Weak-Reference" class="headerlink" title="弱引用 Weak Reference"></a>弱引用 Weak Reference</h2><p>弱引用的使用类似于软引用，<strong>关键字变成WeakReference</strong></p>
@@ -3095,7 +3095,7 @@ strongReference<span class="token operator">=</span><span class="token keyword">
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>weakReference<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>弱引用的特点是不管内存是否足够，只要发生GC，都会被回收</strong></p>
-<img src="/2021/02/25/java%E9%9D%A2%E7%BB%8F/image-20201101234407140.png" class="">
+<img src="/2021/02/25/java-mian-jing/image-20201101234407140.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20201101234407140.png" alt="image-20201101234407140"></p>
 <h2 id="虚引用（幻影引用）PhantomReference"><a href="#虚引用（幻影引用）PhantomReference" class="headerlink" title="虚引用（幻影引用）PhantomReference"></a>虚引用（幻影引用）PhantomReference</h2><p>必须与<code>ReferenceQueue</code>一起使用，当 <code>GC</code> 准备回收一个对象，如果发现它有虚引用，就会在回收之前，把这个 <strong>虚引用</strong> 加入到与之关联的 <code>ReferenceQueue</code> 中。</p>
@@ -3610,7 +3610,6 @@ history_bt<span class="token punctuation">.</span><span class="token function">s
 
   
 
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -3621,6 +3620,7 @@ history_bt<span class="token punctuation">.</span><span class="token function">s
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
 </script>
+
 
 </body>
 </html>

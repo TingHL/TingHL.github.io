@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">SpringMVC 笔记</a>
+            <a href="/2021/03/01/springmvc-bi-ji/" class="post-title-link" itemprop="url">SpringMVC 笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -237,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/SpringMVC-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/03/01/springmvc-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/springmvc-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -262,7 +262,7 @@
 <li>SpringMVC 通过一套MVC注解，让POJO 成为处理请求的控制器，而无需实现任何接口</li>
 <li>支持REST风格的URL请求</li>
 </ul>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20201230160445842.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20201230160445842.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20201230160445842.png" alt="image-20201230160445842"></p>
 <h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><ol>
@@ -389,7 +389,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li></li>
 </ul>
-<h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20201231173915766.png" class="">
+<h1 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h1><img src="/2021/03/01/springmvc-bi-ji/image-20201231173915766.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20201231173915766.png" alt="image-20201231173915766"></p>
 <p>以简洁的URL地址来发请求<br>对一个资源的增删改查使用请求方式来区分<br>REST推荐：<br>    URL地址这么起名：/资源名/资源标识符<br>    /book/1：GET — 查询1号图书<br>    /book/1：PUT — 更新1号图书<br>    /book/1：DELETE — 删除1号图书<br>    /book：POST — 添加图书</p>
@@ -450,7 +450,7 @@
     <span class="token class-name">String</span> street<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210101113918793.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210101113918793.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210101113918793.png" alt="image-20210101113918793"></p>
 <h2 id="直接在参数上写原生API"><a href="#直接在参数上写原生API" class="headerlink" title="直接在参数上写原生API"></a>直接在参数上写原生API</h2><p>包括：<code>HttpServletRquest, HttpServletResponse, HttpSession, java.security.Principal, Locale, InputStream, OutputStream, Reader, Writer</code></p>
@@ -526,7 +526,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </ol>
 <h1 id="SpringMVC源码"><a href="#SpringMVC源码" class="headerlink" title="SpringMVC源码"></a>SpringMVC源码</h1><ol>
 <li><p>前端控制器的架构</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210101202245571.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210101202245571.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210101202245571.png" alt="image-20210101202245571"></p>
 <p>1）所有请求过来DispatcherServlet收到请求</p>
@@ -652,11 +652,11 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>HandlerMapping</code> 处理器映射，保存了每一个处理器能处理哪些请求的映射信息</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102113924532.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210102113924532.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102113924532.png" alt="image-20210102113924532"></p>
 <p>handerMap：IOC容器启动创建Controller对象的时候，扫描每个处理器都能处理什么请求，保存在HandlerMapping的handlerMap属性中。下次请求，就查看HandlerMapping中有这个请求信息</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102101222458.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210102101222458.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102101222458.png" alt="image-20210102101222458"></p>
 </li>
@@ -677,7 +677,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ServletException</span><span class="token punctuation">(</span><span class="token string">"No adapter for handler ["</span> <span class="token operator">+</span> handler <span class="token operator">+</span> <span class="token string">"]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102115407840.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210102115407840.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210102115407840.png" alt="image-20210102115407840"></p>
 <p><code>AnnotationMethodAdapter</code>：能解析注解方法的解析器</p>
@@ -736,13 +736,13 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <li>方法执行后的返回值会作为页面地址参考，转发或重定向到页面</li>
 <li>视图解析器可能会进行页面地址的拼串</li>
 </ol>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103101153876.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210103101153876.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103101153876.png" alt="image-20210103101153876"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103105510814.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210103105510814.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103105510814.png" alt="image-20210103105510814"></p>
-<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103105551670.png" class="">
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><img src="/2021/03/01/springmvc-bi-ji/image-20210103105551670.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210103105551670.png" alt="image-20210103105551670"></p>
 <h2 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h2><p>请求一定要过SpringMVC 的视图解析流程，会创建一个jstlView帮助快速国际化；同时不能使用forward信息</p>
@@ -770,10 +770,10 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <h1 id="SpringMVC-CRUD项目"><a href="#SpringMVC-CRUD项目" class="headerlink" title="SpringMVC_CRUD项目"></a>SpringMVC_CRUD项目</h1><h1 id="SpringMVC封装自定类型对象"><a href="#SpringMVC封装自定类型对象" class="headerlink" title="SpringMVC封装自定类型对象"></a>SpringMVC封装自定类型对象</h1><h2 id="数据绑定期间的数据类型转换？"><a href="#数据绑定期间的数据类型转换？" class="headerlink" title="数据绑定期间的数据类型转换？"></a>数据绑定期间的数据类型转换？</h2><p>例如：class 类中：Integer age，传输的数据是String类型，数据绑定期间如何进行数据类型转换</p>
 <h2 id="数据绑定期间的数据格式化问题"><a href="#数据绑定期间的数据格式化问题" class="headerlink" title="数据绑定期间的数据格式化问题"></a>数据绑定期间的数据格式化问题</h2><h2 id="数据校验"><a href="#数据校验" class="headerlink" title="数据校验"></a>数据校验</h2><p>前端校验：JS+正则表达式</p>
 <p>后端校验：重要的数据必须进行校验</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104190700057.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210104190700057.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104190700057.png" alt="image-20210104190700057"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104193611877.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210104193611877.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104193611877.png" alt="image-20210104193611877"></p>
 <p>ConversionService组件：负责数据类型的转换以及格式化功能，ConversionService中有很多converter，不同类型的转换和格式化用它自己的converter。</p>
@@ -810,10 +810,10 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 
 <p>ConversionService：是一个接口。</p>
 <p>里面有converter进行工作。实现Converter接口，写一个自定义的类型转换器（org.springframework.core.convert.converter.Converter）</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104200624717.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210104200624717.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104200624717.png" alt="image-20210104200624717"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104200654902.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210104200654902.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104200654902.png" alt="image-20210104200654902"></p>
 </li>
@@ -840,31 +840,31 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </li>
 <li></li>
 </ol>
-<h1 id="mvc-annotation-driven"><a href="#mvc-annotation-driven" class="headerlink" title="mvc:annotation-driven"></a>mvc:annotation-driven</h1><img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104212917118.png" class="">
+<h1 id="mvc-annotation-driven"><a href="#mvc-annotation-driven" class="headerlink" title="mvc:annotation-driven"></a>mvc:annotation-driven</h1><img src="/2021/03/01/springmvc-bi-ji/image-20210104212917118.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210104212917118.png" alt="image-20210104212917118"></p>
 <h2 id="lt-mvc-default-servlet-handler-gt-lt-mvc-annotation-driven-gt-搭配"><a href="#lt-mvc-default-servlet-handler-gt-lt-mvc-annotation-driven-gt-搭配" class="headerlink" title="&lt;mvc:default-servlet-handler/&gt; &lt;mvc:annotation-driven/&gt;搭配"></a><code>&lt;mvc:default-servlet-handler/&gt; &lt;mvc:annotation-driven/&gt;</code>搭配</h2><ol>
 <li><p><strong>都没配情况下：动态资源（@RequestMapping映射得资源能访问，静态资源（.html，.js，.img）不能访问</strong></p>
 <p><code>DefaultAnnotationHandlerMapping</code>中的<code>handlerMap</code>保存了每一个资源的映射信息，可以访问动态资源；handlerMap中没有保存静态资源映射的请求，静态资源不能访问</p>
 <p><code>handlerMappings</code>如下：</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105100903610.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105100903610.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105100903610.png" alt="image-20210105100903610"></p>
 <p><code>handlerMappings</code>中有<code>handlerMap</code>，<code>handlerMap</code>如下所示：</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105101013127.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105101013127.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105101013127.png" alt="image-20210105101013127"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105095242505.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105095242505.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105095242505.png" alt="image-20210105095242505"></p>
 </li>
 <li><p><strong>只配置<code>&lt;mvc:default-servlet-handler/&gt;</code>只能访问静态资源</strong></p>
 <p>动态不能访问的原因：<code>handerMappings</code>中 <code>DefaultAnnotationHandlerMapping</code>中的没有，用<code>SimpleUrlHandlerMapping</code>提替换，其作用是将所有的请求直接交给tomcat</p>
 <p>静态能访问的原因：<code>SimpleUrlHandlerMapping</code>是将所有的请求直接交给tomcat</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105095945314.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105095945314.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105095945314.png" alt="image-20210105095945314"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105100215638.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105100215638.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105100215638.png" alt="image-20210105100215638"></p>
 <p>在<code>HandlerAdapter</code>中，<code>SimpleControllerHandlerAdapter</code>替换了<code>AnnotationMethodHandlerAdapter</code>，目标方法无法执行</p>
@@ -873,18 +873,18 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <p><code>handlerMappings</code>有变化</p>
 <p>​    <code>SimpleUrlHandlerMappings</code>作用是将请求交给tomcat，静态资源可以访问</p>
 <p>​    <code>RequestMappingHandlerMapping</code>中有<code>urlMap</code>, <code>handlerMethods</code>属性，保存了每一个请求使用哪个方法进行处理，动态资源可以访问</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105102924838.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105102924838.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105102924838.png" alt="image-20210105102924838"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105103634995.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105103634995.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105103634995.png" alt="image-20210105103634995"></p>
 </li>
 </ol>
-<h1 id="数据格式化"><a href="#数据格式化" class="headerlink" title="数据格式化"></a>数据格式化</h1><img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105112908045.png" class="">
+<h1 id="数据格式化"><a href="#数据格式化" class="headerlink" title="数据格式化"></a>数据格式化</h1><img src="/2021/03/01/springmvc-bi-ji/image-20210105112908045.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105112908045.png" alt="image-20210105112908045"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105113923654.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105113923654.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105113923654.png" alt="image-20210105113923654"></p>
 <h1 id="数据校验-1"><a href="#数据校验-1" class="headerlink" title="数据校验"></a>数据校验</h1><p>只做前端校验是不安全的，在重要数据一定要加上后端验证。方法如下：</p>
@@ -893,10 +893,10 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </li>
 <li><p>SpringMVC 可以利用JSR303来做数据校验</p>
 <p>JSR303：规范 —- Hibernate Validator实现（第三方校验文档）</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105115436340.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105115436340.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105115436340.png" alt="image-20210105115436340"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105115650747.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105115650747.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105115650747.png" alt="image-20210105115650747"></p>
 <p>三步：</p>
@@ -904,10 +904,10 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <li><p>导入jar包</p>
 <p>带el的jar包不导入，Tomcat中有，如果tomcat的版本是7.0以下，可以导入；tomcat7.0 以上el表达式比较强大</p>
 <p>如果是7.0以下，将带el的jar放在tomcat的lib文件夹下</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105120239378.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105120239378.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105120239378.png" alt="image-20210105120239378"></p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105120217931.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105120217931.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105120217931.png" alt="image-20210105120217931"></p>
 </li>
@@ -926,12 +926,12 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <li><p>编写国际化文件</p>
 <p>每一个字段发生错误后，都会有自己的错误代码，国际化文件中错误消息的key必须对应一个错误代码</p>
 <p>key有规定：</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105163528279.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105163528279.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105163528279.png" alt="image-20210105163528279"></p>
 </li>
 <li><p>让SpringMVC管理国际化资源文件</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105164436898.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105164436898.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105164436898.png" alt="image-20210105164436898"><br>高级国际化？动态传入消息参数：<br><code>Length.java.lang.String=length incorrect &#123;0&#125; &#123;1&#125; &#123;2&#125;</code><br>{0}：永远都是当前属性名  </p>
 </li>
@@ -940,7 +940,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <p>SpringMVC步骤：</p>
 <ol>
 <li><p>导入jar包</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105171818354.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210105171818354.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210105171818354.png" alt="image-20210105171818354"></p>
 </li>
@@ -949,7 +949,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </li>
 </ol>
 <h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><p>在运行目标方法之前，进行一些拦截工作；或者目标方法运行之后，进行一些其他处理。类似于Filter（JavaWeb中定义的），SpringMVC中是<code>HandlerInterceptor</code>接口</p>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210106171504455.png" class="">
+<img src="/2021/03/01/springmvc-bi-ji/image-20210106171504455.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210106171504455.png" alt="image-20210106171504455"></p>
 <p>三个方法：</p>
@@ -1012,7 +1012,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </ol>
 <p><strong>什么时候用Filter什么时候用拦截器</strong></p>
 <p>如果某些功能需要其他组件配合完成，我们就使用拦截器；其他情况可以写filter</p>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210106214609933.png" class="">
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><img src="/2021/03/01/springmvc-bi-ji/image-20210106214609933.png" class="">
 
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210106214609933.png" alt="image-20210106214609933"></p>
 <h1 id="SpringMVC流程"><a href="#SpringMVC流程" class="headerlink" title="SpringMVC流程"></a>SpringMVC流程</h1><ol>
@@ -1056,7 +1056,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </li>
 <li>执行拦截器的afterCompletion</li>
 </ol>
-<img src="/2021/03/01/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210107103904299.png" class=""></li>
+<img src="/2021/03/01/springmvc-bi-ji/image-20210107103904299.png" class=""></li>
 </ol>
 <p><img src="SpringMVC-%E7%AC%94%E8%AE%B0/image-20210107103904299.png" alt="image-20210107103904299"></p>
 <h1 id="SpringMVC和Spring整合"><a href="#SpringMVC和Spring整合" class="headerlink" title="SpringMVC和Spring整合"></a>SpringMVC和Spring整合</h1><p>SpringMVC的配置文件配置和网站转发逻辑以及网站功能相关的（视图解析器、文件上传器，支持Ajax，xxx）</p>
@@ -1082,7 +1082,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/spring5-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1096,7 +1096,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Spring5 笔记</a>
+            <a href="/2021/03/01/spring5-bi-ji/" class="post-title-link" itemprop="url">Spring5 笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -1128,8 +1128,8 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/Spring5-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/03/01/spring5-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/spring5-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1152,7 +1152,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 <li>Data Access/Integeration：数据访问 集成</li>
 <li>Web：Spring开发WEB开发模块</li>
 </ol>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201029172549818.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201029172549818.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201029172549818.png" alt="image-20201029172549818"></p>
 <h1 id="Spring框架概述"><a href="#Spring框架概述" class="headerlink" title="Spring框架概述"></a>Spring框架概述</h1><ol>
@@ -1173,7 +1173,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 </li>
 <li><p>注：</p>
 <p>框架：高度抽取可重用代码的一种设计，高度的可重用性</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201228164344526.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201228164344526.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201228164344526.png" alt="image-20201228164344526"></p>
 </li>
@@ -1355,7 +1355,7 @@ public Orders(String oname, String address) &#123;
 <li><p>创建两个类service和dao类</p>
 </li>
 <li><p>在service中调用dao里面的方法</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030114004958.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201030114004958.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030114004958.png" alt="image-20201030114004958"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>spring5<span class="token punctuation">.</span>dao</span><span class="token punctuation">;</span>
@@ -1720,7 +1720,7 @@ public Orders(String oname, String address) &#123;
 <li>默认值，singleton，表示单实例对象</li>
 <li>prototype，表示是多实例对象</li>
 </ul>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030201533998.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201030201533998.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030201533998.png" alt="image-20201030201533998"></p>
 </li>
@@ -1839,7 +1839,7 @@ public Orders(String oname, String address) &#123;
 <span class="token comment">&lt;!--    配置后置处理器--></span>
  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myBeanPost<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.atguigu.spring5.bean.MyBeanPost<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030212020565.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201030212020565.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030212020565.png" alt="image-20201030212020565"></p>
 </li>
@@ -1910,9 +1910,9 @@ public Orders(String oname, String address) &#123;
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>引入外部属性文件配置数据库连接池</p>
 <p>​    步骤一：<strong>创建外部的属性文件，properties格式文件</strong>，写数据库信息</p>
-<p>​    <img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030223115015.png" class=""></p>
+<p>​    <img src="/2021/03/01/spring5-bi-ji/image-20201030223115015.png" class=""></p>
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030223115015.png" alt="image-20201030223115015"></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030231839983.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201030231839983.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030231839983.png" alt="image-20201030231839983"></p>
 <p>步骤二：把外部properties属性文件引入到spring配置文件中</p>
@@ -1952,7 +1952,7 @@ public Orders(String oname, String address) &#123;
 <p>@Repository(“xxx”)  id默认是类名首字母小写，自定义类名为xxx</p>
 <p>@Scope(value=”prototype”)  默认是单实例，设置多实例</p>
 <h3 id="基于注解方式实现对象创建"><a href="#基于注解方式实现对象创建" class="headerlink" title="基于注解方式实现对象创建"></a>基于注解方式实现对象创建</h3><p>步骤一：引入依赖</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201030234100835.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201030234100835.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201030234100835.png" alt="image-20201030234100835"></p>
 <p>步骤二：开启组件扫描</p>
@@ -1960,7 +1960,7 @@ public Orders(String oname, String address) &#123;
 <li><p>引入context名称空间</p>
 </li>
 <li><p>开启组件扫描</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031115247131.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201031115247131.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031115247131.png" alt="image-20201031115247131"></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
@@ -2093,7 +2093,7 @@ context:exclude-filter：设置不扫描哪些内容
 	userService<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<h3 id="依赖泛型注入"><a href="#依赖泛型注入" class="headerlink" title="依赖泛型注入"></a>依赖泛型注入</h3><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201229155740485.png" class="">
+<h3 id="依赖泛型注入"><a href="#依赖泛型注入" class="headerlink" title="依赖泛型注入"></a>依赖泛型注入</h3><img src="/2021/03/01/spring5-bi-ji/image-20201229155740485.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201229155740485.png" alt="image-20201229155740485"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BaseService</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>  <span class="token comment">//注意这里BaseService并没有注解表明其是组件</span>
@@ -2139,7 +2139,7 @@ context:exclude-filter：设置不扫描哪些内容
 <li>通俗描述：不通过修改源代码方式，在主干功能里面添加新功能（将某段代码动态的切入到指定的方法的指定位置进行运行的编程方式）</li>
 <li>使用登录的例子进行说明</li>
 </ul>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031201601261.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201031201601261.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031201601261.png" alt="image-20201031201601261"></p>
 <h1 id="AOP底层原理"><a href="#AOP底层原理" class="headerlink" title="AOP底层原理"></a>AOP底层原理</h1><p>先介绍底层原理如何实现，在介绍使用注解封装之后，更简单的使用方法AOP操作（AspectJ注解）</p>
@@ -2148,13 +2148,13 @@ context:exclude-filter：设置不扫描哪些内容
 <ul>
 <li><p><strong>第一种情况：有接口的情况 使用JDK动态代理</strong></p>
 <p>创建<strong>接口实现类的代理对象</strong>，通过代理对象增强类的方法（增加新的功能）</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031202508450.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201031202508450.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031202508450.png" alt="image-20201031202508450"></p>
 </li>
 <li><p><strong>第二种情况：没有接口的情况 使用CGLIB动态代理</strong></p>
 <p>创建<strong>子类的代理对象</strong>，增强类的方法</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031203004643.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201031203004643.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031203004643.png" alt="image-20201031203004643"></p>
 </li>
@@ -2169,10 +2169,10 @@ context:exclude-filter：设置不扫描哪些内容
 <li><p>Class&lt;?&gt; interfaces，一个interface对象数组，表示我们将给代理对象提供一组什么样的接口，如果提供了这样一个接口对象数组，那么也就声明了代理类实现了这些接口，代理类就可以调用接口中声明的所有方法。</p>
 </li>
 <li><p><code>InvovationHandler</code>，表示的是当动态代理对象调用方法的时候会关联到哪一个<code>InvocationHandler</code>对象上，并最终由其调用（实现这个接口<code>InvocationHandler</code>，创建代理的对象，写增强的方法）</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031205625511.png" class=""></li>
+<img src="/2021/03/01/spring5-bi-ji/image-20201031205625511.png" class=""></li>
 </ul>
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031205625511.png" alt="image-20201031205625511"></p>
-<p>​    <img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031215611838.png" class=""></p>
+<p>​    <img src="/2021/03/01/spring5-bi-ji/image-20201031215611838.png" class=""></p>
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031215611838.png" alt="image-20201031215611838"></p>
 <h3 id="编写JDK动态代理代码"><a href="#编写JDK动态代理代码" class="headerlink" title="编写JDK动态代理代码"></a>编写JDK动态代理代码</h3><ol>
 <li><p><strong>创建接口，定义方法</strong></p>
@@ -2272,7 +2272,7 @@ context:exclude-filter：设置不扫描哪些内容
 <li> <strong>基于XML配置文件实现</strong></li>
 <li> <strong>基于注解方式实现</strong></li>
 </ul>
-<h2 id="在项目工程里面引入AOP相关依赖"><a href="#在项目工程里面引入AOP相关依赖" class="headerlink" title="在项目工程里面引入AOP相关依赖"></a>在项目工程里面引入AOP相关依赖</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201031233728197.png" class="">
+<h2 id="在项目工程里面引入AOP相关依赖"><a href="#在项目工程里面引入AOP相关依赖" class="headerlink" title="在项目工程里面引入AOP相关依赖"></a>在项目工程里面引入AOP相关依赖</h2><img src="/2021/03/01/spring5-bi-ji/image-20201031233728197.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201031233728197.png" alt="image-20201031233728197"></p>
 <h2 id="切入点表达式"><a href="#切入点表达式" class="headerlink" title="切入点表达式"></a>切入点表达式</h2><h3 id="切入点表达式作用"><a href="#切入点表达式作用" class="headerlink" title="切入点表达式作用"></a>切入点表达式作用</h3><p>设置对哪个类里面的那个方法进行增强</p>
@@ -2306,20 +2306,20 @@ context:exclude-filter：设置不扫描哪些内容
 
 <h3 id="进行通知配置"><a href="#进行通知配置" class="headerlink" title="进行通知配置"></a>进行通知配置</h3><ul>
 <li><p>步骤一：在Spring配置文件中，开启注解扫描</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201101142301469.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201101142301469.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201101142301469.png" alt="image-20201101142301469"></p>
 </li>
 <li><p>步骤二：使用注解创建User和<code>UserProxy</code>对象</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201101142356431.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201101142356431.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201101142356431.png" alt="image-20201101142356431"></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201101142334607.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201101142334607.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201101142334607.png" alt="image-20201101142334607"></p>
 </li>
 <li><p>步骤三：在增强类上面添加注解<code>@Aspect</code></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201101142718156.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201101142718156.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201101142718156.png" alt="image-20201101142718156"></p>
 </li>
@@ -2505,7 +2505,7 @@ context:exclude-filter：设置不扫描哪些内容
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">aop:</span>config</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="JdbcTemplate"><a href="#JdbcTemplate" class="headerlink" title="JdbcTemplate"></a>JdbcTemplate</h1><h1 id="JDBCTemplate说明"><a href="#JDBCTemplate说明" class="headerlink" title="JDBCTemplate说明"></a>JDBCTemplate说明</h1><p>Spring框架对JDBC进行封装，使用<code>JDBCTemplate</code>方便实现对数据库操作</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="引入相关jar包"><a href="#引入相关jar包" class="headerlink" title="引入相关jar包"></a>引入相关jar包</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103114921764.png" class="">
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="引入相关jar包"><a href="#引入相关jar包" class="headerlink" title="引入相关jar包"></a>引入相关jar包</h2><img src="/2021/03/01/spring5-bi-ji/image-20201103114921764.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103114921764.png" alt="image-20201103114921764"></p>
 <h2 id="在Spring配置文件中配置数据库的连接池"><a href="#在Spring配置文件中配置数据库的连接池" class="headerlink" title="在Spring配置文件中配置数据库的连接池"></a>在Spring配置文件中配置数据库的连接池</h2><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--数据库连接池--></span>
@@ -2524,7 +2524,7 @@ context:exclude-filter：设置不扫描哪些内容
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="创建Service类，创建dao类，注入"><a href="#创建Service类，创建dao类，注入" class="headerlink" title="创建Service类，创建dao类，注入"></a>创建Service类，创建dao类，注入</h2><p>在Service中注入dao，在dao中注入jdbcTemplate</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103153231253.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201103153231253.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103153231253.png" alt="image-20201103153231253"></p>
 <ul>
@@ -2546,11 +2546,11 @@ context:exclude-filter：设置不扫描哪些内容
     <span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h1 id="jdbcTemplate操作数据库（添加操作）"><a href="#jdbcTemplate操作数据库（添加操作）" class="headerlink" title="jdbcTemplate操作数据库（添加操作）"></a>jdbcTemplate操作数据库（添加操作）</h1><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103155319942.png" class="">
+<h1 id="jdbcTemplate操作数据库（添加操作）"><a href="#jdbcTemplate操作数据库（添加操作）" class="headerlink" title="jdbcTemplate操作数据库（添加操作）"></a>jdbcTemplate操作数据库（添加操作）</h1><img src="/2021/03/01/spring5-bi-ji/image-20201103155319942.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103155319942.png" alt="image-20201103155319942"></p>
 <h2 id="对应数据库创建实体类"><a href="#对应数据库创建实体类" class="headerlink" title="对应数据库创建实体类"></a>对应数据库创建实体类</h2><p>创建的类属性与数据库中的表字段相对应，并生成set和get方法，创建Book类（创建数据库表对应的类）</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103155154870.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201103155154870.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103155154870.png" alt="image-20201103155154870"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>spring5<span class="token punctuation">.</span>entity</span><span class="token punctuation">;</span>
@@ -2621,7 +2621,7 @@ context:exclude-filter：设置不扫描哪些内容
 <li>参数一：SQL语句</li>
 <li>参数二：可变参数，设置SQL语句中的值</li>
 </ul>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103155726030.png" class=""></li>
+<img src="/2021/03/01/spring5-bi-ji/image-20201103155726030.png" class=""></li>
 </ul>
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103155726030.png" alt="image-20201103155726030"></p>
 <h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
@@ -2637,11 +2637,11 @@ context:exclude-filter：设置不扫描哪些内容
      bookService<span class="token punctuation">.</span><span class="token function">addBook</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103172526704.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201103172526704.png" class="">
 
 <img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103172526704.png" alt="image-20201103172526704" style="zoom:80%;" />
 
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103172616539.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201103172616539.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103172616539.png" alt="image-20201103172616539"></p>
 <h1 id="jdbcTemplate-操作数据库（修改、删除）"><a href="#jdbcTemplate-操作数据库（修改、删除）" class="headerlink" title="jdbcTemplate 操作数据库（修改、删除）"></a>jdbcTemplate 操作数据库（修改、删除）</h1><h2 id="修改操作"><a href="#修改操作" class="headerlink" title="修改操作"></a>修改操作</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
@@ -2659,7 +2659,7 @@ context:exclude-filter：设置不扫描哪些内容
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"update数据库影响的行数："</span><span class="token operator">+</span>update<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="jdbcTemplate数据库（查询返回某个值）"><a href="#jdbcTemplate数据库（查询返回某个值）" class="headerlink" title="jdbcTemplate数据库（查询返回某个值）"></a>jdbcTemplate数据库（查询返回某个值）</h1><h2 id="用JdbcTemplate实现查询返回某个值代码"><a href="#用JdbcTemplate实现查询返回某个值代码" class="headerlink" title="用JdbcTemplate实现查询返回某个值代码"></a>用JdbcTemplate实现查询返回某个值代码</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103190247249.png" class="">
+<h1 id="jdbcTemplate数据库（查询返回某个值）"><a href="#jdbcTemplate数据库（查询返回某个值）" class="headerlink" title="jdbcTemplate数据库（查询返回某个值）"></a>jdbcTemplate数据库（查询返回某个值）</h1><h2 id="用JdbcTemplate实现查询返回某个值代码"><a href="#用JdbcTemplate实现查询返回某个值代码" class="headerlink" title="用JdbcTemplate实现查询返回某个值代码"></a>用JdbcTemplate实现查询返回某个值代码</h2><img src="/2021/03/01/spring5-bi-ji/image-20201103190247249.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103190247249.png" alt="image-20201103190247249"></p>
 <p>有两个参数：</p>
@@ -2674,7 +2674,7 @@ context:exclude-filter：设置不扫描哪些内容
     <span class="token keyword">return</span> count<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="jdbcTemplate-数据库（查询返回对象）"><a href="#jdbcTemplate-数据库（查询返回对象）" class="headerlink" title="jdbcTemplate 数据库（查询返回对象）"></a>jdbcTemplate 数据库（查询返回对象）</h1><h2 id="jdbcTemplate实现查询返回对象"><a href="#jdbcTemplate实现查询返回对象" class="headerlink" title="jdbcTemplate实现查询返回对象"></a>jdbcTemplate实现查询返回对象</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103192335717.png" class="">
+<h1 id="jdbcTemplate-数据库（查询返回对象）"><a href="#jdbcTemplate-数据库（查询返回对象）" class="headerlink" title="jdbcTemplate 数据库（查询返回对象）"></a>jdbcTemplate 数据库（查询返回对象）</h1><h2 id="jdbcTemplate实现查询返回对象"><a href="#jdbcTemplate实现查询返回对象" class="headerlink" title="jdbcTemplate实现查询返回对象"></a>jdbcTemplate实现查询返回对象</h2><img src="/2021/03/01/spring5-bi-ji/image-20201103192335717.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103192335717.png" alt="image-20201103192335717"></p>
 <p>有三个参数：</p>
@@ -2690,7 +2690,7 @@ context:exclude-filter：设置不扫描哪些内容
     <span class="token keyword">return</span> book<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="jdbcTemplate操作数据库（查询返回集合）"><a href="#jdbcTemplate操作数据库（查询返回集合）" class="headerlink" title="jdbcTemplate操作数据库（查询返回集合）"></a>jdbcTemplate操作数据库（查询返回集合）</h1><h2 id="jdbcTemplate方法实现查询返回集合"><a href="#jdbcTemplate方法实现查询返回集合" class="headerlink" title="jdbcTemplate方法实现查询返回集合"></a>jdbcTemplate方法实现查询返回集合</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103193239023.png" class="">
+<h1 id="jdbcTemplate操作数据库（查询返回集合）"><a href="#jdbcTemplate操作数据库（查询返回集合）" class="headerlink" title="jdbcTemplate操作数据库（查询返回集合）"></a>jdbcTemplate操作数据库（查询返回集合）</h1><h2 id="jdbcTemplate方法实现查询返回集合"><a href="#jdbcTemplate方法实现查询返回集合" class="headerlink" title="jdbcTemplate方法实现查询返回集合"></a>jdbcTemplate方法实现查询返回集合</h2><img src="/2021/03/01/spring5-bi-ji/image-20201103193239023.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103193239023.png" alt="image-20201103193239023"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
@@ -2701,7 +2701,7 @@ context:exclude-filter：设置不扫描哪些内容
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="jdbcTemplate操作数据库（批量操作）"><a href="#jdbcTemplate操作数据库（批量操作）" class="headerlink" title="jdbcTemplate操作数据库（批量操作）"></a>jdbcTemplate操作数据库（批量操作）</h1><p>操作表里面的多条记录</p>
-<h2 id="JDBCTemplate实现批量添加操作"><a href="#JDBCTemplate实现批量添加操作" class="headerlink" title="JDBCTemplate实现批量添加操作"></a>JDBCTemplate实现批量添加操作</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103193951960.png" class="">
+<h2 id="JDBCTemplate实现批量添加操作"><a href="#JDBCTemplate实现批量添加操作" class="headerlink" title="JDBCTemplate实现批量添加操作"></a>JDBCTemplate实现批量添加操作</h2><img src="/2021/03/01/spring5-bi-ji/image-20201103193951960.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103193951960.png" alt="image-20201103193951960"></p>
 <p>两个参数：</p>
@@ -2731,7 +2731,7 @@ context:exclude-filter：设置不扫描哪些内容
     bookService<span class="token punctuation">.</span><span class="token function">batchAdd</span><span class="token punctuation">(</span>batchArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201103202052681.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201103202052681.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201103202052681.png" alt="image-20201103202052681"></p>
 <h2 id="jdbcTemplate-操作数据（批量修改-删除）"><a href="#jdbcTemplate-操作数据（批量修改-删除）" class="headerlink" title="jdbcTemplate 操作数据（批量修改 删除）"></a>jdbcTemplate 操作数据（批量修改 删除）</h2><h3 id="批量修改"><a href="#批量修改" class="headerlink" title="批量修改"></a>批量修改</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
@@ -2770,10 +2770,10 @@ context:exclude-filter：设置不扫描哪些内容
 <h1 id="事务特性-ACID"><a href="#事务特性-ACID" class="headerlink" title="事务特性 ACID"></a>事务特性 ACID</h1><p>原子性、一致性、隔离性、持久性</p>
 <h1 id="事务操作（搭建事务操作环境）"><a href="#事务操作（搭建事务操作环境）" class="headerlink" title="事务操作（搭建事务操作环境）"></a>事务操作（搭建事务操作环境）</h1><p><strong>银行转账服务示例</strong></p>
 <p>WEB层（视图层）只展示相关的内容，Service 只与业务逻辑相关，Dao数据库操作，与数据相关与实际业务无关</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201104180640611.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201104180640611.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201104180640611.png" alt="image-20201104180640611"></p>
-<h2 id="创建数据库表，添加记录"><a href="#创建数据库表，添加记录" class="headerlink" title="创建数据库表，添加记录"></a>创建数据库表，添加记录</h2><img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201104181146611.png" class="">
+<h2 id="创建数据库表，添加记录"><a href="#创建数据库表，添加记录" class="headerlink" title="创建数据库表，添加记录"></a>创建数据库表，添加记录</h2><img src="/2021/03/01/spring5-bi-ji/image-20201104181146611.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201104181146611.png" alt="image-20201104181146611"></p>
 <h2 id="创建service，搭建dao，对象创建和注入关系"><a href="#创建service，搭建dao，对象创建和注入关系" class="headerlink" title="创建service，搭建dao，对象创建和注入关系"></a>创建service，搭建dao，对象创建和注入关系</h2><p>service注入dao，在dao注入jdbcTemplate，在jdbcTemplate中注入DataSource</p>
@@ -2885,10 +2885,10 @@ context:exclude-filter：设置不扫描哪些内容
 </li>
 <li><p>Spring事务管理API</p>
 <p>提供了一个接口<code>PlatformTransactionManager</code>，代表事务管理器，这个接口针对不同的架构提供不同的实现类。例如：针对JDBC模板的实现类<code>DataSourceTransactionManager</code></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201104230002978.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201104230002978.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201104230002978.png" alt="image-20201104230002978"></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201104230159026.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201104230159026.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201104230159026.png" alt="image-20201104230159026"></p>
 </li>
@@ -2941,17 +2941,17 @@ context:exclude-filter：设置不扫描哪些内容
 </li>
 </ol>
 <h1 id="事务操作（声明式事务管理参数配置）"><a href="#事务操作（声明式事务管理参数配置）" class="headerlink" title="事务操作（声明式事务管理参数配置）"></a>事务操作（声明式事务管理参数配置）</h1><p>在service类上面添加注解@Transactional，在这个注解里面可以配置针对事务相关参数</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119152525516.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119152525516.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119152525516.png" alt="image-20201119152525516"></p>
 <ol>
 <li><p><strong>propagation：事务的传播行为</strong></p>
 <p>事务传播行为：多事务方法直接进行调用，这个过程中事务是如何进行管理的</p>
 <p>事务方法：对数据库表数据进行变化的操作</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119154213050.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119154213050.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119154213050.png" alt="image-20201119154213050"></p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119154131843.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119154131843.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119154131843.png" alt="image-20201119154131843"></p>
 <p><strong>required</strong>：如果add方法本身有事务，调用update方法之后，update使用当前add里面的事务；如果add方法方法本身没有事务，调用update方法之后，创建新事务</p>
@@ -2973,7 +2973,7 @@ context:exclude-filter：设置不扫描哪些内容
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>isolation：事务隔离级别</strong></p>
 <p>通过设置事务隔离性，解决读的三个问题（脏读、不可重复读、虚读（幻读））。</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119162114046.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119162114046.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119162114046.png" alt="image-20201119162114046"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Transactional</span><span class="token punctuation">(</span>propagation <span class="token operator">=</span> <span class="token class-name">Propagation</span><span class="token punctuation">.</span>REQUIRED<span class="token punctuation">,</span>isolation <span class="token operator">=</span> <span class="token class-name">Isolation</span><span class="token punctuation">.</span>REPEATABLE_READ<span class="token punctuation">)</span>
@@ -2988,11 +2988,11 @@ context:exclude-filter：设置不扫描哪些内容
 <li><p>事务的特性，隔离性。多事务操作之间不会产生影响。</p>
 <p>有三个读问题：脏读、不可重复读、虚读（幻读）</p>
 <p>脏读：一个未提交事务读取到另一个未提交事务的事务     （一种问题）</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119160457592.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119160457592.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119160457592.png" alt="image-20201119160457592"></p>
 <p>不可重复读：一个未提交事务读取到另一提交事务修改的数据   （一种现象）</p>
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119160945970.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119160945970.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119160945970.png" alt="image-20201119160945970"></p>
 <p>虚读（幻读）：一个未提交事务读取到另一提交事务添加数据</p>
@@ -3082,7 +3082,7 @@ context:exclude-filter：设置不扫描哪些内容
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Spring5-%E7%AC%94%E8%AE%B0/image-20201119175516422.png" class="">
+<img src="/2021/03/01/spring5-bi-ji/image-20201119175516422.png" class="">
 
 <p><img src="Spring5-%E7%AC%94%E8%AE%B0/image-20201119175516422.png" alt="image-20201119175516422"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
@@ -3113,7 +3113,7 @@ context:exclude-filter：设置不扫描哪些内容
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/03/01/mybatis-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -3127,7 +3127,7 @@ context:exclude-filter：设置不扫描哪些内容
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Mybatis 笔记</a>
+            <a href="/2021/03/01/mybatis-bi-ji/" class="post-title-link" itemprop="url">Mybatis 笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -3159,8 +3159,8 @@ context:exclude-filter：设置不扫描哪些内容
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/Mybatis-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/03/01/mybatis-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/01/mybatis-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -3177,7 +3177,7 @@ context:exclude-filter：设置不扫描哪些内容
       
           <p>注：笔记来源于<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bb411A7bD?from=search&seid=4039791659537805803&spm_id_from=333.788.b_636f6d6d656e74.35">尚硅谷 MyBatis教程 88集</a></p>
 <h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>持久化层</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201122221832628.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201122221832628.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201122221832628.png" alt="image-20201122221832628"></p>
 <h1 id="示例一：Hello-World"><a href="#示例一：Hello-World" class="headerlink" title="示例一：Hello World"></a>示例一：Hello World</h1><ol>
@@ -3203,7 +3203,7 @@ context:exclude-filter：设置不扫描哪些内容
 <li><code>MyBatisTest</code> 类，测试类</li>
 <li><code>log4.xml</code> 为了log4j正常运行，需要设置log4.xml</li>
 </ul>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201123223026423.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201123223026423.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201123223026423.png" alt="image-20201123223026423"></p>
 </li>
@@ -3367,14 +3367,14 @@ context:exclude-filter：设置不扫描哪些内容
 </ol>
 <h1 id="MyBatis-全局配置文件中的标签"><a href="#MyBatis-全局配置文件中的标签" class="headerlink" title="MyBatis 全局配置文件中的标签"></a>MyBatis 全局配置文件中的标签</h1><p>包含了影响MyBatis的设置settings和属性properties</p>
 <p>这些标签有一个规定的顺序，不按照这个顺序就会报错。</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201126114640077.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201126114640077.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201126114640077.png" alt="image-20201126114640077"></p>
 <h2 id="properties-标签"><a href="#properties-标签" class="headerlink" title="properties 标签"></a>properties 标签</h2><p><code>mybatis</code>通过标签来引入外部<code>properties</code>配置文件的内容。<code>resource</code>引入类路径下资源，<code>url</code>引入网络路径或磁盘路径下的资源</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>示例：</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201124201334440.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201124201334440.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201124201334440.png" alt="image-20201124201334440"></p>
 <p><code>dbconfig.properties</code></p>
@@ -3548,11 +3548,11 @@ Employee&#123;id&#x3D;1, lastName&#x3D;&#39;tom&#39;, email&#x3D;&#39;tom@guigu.
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>package</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.atguigu.mybatis.dao<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mappers</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201125213752546.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201125213752546.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201125213752546.png" alt="image-20201125213752546"></p>
 <p>XML映射文件与接口文件在同一个文件夹下，其中XML文件与接口文件名字相同，同时，接口中的方法名与接口文件中的方法名一致</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201125220714354.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201125220714354.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201125220714354.png" alt="image-20201125220714354"></p>
 <p>mybtais-config.xml</p>
@@ -4145,7 +4145,7 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
        select e.id id,e.last_name last_name,e.gender gender,e.d_id d_id,d.id did,d.dept_name dept_name from tbl_employee e,tbl_dept d where e.d_id=d.id and e.id=#&#123;id&#125;
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127162919441.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127162919441.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127162919441.png" alt="image-20201127162919441"></p>
 <h4 id="通过association-分步查询（一对一）"><a href="#通过association-分步查询（一对一）" class="headerlink" title="通过association 分步查询（一对一）"></a>通过association 分步查询（一对一）</h4><p><strong>补充情况：</strong></p>
@@ -4198,7 +4198,7 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
 <span class="token class-name">Department</span> employee<span class="token operator">=</span>mapper<span class="token punctuation">.</span><span class="token function">getDeptById</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>employee<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127173947327.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127173947327.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127173947327.png" alt="image-20201127173947327"></p>
 <h4 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h4><p>在分段查询的基础上加载两个配置，进行延迟加载</p>
@@ -4217,7 +4217,7 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>employee<span class="token punctuation">.</span><span class="token function">getLastName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>实验结果：不查询Employee的Department属性</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127175015855.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127175015855.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127175015855.png" alt="image-20201127175015855"></p>
 <h4 id="resultMap中通过Collection-一对多（查询结果一对多）"><a href="#resultMap中通过Collection-一对多（查询结果一对多）" class="headerlink" title="resultMap中通过Collection 一对多（查询结果一对多）"></a>resultMap中通过Collection 一对多（查询结果一对多）</h4><p>场景二：查询部门的时候，将该部门下的所有员工查询出来</p>
@@ -4267,7 +4267,7 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>department<span class="token punctuation">.</span><span class="token function">getEmps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>实验结果：</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127194503260.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127194503260.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127194503260.png" alt="image-20201127194503260"></p>
 <h4 id="resultMap中通过Collection-分布查询-amp-延迟加载"><a href="#resultMap中通过Collection-分布查询-amp-延迟加载" class="headerlink" title="resultMap中通过Collection 分布查询&amp;延迟加载"></a>resultMap中通过Collection 分布查询&amp;延迟加载</h4><p>延迟加载是通过间接的调用其他查询语句实现的。</p>
@@ -4306,10 +4306,10 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>department<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//System.out.println(department.getEmps());</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127210047900.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127210047900.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127210047900.png" alt="image-20201127210047900"></p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201127210109226.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201127210109226.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201127210109226.png" alt="image-20201127210109226"></p>
 <h4 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a><strong>扩展：</strong></h4><ul>
@@ -4349,7 +4349,7 @@ select * from tbl_employee order by $&#123;f_name&#125; $&#123;order&#125;<span 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h1 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h1><p>补充：判断表达式使用了OGNL（Object Graph Navigation Language），对象图导航语言，一种强大的表达式语言。</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201128203144841.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201128203144841.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201128203144841.png" alt="image-20201128203144841"></p>
 <p>动态SQL中含有</p>
@@ -4810,7 +4810,7 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <li>SqlSession相同，手动清除了一级缓存（清除缓存）</li>
 </ul>
 <h3 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h3><p><strong>二级缓存</strong>需要手动开启和配置，是基于namespace级别的缓存，一个namespace对应一个二级缓存</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201130191454604.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201130191454604.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130191454604.png" alt="image-20201130191454604"></p>
 <p><strong>工作机制：</strong></p>
@@ -4874,10 +4874,10 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <li><p>localCacheScope：本地缓存作用域：取值为一级缓存<code>SESSION</code>时，当前会话的所有数据保存在会话缓存中；取值为<code>STATEMENT</code>，可以禁用一级缓存</p>
 </li>
 </ol>
-<h3 id="一二级缓存原理"><a href="#一二级缓存原理" class="headerlink" title="一二级缓存原理"></a>一二级缓存原理</h3><img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213751031.png" class="">
+<h3 id="一二级缓存原理"><a href="#一二级缓存原理" class="headerlink" title="一二级缓存原理"></a>一二级缓存原理</h3><img src="/2021/03/01/mybatis-bi-ji/image-20201130213751031.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213751031.png" alt="image-20201130213751031"></p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213939990.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201130213939990.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213939990.png" alt="image-20201130213939990"></p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><strong>示例一：一级缓存（相同的查询条件 两个引用 一个对象）</strong></p>
@@ -5064,7 +5064,7 @@ false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <p>测试结果，只查询了一次数据库</p>
 <h3 id="第三方Cache整合-–-ehcache示例"><a href="#第三方Cache整合-–-ehcache示例" class="headerlink" title="第三方Cache整合 – ehcache示例"></a>第三方Cache整合 – ehcache示例</h3><ol>
 <li><p>导入相关的jar包（导入第三方缓存包即可，导入与第三方缓存整合的适配包（官方包））</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20201130215746219.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20201130215746219.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130215746219.png" alt="image-20201130215746219"></p>
 </li>
@@ -5119,17 +5119,17 @@ false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li></li>
 </ol>
 <h2 id="MyBatis-Spring整合"><a href="#MyBatis-Spring整合" class="headerlink" title="MyBatis-Spring整合"></a>MyBatis-Spring整合</h2><h1 id="MyBatis逆行工程"><a href="#MyBatis逆行工程" class="headerlink" title="MyBatis逆行工程"></a>MyBatis逆行工程</h1><p>MyBatis Generator，简称MBG，是一个专门为Mybatis框架使用者定制的代码生成器，可以快速的根据表生成对应的映射文件，接口，以及bean类。支持基本的增删改查，以及QBC风格的条件查询。但是表连接、存储过程等这些复杂sql的定义需要我们手工编写。</p>
-<h1 id="Mybatis工作原理"><a href="#Mybatis工作原理" class="headerlink" title="Mybatis工作原理"></a>Mybatis工作原理</h1><img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20210109193829803.png" class="">
+<h1 id="Mybatis工作原理"><a href="#Mybatis工作原理" class="headerlink" title="Mybatis工作原理"></a>Mybatis工作原理</h1><img src="/2021/03/01/mybatis-bi-ji/image-20210109193829803.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20210109193829803.png" alt="image-20210109193829803"></p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20210109193943507.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20210109193943507.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20210109193943507.png" alt="image-20210109193943507"></p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20210109194005214.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20210109194005214.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20210109194005214.png" alt="image-20210109194005214"></p>
 <p>查询流程</p>
-<img src="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/image-20210109194021006.png" class="">
+<img src="/2021/03/01/mybatis-bi-ji/image-20210109194021006.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20210109194021006.png" alt="image-20210109194021006"></p>
 
@@ -5151,7 +5151,7 @@ false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -5165,7 +5165,7 @@ false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">JavaWeb 笔记</a>
+            <a href="/2021/02/28/javaweb-bi-ji/" class="post-title-link" itemprop="url">JavaWeb 笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -5197,8 +5197,8 @@ false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/JavaWeb-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/javaweb-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/javaweb-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -5491,10 +5491,10 @@ public class LocaleTest &#123;
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201216214443736.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" alt="image-20201216214443736"></p>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201216214323204.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" alt="image-20201216214323204"></p>
 <h2 id="DateFormat-NumberFormat-MessageFormat类"><a href="#DateFormat-NumberFormat-MessageFormat类" class="headerlink" title="DateFormat NumberFormat MessageFormat类"></a><code>DateFormat NumberFormat MessageFormat</code>类</h2><ol>
@@ -5643,7 +5643,7 @@ String username&#x3D;request.getParameter(&quot;username&quot;);
        resp<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"ok..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png" class="">   ![image-20201217171400052](JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png)
+<img src="/2021/02/28/javaweb-bi-ji/image-20201217171400052.png" class="">   ![image-20201217171400052](JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png)
 
 <ol start="4">
 <li><p>文件上传到服务器的步骤：</p>
@@ -6075,7 +6075,7 @@ $(btn01)[0]; jquery-->dom<span aria-hidden="true" class="line-numbers-rows"><spa
 
 
 
-<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" class="">
+<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="/2021/02/28/javaweb-bi-ji/image-20201221155235918.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" alt="image-20201221155235918"></p>
 <ol>
@@ -6282,7 +6282,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>会话关闭：默认是cookie消失：通过cookie持久化技术继续找到之前的session</li>
 <li>session失效：自动超时，手动设置失效</li>
 </ol>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" class=""></li>
+<img src="/2021/02/28/javaweb-bi-ji/image-20201221223347948.png" class=""></li>
 <li><p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" alt="image-20201221223347948"></p>
 </li>
 <li><p><strong>令牌机制</strong></p>
@@ -6350,7 +6350,7 @@ response<span class="token punctuation">.</span><span class="token function">add
     chain<span class="token punctuation">.</span><span class="token function">doFilter</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201226114017667.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" alt="image-20201226114017667"></p>
 <h1 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h1><p>监听器8个：<br><code>ServletRequest(2个), HttpSession(4个), ServletContext(2个)</code><br>2个：生命周期监听器、属性变化监听器<br>4个：<code>（HttpSession）</code>中有两个额外的（活化钝化监听器、绑定解绑监听器）</p>
@@ -6418,7 +6418,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>服务器收到请求，调用对应的servlet进行处理，servlet处理完成后会有响应信息生成</li>
 <li><code>XMLHttpResquest</code>对象收到数据（浏览器就感受不到这个数据了，对象收到了这个数据）</li>
 </ul>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201227155116135.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" alt="image-20201227155116135"></p>
 <p>原生<code>jquery</code>比较麻烦，使用<code>jquery</code>包装后的Ajax</p>
@@ -6441,7 +6441,7 @@ response<span class="token punctuation">.</span><span class="token function">add
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -6455,7 +6455,7 @@ response<span class="token punctuation">.</span><span class="token function">add
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">SQL基础教程 2th 笔记</a>
+            <a href="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/" class="post-title-link" itemprop="url">SQL基础教程 2th 笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -6487,8 +6487,8 @@ response<span class="token punctuation">.</span><span class="token function">add
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/SQL基础教程-2th-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -6535,16 +6535,16 @@ response<span class="token punctuation">.</span><span class="token function">add
 </tr>
 </tbody></table>
 <h1 id="2-数据库和SQL"><a href="#2-数据库和SQL" class="headerlink" title="2. 数据库和SQL"></a>2. 数据库和SQL</h1><h2 id="2-1-常见系统结构"><a href="#2-1-常见系统结构" class="headerlink" title="2.1 常见系统结构"></a>2.1 常见系统结构</h2><p>客户端/服务器端（C/S类型）</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016212044215.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201016212044215.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016212044215.png" alt="image-20201016212044215"></p>
 <h2 id="2-2-常见表结构"><a href="#2-2-常见表结构" class="headerlink" title="2.2 常见表结构"></a>2.2 常见表结构</h2><p>用来管理数据的二维表在关系数据库中简称为表，查询语句返回的结果也是二维表的形式</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016214129489.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201016214129489.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016214129489.png" alt="image-20201016214129489"></p>
 <p>表的<strong>列</strong>成为<strong>字段</strong></p>
 <p>表的<strong>行</strong>称为<strong>记录</strong>，<strong>数据库以行为单位进行读写</strong></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016215224168.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201016215224168.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201016215224168.png" alt="image-20201016215224168"></p>
 <h2 id="2-3-SQL概要"><a href="#2-3-SQL概要" class="headerlink" title="2.3 SQL概要"></a>2.3 SQL概要</h2><p>SQL分为三类：</p>
@@ -6651,10 +6651,10 @@ alter table product drop column product_name_pinyin;<span aria-hidden="true" cla
 <h3 id="表中数据"><a href="#表中数据" class="headerlink" title="表中数据"></a>表中数据</h3><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><ul>
 <li><p><strong>格式</strong></p>
 <p><code>insert into 表名 (列名1,列名2,列名3,...) values(值1,值2,值3,...);</code></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150636017.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020150636017.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150636017.png" alt="image-20201020150636017"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020150711365.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020150711365.png" alt="image-20201020150711365"></p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名 values(xxx,xxxx);
@@ -6673,7 +6673,7 @@ COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li><p>显式方式插入设定默认值</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT INTO ProductIns (product_id, product_name, product_type, sale_price, purchase_price, regist_date) VALUES (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, DEFAULT, 790, &#39;2009-04-28&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>隐式方法插入设定默认值</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020151834333.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020151834333.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020151834333.png" alt="image-20201020151834333"></p>
 <p><u>如果省略了没有设定默认值的列，该列的值将会被设定为NULL</u></p>
@@ -6683,7 +6683,7 @@ COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <li><p><strong>从其他表中复制数据</strong></p>
 <p><strong><em>insert … select</em>  (注意无values)</strong></p>
 <p>insert语句的select语句中，可以使用where子句活group by子句等任何SQL语法（但是使用order by子句不会产生任何效果）</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020152501318.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020152501318.png" alt="image-20201020152501318"></p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT INTO ProductType (product_type, sum_sale_price,sum_purchase_price) 
@@ -6772,7 +6772,7 @@ from Product;
   from product;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  <img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019103613766.png" alt="image-20201019103613766"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019103613766.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201019103613766.png" class="">
 
 <ul>
 <li><p>distinct </p>
@@ -6780,10 +6780,10 @@ from Product;
 <p><strong>distinct会将null视为一类数据</strong></p>
 <p>对一列数据使用distinct     <code>select distinct(product_price) from product;</code></p>
 <p>对多列数据使用distinct，将多列的数据进行组合    <code>select distinct product_type,regist_date from product</code>，product_type,regist_date相同的数据合并，只展示一条数据</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019111828739.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201019111828739.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019111828739.png" alt="image-20201019111828739"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019111757306.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201019111757306.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019111757306.png" alt="image-20201019111757306"></p>
 </li>
@@ -6905,7 +6905,7 @@ select product_name, sale_price,sale_price*2 as &#39;sale_price_x2&#39; from pro
 <li>比较运算符会将运算结果以真值的形式返回，例如sale_price&gt;=3000，成立返回FALSE，不成立返回TRUE</li>
 </ul>
 <h2 id="3-4-复杂查询"><a href="#3-4-复杂查询" class="headerlink" title="3.4 复杂查询"></a>3.4 复杂查询</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>表中保存的是实际的数据，<strong>视图中保存的是SELECT语句（视图本身不存储数据）</strong></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020191230341.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020191230341.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020191230341.png" alt="image-20201020191230341"></p>
 <h3 id="视图创建"><a href="#视图创建" class="headerlink" title="视图创建"></a>视图创建</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create view 视图名称(视图列名1,视图列名2,...)
@@ -6932,31 +6932,31 @@ select 语句;<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 </li>
 </ul>
 <h2 id="3-5-子查询"><a href="#3-5-子查询" class="headerlink" title="3.5 子查询"></a>3.5 子查询</h2><p>子查询特点概括起来就是一张一次性视图。</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020213832697.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020213832697.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020213832697.png" alt="image-20201020213832697"></p>
 <p><strong>子查询作为内层查询会首先执行</strong>，示例中先执行from子句中的select语句，然后再执行外层的select语句</p>
 <h3 id="标量子查询-scalar-subquery"><a href="#标量子查询-scalar-subquery" class="headerlink" title="标量子查询(scalar subquery)"></a>标量子查询(scalar subquery)</h3><p>标量，单一的意思</p>
 <p>标量子查询有特殊的限制，必须而且只能返回1行1列的结果（<strong>标量子查询是返回单一值得子查询，不能返回多行结果</strong>）。</p>
 <p>由于返回得是单一值，可以使用标量进行比较运算</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101413880.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021101413880.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101413880.png" alt="image-20201021101413880"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101809977.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021101809977.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101809977.png" alt="image-20201021101809977"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101852432.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021101852432.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021101852432.png" alt="image-20201021101852432"></p>
 <p>任何可以使用单一值的位置都可以使用标量子查询，能够使用常数或者列名的地方，无论是SELECT 子句、GROUP BY 子句、HAVING 子句，还是ORDER BY 子句，几乎所有的地方都可以使用。</p>
 <h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>子查询绝对不能返回多行结果，如下select的子查询会发生错误。</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021102121512.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021102121512.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021102121512.png" alt="image-20201021102121512"></p>
-<h3 id="关联子查询"><a href="#关联子查询" class="headerlink" title="关联子查询"></a>关联子查询</h3><img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021112859321.png" class="">
+<h3 id="关联子查询"><a href="#关联子查询" class="headerlink" title="关联子查询"></a>关联子查询</h3><img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021112859321.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021112859321.png" alt="image-20201021112859321"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021112629591.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021112629591.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021112629591.png" alt="image-20201021112629591"></p>
 <p><strong>起到关键作用的就是在子查询中添加的WHERE 子句的条件</strong>。该条件的意思就是：在同一商品种类中对各商品的销售单价和平均单价进行比较。</p>
@@ -6964,10 +6964,10 @@ select 语句;<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <h4 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
 <li><p><strong>结合条件一定要写在子查询中</strong></p>
 <p>示例中的写法违背了<strong>关联名称的作用域</strong>，示例中，P1、P2表的别名的作用域（scope，生存范围）有效范围P1&gt;P2。子查询内部设定的关联名称，只能在子查询内部使用。</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021113434628.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021113434628.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021113434628.png" alt="image-20201021113434628"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021113809229.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021113809229.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021113809229.png" alt="image-20201021113809229"></p>
 </li>
@@ -6982,7 +6982,7 @@ select 语句;<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>判断不是NULL的运算符：<code>is not null</code></p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select * from Product where purchase_price is null;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>除真假之外的第三种值–不确定（UNKNOWN），<strong>SQL中的逻辑运算成为三值逻辑</strong></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019213436268.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201019213436268.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201019213436268.png" alt="image-20201019213436268"></p>
 </li>
@@ -7128,13 +7128,13 @@ DML语句3;
 
 事务结束语句(COMMIT或者ROLLBACK);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020170501568.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020170501568.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020170501568.png" alt="image-20201020170501568"></p>
 <ul>
 <li><p><strong>commit–提交处理</strong></p>
 <p>commit 是提交事务包含的全部更新处理的结束指令</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020171315119.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171315119.png" alt="image-20201020171315119"></p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">START TRANSACTION;
@@ -7149,7 +7149,7 @@ WHERE product_name &#x3D; &#39;T恤衫&#39;;
 COMMIT;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>rollback — 取消处理</strong></p>
 <p>rollback是取消事务包含的全部更新处理的结束指令</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201020171507324.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201020171507324.png" alt="image-20201020171507324"></p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">BEGIN TRANSACTION; ------------------- ①
@@ -7330,7 +7330,7 @@ EXTRACT(HOUR FROM CURRENT_TIMESTAMP) AS hour,
 EXTRACT(MINUTE FROM CURRENT_TIMESTAMP) AS minute,
 EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021155704554.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021155704554.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021155704554.png" alt="image-20201021155704554"></p>
 <h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><table>
@@ -7377,10 +7377,10 @@ EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;<span aria-hidden="true" class=
 <td></td>
 </tr>
 </tbody></table>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021160310907.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021160310907.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021160310907.png" alt="image-20201021160310907"></p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021160332500.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021160332500.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021160332500.png" alt="image-20201021160332500"></p>
 <h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><h2 id="7-2-谓词-predicate"><a href="#7-2-谓词-predicate" class="headerlink" title="7.2 谓词 predicate"></a>7.2 谓词 predicate</h2><p>谓词的返回值全部都是真值（TRUE/FALSE/UNKOWN），例如：=, &lt;, &gt;, &lt;&gt;等比较运算符</p>
@@ -7404,7 +7404,7 @@ WHERE purchase_price IS NULL; -- where purchase_price is not null<span aria-hidd
 <p><strong>IN和NOT IN是无法选取除NULL数据的</strong></p>
 <ul>
 <li><p>可以使用子查询作为IN谓词的参数</p>
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021165433054.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021165433054.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021165433054.png" alt="image-20201021165433054"></p>
 </li>
@@ -7424,7 +7424,7 @@ WHERE purchase_price IS NULL; -- where purchase_price is not null<span aria-hidd
 	ELSE &lt;表达式&gt;
 END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171940542.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021171940542.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171940542.png" alt="image-20201021171940542"></p>
 </li>
@@ -7438,7 +7438,7 @@ END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 	 ELSE &lt;表达式&gt;
 END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171042081.png" class="">
+<img src="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/image-20201021171042081.png" class="">
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021171042081.png" alt="image-20201021171042081"></p>
 </li>
@@ -8024,7 +8024,7 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/she-ji-mo-shi-mian-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -8038,7 +8038,7 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/" class="post-title-link" itemprop="url">设计模式面经</a>
+            <a href="/2021/02/28/she-ji-mo-shi-mian-jing/" class="post-title-link" itemprop="url">设计模式面经</a>
         </h2>
 
         <div class="post-meta">
@@ -8076,8 +8076,8 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/设计模式面经/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/she-ji-mo-shi-mian-jing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/she-ji-mo-shi-mian-jing/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -8097,7 +8097,7 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/02/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E7%BB%8F/#more" rel="contents">
+              <a class="btn" href="/2021/02/28/she-ji-mo-shi-mian-jing/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -8305,7 +8305,6 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
 
   
 
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -8316,6 +8315,7 @@ ORDER BY Persons.LastName<span aria-hidden="true" class="line-numbers-rows"><spa
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
 </script>
+
 
 </body>
 </html>

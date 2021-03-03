@@ -25,22 +25,22 @@
   <meta name="description" content="多线程 Java多线程相关面经  1. 创建线程的方式三种方式：  实现Runnable接口的run方法 继承Thread类并重写run方法 使用FutureTask方式  继承Thread类并重写run方法调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源） 优势：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentTh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java多线程">
-<meta property="og:url" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:url" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/index.html">
 <meta property="og:site_name" content="TingHL blogs">
 <meta property="og:description" content="多线程 Java多线程相关面经  1. 创建线程的方式三种方式：  实现Runnable接口的run方法 继承Thread类并重写run方法 使用FutureTask方式  继承Thread类并重写run方法调用start方法线程没有马上执行而是处于就绪状态（获取了除CPU资源外的其他资源） 优势：在run() 方法内获取当前线程直接使用this 就可以了，无须使用Thread.currentTh">
 <meta property="og:locale">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/16df734235a85d25">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/16daf6a9b443c827">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png">
 <meta property="article:published_time" content="2021-02-27T00:51:07.000Z">
 <meta property="article:modified_time" content="2021-02-27T01:08:20.529Z">
 <meta property="article:author" content="TingHL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
+<meta name="twitter:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/16df734235a85d25">
 
-<link rel="canonical" href="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+<link rel="canonical" href="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -236,8 +236,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java多线程/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/27/java-duo-xian-cheng/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/27/java-duo-xian-cheng/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -336,10 +336,10 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" class="">
+<h2 id="3-4-原理"><a href="#3-4-原理" class="headerlink" title="3.4 原理"></a>3.4 原理</h2><img src="/2021/02/27/java-duo-xian-cheng/16df734235a85d25" class="">
 
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25" alt="img"></p>
-<img src="/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" class="">
+<img src="/2021/02/27/java-duo-xian-cheng/16daf6a9b443c827" class="">
 
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" alt="img"></p>
 <p><strong>Thread类中有一个ThreadLocalMap属性，ThreadLocalMap中Entry的key是ThreadLocal对象，value是Object类型</strong>，一个ThreadLocalMap可以有多个ThreadLocal。如图：Thread类源码中有ThreadLocal属性。</p>
@@ -445,11 +445,11 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/25/java%E9%9D%A2%E7%BB%8F/" rel="prev" title="java面经">
+    <a href="/2021/02/25/java-mian-jing/" rel="prev" title="java面经">
       <i class="fa fa-chevron-left"></i> java面经
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/02/27/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/" rel="next" title="java虚拟机面经">
+    <a href="/2021/02/27/java-xu-ni-ji-mian-jing/" rel="next" title="java虚拟机面经">
       java虚拟机面经 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -466,11 +466,11 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -479,7 +479,7 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -669,23 +669,6 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/",
-      identifier: "2021/02/27/java多线程/",
-      title     : "java多线程",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -698,8 +681,8 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://tinghl.github.io/2021/02/27/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/";
-    this.page.identifier = "2021/02/27/java多线程/";
+    this.page.url = "http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/";
+    this.page.identifier = "2021/02/27/java-duo-xian-cheng/";
     this.page.title = "java多线程";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
@@ -715,6 +698,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/",
+      identifier: "2021/02/27/java-duo-xian-cheng/",
+      title     : "java多线程",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>

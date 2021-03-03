@@ -25,32 +25,32 @@
   <meta name="description" content="监听器简介和分类示例项目 JavaWebListenerDemo   监听器监听对象、监听事件、触发行为 JavaWeb 监听器 Listenerserverlet，filter，listener：JavaWeb的三大组件 八个监听器按照监听对象分为三类：  监听ServletContext事件 ​    ServletContextListener： ​            作用：监听Serv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaWeb 笔记">
-<meta property="og:url" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/index.html">
 <meta property="og:site_name" content="TingHL blogs">
 <meta property="og:description" content="监听器简介和分类示例项目 JavaWebListenerDemo   监听器监听对象、监听事件、触发行为 JavaWeb 监听器 Listenerserverlet，filter，listener：JavaWeb的三大组件 八个监听器按照监听对象分为三类：  监听ServletContext事件 ​    ServletContextListener： ​            作用：监听Serv">
 <meta property="og:locale">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201216214443736.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201216214323204.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201217171400052.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201221155235918.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201221223347948.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201226114017667.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201227155116135.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png">
 <meta property="article:published_time" content="2021-02-28T13:38:11.000Z">
 <meta property="article:modified_time" content="2021-02-28T14:39:31.833Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png">
+<meta name="twitter:image" content="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/image-20201216214443736.png">
 
-<link rel="canonical" href="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/">
 
 
 <script id="page-configurations">
@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://tinghl.github.io/2021/02/28/javaweb-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -255,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/JavaWeb-笔记/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/28/javaweb-bi-ji/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/28/javaweb-bi-ji/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -549,10 +549,10 @@ public class LocaleTest &#123;
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201216214443736.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214443736.png" alt="image-20201216214443736"></p>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201216214323204.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201216214323204.png" alt="image-20201216214323204"></p>
 <h2 id="DateFormat-NumberFormat-MessageFormat类"><a href="#DateFormat-NumberFormat-MessageFormat类" class="headerlink" title="DateFormat NumberFormat MessageFormat类"></a><code>DateFormat NumberFormat MessageFormat</code>类</h2><ol>
@@ -701,7 +701,7 @@ String username&#x3D;request.getParameter(&quot;username&quot;);
        resp<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"ok..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png" class="">   ![image-20201217171400052](JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png)
+<img src="/2021/02/28/javaweb-bi-ji/image-20201217171400052.png" class="">   ![image-20201217171400052](JavaWeb-%E7%AC%94%E8%AE%B0/image-20201217171400052.png)
 
 <ol start="4">
 <li><p>文件上传到服务器的步骤：</p>
@@ -1133,7 +1133,7 @@ $(btn01)[0]; jquery-->dom<span aria-hidden="true" class="line-numbers-rows"><spa
 
 
 
-<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" class="">
+<h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><img src="/2021/02/28/javaweb-bi-ji/image-20201221155235918.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221155235918.png" alt="image-20201221155235918"></p>
 <ol>
@@ -1340,7 +1340,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>会话关闭：默认是cookie消失：通过cookie持久化技术继续找到之前的session</li>
 <li>session失效：自动超时，手动设置失效</li>
 </ol>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" class=""></li>
+<img src="/2021/02/28/javaweb-bi-ji/image-20201221223347948.png" class=""></li>
 <li><p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201221223347948.png" alt="image-20201221223347948"></p>
 </li>
 <li><p><strong>令牌机制</strong></p>
@@ -1408,7 +1408,7 @@ response<span class="token punctuation">.</span><span class="token function">add
     chain<span class="token punctuation">.</span><span class="token function">doFilter</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201226114017667.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201226114017667.png" alt="image-20201226114017667"></p>
 <h1 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h1><p>监听器8个：<br><code>ServletRequest(2个), HttpSession(4个), ServletContext(2个)</code><br>2个：生命周期监听器、属性变化监听器<br>4个：<code>（HttpSession）</code>中有两个额外的（活化钝化监听器、绑定解绑监听器）</p>
@@ -1476,7 +1476,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>服务器收到请求，调用对应的servlet进行处理，servlet处理完成后会有响应信息生成</li>
 <li><code>XMLHttpResquest</code>对象收到数据（浏览器就感受不到这个数据了，对象收到了这个数据）</li>
 </ul>
-<img src="/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" class="">
+<img src="/2021/02/28/javaweb-bi-ji/image-20201227155116135.png" class="">
 
 <p><img src="JavaWeb-%E7%AC%94%E8%AE%B0/image-20201227155116135.png" alt="image-20201227155116135"></p>
 <p>原生<code>jquery</code>比较麻烦，使用<code>jquery</code>包装后的Ajax</p>
@@ -1519,11 +1519,11 @@ response<span class="token punctuation">.</span><span class="token function">add
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/28/SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/" rel="prev" title="SQL基础教程 2th 笔记">
+    <a href="/2021/02/28/sql-ji-chu-jiao-cheng-2th-bi-ji/" rel="prev" title="SQL基础教程 2th 笔记">
       <i class="fa fa-chevron-left"></i> SQL基础教程 2th 笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/03/01/Mybatis-%E7%AC%94%E8%AE%B0/" rel="next" title="Mybatis 笔记">
+    <a href="/2021/03/01/mybatis-bi-ji/" rel="next" title="Mybatis 笔记">
       Mybatis 笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -1540,11 +1540,11 @@ response<span class="token punctuation">.</span><span class="token function">add
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1553,7 +1553,7 @@ response<span class="token punctuation">.</span><span class="token function">add
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1743,23 +1743,6 @@ response<span class="token punctuation">.</span><span class="token function">add
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/",
-      identifier: "2021/02/28/JavaWeb-笔记/",
-      title     : "JavaWeb 笔记",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1772,8 +1755,8 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://tinghl.github.io/2021/02/28/JavaWeb-%E7%AC%94%E8%AE%B0/";
-    this.page.identifier = "2021/02/28/JavaWeb-笔记/";
+    this.page.url = "http://tinghl.github.io/2021/02/28/javaweb-bi-ji/";
+    this.page.identifier = "2021/02/28/javaweb-bi-ji/";
     this.page.title = "JavaWeb 笔记";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
@@ -1789,6 +1772,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/02/28/javaweb-bi-ji/",
+      identifier: "2021/02/28/javaweb-bi-ji/",
+      title     : "JavaWeb 笔记",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>
