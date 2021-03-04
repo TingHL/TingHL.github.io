@@ -169,11 +169,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
-
-  </li>
         <li class="menu-item menu-item-sitemap">
 
     <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
@@ -790,11 +785,11 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">disqus</a></li>
             <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -803,7 +798,7 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
   </div>
   
             </div>
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -997,6 +992,23 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/02/25/shu-ju-ku-mian-jing/",
+      identifier: "2021/02/25/shu-ju-ku-mian-jing/",
+      title     : "数据库面经",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1026,23 +1038,6 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/02/25/shu-ju-ku-mian-jing/",
-      identifier: "2021/02/25/shu-ju-ku-mian-jing/",
-      title     : "数据库面经",
-    });
-  }, window.DisqusJS);
-});
 </script>
 
 </body>
