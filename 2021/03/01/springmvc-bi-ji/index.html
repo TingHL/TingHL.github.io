@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"tinghl.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="SpringMVC笔记参考连接：  https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1uE411C7CW?p&#x3D;120  SpringMVC简介 Spring为展现层提供的基于MVC设计理念的优秀的Web框架，目前最主流的MVC框架之一 SpringMVC 通过一套MVC注解，让POJO 成为处理请求的控制器，而无需实现任何接口 支持REST风格的URL请求     HelloWo">
+  <meta name="description" content="根据B站尚硅谷雷神视频整理的SpringMVC学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC 笔记">
 <meta property="og:url" content="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/index.html">
 <meta property="og:site_name" content="TingHL blogs">
-<meta property="og:description" content="SpringMVC笔记参考连接：  https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1uE411C7CW?p&#x3D;120  SpringMVC简介 Spring为展现层提供的基于MVC设计理念的优秀的Web框架，目前最主流的MVC框架之一 SpringMVC 通过一套MVC注解，让POJO 成为处理请求的控制器，而无需实现任何接口 支持REST风格的URL请求     HelloWo">
+<meta property="og:description" content="根据B站尚硅谷雷神视频整理的SpringMVC学习笔记">
 <meta property="og:locale">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/image-20201230160445842.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/SpringMVC-%E7%AC%94%E8%AE%B0/image-20201230160445842.png">
@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/image-20210107103904299.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/01/springmvc-bi-ji/SpringMVC-%E7%AC%94%E8%AE%B0/image-20210107103904299.png">
 <meta property="article:published_time" content="2021-03-01T02:35:25.000Z">
-<meta property="article:modified_time" content="2021-03-01T02:50:02.066Z">
+<meta property="article:modified_time" content="2021-03-04T03:23:03.059Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="SpringMVC">
@@ -287,10 +287,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-01 10:35:25 / Modified: 10:50:02" itemprop="dateCreated datePublished" datetime="2021-03-01T10:35:25+08:00">2021-03-01</time>
+              <time title="Created: 2021-03-01 10:35:25" itemprop="dateCreated datePublished" datetime="2021-03-01T10:35:25+08:00">2021-03-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-04 11:23:03" itemprop="dateModified" datetime="2021-03-04T11:23:03+08:00">2021-03-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -316,6 +322,7 @@
   </span>
   
   
+            <div class="post-description">根据B站尚硅谷雷神视频整理的SpringMVC学习笔记</div>
 
         </div>
       </header>
@@ -1196,11 +1203,11 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1209,7 +1216,7 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1399,23 +1406,6 @@ application:$&#123;applicationScope.msg&#125;<span class="token tag"><span class
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/03/01/springmvc-bi-ji/",
-      identifier: "2021/03/01/springmvc-bi-ji/",
-      title     : "SpringMVC 笔记",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1445,6 +1435,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/03/01/springmvc-bi-ji/",
+      identifier: "2021/03/01/springmvc-bi-ji/",
+      title     : "SpringMVC 笔记",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>

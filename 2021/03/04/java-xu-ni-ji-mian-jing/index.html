@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"tinghl.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="虚拟机JVM 虚拟机相关面经  Java虚拟机 运行时数据区域 不同于Java内存模型Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：方法区、堆、虚拟机栈、本地方法栈、程序计数器。    程序计数器 当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要">
+  <meta name="description" content="2020年校招根据面经整理的JVM知识点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java虚拟机面经">
 <meta property="og:url" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/index.html">
 <meta property="og:site_name" content="TingHL blogs">
-<meta property="og:description" content="虚拟机JVM 虚拟机相关面经  Java虚拟机 运行时数据区域 不同于Java内存模型Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：方法区、堆、虚拟机栈、本地方法栈、程序计数器。    程序计数器 当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要">
+<meta property="og:description" content="2020年校招根据面经整理的JVM知识点">
 <meta property="og:locale">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201206213234668.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png">
@@ -87,7 +87,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/20200818181924858.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818181924858.png">
 <meta property="article:published_time" content="2021-03-04T02:48:43.000Z">
-<meta property="article:modified_time" content="2021-03-04T02:52:43.594Z">
+<meta property="article:modified_time" content="2021-03-04T03:30:47.000Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="JVM">
@@ -278,7 +278,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-04 10:48:43 / Modified: 10:52:43" itemprop="dateCreated datePublished" datetime="2021-03-04T10:48:43+08:00">2021-03-04</time>
+              <time title="Created: 2021-03-04 10:48:43 / Modified: 11:30:47" itemprop="dateCreated datePublished" datetime="2021-03-04T10:48:43+08:00">2021-03-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,6 +305,7 @@
   </span>
   
   
+            <div class="post-description">2020年校招根据面经整理的JVM知识点</div>
 
         </div>
       </header>
@@ -937,11 +938,11 @@ LockSupport::parkUntil()方法。
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -950,7 +951,7 @@ LockSupport::parkUntil()方法。
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1140,23 +1141,6 @@ LockSupport::parkUntil()方法。
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/",
-      identifier: "2021/03/04/java-xu-ni-ji-mian-jing/",
-      title     : "java虚拟机面经",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1186,6 +1170,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/",
+      identifier: "2021/03/04/java-xu-ni-ji-mian-jing/",
+      title     : "java虚拟机面经",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>
