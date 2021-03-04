@@ -33,9 +33,10 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16df734235a85d25">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/16daf6a9b443c827">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/image-20201108111945743-1614823462097.png">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743-1614823462097.png">
 <meta property="article:published_time" content="2021-02-27T00:51:07.000Z">
-<meta property="article:modified_time" content="2021-03-04T01:32:45.165Z">
+<meta property="article:modified_time" content="2021-03-04T02:04:37.396Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="多线程">
@@ -232,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 09:32:45" itemprop="dateModified" datetime="2021-03-04T09:32:45+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-04 10:04:37" itemprop="dateModified" datetime="2021-03-04T10:04:37+08:00">2021-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,9 +361,9 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
 
 <p><img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/16daf6a9b443c827" alt="img"></p>
 <p><strong>Thread类中有一个ThreadLocalMap属性，ThreadLocalMap中Entry的key是ThreadLocal对象，value是Object类型</strong>，一个ThreadLocalMap可以有多个ThreadLocal。如图：Thread类源码中有ThreadLocal属性。</p>
+<img src="/2021/02/27/java-duo-xian-cheng/image-20201108111945743-1614823462097.png" class="">
 
-
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743.png" alt="image-20201108111945743" style="zoom:150%;" />
+<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B/image-20201108111945743-1614823462097.png" alt="image-20201108111945743" style="zoom:150%;" />
 
 <p>ThreadLocalMap 设计为ThreadLocal 静态内部类。</p>
 <p>ThreadLocalMap 是一个线程本地的值，它所有的方法都是private 的，也就意味着除了ThreadLocal 这个类，其他类是不能操作ThreadLocalMap 中的任何方法的，这样就可以对其他类是透明的。同时这个类的权限是包级别的，也就意味着只有同一个包下面的类才能引用ThreadLocalMap 这个类，这也是Thread 为什么可以引用ThreadLocalMap 的原因，因为他们在同一个包下面。</p>
