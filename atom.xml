@@ -56,9 +56,9 @@
     <category term="SpringMVC相关" scheme="http://tinghl.github.io/categories/SpringMVC%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="笔记" scheme="http://tinghl.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="SpringMVC" scheme="http://tinghl.github.io/tags/SpringMVC/"/>
+    
+    <category term="笔记" scheme="http://tinghl.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -148,9 +148,9 @@
     <category term="数据库相关" scheme="http://tinghl.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="SQL" scheme="http://tinghl.github.io/tags/SQL/"/>
-    
     <category term="笔记" scheme="http://tinghl.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="SQL" scheme="http://tinghl.github.io/tags/SQL/"/>
     
   </entry>
   
