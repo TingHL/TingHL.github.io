@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/</loc>
+    <lastmod>2021-03-04</lastmod>
+  </url>
+  <url>
     <loc>http://tinghl.github.io/2021/02/27/java-duo-xian-cheng/</loc>
     <lastmod>2021-03-04</lastmod>
   </url>
@@ -43,10 +47,6 @@
   <url>
     <loc>http://tinghl.github.io/2021/02/28/linux-mian-jing/</loc>
     <lastmod>2021-02-28</lastmod>
-  </url>
-  <url>
-    <loc>http://tinghl.github.io/2021/02/27/java-xu-ni-ji-mian-jing/</loc>
-    <lastmod>2021-02-27</lastmod>
   </url>
   <url>
     <loc>http://tinghl.github.io/2021/02/25/cao-zuo-xi-tong-mian-jing/</loc>
