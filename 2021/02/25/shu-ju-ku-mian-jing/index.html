@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/02/25/shu-ju-ku-mian-jing/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E7%BB%8F/70">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/25/shu-ju-ku-mian-jing/137084-20180524194122461-804315041.png">
 <meta property="article:published_time" content="2021-02-25T11:43:52.000Z">
-<meta property="article:modified_time" content="2021-03-04T03:23:35.858Z">
+<meta property="article:modified_time" content="2021-03-04T07:48:27.016Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="数据库">
@@ -260,7 +260,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 11:23:35" itemprop="dateModified" datetime="2021-03-04T11:23:35+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-04 15:48:27" itemprop="dateModified" datetime="2021-03-04T15:48:27+08:00">2021-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
         <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ul>
 <li>数据库相关整理面经</li>
 </ul>
-<h1 id="1-索引"><a href="#1-索引" class="headerlink" title="1. 索引"></a>1. 索引</h1><p><strong>索引</strong>：帮助数据库高效获取数据的数据结构。索引是在基于数据库表创建的，<strong>包含一个表中某些列的值以及记录中对应的地址</strong>，并把这些值存储在一个数据结构中。</p>
+<h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p><strong>索引</strong>：帮助数据库高效获取数据的数据结构。索引是在基于数据库表创建的，<strong>包含一个表中某些列的值以及记录中对应的地址</strong>，并把这些值存储在一个数据结构中。</p>
 <table>
 <thead>
 <tr>
@@ -337,16 +337,16 @@
 </tr>
 </tbody></table>
 <p>Inodb存储引擎默认是B+ 树索引，MyISAM存储引擎默认是Fulltext 索引，Memory 存储引擎默认是Hash 索引</p>
-<h2 id="1-1-主键索引和非主键索引（二级索引）区别"><a href="#1-1-主键索引和非主键索引（二级索引）区别" class="headerlink" title="1.1 主键索引和非主键索引（二级索引）区别"></a>1.1 主键索引和非主键索引（二级索引）区别</h2><p>对于主键，关系数据库会自动创建主键索引，主键索引效率最高，因为主键保证绝对唯一。</p>
+<h2 id="主键索引和非主键索引（二级索引）区别"><a href="#主键索引和非主键索引（二级索引）区别" class="headerlink" title="主键索引和非主键索引（二级索引）区别"></a>主键索引和非主键索引（二级索引）区别</h2><p>对于主键，关系数据库会自动创建主键索引，主键索引效率最高，因为主键保证绝对唯一。</p>
 <p>非主键索引的叶子节点存放的是<strong>主键的值</strong>，而主键索引的叶子节点存放的是<strong>整行数据</strong>。</p>
 <p>（二级索引：非主键索引也被称为<strong>二级索引</strong>，建立各列值与行键之间的映射关系）</p>
-<h2 id="1-2-聚簇索引-非聚簇索引"><a href="#1-2-聚簇索引-非聚簇索引" class="headerlink" title="1.2 聚簇索引 非聚簇索引"></a>1.2 聚簇索引 非聚簇索引</h2><p><strong>区别：叶节点是否存放一整行记录</strong></p>
+<h2 id="聚簇索引-非聚簇索引"><a href="#聚簇索引-非聚簇索引" class="headerlink" title="聚簇索引 非聚簇索引"></a>聚簇索引 非聚簇索引</h2><p><strong>区别：叶节点是否存放一整行记录</strong></p>
 <p>InnoDB 主键使用的是聚簇索引，MyISAM 不管是主键索引，还是二级索引使用的都是非聚簇索引。</p>
 <p><strong>聚簇索引表：在聚簇索引表中，主键索引的叶节点存储行数据（包括主键值），二级索引的叶结点存储行的主键值</strong>。使用的是B+树作为索引的存储结构，非叶子节点都是索引关键字，但非叶子节点中的关键字中不存储对应记录的具体内容或内容地址。叶子节点上的数据是主键与具体记录(数据内容)。</p>
 <p><strong>非聚簇索引表：表数据和索引是分成两部分存储的，主键索引和二级索引存储上没有任何区别</strong>。使用的是<strong>B+树作为索引的存储结构</strong>，所有的节点都是索引，<strong>叶子节点存储的是索引+索引对应的记录的数据</strong>。</p>
 <img src="/2021/02/25/shu-ju-ku-mian-jing/InnoDBMyISAM" class="">
 
-<h2 id="1-3-聚簇索引优缺点"><a href="#1-3-聚簇索引优缺点" class="headerlink" title="1.3 聚簇索引优缺点"></a>1.3 聚簇索引优缺点</h2><p><strong>优点</strong></p>
+<h2 id="聚簇索引优缺点"><a href="#聚簇索引优缺点" class="headerlink" title="聚簇索引优缺点"></a>聚簇索引优缺点</h2><p><strong>优点</strong></p>
 <ol>
 <li>当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。</li>
 <li>当通过聚簇索引查找目标数据时理论上比非聚簇索引要快，因为非聚簇索引定位到对应主键时还要多一次目标记录寻址，即多一次I/O。</li>
@@ -364,7 +364,7 @@
 <li><p><strong>采用聚簇索引插入新值比采用非聚簇索引插入新值的速度要慢很多</strong>，因为插入要保证主键不能重复，判断主键不能重复，采用的方式在不同的索引下面会有很大的性能差距，聚簇索引遍历所有的叶子节点，非聚簇索引也判断所有的叶子节点，但是聚簇索引的叶子节点除了带有主键还有记录值，记录的大小往往比主键要大的多。这样就会导致聚簇索引在判定新记录携带的主键是否重复时进行昂贵的I/O代价。</p>
 </li>
 </ol>
-<h2 id="1-4-索引创建规则"><a href="#1-4-索引创建规则" class="headerlink" title="1.4 索引创建规则"></a>1.4 索引创建规则</h2><ol>
+<h2 id="索引创建规则"><a href="#索引创建规则" class="headerlink" title="索引创建规则"></a>索引创建规则</h2><ol>
 <li>表的主键、外键必须有索引；</li>
 <li>数据量超过300的表应该有索引；</li>
 <li>经常与其他表进行连接的表，在连接字段上应该建立索引；</li>
@@ -375,7 +375,7 @@
 <li>频繁进行数据操作的表，不要建立太多的索引；</li>
 <li>删除无用的索引，避免对执行计划造成负面影响；</li>
 </ol>
-<h2 id="1-5-索引优缺点"><a href="#1-5-索引优缺点" class="headerlink" title="1.5 索引优缺点"></a>1.5 索引优缺点</h2><p><strong>优点：</strong></p>
+<h2 id="索引优缺点"><a href="#索引优缺点" class="headerlink" title="索引优缺点"></a>索引优缺点</h2><p><strong>优点：</strong></p>
 <ol>
 <li><strong>创建唯一性索引，保证数据库表中每一行数据的唯一性</strong></li>
 <li><strong>加快数据的检索速度</strong>，这也是创建索引的最主要的原因</li>
@@ -388,7 +388,7 @@
 <li>索引需要<strong>占用物理空间</strong>，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大</li>
 <li><strong>性能损失</strong>，当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的维护速度</li>
 </ol>
-<h1 id="2-优化"><a href="#2-优化" class="headerlink" title="2. 优化"></a>2. 优化</h1><h2 id="数据库优化"><a href="#数据库优化" class="headerlink" title="数据库优化"></a>数据库优化</h2><ol>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><h2 id="数据库优化"><a href="#数据库优化" class="headerlink" title="数据库优化"></a>数据库优化</h2><ol>
 <li>选取最适应的字段属性，字段的宽度设置的尽可能小，尽量将字段设置为not null</li>
 <li>使用连接（join）来代替子查询</li>
 <li>使用事务进行数据库连续操作，例如：<code>start transaction; xxxxx; xxxxx; commit;</code></li>
@@ -397,7 +397,7 @@
 <li>不使用not in和&lt;&gt; 操作（因为会进行全表扫描）</li>
 <li>避免在where子句中使用or来连接条件，将会导致全表扫描</li>
 </ol>
-<h1 id="3-数据库锁的分类（粒度、级别）"><a href="#3-数据库锁的分类（粒度、级别）" class="headerlink" title="3. 数据库锁的分类（粒度、级别）"></a>3. 数据库锁的分类（粒度、级别）</h1><h1 id="4-B-树-跟适合做索引"><a href="#4-B-树-跟适合做索引" class="headerlink" title="4. B+树 跟适合做索引"></a>4. B+树 跟适合做索引</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xlgen157387/article/details/79450295">https://blog.csdn.net/xlgen157387/article/details/79450295</a></p>
+<h1 id="数据库锁的分类（粒度、级别）"><a href="#数据库锁的分类（粒度、级别）" class="headerlink" title="数据库锁的分类（粒度、级别）"></a>数据库锁的分类（粒度、级别）</h1><h1 id="B-树-跟适合做索引"><a href="#B-树-跟适合做索引" class="headerlink" title="B+树 跟适合做索引"></a>B+树 跟适合做索引</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xlgen157387/article/details/79450295">https://blog.csdn.net/xlgen157387/article/details/79450295</a></p>
 <p>背景知识：</p>
 <ul>
 <li><p>局部性原理与磁盘预读</p>
@@ -515,13 +515,13 @@ B树比如你的例子中查，17的话，一把就得到结果了，
 有很多基于频率的搜索是选用B树，越频繁query的结点越往根上走，前提是需要对query做统计，而且要对key做一些变化。 
 另外B树也好B+树也好，根或者上面几层因为被反复query，所以这几块基本都在内存中，不会出现读磁盘IO，一般已启动的时候，就会主动换入内存。”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="5-视图"><a href="#5-视图" class="headerlink" title="5. 视图"></a>5. 视图</h1><p>虚拟存在的表，逻辑表，本身不包含数据，作为一个select语句保存在数据字典中。通过视图可以展现基表（base table 基表：用来创建视图的表）的部分数据，视图数据来自定义视图的查询中使用的表，使用视图动态生成。</p>
-<h2 id="5-1-视图优点"><a href="#5-1-视图优点" class="headerlink" title="5.1 视图优点"></a>5.1 视图优点</h2><ul>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>虚拟存在的表，逻辑表，本身不包含数据，作为一个select语句保存在数据字典中。通过视图可以展现基表（base table 基表：用来创建视图的表）的部分数据，视图数据来自定义视图的查询中使用的表，使用视图动态生成。</p>
+<h2 id="视图优点"><a href="#视图优点" class="headerlink" title="视图优点"></a>视图优点</h2><ul>
 <li>简单：使用视图的用户完全不需要关心后面对应的表的结构、关联条件和筛选条件，对用户来说已经是过滤好的复合条件的结果集。</li>
 <li>安全：使用视图的用户只能访问他们被允许查询的结果集，对表的权限管理并不能限制到某个行某个列，但是通过视图就可以简单的实现。</li>
 <li>数据独立：一旦视图的结构确定了，可以屏蔽表结构变化对用户的影响，源表增加列对视图没有影响；源表修改列名，则可以通过修改视图来解决，不会造成对访问者的影响。</li>
 </ul>
-<h2 id="5-2-视图创建-查看-更改"><a href="#5-2-视图创建-查看-更改" class="headerlink" title="5.2 视图创建 查看 更改"></a>5.2 视图创建 查看 更改</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create [or replace][algorithm&#x3D;&#123;UNDIFINDED | MERGE | TEMPTABLE&#125;]
+<h2 id="视图创建-查看-更改"><a href="#视图创建-查看-更改" class="headerlink" title="视图创建 查看 更改"></a>视图创建 查看 更改</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create [or replace][algorithm&#x3D;&#123;UNDIFINDED | MERGE | TEMPTABLE&#125;]
 view view_name [(column_names)]
 as select_statement
 [WITH [CASCADED | LOCAL] CHECK OPTION]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -557,13 +557,13 @@ AS select_statement
 <h3 id="视图删除"><a href="#视图删除" class="headerlink" title="视图删除"></a>视图删除</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop view [IF EXISTS]
 view_name[,view_name]...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="6-事务级别"><a href="#6-事务级别" class="headerlink" title="6. 事务级别"></a>6. 事务级别</h1><h2 id="6-1-事务并发可能产生的情况"><a href="#6-1-事务并发可能产生的情况" class="headerlink" title="6.1 事务并发可能产生的情况"></a>6.1 事务并发可能产生的情况</h2><ul>
+<h1 id="事务级别"><a href="#事务级别" class="headerlink" title="事务级别"></a>事务级别</h1><h2 id="事务并发可能产生的情况"><a href="#事务并发可能产生的情况" class="headerlink" title="事务并发可能产生的情况"></a>事务并发可能产生的情况</h2><ul>
 <li>脏读（Dirty Read）：一个事务读到了另一个未提交事务修改过的数据</li>
 <li>不可重复读（Non-Repeatable Read）：(强调数据的修改）一个事务只能读到另一个已经提交的事务修改过的数据，并且其他事务每对该数据进行一次修改并提交后，该事务都能查询得到最新值。</li>
 <li>幻读（Phantom）：（强调数据条数的变化，新增或删除）一个事务先根据某些条件查询出一些记录，之后另一个事务又向表中插入了符合这些条件的记录，原先的事务再次按照该条件查询时，能把另一个事务插入的记录也读出来。（幻读在读未提交、读已提交、可重复读隔离级别都可能会出现）</li>
 <li>丢失更新：两个事务同时读取同一条记录，A先修改记录，B也修改记录（B是不知道A修改过），B提交数据后B的修改结果覆盖了A的修改结果。</li>
 </ul>
-<h2 id="6-2-事务的隔离级别"><a href="#6-2-事务的隔离级别" class="headerlink" title="6.2 事务的隔离级别"></a>6.2 事务的隔离级别</h2><p><strong>四种隔离级别</strong>：<strong>未提交读、已提交读、可重复读、可串行化。</strong></p>
+<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><p><strong>四种隔离级别</strong>：<strong>未提交读、已提交读、可重复读、可串行化。</strong></p>
 <table>
 <thead>
 <tr>
@@ -619,12 +619,12 @@ view_name[,view_name]...<span aria-hidden="true" class="line-numbers-rows"><span
 <li><strong>可重复读</strong>：<strong>会保持共享锁直至事务结束。（不能解决幻读）</strong>事务处理过程中多次读取同一个数据的时候，这个值不会发生改变，其值都和第一次查询到的数据是一致的</li>
 <li><strong>可串行化</strong>：<strong>不仅会锁定所影响的数据，而且锁定范围</strong>。是最严格的隔离级别，要求所有的事务都被串行执行，即事务只能一个接一个的进行处理，不能并发执行</li>
 </ol>
-<h1 id="7-ACID"><a href="#7-ACID" class="headerlink" title="7. ACID"></a>7. ACID</h1><p><strong>原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</strong></p>
+<h1 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h1><p><strong>原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</strong></p>
 <p><strong>原子性</strong>：操作必须全部完成或者不完成，不允许只执行一半。</p>
 <p><strong>一致性</strong>：最终目标是一致性，确保数据库从一个状态成功转换为另一个状态。事务开始之前和事务结束之后，数据库的完整性约束没有被破坏。数据库事务不能破坏数据的完整性和义务逻辑上的一致性。</p>
 <p><strong>隔离性</strong>：线程安全，在并发事务下，多个事务都有自己的事务空间，相互独立不干扰。一个事务中是感觉不到其他并发事务的存在。</p>
 <p><strong>持久性</strong>：当事务完成后，该事务对数据库所作的更改便持久的保存在数据库中，并不会被回滚，事务一旦被提交，则持久化保存在数据库中。当进行硬盘修改的时候，发生宕机、停电，根据日志进行数据的回滚。</p>
-<h1 id="8-左-右-全连接"><a href="#8-左-右-全连接" class="headerlink" title="8 左/右/全连接"></a>8 左/右/全连接</h1><h2 id="8-1-内连接"><a href="#8-1-内连接" class="headerlink" title="8.1 内连接"></a>8.1 内连接</h2><p>内连接：只返回满足连接条件的数据。</p>
+<h1 id="左-右-全连接"><a href="#左-右-全连接" class="headerlink" title="左/右/全连接"></a>左/右/全连接</h1><h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><p>内连接：只返回满足连接条件的数据。</p>
 <h3 id="inner-join-或join-等值连接或者内连接"><a href="#inner-join-或join-等值连接或者内连接" class="headerlink" title="inner join 或join 等值连接或者内连接"></a>inner join 或join 等值连接或者内连接</h3><p>只返回两个表中连接字段相等的行（达到匹配条件的行）。    JOIN: 如果表中有至少一个匹配，则返回行</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select empno,ename,sal,dname,loc from emp,dept
 where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)
@@ -632,14 +632,14 @@ where emp.deptno&#x3D;dept.deptno;  --(Oracle 8i 及以前的写法)
 select empno,ename,job,sal,dept.deptno,dname,loc
 from emp join dept on emp.deptno&#x3D;dept.deptno; -- (SQL 99的写法)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="8-2-外连接"><a href="#8-2-外连接" class="headerlink" title="8.2 外连接"></a>8.2 外连接</h2><p>外连接：除了<strong>返回满足连接条件的行以外，还返回左（右）表中，不满足条件的行</strong>，称为左（右）连接</p>
+<h2 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h2><p>外连接：除了<strong>返回满足连接条件的行以外，还返回左（右）表中，不满足条件的行</strong>，称为左（右）连接</p>
 <h3 id="left-join-左连接"><a href="#left-join-左连接" class="headerlink" title="left join 左连接"></a>left join 左连接</h3><p>返回包括<strong>左表中的所有记录和右表中连接字段相等的记录</strong>。    </p>
 <p>left join: 即使右表中没有匹配，也从左表返回所有的行（左表中的所有行都存在）</p>
 <h3 id="right-join-右连接"><a href="#right-join-右连接" class="headerlink" title="right join 右连接"></a>right join 右连接</h3><p>返回包括<strong>右表中的所有记录和左表中连接字段相等的记录</strong>。    </p>
 <p>right join: 即使左表中没有匹配，也从右表返回所有的行（右表中的所有行都存在）</p>
 <h3 id="full-join-全外连接"><a href="#full-join-全外连接" class="headerlink" title="full join 全外连接"></a>full join 全外连接</h3><p>返回<strong>左右表中所有的记录和左右表中连接字段相等的记录</strong>。    </p>
 <p>full join: 只要其中一个表中存在匹配，就返回行 </p>
-<h1 id="9-具体操作示例"><a href="#9-具体操作示例" class="headerlink" title="9. 具体操作示例"></a>9. 具体操作示例</h1><h2 id="9-1-统计60分以上每一个分数有多少人"><a href="#9-1-统计60分以上每一个分数有多少人" class="headerlink" title="9.1 统计60分以上每一个分数有多少人"></a>9.1 统计60分以上每一个分数有多少人</h2><p><strong>表结构</strong>student_info</p>
+<h1 id="具体操作示例"><a href="#具体操作示例" class="headerlink" title="具体操作示例"></a>具体操作示例</h1><h2 id="统计60分以上每一个分数有多少人"><a href="#统计60分以上每一个分数有多少人" class="headerlink" title="统计60分以上每一个分数有多少人"></a>统计60分以上每一个分数有多少人</h2><p><strong>表结构</strong>student_info</p>
 <table>
 <thead>
 <tr>
@@ -673,7 +673,7 @@ count(case when score between 90 and 100 then 1 end) as 90-100
 from student_info
 group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="9-2-mysql表新添加一列"><a href="#9-2-mysql表新添加一列" class="headerlink" title="9.2 mysql表新添加一列"></a>9.2 mysql表新添加一列</h2><p>在这个表增加一列。当然可以新建表建立联系满足需求。但就仅新增一列这个问题，可以有以下操作：</p>
+<h2 id="mysql表新添加一列"><a href="#mysql表新添加一列" class="headerlink" title="mysql表新添加一列"></a>mysql表新添加一列</h2><p>在这个表增加一列。当然可以新建表建立联系满足需求。但就仅新增一列这个问题，可以有以下操作：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>  <span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>在表的最后一列增加新的一列</strong></p>
@@ -688,7 +688,7 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>tbname<span class="token punctuation">`</span>
 	<span class="token keyword">ADD</span> <span class="token keyword">COLUMN</span> <span class="token punctuation">`</span>state<span class="token punctuation">`</span> <span class="token keyword">TINYINT</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'0为添加1为编辑'</span> <span class="token keyword">FIRST</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="10-Mysql数据库连接池"><a href="#10-Mysql数据库连接池" class="headerlink" title="10. Mysql数据库连接池"></a>10. Mysql数据库连接池</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数据库连接池（Connection pooling）是程序启动时建立足够的数据库连接，并将这些连接组成一个连接池，由程序动态地对池中的连接进行申请，使用，释放。</p>
+<h1 id="Mysql数据库连接池"><a href="#Mysql数据库连接池" class="headerlink" title="Mysql数据库连接池"></a>Mysql数据库连接池</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数据库连接池（Connection pooling）是程序启动时建立足够的数据库连接，并将这些连接组成一个连接池，由程序动态地对池中的连接进行申请，使用，释放。</p>
 <h2 id="传统的连接机制和数据库连接池运行机制"><a href="#传统的连接机制和数据库连接池运行机制" class="headerlink" title="传统的连接机制和数据库连接池运行机制"></a>传统的连接机制和数据库连接池运行机制</h2><p>传统统链接:   一般来说，Java应用程序访问数据库的过程是：</p>
 <ol>
 <li>装载数据库驱动程序；</li>
@@ -724,7 +724,7 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
 </li>
 </ul>
 <p>第三、连接池的关闭。当应用程序退出时，关闭连接池中所有的连接，释放连接池相关的资源，该过程正好与创建相反。</p>
-<h1 id="11-数据库锁"><a href="#11-数据库锁" class="headerlink" title="11. 数据库锁"></a>11. 数据库锁</h1>
+
     </div>
 
     
@@ -851,7 +851,7 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%B4%A2%E5%BC%95"><span class="nav-number">2.</span> <span class="nav-text">1. 索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%EF%BC%88%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95%EF%BC%89%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 主键索引和非主键索引（二级索引）区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95-%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 聚簇索引 非聚簇索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 聚簇索引优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E8%A7%84%E5%88%99"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 索引创建规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E7%B4%A2%E5%BC%95%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.5.</span> <span class="nav-text">1.5 索引优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">2. 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">数据库优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%88%E7%B2%92%E5%BA%A6%E3%80%81%E7%BA%A7%E5%88%AB%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">3. 数据库锁的分类（粒度、级别）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-B-%E6%A0%91-%E8%B7%9F%E9%80%82%E5%90%88%E5%81%9A%E7%B4%A2%E5%BC%95"><span class="nav-number">5.</span> <span class="nav-text">4. B+树 跟适合做索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91-Binary-Search-Tree-BST"><span class="nav-number">5.1.</span> <span class="nav-text">二叉查找树 Binary Search Tree, BST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVL%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">5.2.</span> <span class="nav-text">AVL树 平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">5.3.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-B-%E6%A0%91"><span class="nav-number">5.4.</span> <span class="nav-text">B B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-number">5.5.</span> <span class="nav-text">B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-B-%E6%A0%91%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">5.6.</span> <span class="nav-text">B&#x2F;B+树性能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4B-%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-number">5.7.</span> <span class="nav-text">为什么说B+树比B树更适合数据库索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91%E7%B4%A2%E5%BC%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E7%B4%A2%E5%BC%95%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">5.8.</span> <span class="nav-text">B+树索引为什么更适合作为索引的结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%A7%86%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">5. 视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E8%A7%86%E5%9B%BE%E4%BC%98%E7%82%B9"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 视图优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E8%A7%86%E5%9B%BE%E5%88%9B%E5%BB%BA-%E6%9F%A5%E7%9C%8B-%E6%9B%B4%E6%94%B9"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 视图创建 查看 更改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%86%E5%9B%BE"><span class="nav-number">6.2.1.</span> <span class="nav-text">查看视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%94%B9"><span class="nav-number">6.2.2.</span> <span class="nav-text">视图更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%88%A0%E9%99%A4"><span class="nav-number">6.2.3.</span> <span class="nav-text">视图删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E4%BA%8B%E5%8A%A1%E7%BA%A7%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">6. 事务级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E4%BA%8B%E5%8A%A1%E5%B9%B6%E5%8F%91%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">7.1.</span> <span class="nav-text">6.1 事务并发可能产生的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">7.2.</span> <span class="nav-text">6.2 事务的隔离级别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-ACID"><span class="nav-number">8.</span> <span class="nav-text">7. ACID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E5%B7%A6-%E5%8F%B3-%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">8 左&#x2F;右&#x2F;全连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.1.</span> <span class="nav-text">8.1 内连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inner-join-%E6%88%96join-%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%E6%88%96%E8%80%85%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.1.1.</span> <span class="nav-text">inner join 或join 等值连接或者内连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.</span> <span class="nav-text">8.2 外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#left-join-%E5%B7%A6%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.1.</span> <span class="nav-text">left join 左连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#right-join-%E5%8F%B3%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.2.</span> <span class="nav-text">right join 右连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#full-join-%E5%85%A8%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.3.</span> <span class="nav-text">full join 全外连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B"><span class="nav-number">10.</span> <span class="nav-text">9. 具体操作示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E7%BB%9F%E8%AE%A160%E5%88%86%E4%BB%A5%E4%B8%8A%E6%AF%8F%E4%B8%80%E4%B8%AA%E5%88%86%E6%95%B0%E6%9C%89%E5%A4%9A%E5%B0%91%E4%BA%BA"><span class="nav-number">10.1.</span> <span class="nav-text">9.1 统计60分以上每一个分数有多少人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-mysql%E8%A1%A8%E6%96%B0%E6%B7%BB%E5%8A%A0%E4%B8%80%E5%88%97"><span class="nav-number">10.2.</span> <span class="nav-text">9.2 mysql表新添加一列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-number">11.</span> <span class="nav-text">10. Mysql数据库连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">11.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%9C%BA%E5%88%B6%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">11.2.</span> <span class="nav-text">传统的连接机制和数据库连接池运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">11.3.</span> <span class="nav-text">连接池的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">11.4.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81"><span class="nav-number">12.</span> <span class="nav-text">11. 数据库锁</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">2.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%EF%BC%88%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95%EF%BC%89%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">主键索引和非主键索引（二级索引）区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95-%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="nav-number">2.2.</span> <span class="nav-text">聚簇索引 非聚簇索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">聚簇索引优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E8%A7%84%E5%88%99"><span class="nav-number">2.4.</span> <span class="nav-text">索引创建规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.5.</span> <span class="nav-text">索引优缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">数据库优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%88%E7%B2%92%E5%BA%A6%E3%80%81%E7%BA%A7%E5%88%AB%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">数据库锁的分类（粒度、级别）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-%E6%A0%91-%E8%B7%9F%E9%80%82%E5%90%88%E5%81%9A%E7%B4%A2%E5%BC%95"><span class="nav-number">5.</span> <span class="nav-text">B+树 跟适合做索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91-Binary-Search-Tree-BST"><span class="nav-number">5.1.</span> <span class="nav-text">二叉查找树 Binary Search Tree, BST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVL%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">5.2.</span> <span class="nav-text">AVL树 平衡二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">5.3.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-B-%E6%A0%91"><span class="nav-number">5.4.</span> <span class="nav-text">B B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-number">5.5.</span> <span class="nav-text">B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-B-%E6%A0%91%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">5.6.</span> <span class="nav-text">B&#x2F;B+树性能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4B-%E6%A0%91%E6%AF%94B%E6%A0%91%E6%9B%B4%E9%80%82%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-number">5.7.</span> <span class="nav-text">为什么说B+树比B树更适合数据库索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E6%A0%91%E7%B4%A2%E5%BC%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E7%B4%A2%E5%BC%95%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">5.8.</span> <span class="nav-text">B+树索引为什么更适合作为索引的结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E4%BC%98%E7%82%B9"><span class="nav-number">6.1.</span> <span class="nav-text">视图优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%88%9B%E5%BB%BA-%E6%9F%A5%E7%9C%8B-%E6%9B%B4%E6%94%B9"><span class="nav-number">6.2.</span> <span class="nav-text">视图创建 查看 更改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%86%E5%9B%BE"><span class="nav-number">6.2.1.</span> <span class="nav-text">查看视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%94%B9"><span class="nav-number">6.2.2.</span> <span class="nav-text">视图更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%88%A0%E9%99%A4"><span class="nav-number">6.2.3.</span> <span class="nav-text">视图删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%BA%A7%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">事务级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%B9%B6%E5%8F%91%E5%8F%AF%E8%83%BD%E4%BA%A7%E7%94%9F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">7.1.</span> <span class="nav-text">事务并发可能产生的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">7.2.</span> <span class="nav-text">事务的隔离级别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ACID"><span class="nav-number">8.</span> <span class="nav-text">ACID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3-%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">左&#x2F;右&#x2F;全连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.1.</span> <span class="nav-text">内连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inner-join-%E6%88%96join-%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%E6%88%96%E8%80%85%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.1.1.</span> <span class="nav-text">inner join 或join 等值连接或者内连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.</span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#left-join-%E5%B7%A6%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.1.</span> <span class="nav-text">left join 左连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#right-join-%E5%8F%B3%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.2.</span> <span class="nav-text">right join 右连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#full-join-%E5%85%A8%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">9.2.3.</span> <span class="nav-text">full join 全外连接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%E7%A4%BA%E4%BE%8B"><span class="nav-number">10.</span> <span class="nav-text">具体操作示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A160%E5%88%86%E4%BB%A5%E4%B8%8A%E6%AF%8F%E4%B8%80%E4%B8%AA%E5%88%86%E6%95%B0%E6%9C%89%E5%A4%9A%E5%B0%91%E4%BA%BA"><span class="nav-number">10.1.</span> <span class="nav-text">统计60分以上每一个分数有多少人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E8%A1%A8%E6%96%B0%E6%B7%BB%E5%8A%A0%E4%B8%80%E5%88%97"><span class="nav-number">10.2.</span> <span class="nav-text">mysql表新添加一列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-number">11.</span> <span class="nav-text">Mysql数据库连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">11.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%9C%BA%E5%88%B6%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="nav-number">11.2.</span> <span class="nav-text">传统的连接机制和数据库连接池运行机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">11.3.</span> <span class="nav-text">连接池的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">11.4.</span> <span class="nav-text">工作原理</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

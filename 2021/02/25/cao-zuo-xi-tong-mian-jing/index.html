@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/02/25/cao-zuo-xi-tong-mian-jing/image-20210227093655172.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/25/cao-zuo-xi-tong-mian-jing/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F/image-20210227093655172.png">
 <meta property="article:published_time" content="2021-02-25T12:02:45.000Z">
-<meta property="article:modified_time" content="2021-03-04T03:22:10.453Z">
+<meta property="article:modified_time" content="2021-03-04T07:49:46.672Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="操作系统">
@@ -248,7 +248,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 11:22:10" itemprop="dateModified" datetime="2021-03-04T11:22:10+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-04 15:49:46" itemprop="dateModified" datetime="2021-03-04T15:49:46+08:00">2021-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.7k</span>
+              <span>4.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -304,7 +304,7 @@
 <li>与操作系统相关的面经知识</li>
 <li></li>
 </ul>
-<h1 id="1-死锁"><a href="#1-死锁" class="headerlink" title="1. 死锁"></a>1. 死锁</h1><p>死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。</p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。</p>
 <h2 id="死锁原因"><a href="#死锁原因" class="headerlink" title="死锁原因"></a>死锁原因</h2><ol>
 <li><strong>竞争资源</strong>：请求同一有限资源的进程数多于可用资源数</li>
 <li><strong>进程推进顺序非法</strong>：进程执行中，请求和释放资源顺序不合理，如资源等待链</li>
@@ -348,7 +348,7 @@
 <li><strong>活锁与死锁的区别：</strong>活锁和死锁类似，不同之处在于处于活锁的线程或进程的状态是一直在不断改变的，活锁不会被阻塞，而是不停检测一个永远不可能为真的条件。除去进程本身持有的资源外，活锁状态的进程会持续耗费宝贵的<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=CPU%E6%97%B6%E9%97%B4&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">CPU时间</a>。活锁可以认为是一种特殊的饥饿。一个现实的活锁例子是两个人在狭小的走廊碰到，两个人都试着避让对方好让彼此通过，但是因为避让的方向都一样导致最后谁都不能通过走廊。简单的说就是，<u>活锁和死锁的主要区别是前者进程的状态可以改变但是却不能继续执行。</u></li>
 <li><strong>死锁活锁与饥饿的区别：</strong>进程会处于饥饿状态是因为持续地有其它优先级更高的进程请求相同的资源。不像死锁或者活锁，饥饿能够被解开。例如，当其它高优先级的进程都终止时并且没有更高优先级的进程到达。</li>
 </ol>
-<h1 id="2-线程和进程"><a href="#2-线程和进程" class="headerlink" title="2. 线程和进程"></a>2. 线程和进程</h1><h2 id="2-1-线程和进程的区别"><a href="#2-1-线程和进程的区别" class="headerlink" title="2.1 线程和进程的区别"></a>2.1 线程和进程的区别</h2><p>线程是比进程更轻量级地调度执行单位，线程的引入，把一个进程的资源分配与执行调度分开，各个线程既可以共享进程资源（内存地址、文件I/O等），又可以独立调度。</p>
+<h1 id="线程和进程"><a href="#线程和进程" class="headerlink" title="线程和进程"></a>线程和进程</h1><h2 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h2><p>线程是比进程更轻量级地调度执行单位，线程的引入，把一个进程的资源分配与执行调度分开，各个线程既可以共享进程资源（内存地址、文件I/O等），又可以独立调度。</p>
 <p>线程是指进程内的一个执行单元，也是进程内的可调度实体。与进程的区别：</p>
 <ul>
 <li><p>调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位。</p>
@@ -360,9 +360,9 @@
 <li><p>系统开销：在创建或撤消进程时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销。</p>
 </li>
 </ul>
-<h1 id="3-线程同步机制"><a href="#3-线程同步机制" class="headerlink" title="3. 线程同步机制"></a>3. 线程同步机制</h1><h2 id="3-1-互斥量-Mutex"><a href="#3-1-互斥量-Mutex" class="headerlink" title="3.1 互斥量 Mutex"></a>3.1 互斥量 Mutex</h2><p><strong>本质上是一把锁，在访问共享资源前对互斥量进行加锁，在访问完成后释放互斥量上的锁。</strong></p>
+<h1 id="线程同步机制"><a href="#线程同步机制" class="headerlink" title="线程同步机制"></a>线程同步机制</h1><h2 id="互斥量-Mutex"><a href="#互斥量-Mutex" class="headerlink" title="互斥量 Mutex"></a>互斥量 Mutex</h2><p><strong>本质上是一把锁，在访问共享资源前对互斥量进行加锁，在访问完成后释放互斥量上的锁。</strong></p>
 <p>对互斥量进行加锁以后，任何其它试图再次对互斥量加锁的线程将会被阻塞直到当前线程释放该互斥锁。如果释放互斥锁时有多个线程阻塞，所有在该互斥锁上的阻塞线程都会变成可运行状态，第一个变为运行状态的线程可以对互斥量加锁，其它线程将会看到互斥锁依然被锁住，只能回去再次等待它重新变为可用。在这种情况下，每次只有一个线程可以向前执行。</p>
-<h2 id="3-2-信号量-Semaphore"><a href="#3-2-信号量-Semaphore" class="headerlink" title="3.2 信号量 Semaphore"></a>3.2 信号量 Semaphore</h2><p><strong>它允许多个线程在同一时刻访问同一资源，但是需要限制在同一时刻访问此资源的最大线程数目</strong>。信号量对象对线程的同步方式与前面几种方法不同，信号允许多个线程同时使用共享资源，这与操作系统中的PV 操作相同。它指出了同时访问共享资源的线程最大数目。</p>
+<h2 id="信号量-Semaphore"><a href="#信号量-Semaphore" class="headerlink" title="信号量 Semaphore"></a>信号量 Semaphore</h2><p><strong>它允许多个线程在同一时刻访问同一资源，但是需要限制在同一时刻访问此资源的最大线程数目</strong>。信号量对象对线程的同步方式与前面几种方法不同，信号允许多个线程同时使用共享资源，这与操作系统中的PV 操作相同。它指出了同时访问共享资源的线程最大数目。</p>
 <p><strong>信号量S是一个整数</strong></p>
 <ul>
 <li><strong>S&gt;=0时，表示可供并发进程使用的资源实体数</strong></li>
@@ -379,9 +379,9 @@
 <li> S加1；</li>
 <li> 如果<em>S&gt;0</em>，则该进程继续执行；否则释放队列中第一个等待信号量的进程(S&lt;=0，表明某个进程正在等待该资源，需要唤醒一个等待状态的进程，使之运行下去）。</li>
 </ol>
-<h2 id="3-3-临界区-Ciritical-Section"><a href="#3-3-临界区-Ciritical-Section" class="headerlink" title="3.3 临界区 Ciritical Section"></a>3.3 临界区 Ciritical Section</h2><p><strong>通过对多线程的串行化来访问公共资源或一段代码，速度快，适合控制数据访问</strong>。<strong>任意时刻只允许一个线程对共享资源进行访问</strong>，如果有多个线程试图访问公共资源，那么在有一个线程进入后，其他试图访问公共资源的线程将被挂起，并一直等到进入临界区的线程离开，临界区在被释放后，其他线程才可以抢占。</p>
-<h2 id="3-4-事件-Event"><a href="#3-4-事件-Event" class="headerlink" title="3.4 事件 Event"></a>3.4 事件 Event</h2><p>通过通知操作的方式来保持线程的同步，还可以方便实现对多个线程的优先级比较的操作 .</p>
-<h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>互斥量与临界区的作用非常相似，但<strong>互斥量是可以命名的，可以跨越进程使用</strong>。所以创建互斥量需要的资源更多，所以如果只为了在进程内部是用的话使用临界区会带来速度上的优势并能够减少资源占用量。因为互斥量是跨进程的。互斥量一旦被创建，就可以通过名字打开它。而<strong>临界区(critical section)只能在进程内部各线程间使用</strong>。</p>
+<h2 id="临界区-Ciritical-Section"><a href="#临界区-Ciritical-Section" class="headerlink" title="临界区 Ciritical Section"></a>临界区 Ciritical Section</h2><p><strong>通过对多线程的串行化来访问公共资源或一段代码，速度快，适合控制数据访问</strong>。<strong>任意时刻只允许一个线程对共享资源进行访问</strong>，如果有多个线程试图访问公共资源，那么在有一个线程进入后，其他试图访问公共资源的线程将被挂起，并一直等到进入临界区的线程离开，临界区在被释放后，其他线程才可以抢占。</p>
+<h2 id="事件-Event"><a href="#事件-Event" class="headerlink" title="事件 Event"></a>事件 Event</h2><p>通过通知操作的方式来保持线程的同步，还可以方便实现对多个线程的优先级比较的操作 .</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>互斥量与临界区的作用非常相似，但<strong>互斥量是可以命名的，可以跨越进程使用</strong>。所以创建互斥量需要的资源更多，所以如果只为了在进程内部是用的话使用临界区会带来速度上的优势并能够减少资源占用量。因为互斥量是跨进程的。互斥量一旦被创建，就可以通过名字打开它。而<strong>临界区(critical section)只能在进程内部各线程间使用</strong>。</p>
 <p><strong>互斥量（Mutex），信号量（Semaphore），事件（Event）都可以被跨越进程使用来进行同步数据操作</strong></p>
 <p><strong>通过互斥量可以指定资源被独占的方式使用</strong>，但如果有下面一种情况通过互斥量就无法处理，比如现在一位用户购买了一份三个并发访问许可的数据库系统，可以根据用户购买的访问许可数量来决定有多少个线程/进程能同时进行数据库操作，这时候如果利用互斥量就没有办法完成这个要求，信号灯对象可以说是一种资源计数器。</p>
 <ol>
@@ -389,7 +389,7 @@
 <li>事件和信号量都可以实现线程和进程间的互斥和同步。但是事件和信号量都无法解决遗弃问题。</li>
 <li>临界区的效率是最高的，因为它不是内核对象。但是临界区不能跨进程使用。 事件，互斥量，信号量都是内核对象，可以跨进程使用，但相应的效率也会低很多。</li>
 </ol>
-<h2 id="3-6-临界区-互斥量-信号量-事件的区别"><a href="#3-6-临界区-互斥量-信号量-事件的区别" class="headerlink" title="3.6 临界区 互斥量 信号量 事件的区别"></a>3.6 临界区 互斥量 信号量 事件的区别</h2><ul>
+<h2 id="临界区-互斥量-信号量-事件的区别"><a href="#临界区-互斥量-信号量-事件的区别" class="headerlink" title="临界区 互斥量 信号量 事件的区别"></a>临界区 互斥量 信号量 事件的区别</h2><ul>
 <li>临界区（Critical Section）：<u>适合一个进程内的多线程</u>访问公共区域或代码段时使用</li>
 <li>互斥量 (Mutex)：<u>适合不同进程内多线程</u>访问公共区域或代码段时使用，与临界区相似</li>
 <li>信号量（Semaphore）：与临界区和互斥量不同，可以<u>实现多个线程同时访问公共区域数据。可以跨进程使用</u>。原理与操作系统中PV操作类似，先设置一个访问公共区域的线程最大连接数，每有一个线程访问共享区资源数就减一，直到资源数小于等于零</li>
@@ -398,7 +398,7 @@
 <p><strong>同步和互斥</strong>：临界区和互斥量都有“线程所有权”的概念，所以它们是不能用来实现线程间的同步的，只能用来实现互斥。原因是由于创建临界区或互斥器的线程可以不用等待LeaveCriticalSection(),SetEvent()就可以无条件进入保护的程序段，因为它拥有这个权利。事件和信号量都可以实现线程和进程间的互斥和同步。</p>
 <p><strong>处理“遗弃”操作</strong>：互斥量可以很好的处理”遗弃“操作。若线程在未释放对象的时候就意外终止的，其它线程可以等待到一个WAIT_ABANDONED_0。但是事件和信号量都不能做到。事件和信号量都无法解决遗弃问题。</p>
 <p><strong>使用效率</strong>：临界区的效率是最高的，因为它不是内核对象，而其它的三个都是内核对象，要借助操作系统来实现，效率相对来说就比较低。但如果要跨进程使用还是要用到互斥器、事件对象和信号量。</p>
-<h1 id="4-进程间通讯方式"><a href="#4-进程间通讯方式" class="headerlink" title="4. 进程间通讯方式"></a>4. 进程间通讯方式</h1><h3 id="管道-有名管道-信号-信号量-共享内存-套接字"><a href="#管道-有名管道-信号-信号量-共享内存-套接字" class="headerlink" title="管道  有名管道 信号 信号量 共享内存 套接字"></a>管道  有名管道 信号 信号量 共享内存 套接字</h3><ol>
+<h1 id="进程间通讯方式"><a href="#进程间通讯方式" class="headerlink" title="进程间通讯方式"></a>进程间通讯方式</h1><h3 id="管道-有名管道-信号-信号量-共享内存-套接字"><a href="#管道-有名管道-信号-信号量-共享内存-套接字" class="headerlink" title="管道  有名管道 信号 信号量 共享内存 套接字"></a>管道  有名管道 信号 信号量 共享内存 套接字</h3><ol>
 <li><strong>管道</strong>：管道是一种半双工的通信方式，<strong>数据只能单向流动，而且只能在具有亲缘关系的进程之间使用</strong>。进程的亲缘关系通常是指父子进程关系。</li>
 <li><strong>有名管道（FIFO）</strong>：有名管道也是半双工的通信方式，但是<strong>允许在没有亲缘关系的进程之间使用</strong>，管道是先进先出的通信方式。</li>
 <li><strong>信号量</strong>：信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
@@ -537,7 +537,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F"><span class="nav-number">1.</span> <span class="nav-text">操作系统面经</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%AD%BB%E9%94%81"><span class="nav-number">2.</span> <span class="nav-text">1. 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.1.</span> <span class="nav-text">死锁原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">死锁产生的必要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">死锁的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81-%E6%B4%BB%E9%94%81-%E9%A5%A5%E9%A5%BF%E9%94%81"><span class="nav-number">2.4.</span> <span class="nav-text">死锁 活锁 饥饿锁</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">2. 线程和进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 线程和进程的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">3. 线程同步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BA%92%E6%96%A5%E9%87%8F-Mutex"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 互斥量 Mutex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E4%BF%A1%E5%8F%B7%E9%87%8F-Semaphore"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 信号量 Semaphore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E4%B8%B4%E7%95%8C%E5%8C%BA-Ciritical-Section"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 临界区 Ciritical Section</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E4%BA%8B%E4%BB%B6-Event"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 事件 Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E6%80%BB%E7%BB%93"><span class="nav-number">4.5.</span> <span class="nav-text">3.5 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-%E4%B8%B4%E7%95%8C%E5%8C%BA-%E4%BA%92%E6%96%A5%E9%87%8F-%E4%BF%A1%E5%8F%B7%E9%87%8F-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.6.</span> <span class="nav-text">3.6 临界区 互斥量 信号量 事件的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">4. 进程间通讯方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E9%81%93-%E6%9C%89%E5%90%8D%E7%AE%A1%E9%81%93-%E4%BF%A1%E5%8F%B7-%E4%BF%A1%E5%8F%B7%E9%87%8F-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98-%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">5.0.1.</span> <span class="nav-text">管道  有名管道 信号 信号量 共享内存 套接字</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E7%BB%8F"><span class="nav-number">1.</span> <span class="nav-text">操作系统面经</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">2.</span> <span class="nav-text">死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.1.</span> <span class="nav-text">死锁原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">死锁产生的必要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">死锁的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81-%E6%B4%BB%E9%94%81-%E9%A5%A5%E9%A5%BF%E9%94%81"><span class="nav-number">2.4.</span> <span class="nav-text">死锁 活锁 饥饿锁</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">线程和进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">线程和进程的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">线程同步机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%87%8F-Mutex"><span class="nav-number">4.1.</span> <span class="nav-text">互斥量 Mutex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F-Semaphore"><span class="nav-number">4.2.</span> <span class="nav-text">信号量 Semaphore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA-Ciritical-Section"><span class="nav-number">4.3.</span> <span class="nav-text">临界区 Ciritical Section</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6-Event"><span class="nav-number">4.4.</span> <span class="nav-text">事件 Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA-%E4%BA%92%E6%96%A5%E9%87%8F-%E4%BF%A1%E5%8F%B7%E9%87%8F-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.6.</span> <span class="nav-text">临界区 互斥量 信号量 事件的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">进程间通讯方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E9%81%93-%E6%9C%89%E5%90%8D%E7%AE%A1%E9%81%93-%E4%BF%A1%E5%8F%B7-%E4%BF%A1%E5%8F%B7%E9%87%8F-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98-%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">5.0.1.</span> <span class="nav-text">管道  有名管道 信号 信号量 共享内存 套接字</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/02/28/linux-mian-jing/20170219110542997">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/28/linux-mian-jing/Linux%E9%9D%A2%E7%BB%8F/20170219110542997">
 <meta property="article:published_time" content="2021-02-28T09:25:29.000Z">
-<meta property="article:modified_time" content="2021-03-04T03:26:50.899Z">
+<meta property="article:modified_time" content="2021-03-04T07:44:28.554Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="面经">
@@ -264,7 +264,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 11:26:50" itemprop="dateModified" datetime="2021-03-04T11:26:50+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-04 15:44:28" itemprop="dateModified" datetime="2021-03-04T15:44:28+08:00">2021-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -320,7 +320,7 @@
 <li>Linux相关的面经</li>
 <li></li>
 </ul>
-<h1 id="1-Linux命令行"><a href="#1-Linux命令行" class="headerlink" title="1. Linux命令行"></a>1. Linux命令行</h1><h2 id="1-1-查看进程"><a href="#1-1-查看进程" class="headerlink" title="1.1 查看进程"></a>1.1 查看进程</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> aux
+<h1 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h1><h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> aux
 
 <span class="token function">ps</span>命令查找与进程相关的PID号：
     <span class="token function">ps</span> a 显示现行终端机下的所有程序，包括其他用户的程序。
@@ -337,9 +337,9 @@
     <span class="token function">ps</span> u 以用户为主的格式来显示程序状况。
     <span class="token function">ps</span> x 显示所有程序，不以终端机来区分。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-2-杀死进程"><a href="#1-2-杀死进程" class="headerlink" title="1.2 杀死进程"></a>1.2 杀死进程</h2><pre class="line-numbers language-po" data-language="po"><code class="language-po">kill -9 xxx <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h2><pre class="line-numbers language-po" data-language="po"><code class="language-po">kill -9 xxx <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="1-3-查看端口"><a href="#1-3-查看端口" class="headerlink" title="1.3 查看端口"></a>1.3 查看端口</h2><h4 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h4><pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">lsof -i:端口号
+<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><h4 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h4><pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">lsof -i:端口号
 lsof -i &#x2F;&#x2F;需要root权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/linux-mian-jing/image-20201004234034814.png" class="">
@@ -368,7 +368,7 @@ tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      
 netstat -ntulp | grep 80   &#x2F;&#x2F;查看所有80端口使用情况
 netstat -ntulp | grep 3306   &#x2F;&#x2F;查看所有3306端口使用情况<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-4-查看日志"><a href="#1-4-查看日志" class="headerlink" title="1.4 查看日志"></a>1.4 查看日志</h2><ol>
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><ol>
 <li><p>tail</p>
 <p>显示一个文件最后的几行</p>
 <p>-n 显示行号，相当于nl命令</p>
@@ -398,7 +398,7 @@ sed -n &#39;&#x2F;2014-12-17 16:17:20&#x2F;,&#x2F;2014-12-17 16:17:36&#x2F;p&#39
 <li><p>less</p>
 </li>
 </ol>
-<h2 id="1-5-chown"><a href="#1-5-chown" class="headerlink" title="1.5 chown"></a>1.5 <strong>chown</strong></h2><p><strong>更改文件的所有者或组。</strong>命令由单词change owner组合而成。</p>
+<h2 id="chown"><a href="#chown" class="headerlink" title="chown**"></a>chown**</h2><p><strong>更改文件的所有者或组。</strong>命令由单词change owner组合而成。</p>
 <p><strong>1，更改文件的所有者：</strong></p>
 <pre class="line-numbers language-none"><code class="language-none">chown jim program.c 
 文件 program.c 的所有者更改为 jim。作为所有者 jim 可以使用 chmod 命令允许或拒绝其他用户访问 program.c。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -412,7 +412,7 @@ john:build 所有者：所在组
 - R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。
 - v 显示chown命令所做的工作。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-6-chmod"><a href="#1-6-chmod" class="headerlink" title="1.6 chmod"></a>1.6 chmod</h2><p>改变文件和目录的权限</p>
+<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><p>改变文件和目录的权限</p>
 <pre class="line-numbers language-none"><code class="language-none">chmod [-cfvR] [--help] [--version] mode file ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>说明 : Linux/Unix 的文件权限分为三级 : <strong>拥有者、群组、其他</strong>。利用 chmod 控制文件如何被他人所调用。</p>
@@ -602,7 +602,7 @@ rm -r 文件<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <pre class="line-numbers language-none"><code class="language-none"># 对找到的文件执行某个命令
 find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="2-Linux内核的CPU调度算法"><a href="#2-Linux内核的CPU调度算法" class="headerlink" title="2. Linux内核的CPU调度算法"></a>2. Linux内核的CPU调度算法</h1><h2 id="2-1-先来先服务-FCFS-first-come-first-service"><a href="#2-1-先来先服务-FCFS-first-come-first-service" class="headerlink" title="2.1 先来先服务 FCFS: first come first service"></a>2.1 先来先服务 FCFS: first come first service</h2><p>如果早就绪的进程排在就绪队列的前面，迟就绪的进程排在就绪队列的后面，那么先来先服务总是把当前处于就绪队列之首的那个进程调度到运行状态。只考虑进程进入就绪队列的先后，而不考虑它的下一个CPU周期的长短及其他因素。</p>
+<h1 id="Linux内核的CPU调度算法"><a href="#Linux内核的CPU调度算法" class="headerlink" title="Linux内核的CPU调度算法"></a>Linux内核的CPU调度算法</h1><h2 id="先来先服务-FCFS-first-come-first-service"><a href="#先来先服务-FCFS-first-come-first-service" class="headerlink" title="先来先服务 FCFS: first come first service"></a>先来先服务 FCFS: first come first service</h2><p>如果早就绪的进程排在就绪队列的前面，迟就绪的进程排在就绪队列的后面，那么先来先服务总是把当前处于就绪队列之首的那个进程调度到运行状态。只考虑进程进入就绪队列的先后，而不考虑它的下一个CPU周期的长短及其他因素。</p>
 <p>按照进程进入就绪队列的先后顺序调度并分配处理机执行。先来先服务调度算法是一种<strong>非抢占式的算法</strong>，先进入<strong>就绪队列</strong>的进程，先分配处理机运行。一旦一个进程占有了处理机，它就<strong>一直运行下去，直到该进程完成工作或者因为等待某事件发生而不能继续运行时才释放处理机</strong>。</p>
 <ol>
 <li>系统只要有按FIFO规则建立的后备作业队列或就绪进程队列即可，就是一个作业控制块JCB或进程控制块PCB加入队列时加在相应队列末尾。</li>
@@ -618,7 +618,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <img src="/2021/02/28/linux-mian-jing/20170219110456793" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110456793" alt="img"></p>
-<h2 id="2-2-短作业-进程-优先调度算法"><a href="#2-2-短作业-进程-优先调度算法" class="headerlink" title="2.2 短作业(进程)优先调度算法"></a>2.2 短作业(进程)优先调度算法</h2><p>对预计执行时间短的作业（进程）优先分派处理机，通常后来的短作业<strong>不抢占正在执行的作业</strong></p>
+<h2 id="短作业-进程-优先调度算法"><a href="#短作业-进程-优先调度算法" class="headerlink" title="短作业(进程)优先调度算法"></a>短作业(进程)优先调度算法</h2><p>对预计执行时间短的作业（进程）优先分派处理机，通常后来的短作业<strong>不抢占正在执行的作业</strong></p>
 <p>优点：</p>
 <ul>
 <li><p>比FCFS改善平均周转时间和平均带权周转时间，缩短作业的等待时间；</p>
@@ -635,12 +635,12 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <img src="/2021/02/28/linux-mian-jing/20170219110508309" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110508309" alt="img"></p>
-<h2 id="2-3-轮转法"><a href="#2-3-轮转法" class="headerlink" title="2.3 轮转法"></a>2.3 轮转法</h2><p>时间片轮转法类似于“轮流坐庄”的思想，条件是：各作业近似认为“同时”到达，题中条件是后面作业依次比前一个作业迟到一个时间单位，分析时要严格按照RR调度算法的实现思想：<strong>系统把所有就绪进程按先入先出的原则排成一个队列。新来的进程加到就绪队列末尾。每当执行进程调度时，进程调度程序总是选出就绪队列的队首进程，让它在CPU上运行一个时间片的时间。当进程用完分给它的时间片后，调度程序便停止该进程的运行，并把它放入就绪队列的末尾</strong>。</p>
+<h2 id="轮转法"><a href="#轮转法" class="headerlink" title="轮转法"></a>轮转法</h2><p>时间片轮转法类似于“轮流坐庄”的思想，条件是：各作业近似认为“同时”到达，题中条件是后面作业依次比前一个作业迟到一个时间单位，分析时要严格按照RR调度算法的实现思想：<strong>系统把所有就绪进程按先入先出的原则排成一个队列。新来的进程加到就绪队列末尾。每当执行进程调度时，进程调度程序总是选出就绪队列的队首进程，让它在CPU上运行一个时间片的时间。当进程用完分给它的时间片后，调度程序便停止该进程的运行，并把它放入就绪队列的末尾</strong>。</p>
 <p>流程图：</p>
 <img src="/2021/02/28/linux-mian-jing/20170219110521419" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110521419" alt="img"></p>
-<h2 id="2-4-多级反馈队列算法"><a href="#2-4-多级反馈队列算法" class="headerlink" title="2.4 多级反馈队列算法"></a>2.4 多级反馈队列算法</h2><p><strong>设置多个就绪队列，分别赋予不同的优先级</strong>，如逐级降低，队列1的优先级最高。<strong>每个队列执行时间片的长度也不同，规定优先级越低则时间片越长</strong>，如逐级加倍。</p>
+<h2 id="多级反馈队列算法"><a href="#多级反馈队列算法" class="headerlink" title="多级反馈队列算法"></a>多级反馈队列算法</h2><p><strong>设置多个就绪队列，分别赋予不同的优先级</strong>，如逐级降低，队列1的优先级最高。<strong>每个队列执行时间片的长度也不同，规定优先级越低则时间片越长</strong>，如逐级加倍。</p>
 <p>新进程进入内存后，先投入队列1的末尾，按FCFS算法调度；若按队列1一个时间片未能执行完，则降低投入到队列2的末尾，同样按FCFS算法调度；如此下去，降低到最后的队列，则按“时间片轮转”算法调度直到完成。</p>
 <p>仅当较高优先级的队列为空，才调度较低优先级的队列中的进程执行。如果进程执行时有新进程进入较高优先级的队列，则<strong>抢先</strong>执行新进程，并把被抢先的进程投入原队列的末尾。</p>
 <p>多级反馈队列调度算法又称反馈循环队列或多队列策略，主要思想是将就绪进程分为两级或多级，系统相应建立两个或多个就绪进程队列，较高优先级的队列一般分配给较短的时间片。处理器调度先从高级就绪进程队列中选取可占有处理器的进程，只有在选不到时，才从较低级的就绪进程队列中选取。</p>
@@ -654,7 +654,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 <img src="/2021/02/28/linux-mian-jing/20170219110532293" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110532293" alt="img"></p>
-<h2 id="2-5-算法比较"><a href="#2-5-算法比较" class="headerlink" title="2.5 算法比较"></a>2.5 算法比较</h2><img src="/2021/02/28/linux-mian-jing/20170219110542997" class="">
+<h2 id="算法比较"><a href="#算法比较" class="headerlink" title="算法比较"></a>算法比较</h2><img src="/2021/02/28/linux-mian-jing/20170219110542997" class="">
 
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/20170219110542997" alt="img"></p>
 
@@ -787,7 +787,7 @@ find -iname &quot;MyProgram.c&quot; -exec md5sum &#123;&#125; \;<span aria-hidde
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Linux%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">1. Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 查看进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%9D%80%E6%AD%BB%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 杀死进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 查看端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof-list-open-files"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">lsof(list open files)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#netstat"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">netstat</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 查看日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-chown"><span class="nav-number">2.5.</span> <span class="nav-text">1.5 chown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-chmod"><span class="nav-number">2.6.</span> <span class="nav-text">1.6 chmod</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Linux%E5%86%85%E6%A0%B8%E7%9A%84CPU%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">2. Linux内核的CPU调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1-FCFS-first-come-first-service"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 先来先服务 FCFS: first come first service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E7%9F%AD%E4%BD%9C%E4%B8%9A-%E8%BF%9B%E7%A8%8B-%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 短作业(进程)优先调度算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E8%BD%AE%E8%BD%AC%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 轮转法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">2.4 多级反馈队列算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83"><span class="nav-number">3.5.</span> <span class="nav-text">2.5 算法比较</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux"><span class="nav-number">1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%80%E6%AD%BB%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">杀死进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">查看端口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lsof-list-open-files"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">lsof(list open files)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#netstat"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">netstat</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-number">2.4.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chown"><span class="nav-number">2.5.</span> <span class="nav-text">chown**</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chmod"><span class="nav-number">2.6.</span> <span class="nav-text">chmod</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%86%85%E6%A0%B8%E7%9A%84CPU%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Linux内核的CPU调度算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E6%9D%A5%E5%85%88%E6%9C%8D%E5%8A%A1-FCFS-first-come-first-service"><span class="nav-number">3.1.</span> <span class="nav-text">先来先服务 FCFS: first come first service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%AD%E4%BD%9C%E4%B8%9A-%E8%BF%9B%E7%A8%8B-%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">短作业(进程)优先调度算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AE%E8%BD%AC%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">轮转法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">多级反馈队列算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83"><span class="nav-number">3.5.</span> <span class="nav-text">算法比较</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
