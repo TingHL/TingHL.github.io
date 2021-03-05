@@ -8,7 +8,6 @@
 <li></li>
 </ul>
 <h1 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h1><h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> aux
-
 <span class="token function">ps</span>命令查找与进程相关的PID号：
     <span class="token function">ps</span> a 显示现行终端机下的所有程序，包括其他用户的程序。
     <span class="token function">ps</span> <span class="token operator">-</span>A 显示所有程序。
@@ -22,22 +21,20 @@
     <span class="token function">ps</span> S 列出程序时，包括已中断的子程序资料。
     <span class="token function">ps</span> <span class="token operator">-</span>t&lt;终端机编号> 指定终端机编号，并列出属于该终端机的程序的状况。
     <span class="token function">ps</span> u 以用户为主的格式来显示程序状况。
-    <span class="token function">ps</span> x 显示所有程序，不以终端机来区分。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token function">ps</span> x 显示所有程序，不以终端机来区分。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h2><pre class="line-numbers language-po" data-language="po"><code class="language-po">kill -9 xxx <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">kill</span> <span class="token operator">-</span>9 xxx <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><h4 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h4><pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">lsof -i:端口号
-lsof -i &#x2F;&#x2F;需要root权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h2><h3 id="lsof-list-open-files"><a href="#lsof-list-open-files" class="headerlink" title="lsof(list open files)"></a>lsof(list open files)</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">lsof <span class="token operator">-</span>i:端口号
+lsof <span class="token operator">-</span>i <span class="token operator">/</span><span class="token operator">/</span>需要root权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <img src="/2021/02/28/linux-mian-jing/image-20201004234034814.png" class="">
-
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/image-20201004234034814.png" alt="image-20201004234034814"></p>
 <img src="/2021/02/28/linux-mian-jing/lsof.png" class="">
-
 <p><img src="Linux%E9%9D%A2%E7%BB%8F/lsof.png" alt="img"></p>
-<h4 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h4><p><strong>netstat -tunlp</strong> 用于显示 tcp，udp 的端口和进程等相关情况。</p>
+<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><p><strong>netstat -tunlp</strong> 用于显示 tcp，udp 的端口和进程等相关情况。</p>
 <p>netstat 查看端口占用语法格式：</p>
-<pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">netstat -tunlp | grep 端口号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">netstat <span class="token operator">-</span>tunlp <span class="token punctuation">|</span> grep 端口号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>-t (tcp) 仅显示tcp相关选项</li>
@@ -47,13 +44,13 @@ lsof -i &#x2F;&#x2F;需要root权限<span aria-hidden="true" class="line-numbers
 <li>-p 显示建立相关链接的程序名</li>
 </ul>
 <p>例如查看 8000 端口的情况，使用以下命令：</p>
-<pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell"># netstat -tunlp | grep 8000
-tcp        0      0 0.0.0.0:8000            0.0.0.0:*               LISTEN      26993&#x2F;nodejs   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">netstat <span class="token operator">-</span>tunlp <span class="token punctuation">|</span> grep 8000
+tcp        0      0 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0:8000            0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0:<span class="token operator">*</span>               LISTEN      26993<span class="token operator">/</span>nodejs   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>更多命令：</p>
-<pre class="line-numbers language-powshell" data-language="powshell"><code class="language-powshell">netstat -ntlp   &#x2F;&#x2F;查看当前所有tcp端口
-netstat -ntulp | grep 80   &#x2F;&#x2F;查看所有80端口使用情况
-netstat -ntulp | grep 3306   &#x2F;&#x2F;查看所有3306端口使用情况<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">netstat <span class="token operator">-</span>ntlp   <span class="token operator">/</span><span class="token operator">/</span>查看当前所有tcp端口
+netstat <span class="token operator">-</span>ntulp <span class="token punctuation">|</span> grep 80   <span class="token operator">/</span><span class="token operator">/</span>查看所有80端口使用情况
+netstat <span class="token operator">-</span>ntulp <span class="token punctuation">|</span> grep 3306   <span class="token operator">/</span><span class="token operator">/</span>查看所有3306端口使用情况<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><ol>
 <li><p>tail</p>
@@ -80,25 +77,23 @@ head -n +10 test.log &#x2F;&#x2F;查询日志文件除了最后10行的其他所
 <li><p>sed</p>
 <p>可以查找日志文件特定的一段，根据时间的一个范围查询，可以按照行号和时间范围查询</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sed -n &#39;5,10p&#39; filename &#x2F;&#x2F;按照行号，只查看文件的第5行到第10行
-
-sed -n &#39;&#x2F;2014-12-17 16:17:20&#x2F;,&#x2F;2014-12-17 16:17:36&#x2F;p&#39; test.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+sed -n &#39;&#x2F;2014-12-17 16:17:20&#x2F;,&#x2F;2014-12-17 16:17:36&#x2F;p&#39; test.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>less</p>
 </li>
 </ol>
-<h2 id="chown"><a href="#chown" class="headerlink" title="chown**"></a>chown**</h2><p><strong>更改文件的所有者或组。</strong>命令由单词change owner组合而成。</p>
+<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><p><strong>更改文件的所有者或组。</strong>命令由单词change owner组合而成。</p>
 <p><strong>1，更改文件的所有者：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">chown jim program.c 
-文件 program.c 的所有者更改为 jim。作为所有者 jim 可以使用 chmod 命令允许或拒绝其他用户访问 program.c。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">chown jim program<span class="token punctuation">.</span>c 
+文件 program<span class="token punctuation">.</span>c 的所有者更改为 jim。作为所有者 jim 可以使用 chmod 命令允许或拒绝其他用户访问 program<span class="token punctuation">.</span>c。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>2，更改目录的所有者：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">chown -R john:build &#x2F;tmp&#x2F;src
-
-john:build 所有者：所在组
-
-将目录 &#x2F;tmp&#x2F;src 中所有文件的所有者和组更改为用户 john 和组 build
-- R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。
-- v 显示chown命令所做的工作。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">chown <span class="token operator">-</span>R john:build <span class="token operator">/</span>tmp<span class="token operator">/</span>src<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>john:build 所有者：所在组</p>
+<p>将目录 /tmp/src 中所有文件的所有者和组更改为用户 john 和组 build</p>
+<ul>
+<li>R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。</li>
+<li>v 显示chown命令所做的工作。</li>
+</ul>
 <h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><p>改变文件和目录的权限</p>
 <pre class="line-numbers language-none"><code class="language-none">chmod [-cfvR] [--help] [--version] mode file ...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -623,7 +618,7 @@ mStringThreadLocal<span class="token punctuation">.</span><span class="token fun
 <p><strong>同步和互斥</strong>：临界区和互斥量都有“线程所有权”的概念，所以它们是不能用来实现线程间的同步的，只能用来实现互斥。原因是由于创建临界区或互斥器的线程可以不用等待LeaveCriticalSection(),SetEvent()就可以无条件进入保护的程序段，因为它拥有这个权利。事件和信号量都可以实现线程和进程间的互斥和同步。</p>
 <p><strong>处理“遗弃”操作</strong>：互斥量可以很好的处理”遗弃“操作。若线程在未释放对象的时候就意外终止的，其它线程可以等待到一个WAIT_ABANDONED_0。但是事件和信号量都不能做到。事件和信号量都无法解决遗弃问题。</p>
 <p><strong>使用效率</strong>：临界区的效率是最高的，因为它不是内核对象，而其它的三个都是内核对象，要借助操作系统来实现，效率相对来说就比较低。但如果要跨进程使用还是要用到互斥器、事件对象和信号量。</p>
-<h1 id="进程间通讯方式"><a href="#进程间通讯方式" class="headerlink" title="进程间通讯方式"></a>进程间通讯方式</h1><h3 id="管道-有名管道-信号-信号量-共享内存-套接字"><a href="#管道-有名管道-信号-信号量-共享内存-套接字" class="headerlink" title="管道  有名管道 信号 信号量 共享内存 套接字"></a>管道  有名管道 信号 信号量 共享内存 套接字</h3><ol>
+<h1 id="进程间通讯方式"><a href="#进程间通讯方式" class="headerlink" title="进程间通讯方式"></a>进程间通讯方式</h1><h2 id="管道-有名管道-信号-信号量-共享内存-套接字"><a href="#管道-有名管道-信号-信号量-共享内存-套接字" class="headerlink" title="管道  有名管道 信号 信号量 共享内存 套接字"></a>管道  有名管道 信号 信号量 共享内存 套接字</h2><ol>
 <li><strong>管道</strong>：管道是一种半双工的通信方式，<strong>数据只能单向流动，而且只能在具有亲缘关系的进程之间使用</strong>。进程的亲缘关系通常是指父子进程关系。</li>
 <li><strong>有名管道（FIFO）</strong>：有名管道也是半双工的通信方式，但是<strong>允许在没有亲缘关系的进程之间使用</strong>，管道是先进先出的通信方式。</li>
 <li><strong>信号量</strong>：信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
@@ -1210,11 +1205,11 @@ where 条件;
 update 表名
 set (列1,列2,...)&#x3D;(列1操作表达式,列2操作表达式,...)
 where 条件;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li></li>
+<li><h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1></li>
 </ol>
 </li>
 </ul>
-<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><h2 id="select基础"><a href="#select基础" class="headerlink" title="select基础"></a>select基础</h2><ul>
+<h2 id="select基础"><a href="#select基础" class="headerlink" title="select基础"></a>select基础</h2><ul>
 <li>基础的select语句</li>
 </ul>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select 列名,列名,...
@@ -1856,23 +1851,23 @@ EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;<span aria-hidden="true" class=
 
 <p><img src="SQL%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-2th-%E7%AC%94%E8%AE%B0/image-20201021160332500.png" alt="image-20201021160332500"></p>
 <h3 id="聚合函数-1"><a href="#聚合函数-1" class="headerlink" title="聚合函数"></a>聚合函数</h3><h2 id="谓词-predicate"><a href="#谓词-predicate" class="headerlink" title="谓词 predicate"></a>谓词 predicate</h2><p>谓词的返回值全部都是真值（TRUE/FALSE/UNKOWN），例如：=, &lt;, &gt;, &lt;&gt;等比较运算符</p>
-<h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4><p>模糊匹配，需要进行字符串的部分一致查询时使用该谓词，其中部分一致可以分为前方一致、中间一致和后方一致三种类型。</p>
+<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><p>模糊匹配，需要进行字符串的部分一致查询时使用该谓词，其中部分一致可以分为前方一致、中间一致和后方一致三种类型。</p>
 <p>%：代表”0字符以上的任意字符串“</p>
 <p>_：代表任意一个字符</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">%匹配表达式 -- 后方一致  例如 %dddd
 %匹配表达式%  -- 中间一致 %dddd%
 匹配表达式% -- 前方一致  dddd%<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="between"><a href="#between" class="headerlink" title="between"></a>between</h4><p>范围查询,，结果中包含value1和value2这两个临界值，不想让结果包含临界值，必须使用&lt; 和 &gt;。</p>
+<h3 id="between"><a href="#between" class="headerlink" title="between"></a>between</h3><p>范围查询,，结果中包含value1和value2这两个临界值，不想让结果包含临界值，必须使用&lt; 和 &gt;。</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">between value1 and value2;
 between xxx&gt;value1 and xxx&lt;value2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h4 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h4><p>选出值为NULL的列的值，不能使用=，只能使用特定的谓词IS NULL</p>
+<h3 id="is-null和is-not-null"><a href="#is-null和is-not-null" class="headerlink" title="is null和is not null"></a>is null和is not null</h3><p>选出值为NULL的列的值，不能使用=，只能使用特定的谓词IS NULL</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT product_name, purchase_price
 FROM Product
 WHERE purchase_price IS NULL; -- where purchase_price is not null<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="in和not-in-–-or的简单用法"><a href="#in和not-in-–-or的简单用法" class="headerlink" title="in和not in  – or的简单用法"></a>in和not in  – or的简单用法</h4><p><em>in(值, …)</em></p>
+<h3 id="in和not-in-–-or的简单用法"><a href="#in和not-in-–-or的简单用法" class="headerlink" title="in和not in  – or的简单用法"></a>in和not in  – or的简单用法</h3><p><em>in(值, …)</em></p>
 <p><strong>IN和NOT IN是无法选取除NULL数据的</strong></p>
 <ul>
 <li><p>可以使用子查询作为IN谓词的参数</p>
@@ -1884,9 +1879,9 @@ WHERE purchase_price IS NULL; -- where purchase_price is not null<span aria-hidd
 </li>
 <li></li>
 </ul>
-<h4 id="exists和not-exists"><a href="#exists和not-exists" class="headerlink" title="exists和not exists"></a>exists和not exists</h4><p>作用是”<strong>判断是否存在满足某种条件的记录</strong>，如果存在，则返回真（TRUE），如果不存在，就返回假（FALSE）</p>
+<h3 id="exists和not-exists"><a href="#exists和not-exists" class="headerlink" title="exists和not exists"></a>exists和not exists</h3><p>作用是”<strong>判断是否存在满足某种条件的记录</strong>，如果存在，则返回真（TRUE），如果不存在，就返回假（FALSE）</p>
 <h2 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h2><p>case表达式是在区分情况时使用的</p>
-<h4 id="CASE表达式语法"><a href="#CASE表达式语法" class="headerlink" title="CASE表达式语法"></a>CASE表达式语法</h4><ul>
+<h3 id="CASE表达式语法"><a href="#CASE表达式语法" class="headerlink" title="CASE表达式语法"></a>CASE表达式语法</h3><ul>
 <li><p>简单CASE表达式</p>
 <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CASE &lt;表达式&gt;
 	WHEN &lt;表达式&gt; THEN &lt;表达式&gt;
@@ -3741,9 +3736,9 @@ group by profession;<span aria-hidden="true" class="line-numbers-rows"><span></s
 </ul>
 <h1 id="HTTP和HTTPS区别"><a href="#HTTP和HTTPS区别" class="headerlink" title="HTTP和HTTPS区别"></a>HTTP和HTTPS区别</h1><p>HTTPS和HTTP的区别主要如下：</p>
 <p>  　　1. HTTP（HyperText Transfer Protocol，超文本传输协议），HTTPS（HyperText Transfer Protocol Secure，超文本传输安全协议）<br>         　　2. HTTP 信息是明文传输，HTTPS 则是使用具有安全性的 SSL 加密传输协议。<br>                　　3. HTTPS 协议需要到CA（签证机构，Certificate Authority）申请证书，一般免费证书较少，因而需要一定费用。<br>                        　　3. http 和https 使用的是完全不同的连接方式，用的端口也不一样，前者是<strong>80</strong>，后者是<strong>443</strong>。<br>                          　　5. http的连接很简单，是<strong>无状态的</strong>（对事务处理没有记忆能力，如果后续处理需要前面的信息，则它需要重传；另一方面，服务器不需要先前信息时它的应答就较快）；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<img src="/2021/02/27/wang-luo-mian-jing/httphttps" class="">
 
-
-<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https" alt="image-20201025110137880"></p>
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/httphttps" alt="image-20201025110137880"></p>
 <h1 id="Cookie和session"><a href="#Cookie和session" class="headerlink" title="Cookie和session"></a>Cookie和session</h1><h2 id="Cookie机制"><a href="#Cookie机制" class="headerlink" title="Cookie机制"></a>Cookie机制</h2><p>在客户端保持状态的方案。</p>
 <p><strong>生成</strong>：当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 <code>Set-Cookie</code> 选项。浏览器收到响应后通常会保存Cookie，之后对该服务器每一次请求中都通过 <code>Cookie</code> 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。</p>
 <p><strong>使用</strong>：由浏览器按照一定的原则在后台自动发送给服务器的，浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
@@ -5412,18 +5407,18 @@ response<span class="token punctuation">.</span><span class="token function">add
     <content><![CDATA[<h1 id="虚拟机JVM"><a href="#虚拟机JVM" class="headerlink" title="虚拟机JVM"></a>虚拟机JVM</h1><ul>
 <li>虚拟机相关面经</li>
 </ul>
-<h1 id="Java虚拟机-运行时数据区域-不同于Java内存模型"><a href="#Java虚拟机-运行时数据区域-不同于Java内存模型" class="headerlink" title="Java虚拟机 运行时数据区域 不同于Java内存模型"></a>Java虚拟机 运行时数据区域 不同于Java内存模型</h1><p>Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：<strong>方法区、堆、虚拟机栈、本地方法栈、程序计数器。</strong></p>
+<h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：<strong>方法区、堆、虚拟机栈、本地方法栈、程序计数器。</strong></p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201206213234668.png" class="">
-
-<p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png" alt="image-20201206213234668"></p>
+<p>![image-20201206213234668] (java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png)</p>
 <h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><ul>
-<li><h6 id="当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。"><a href="#当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。" class="headerlink" title="当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。"></a><strong>当前线程所执行的字节码的行号指示器</strong>。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</h6></li>
+<li><p><strong>当前线程所执行的字节码的行号指示器</strong>。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+</li>
 <li><p>各条线程之间计数器互不影响，独立存储，我们称这类内存区域为“线程私有”的内存。</p>
 </li>
 <li><p>此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
 </li>
 </ul>
-<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><ul>
+<h2 id="JVM栈"><a href="#JVM栈" class="headerlink" title="JVM栈"></a>JVM栈</h2><ul>
 <li><p>线程私有，生命周期和线程相同。</p>
 </li>
 <li><p>虚拟机栈描述的是<strong>Java方法执行的线程内存模型</strong>：每个方法被执行的的时候，Java虚拟机都会同步创建一个<u>栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息</u>。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
@@ -5435,11 +5430,9 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li><p><strong>属于线程私有的数据区域，与线程同时创建，总数与线程关联，代表Java方法执行的内存模型</strong>。每个方法执行时都会创建一个栈桢来存储方法的的变量表、操作数栈、动态链接方法、返回值、返回地址等信息。每个方法从调用直结束就对于一个栈桢在虚拟机栈中的入栈和出栈过程，如下（图有误，应该为栈桢）：</p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/20170608151435751" class="">
 
-<img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" alt="img" style="zoom: 80%;" />
-
-
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3></li>
+<img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" alt="img" style="zoom: 80%;" /></li>
+</ul>
+<ul>
 <li><p>方法执行时，被分配的内存就在栈中，所以存储的局部变量就在栈中。当一段代码或者一个方法调用完毕后，栈中为这段代码所提供的基本数据类型或者对象的引用立即被释放。</p>
 <p><strong>栈内存属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其线程中可见</strong></p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201101213502325.png" class="">
@@ -5447,13 +5440,13 @@ response<span class="token punctuation">.</span><span class="token function">add
 <img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201101213502325.png" alt="image-20201101213502325" style="zoom: 67%;" />
 
 <p><code>foo()</code> 方法，这一行代码分配了一个新的 Integer 对象，JVM 尝试在堆空间中开辟一块内存空间。如果允许分配的话，就会调用 Integer 的构造方法把 String 字符串转换为 Integer 对象。JVM 将指向该对象的指针存储在变量 baz 中。</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2></li>
+</li>
 </ul>
 <h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><ul>
 <li>本地方法栈（Native Method Stacks)与虚拟机栈所发挥的作用是非常相似的，本地方法栈位虚拟机使用的本地方法（Native）方法服务</li>
 <li>定义了两类异常：StackOverflowError和OutOfMemoryError异常</li>
 </ul>
-<h2 id="Java堆-Java-Heap"><a href="#Java堆-Java-Heap" class="headerlink" title="Java堆 Java Heap"></a>Java堆 Java Heap</h2><ul>
+<h2 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h2><ul>
 <li>所有线程共享的内存区域，虚拟机启动时创建</li>
 <li>唯一目的是<strong>存放对象实例</strong>，几乎所有的对象实例都在这里分配内存（堆内存中的对象对所有线程可见，堆内存中的对象可以被所有线程访问）</li>
 <li>Java堆是垃圾收集器管理的内存区域</li>
@@ -5461,7 +5454,8 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>当前主流的Java虚拟机都是按照可拓展实现的（通过参数-Xmx和-Xms设定）</li>
 <li>如果在Java堆中没有内存完成实例分配，并且堆也无法再拓展时，Java虚拟机会抛出OutOfMemeoryError异常</li>
 </ul>
-<h2 id="方法区-Method-Area，非堆Non-Heap"><a href="#方法区-Method-Area，非堆Non-Heap" class="headerlink" title="方法区 Method Area，非堆Non-Heap"></a>方法区 Method Area，非堆Non-Heap</h2><ul>
+<h2 id="方法区-Method-Area"><a href="#方法区-Method-Area" class="headerlink" title="方法区 Method Area"></a>方法区 Method Area</h2><p>(非堆Non-Heap)</p>
+<ul>
 <li>线程共享的内存区域</li>
 <li><strong>用于存储已经被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据</strong></li>
 <li>不需要连续的内存和可以选择固定大小或者可拓展外，甚至可以选择不实现垃圾收集。该区域的内存回收目标主要是针对常量池的回收和对类型的卸载</li>
@@ -5531,10 +5525,8 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>该类对应的<code>java.lang.Class</code>对象没有在任何地方被引用，无法在任何地方通过反射方位该类的方法</li>
 </ol>
 </li>
-<li></li>
 </ul>
 </li>
-<li></li>
 </ul>
 <h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p>从如何判定对象消亡的角度出发，垃圾收集算法可以划分为“引用计数式收集”（Reference Couting GC）和“追踪式垃圾收集”（Tracing GC）两大类，也被称为“直接垃圾收集”和“间接垃圾收集”。</p>
 <p>追踪式垃圾收集（间接垃圾收集）包括分代收集理论 Generation Collection（理论基础），以及标记-清除算法、标记-复制算法、标记-整理算法等具体的垃圾收集算法。</p>
@@ -5642,48 +5634,63 @@ response<span class="token punctuation">.</span><span class="token function">add
 </ol>
 <p><strong>接口与类真正有所区别的是前面讲述的六种“有且仅有”需要触发初始化场景中的第三种</strong>：当一个类在初始化时，要求其父类全部都已经初始化过了，但是一个接口在初始化时，并不要求其父接口全部都完成了初始化，只有在真正使用到父接口的时候（如引用接口中定义的常量）才会初始化。</p>
 <h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>java虚拟机中类加载的全过程，即加载、验证、准备、解析和初始化这五个阶段所执行的具体动作。</p>
-<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>Java虚拟机完成以下三件事情：</p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>Java虚拟机完成以下三件事情：</p>
 <ol>
 <li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
 <li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构（<strong>转换为数据结构，并未存储入方法区中</strong>）</li>
 <li>在内存中生成一个代表这个类的<code>java.lang.Class</code>对象，作为方法区这个类的各种数据的访问入口（这个对象作为程序访问方法区中的类型数据的外部接口）。</li>
 </ol>
 <p>加载阶段与连接阶段的部分动作（如一部分字节码文件格式验证动作）是交叉进行的，加载阶段尚未完成，连接阶段可能已经开始，但这些夹在加载阶段之中进行的动作，仍然属于连接阶段的一部分，这<strong>两个阶段的开始时间仍然保持着固定的先后顺序</strong>。</p>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>连接阶段的第一步，目的是确保class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>连接阶段的第一步，目的是确保class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。</p>
 <p>验证阶段主要会完成以下<strong>四个阶段的检验动作：文件格式验证、元数据验证、字节码验证和符号引用验证</strong></p>
-<h5 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h5><p>验证字节流是否符合Class文件格式的规范，并且能够被当前版本的虚拟机处理。包括：检查开头的魔数、主次版本号是否在当前Java虚拟机接受范围之内、常量池的常量是否有不被支持的常量类型（检查常量tag标志）等。</p>
+<h4 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h4><p>验证字节流是否符合Class文件格式的规范，并且能够被当前版本的虚拟机处理。包括：检查开头的魔数、主次版本号是否在当前Java虚拟机接受范围之内、常量池的常量是否有不被支持的常量类型（检查常量tag标志）等。</p>
 <p><strong>该验证阶段的主要目的是保证输入的字节流能正确地解析并存储于方法区之内，格式上符合描述一个Java类型信息的要求。</strong>这阶段的验证是<u>基于二进制字节流</u>进行的，只有通过了这个阶段的验证之后，这段字节流才被允许进入Java虚拟机内存的方法区中进行存储，所以<u>后面的三个验证阶段全部是基于方法区的存储结构上进行</u>的，不会再直接读取、操作字节流了。</p>
-<h5 id="元数据验证"><a href="#元数据验证" class="headerlink" title="元数据验证"></a>元数据验证</h5><p>对字节码描述的信息进行语义分析，<u>保证其描述的信息符合《Java语言规范》的要求</u>。例如：是否有父类，是否继承了不允许被继承的类等。</p>
+<h4 id="元数据验证"><a href="#元数据验证" class="headerlink" title="元数据验证"></a>元数据验证</h4><p>对字节码描述的信息进行语义分析，<u>保证其描述的信息符合《Java语言规范》的要求</u>。例如：是否有父类，是否继承了不允许被继承的类等。</p>
 <p><strong>这个阶段的主要目的是对类的元数据信息进行语义校验，保证不存在与《Java语言规范》定义相悖的元数据信息</strong>。</p>
-<h5 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h5><p><strong>通过数据流分析和控制流分析，确定程序语义是合法的、符合逻辑的。对类的方法体（Class文件中的Code属性）进行校验分析，以保证校验类的方法在运行时不会做出危害虚拟机安全的行为。</strong></p>
+<h4 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h4><p><strong>通过数据流分析和控制流分析，确定程序语义是合法的、符合逻辑的。对类的方法体（Class文件中的Code属性）进行校验分析，以保证校验类的方法在运行时不会做出危害虚拟机安全的行为。</strong></p>
 <p>如果一个类型中有方法体的字节码没有通过字节码验证，它肯定是有问题的；如果一个方法体通过了字节码验证，也仍然不能保证它一定是安全的。</p>
-<h5 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h5><p>发生在将符号引用转换为直接引用的时候，这个转化动作将在连接的第三个阶段–解析阶段中发生。</p>
+<h4 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h4><p>发生在将符号引用转换为直接引用的时候，这个转化动作将在连接的第三个阶段–解析阶段中发生。</p>
 <p>符号引用验证可以看作是对类自身以外（常量池中的各种符号引用）的各类信息进行匹配性校验，通俗来说就是，该类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源。本阶段通常需要校验下列内容：符号引用中通过字符串描述的全限定名是否能找到对应的类、在指定类中是否存在符合方法的字段描述符及简单名称所描述的方法和字段等。</p>
 <p><strong>该阶段验证的主要目的是：确保解析行为能正常执行</strong>。</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p><strong>正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段</strong>。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p><strong>正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段</strong>。</p>
 <p>进行内存分配的仅包括类变量，而不包括实例变量，实例变量会将在对象实例化时随着对象一起分配在Java堆中。</p>
 <p>初始值说明：</p>
 <p>初始值通常情况下是指数据类型的零值，例如：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的初始值为0 非123。因为此时尚未开始执行任何Java方法</span>
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的值为123. 类字段的字段属性表中存在ConstantValue属性，在准备阶段变量值会被初始化为ConstantValue属性所指定的初始值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的值为123. 类字段的字段属性表中存在ConstantValue属性，在准备阶段变量值会被初始化为ConstantValue属性所指定的初始值</span>
 
-<img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201208220429240.png" class="">
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> asset_img image<span class="token operator">-</span><span class="token number">20201208220429240.</span>png <span class="token operator">%</span><span class="token punctuation">&#125;</span>
 
-<p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201208220429240.png" alt="image-20201208220429240"></p>
-<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将常量池内的符号引用替换为直接引用的过程。</p>
-<p>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这7类符号引用进行。</p>
-<p><u>符号引用（Symbolic Refrence）</u>：符号引用以一组符号来描述所引用的目标。与虚拟机实现的内存布局无关。</p>
-<p><u>直接引用（Direct Reference）</u>：直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。与虚拟机实现的内存布局相关。如果有直接引用，引用目标必定已经在虚拟机的内存中（符号引用没有这种关系）。</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>通过程序编码制定的主观计划去<strong>初始化类变量和其他资源。（初始化阶段就是执行类构造器<code>&lt;clinit&gt;()</code>方法的过程)</strong></p>
+<span class="token operator">!</span><span class="token punctuation">[</span>image<span class="token operator">-</span><span class="token number">20201208220429240</span><span class="token punctuation">]</span><span class="token punctuation">(</span>java<span class="token operator">%</span>E8<span class="token operator">%</span><span class="token number">99</span><span class="token operator">%</span><span class="token number">9</span>A<span class="token operator">%</span>E6<span class="token operator">%</span><span class="token number">8</span>B<span class="token operator">%</span><span class="token number">9F</span><span class="token operator">%</span>E6<span class="token operator">%</span><span class="token number">9</span>C<span class="token operator">%</span>BA<span class="token operator">%</span>E9<span class="token operator">%</span><span class="token number">9D</span><span class="token operator">%</span>A2<span class="token operator">%</span>E7<span class="token operator">%</span>BB<span class="token operator">%</span><span class="token number">8F</span><span class="token operator">/</span>image<span class="token operator">-</span><span class="token number">20201208220429240.</span>png<span class="token punctuation">)</span>
+
+
+
+#### 解析 
+
+将常量池内的符号引用替换为直接引用的过程。
+
+解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这<span class="token number">7</span>类符号引用进行。
+
+<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>符号引用（<span class="token class-name">Symbolic</span> <span class="token class-name">Refrence</span>）<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>：符号引用以一组符号来描述所引用的目标。与虚拟机实现的内存布局无关。
+
+<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>直接引用（<span class="token class-name">Direct</span> <span class="token class-name">Reference</span>）<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>：直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。与虚拟机实现的内存布局相关。如果有直接引用，引用目标必定已经在虚拟机的内存中（符号引用没有这种关系）。
+
+#### 初始化
+
+通过程序编码制定的主观计划去<span class="token operator">*</span><span class="token operator">*</span>初始化类变量和其他资源。（初始化阶段就是执行类构造器`<span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>`方法的过程<span class="token punctuation">)</span><span class="token operator">*</span><span class="token operator">*</span>
+
+<span class="token operator">-</span> `<span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>`方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（<span class="token keyword">static</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>块）中的语句合并产生的，<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>编译器收集的顺序是由语句在源文件中<span class="token operator">*</span><span class="token operator">*</span>出现的顺序决定<span class="token operator">*</span><span class="token operator">*</span>的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在静态语句块可以赋值，凡是不能访问。<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>
+
+  ```java
+  <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+      <span class="token keyword">static</span><span class="token punctuation">&#123;</span>
+          i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//i 后面定义，可以在static语句块中进行赋值</span>
+          <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//“非法向前引用”，编译器提示</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">static</span> <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p><code>&lt;clinit&gt;()</code>方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，<u>编译器收集的顺序是由语句在源文件中<strong>出现的顺序决定</strong>的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在静态语句块可以赋值，凡是不能访问。</u></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">static</span><span class="token punctuation">&#123;</span>
-        i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//i 后面定义，可以在static语句块中进行赋值</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//“非法向前引用”，编译器提示</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">static</span> <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>不需要显式地调用父类构造器，Java虚拟机保证在子类的<code>&lt;clinit&gt;()</code>方法执行前，父类的<code>&lt;clinit&gt;()</code>方法已经执行完毕（父类定义的静态语句块优于子类的变量赋值操作</p>
 </li>
 <li><p><code>&lt;clinit&gt;()</code>方法对于类或接口不是非必须的，类中没有静态语句块，也没有对变量的赋值操作，编译器可以不为这个类生成<code>&lt;clinit&gt;()</code>方法</p>
@@ -5728,8 +5735,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201215205024685.png" alt="image-20201215205024685"></p>
 <p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器（父子关系一般不是以继承的关系来实现，而是通常使用组合关系复用父加载器代码）</p>
 <p><strong>工作过程</strong>：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此。因此，所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。</p>
-<p>好处：</p>
-<h1 id="Java内存模型-Java-Memory-Mode-JMM"><a href="#Java内存模型-Java-Memory-Mode-JMM" class="headerlink" title="Java内存模型 Java Memory Mode, JMM"></a>Java内存模型 Java Memory Mode, JMM</h1><p>本身是一种抽象的概念，并不真实存在，它描述的是一组规范或规则，通过这组规范<strong>定义了程序中各个变量（包括实例字段、静态字段和构成数组对象的元素，不包括线程私有的局部变量和方法参数）的访问方式</strong>。</p>
+<h1 id="Java内存模型-JMM"><a href="#Java内存模型-JMM" class="headerlink" title="Java内存模型 JMM"></a>Java内存模型 JMM</h1><p>Java Memory Mode，本身是一种抽象的概念，并不真实存在，它描述的是一组规范或规则，通过这组规范<strong>定义了程序中各个变量（包括实例字段、静态字段和构成数组对象的元素，不包括线程私有的局部变量和方法参数）的访问方式</strong>。</p>
 <p><u>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存</u>(有些地方称为栈空间)，用于存储线程私有的数据，而<u>Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作(读取赋值等)必须在工作内存中进行</u>，首先要将变量从主内存拷贝的自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，工作内存中存储着主内存中的变量副本拷贝，前面说过，工作内存是每个线程的私有数据区域，因此<u>不同的线程间无法访问对方的工作内存，线程间的通信(传值)必须通过主内存来完成</u>，其简要访问过程如下图：</p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/20170608221857890" class="">
 
@@ -6099,12 +6105,12 @@ user<span class="token punctuation">.</span><span class="token function">add</sp
 <ul>
 <li><strong>创建对象时，默认执行无参数的构造方法（反射用到的就是无参数构造函数）</strong></li>
 </ul>
-<h3 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h3><p><strong>通过XML方式注入属性</strong></p>
-<ul>
+<h3 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h3><h4 id="通过XML方式注入属性"><a href="#通过XML方式注入属性" class="headerlink" title="通过XML方式注入属性"></a>通过XML方式注入属性</h4><ul>
 <li><p>DI：依赖注入，就是注入属性（DI是IOC的一种具体实现，表示依赖注入，或者是注入属性，需要在创建对象的基础上完成）</p>
 <p>容器能够知道哪个组件（类）运行的时候，需要另外一个类（组件）；容器通过反射的形式，将容器中准备好的对象注入（利用反射给属性赋值）</p>
 <p><strong>有两种方式注入属性：使用set方法进行注入，使用有参数构造注入</strong></p>
-<h5 id="第一种方式：通过set方法注入"><a href="#第一种方式：通过set方法注入" class="headerlink" title="第一种方式：通过set方法注入"></a>第一种方式：通过set方法注入</h5><p>示例第一步：创建类，定义属性和对应的set方法</p>
+<p><strong>第一种方式：通过set方法注入</strong></p>
+<p>示例第一步：创建类，定义属性和对应的set方法</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Book</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> bname<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> bauthor<span class="token punctuation">;</span>
@@ -6160,7 +6166,8 @@ public Orders(String oname, String address) &#123;
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>男<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>constructor-arg</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="第三种方式：通过P名称空间注入"><a href="#第三种方式：通过P名称空间注入" class="headerlink" title="第三种方式：通过P名称空间注入"></a>第三种方式：通过P名称空间注入</h5><p>  使用p名称空间注入，简化基于XML配置方式</p>
+<p><strong>第三种方式：通过P名称空间注入</strong></p>
+<p>  使用p名称空间注入，简化基于XML配置方式</p>
 <p>  （名称空间：在XML文件中名称空间用来防止标签重复）</p>
 <p>  第一步：添加P名称空间在配置文件中</p>
   <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
@@ -9573,7 +9580,7 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>foreach</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h1><p>默认定义了两级缓存，一级缓存和二级缓存（全局缓存）。</p>
-<h3 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h3><p>一级缓存默认情况下，只有一级缓存（SqlSession级别的缓存，也被称为本地缓存）开启（一直开启）。SqlSession级别的一个Map，查询时会查看Map中是否存在。</p>
+<h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h2><p>一级缓存默认情况下，只有一级缓存（SqlSession级别的缓存，也被称为本地缓存）开启（一直开启）。SqlSession级别的一个Map，查询时会查看Map中是否存在。</p>
 <p>与数据库同一次会话期间查询到的数据会放在本地缓存中，以后如果需要获取相同的数据，直接从缓存中拿，没有必要再去查询数据库。</p>
 <p>一级缓存失效的情况（没有使用到目前一级缓存的情况，效果就是，还需要想数据库发出查询）：</p>
 <ul>
@@ -9582,7 +9589,7 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <li>SqlSession相同，两次查询期间，执行了增删改操作</li>
 <li>SqlSession相同，手动清除了一级缓存（清除缓存）</li>
 </ul>
-<h3 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h3><p><strong>二级缓存</strong>需要手动开启和配置，是基于namespace级别的缓存，一个namespace对应一个二级缓存</p>
+<h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h2><p><strong>二级缓存</strong>需要手动开启和配置，是基于namespace级别的缓存，一个namespace对应一个二级缓存</p>
 <img src="/2021/03/01/mybatis-bi-ji/image-20201130191454604.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130191454604.png" alt="image-20201130191454604"></p>
@@ -9632,7 +9639,7 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li></li>
 </ol>
-<h3 id="缓存相关的设置-属性"><a href="#缓存相关的设置-属性" class="headerlink" title="缓存相关的设置/属性"></a>缓存相关的设置/属性</h3><ol>
+<h2 id="缓存相关的设置-属性"><a href="#缓存相关的设置-属性" class="headerlink" title="缓存相关的设置/属性"></a>缓存相关的设置/属性</h2><ol>
 <li><p><code>cacheEnabled=true</code>，开启缓存；false，关闭缓存（二级缓存关闭，一级缓存一直可用）</p>
 </li>
 <li><p>每个<code>select</code>标签，都有<code>useCache=&quot;true&quot;</code></p>
@@ -9647,13 +9654,13 @@ DEBUG 11<span class="token operator">-</span>30 11:13:25<span class="token punct
 <li><p>localCacheScope：本地缓存作用域：取值为一级缓存<code>SESSION</code>时，当前会话的所有数据保存在会话缓存中；取值为<code>STATEMENT</code>，可以禁用一级缓存</p>
 </li>
 </ol>
-<h3 id="一二级缓存原理"><a href="#一二级缓存原理" class="headerlink" title="一二级缓存原理"></a>一二级缓存原理</h3><img src="/2021/03/01/mybatis-bi-ji/image-20201130213751031.png" class="">
+<h2 id="一二级缓存原理"><a href="#一二级缓存原理" class="headerlink" title="一二级缓存原理"></a>一二级缓存原理</h2><img src="/2021/03/01/mybatis-bi-ji/image-20201130213751031.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213751031.png" alt="image-20201130213751031"></p>
 <img src="/2021/03/01/mybatis-bi-ji/image-20201130213939990.png" class="">
 
 <p><img src="Mybatis-%E7%AC%94%E8%AE%B0/image-20201130213939990.png" alt="image-20201130213939990"></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><strong>示例一：一级缓存（相同的查询条件 两个引用 一个对象）</strong></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p><strong>示例一：一级缓存（相同的查询条件 两个引用 一个对象）</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token class-name">TestCacheFirstLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
        <span class="token class-name">SqlSessionFactory</span> sqlSessionFactory<span class="token operator">=</span><span class="token function">getSqlSessionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -9835,7 +9842,7 @@ DEBUG 11<span class="token operator">-</span>30 20:00:05<span class="token punct
 false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试结果，只查询了一次数据库</p>
-<h3 id="第三方Cache整合-–-ehcache示例"><a href="#第三方Cache整合-–-ehcache示例" class="headerlink" title="第三方Cache整合 – ehcache示例"></a>第三方Cache整合 – ehcache示例</h3><ol>
+<h2 id="第三方Cache整合-–-ehcache示例"><a href="#第三方Cache整合-–-ehcache示例" class="headerlink" title="第三方Cache整合 – ehcache示例"></a>第三方Cache整合 – ehcache示例</h2><ol>
 <li><p>导入相关的jar包（导入第三方缓存包即可，导入与第三方缓存整合的适配包（官方包））</p>
 <img src="/2021/03/01/mybatis-bi-ji/image-20201130215746219.png" class="">
 
@@ -10550,7 +10557,7 @@ newTable<span class="token punctuation">[</span>i<span class="token punctuation"
 e <span class="token operator">=</span> <span class="token keyword">next</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>执行之后的引用关系如下图</p>
-<img class="-20210111205527864.png">
+<img src="/2021/02/25/java-mian-jing/image-20210111205527864.png" class="">
 
 <p><img src="java%E9%9D%A2%E7%BB%8F/image-20210111205527864.png" alt="image-20210111205527864"></p>
 <p>执行后，变量e指向节点b，因为e不是null，则继续执行循环体，执行后的引用关系</p>
@@ -10658,7 +10665,7 @@ e <span class="token operator">=</span> <span class="token keyword">next</span><
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"b.equals(c):"</span> <span class="token operator">+</span> b<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//true</span>
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a.equals(c):"</span> <span class="token operator">+</span> a<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h1 id="3-Java三种特性"><a href="#3-Java三种特性" class="headerlink" title="3. Java三种特性"></a>3. Java三种特性</h1><p>Java的三种特性：<strong>封装、继承和多态</strong></p>
+<h1 id="Java三种特性"><a href="#Java三种特性" class="headerlink" title="Java三种特性"></a>Java三种特性</h1><p>Java的三种特性：<strong>封装、继承和多态</strong></p>
 <h2 id="封装-Encapsulation"><a href="#封装-Encapsulation" class="headerlink" title="封装 Encapsulation"></a>封装 Encapsulation</h2><p>隐藏对象的属性和实现细节，仅对外公开访问方法，控制在程序中属性的读和写的访问级别。</p>
 <p><strong>基本要求</strong></p>
 <ol>

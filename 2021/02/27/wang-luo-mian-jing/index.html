@@ -29,7 +29,8 @@
 <meta property="og:site_name" content="TingHL blogs">
 <meta property="og:description" content="2020年校招根据面经整理的网络知识点">
 <meta property="og:locale">
-<meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/httphttps">
+<meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/httphttps">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/image-20201025150046492.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/image-20201025150046492.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/image-20201014110229792.png">
@@ -67,12 +68,12 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/20140509221048265">
 <meta property="og:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/20140509221048265">
 <meta property="article:published_time" content="2021-02-27T02:26:38.000Z">
-<meta property="article:modified_time" content="2021-03-04T07:49:13.563Z">
+<meta property="article:modified_time" content="2021-03-05T12:28:33.166Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https">
+<meta name="twitter:image" content="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/httphttps">
 
 <link rel="canonical" href="http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/">
 
@@ -278,7 +279,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 15:49:13" itemprop="dateModified" datetime="2021-03-04T15:49:13+08:00">2021-03-04</time>
+                <time title="Modified: 2021-03-05 20:28:33" itemprop="dateModified" datetime="2021-03-05T20:28:33+08:00">2021-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -336,9 +337,9 @@
 </ul>
 <h1 id="HTTP和HTTPS区别"><a href="#HTTP和HTTPS区别" class="headerlink" title="HTTP和HTTPS区别"></a>HTTP和HTTPS区别</h1><p>HTTPS和HTTP的区别主要如下：</p>
 <p>  　　1. HTTP（HyperText Transfer Protocol，超文本传输协议），HTTPS（HyperText Transfer Protocol Secure，超文本传输安全协议）<br>         　　2. HTTP 信息是明文传输，HTTPS 则是使用具有安全性的 SSL 加密传输协议。<br>                　　3. HTTPS 协议需要到CA（签证机构，Certificate Authority）申请证书，一般免费证书较少，因而需要一定费用。<br>                        　　3. http 和https 使用的是完全不同的连接方式，用的端口也不一样，前者是<strong>80</strong>，后者是<strong>443</strong>。<br>                          　　5. http的连接很简单，是<strong>无状态的</strong>（对事务处理没有记忆能力，如果后续处理需要前面的信息，则它需要重传；另一方面，服务器不需要先前信息时它的应答就较快）；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<img src="/2021/02/27/wang-luo-mian-jing/httphttps" class="">
 
-
-<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/http%20https" alt="image-20201025110137880"></p>
+<p><img src="%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%BB%8F/httphttps" alt="image-20201025110137880"></p>
 <h1 id="Cookie和session"><a href="#Cookie和session" class="headerlink" title="Cookie和session"></a>Cookie和session</h1><h2 id="Cookie机制"><a href="#Cookie机制" class="headerlink" title="Cookie机制"></a>Cookie机制</h2><p>在客户端保持状态的方案。</p>
 <p><strong>生成</strong>：当服务器收到 HTTP 请求时，服务器可以在响应头里面添加一个 <code>Set-Cookie</code> 选项。浏览器收到响应后通常会保存Cookie，之后对该服务器每一次请求中都通过 <code>Cookie</code> 请求头部将 Cookie 信息发送给服务器。另外，Cookie 的过期时间、域、路径、有效期、适用站点都可以根据需要来指定。</p>
 <p><strong>使用</strong>：由浏览器按照一定的原则在后台自动发送给服务器的，浏览器检查所有存储的cookie，如果某个cookie所声明的作用范围大于等于将要请求的资源所在的位置，则把该cookie附在请求资源的HTTP请求头上发送给服务器。</p>
@@ -848,11 +849,11 @@
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -861,7 +862,7 @@
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1055,23 +1056,6 @@
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/",
-      identifier: "2021/02/27/wang-luo-mian-jing/",
-      title     : "网络面经",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1101,6 +1085,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/02/27/wang-luo-mian-jing/",
+      identifier: "2021/02/27/wang-luo-mian-jing/",
+      title     : "网络面经",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>

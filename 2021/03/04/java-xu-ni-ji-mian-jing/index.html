@@ -30,7 +30,6 @@
 <meta property="og:description" content="2020年校招根据面经整理的JVM知识点">
 <meta property="og:locale">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201206213234668.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/20170608151435751">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201101213502325.png">
@@ -59,8 +58,6 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200819184408997.PNG">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201207201954519.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201207201954519.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201208220429240.png">
-<meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201208220429240.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/image-20201215205024685.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201215205024685.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/20170608221857890">
@@ -90,7 +87,7 @@
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/20200818181924858.png">
 <meta property="og:image" content="http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20200818181924858.png">
 <meta property="article:published_time" content="2021-03-04T02:48:43.000Z">
-<meta property="article:modified_time" content="2021-03-05T08:45:29.642Z">
+<meta property="article:modified_time" content="2021-03-05T11:47:48.379Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="面经">
 <meta property="article:tag" content="JVM">
@@ -301,7 +298,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-05 16:45:29" itemprop="dateModified" datetime="2021-03-05T16:45:29+08:00">2021-03-05</time>
+                <time title="Modified: 2021-03-05 19:47:48" itemprop="dateModified" datetime="2021-03-05T19:47:48+08:00">2021-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -356,18 +353,18 @@
         <h1 id="虚拟机JVM"><a href="#虚拟机JVM" class="headerlink" title="虚拟机JVM"></a>虚拟机JVM</h1><ul>
 <li>虚拟机相关面经</li>
 </ul>
-<h1 id="Java虚拟机-运行时数据区域-不同于Java内存模型"><a href="#Java虚拟机-运行时数据区域-不同于Java内存模型" class="headerlink" title="Java虚拟机 运行时数据区域 不同于Java内存模型"></a>Java虚拟机 运行时数据区域 不同于Java内存模型</h1><p>Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：<strong>方法区、堆、虚拟机栈、本地方法栈、程序计数器。</strong></p>
+<h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>Java虚拟机在执行Java程序的过程中，会将它所管理的内存划分为若干个不同的数据区域（不同于Java内存模型 JMM）。将其自动管理的内存区域划分为：<strong>方法区、堆、虚拟机栈、本地方法栈、程序计数器。</strong></p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201206213234668.png" class="">
-
-<p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png" alt="image-20201206213234668"></p>
+<p>![image-20201206213234668] (java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201206213234668.png)</p>
 <h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><ul>
-<li><h6 id="当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。"><a href="#当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。" class="headerlink" title="当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。"></a><strong>当前线程所执行的字节码的行号指示器</strong>。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</h6></li>
+<li><p><strong>当前线程所执行的字节码的行号指示器</strong>。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+</li>
 <li><p>各条线程之间计数器互不影响，独立存储，我们称这类内存区域为“线程私有”的内存。</p>
 </li>
 <li><p>此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
 </li>
 </ul>
-<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><ul>
+<h2 id="JVM栈"><a href="#JVM栈" class="headerlink" title="JVM栈"></a>JVM栈</h2><ul>
 <li><p>线程私有，生命周期和线程相同。</p>
 </li>
 <li><p>虚拟机栈描述的是<strong>Java方法执行的线程内存模型</strong>：每个方法被执行的的时候，Java虚拟机都会同步创建一个<u>栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态连接、方法出口等信息</u>。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
@@ -379,11 +376,9 @@
 <li><p><strong>属于线程私有的数据区域，与线程同时创建，总数与线程关联，代表Java方法执行的内存模型</strong>。每个方法执行时都会创建一个栈桢来存储方法的的变量表、操作数栈、动态链接方法、返回值、返回地址等信息。每个方法从调用直结束就对于一个栈桢在虚拟机栈中的入栈和出栈过程，如下（图有误，应该为栈桢）：</p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/20170608151435751" class="">
 
-<img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" alt="img" style="zoom: 80%;" />
-
-
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3></li>
+<img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/20170608151435751" alt="img" style="zoom: 80%;" /></li>
+</ul>
+<ul>
 <li><p>方法执行时，被分配的内存就在栈中，所以存储的局部变量就在栈中。当一段代码或者一个方法调用完毕后，栈中为这段代码所提供的基本数据类型或者对象的引用立即被释放。</p>
 <p><strong>栈内存属于单个线程，每个线程都会有一个栈内存，其存储的变量只能在其线程中可见</strong></p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201101213502325.png" class="">
@@ -391,13 +386,13 @@
 <img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201101213502325.png" alt="image-20201101213502325" style="zoom: 67%;" />
 
 <p><code>foo()</code> 方法，这一行代码分配了一个新的 Integer 对象，JVM 尝试在堆空间中开辟一块内存空间。如果允许分配的话，就会调用 Integer 的构造方法把 String 字符串转换为 Integer 对象。JVM 将指向该对象的指针存储在变量 baz 中。</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2></li>
+</li>
 </ul>
 <h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><ul>
 <li>本地方法栈（Native Method Stacks)与虚拟机栈所发挥的作用是非常相似的，本地方法栈位虚拟机使用的本地方法（Native）方法服务</li>
 <li>定义了两类异常：StackOverflowError和OutOfMemoryError异常</li>
 </ul>
-<h2 id="Java堆-Java-Heap"><a href="#Java堆-Java-Heap" class="headerlink" title="Java堆 Java Heap"></a>Java堆 Java Heap</h2><ul>
+<h2 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h2><ul>
 <li>所有线程共享的内存区域，虚拟机启动时创建</li>
 <li>唯一目的是<strong>存放对象实例</strong>，几乎所有的对象实例都在这里分配内存（堆内存中的对象对所有线程可见，堆内存中的对象可以被所有线程访问）</li>
 <li>Java堆是垃圾收集器管理的内存区域</li>
@@ -405,7 +400,8 @@
 <li>当前主流的Java虚拟机都是按照可拓展实现的（通过参数-Xmx和-Xms设定）</li>
 <li>如果在Java堆中没有内存完成实例分配，并且堆也无法再拓展时，Java虚拟机会抛出OutOfMemeoryError异常</li>
 </ul>
-<h2 id="方法区-Method-Area，非堆Non-Heap"><a href="#方法区-Method-Area，非堆Non-Heap" class="headerlink" title="方法区 Method Area，非堆Non-Heap"></a>方法区 Method Area，非堆Non-Heap</h2><ul>
+<h2 id="方法区-Method-Area"><a href="#方法区-Method-Area" class="headerlink" title="方法区 Method Area"></a>方法区 Method Area</h2><p>(非堆Non-Heap)</p>
+<ul>
 <li>线程共享的内存区域</li>
 <li><strong>用于存储已经被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据</strong></li>
 <li>不需要连续的内存和可以选择固定大小或者可拓展外，甚至可以选择不实现垃圾收集。该区域的内存回收目标主要是针对常量池的回收和对类型的卸载</li>
@@ -475,10 +471,8 @@
 <li>该类对应的<code>java.lang.Class</code>对象没有在任何地方被引用，无法在任何地方通过反射方位该类的方法</li>
 </ol>
 </li>
-<li></li>
 </ul>
 </li>
-<li></li>
 </ul>
 <h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><p>从如何判定对象消亡的角度出发，垃圾收集算法可以划分为“引用计数式收集”（Reference Couting GC）和“追踪式垃圾收集”（Tracing GC）两大类，也被称为“直接垃圾收集”和“间接垃圾收集”。</p>
 <p>追踪式垃圾收集（间接垃圾收集）包括分代收集理论 Generation Collection（理论基础），以及标记-清除算法、标记-复制算法、标记-整理算法等具体的垃圾收集算法。</p>
@@ -586,48 +580,63 @@
 </ol>
 <p><strong>接口与类真正有所区别的是前面讲述的六种“有且仅有”需要触发初始化场景中的第三种</strong>：当一个类在初始化时，要求其父类全部都已经初始化过了，但是一个接口在初始化时，并不要求其父接口全部都完成了初始化，只有在真正使用到父接口的时候（如引用接口中定义的常量）才会初始化。</p>
 <h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>java虚拟机中类加载的全过程，即加载、验证、准备、解析和初始化这五个阶段所执行的具体动作。</p>
-<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>Java虚拟机完成以下三件事情：</p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>Java虚拟机完成以下三件事情：</p>
 <ol>
 <li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
 <li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构（<strong>转换为数据结构，并未存储入方法区中</strong>）</li>
 <li>在内存中生成一个代表这个类的<code>java.lang.Class</code>对象，作为方法区这个类的各种数据的访问入口（这个对象作为程序访问方法区中的类型数据的外部接口）。</li>
 </ol>
 <p>加载阶段与连接阶段的部分动作（如一部分字节码文件格式验证动作）是交叉进行的，加载阶段尚未完成，连接阶段可能已经开始，但这些夹在加载阶段之中进行的动作，仍然属于连接阶段的一部分，这<strong>两个阶段的开始时间仍然保持着固定的先后顺序</strong>。</p>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>连接阶段的第一步，目的是确保class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>连接阶段的第一步，目的是确保class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。</p>
 <p>验证阶段主要会完成以下<strong>四个阶段的检验动作：文件格式验证、元数据验证、字节码验证和符号引用验证</strong></p>
-<h5 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h5><p>验证字节流是否符合Class文件格式的规范，并且能够被当前版本的虚拟机处理。包括：检查开头的魔数、主次版本号是否在当前Java虚拟机接受范围之内、常量池的常量是否有不被支持的常量类型（检查常量tag标志）等。</p>
+<h4 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h4><p>验证字节流是否符合Class文件格式的规范，并且能够被当前版本的虚拟机处理。包括：检查开头的魔数、主次版本号是否在当前Java虚拟机接受范围之内、常量池的常量是否有不被支持的常量类型（检查常量tag标志）等。</p>
 <p><strong>该验证阶段的主要目的是保证输入的字节流能正确地解析并存储于方法区之内，格式上符合描述一个Java类型信息的要求。</strong>这阶段的验证是<u>基于二进制字节流</u>进行的，只有通过了这个阶段的验证之后，这段字节流才被允许进入Java虚拟机内存的方法区中进行存储，所以<u>后面的三个验证阶段全部是基于方法区的存储结构上进行</u>的，不会再直接读取、操作字节流了。</p>
-<h5 id="元数据验证"><a href="#元数据验证" class="headerlink" title="元数据验证"></a>元数据验证</h5><p>对字节码描述的信息进行语义分析，<u>保证其描述的信息符合《Java语言规范》的要求</u>。例如：是否有父类，是否继承了不允许被继承的类等。</p>
+<h4 id="元数据验证"><a href="#元数据验证" class="headerlink" title="元数据验证"></a>元数据验证</h4><p>对字节码描述的信息进行语义分析，<u>保证其描述的信息符合《Java语言规范》的要求</u>。例如：是否有父类，是否继承了不允许被继承的类等。</p>
 <p><strong>这个阶段的主要目的是对类的元数据信息进行语义校验，保证不存在与《Java语言规范》定义相悖的元数据信息</strong>。</p>
-<h5 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h5><p><strong>通过数据流分析和控制流分析，确定程序语义是合法的、符合逻辑的。对类的方法体（Class文件中的Code属性）进行校验分析，以保证校验类的方法在运行时不会做出危害虚拟机安全的行为。</strong></p>
+<h4 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h4><p><strong>通过数据流分析和控制流分析，确定程序语义是合法的、符合逻辑的。对类的方法体（Class文件中的Code属性）进行校验分析，以保证校验类的方法在运行时不会做出危害虚拟机安全的行为。</strong></p>
 <p>如果一个类型中有方法体的字节码没有通过字节码验证，它肯定是有问题的；如果一个方法体通过了字节码验证，也仍然不能保证它一定是安全的。</p>
-<h5 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h5><p>发生在将符号引用转换为直接引用的时候，这个转化动作将在连接的第三个阶段–解析阶段中发生。</p>
+<h4 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h4><p>发生在将符号引用转换为直接引用的时候，这个转化动作将在连接的第三个阶段–解析阶段中发生。</p>
 <p>符号引用验证可以看作是对类自身以外（常量池中的各种符号引用）的各类信息进行匹配性校验，通俗来说就是，该类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源。本阶段通常需要校验下列内容：符号引用中通过字符串描述的全限定名是否能找到对应的类、在指定类中是否存在符合方法的字段描述符及简单名称所描述的方法和字段等。</p>
 <p><strong>该阶段验证的主要目的是：确保解析行为能正常执行</strong>。</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p><strong>正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段</strong>。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p><strong>正式为类中定义的变量（即静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段</strong>。</p>
 <p>进行内存分配的仅包括类变量，而不包括实例变量，实例变量会将在对象实例化时随着对象一起分配在Java堆中。</p>
 <p>初始值说明：</p>
 <p>初始值通常情况下是指数据类型的零值，例如：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的初始值为0 非123。因为此时尚未开始执行任何Java方法</span>
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的值为123. 类字段的字段属性表中存在ConstantValue属性，在准备阶段变量值会被初始化为ConstantValue属性所指定的初始值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> value<span class="token operator">=</span><span class="token number">123</span><span class="token punctuation">;</span> <span class="token comment">//value在准备阶段的值为123. 类字段的字段属性表中存在ConstantValue属性，在准备阶段变量值会被初始化为ConstantValue属性所指定的初始值</span>
 
-<img src="/2021/03/04/java-xu-ni-ji-mian-jing/image-20201208220429240.png" class="">
+<span class="token punctuation">&#123;</span><span class="token operator">%</span> asset_img image<span class="token operator">-</span><span class="token number">20201208220429240.</span>png <span class="token operator">%</span><span class="token punctuation">&#125;</span>
 
-<p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201208220429240.png" alt="image-20201208220429240"></p>
-<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将常量池内的符号引用替换为直接引用的过程。</p>
-<p>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这7类符号引用进行。</p>
-<p><u>符号引用（Symbolic Refrence）</u>：符号引用以一组符号来描述所引用的目标。与虚拟机实现的内存布局无关。</p>
-<p><u>直接引用（Direct Reference）</u>：直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。与虚拟机实现的内存布局相关。如果有直接引用，引用目标必定已经在虚拟机的内存中（符号引用没有这种关系）。</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>通过程序编码制定的主观计划去<strong>初始化类变量和其他资源。（初始化阶段就是执行类构造器<code>&lt;clinit&gt;()</code>方法的过程)</strong></p>
+<span class="token operator">!</span><span class="token punctuation">[</span>image<span class="token operator">-</span><span class="token number">20201208220429240</span><span class="token punctuation">]</span><span class="token punctuation">(</span>java<span class="token operator">%</span>E8<span class="token operator">%</span><span class="token number">99</span><span class="token operator">%</span><span class="token number">9</span>A<span class="token operator">%</span>E6<span class="token operator">%</span><span class="token number">8</span>B<span class="token operator">%</span><span class="token number">9F</span><span class="token operator">%</span>E6<span class="token operator">%</span><span class="token number">9</span>C<span class="token operator">%</span>BA<span class="token operator">%</span>E9<span class="token operator">%</span><span class="token number">9D</span><span class="token operator">%</span>A2<span class="token operator">%</span>E7<span class="token operator">%</span>BB<span class="token operator">%</span><span class="token number">8F</span><span class="token operator">/</span>image<span class="token operator">-</span><span class="token number">20201208220429240.</span>png<span class="token punctuation">)</span>
+
+
+
+#### 解析 
+
+将常量池内的符号引用替换为直接引用的过程。
+
+解析动作主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这<span class="token number">7</span>类符号引用进行。
+
+<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>符号引用（<span class="token class-name">Symbolic</span> <span class="token class-name">Refrence</span>）<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>：符号引用以一组符号来描述所引用的目标。与虚拟机实现的内存布局无关。
+
+<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>直接引用（<span class="token class-name">Direct</span> <span class="token class-name">Reference</span>）<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>：直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。与虚拟机实现的内存布局相关。如果有直接引用，引用目标必定已经在虚拟机的内存中（符号引用没有这种关系）。
+
+#### 初始化
+
+通过程序编码制定的主观计划去<span class="token operator">*</span><span class="token operator">*</span>初始化类变量和其他资源。（初始化阶段就是执行类构造器`<span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>`方法的过程<span class="token punctuation">)</span><span class="token operator">*</span><span class="token operator">*</span>
+
+<span class="token operator">-</span> `<span class="token generics"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>`方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（<span class="token keyword">static</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>块）中的语句合并产生的，<span class="token generics"><span class="token punctuation">&lt;</span>u<span class="token punctuation">></span></span>编译器收集的顺序是由语句在源文件中<span class="token operator">*</span><span class="token operator">*</span>出现的顺序决定<span class="token operator">*</span><span class="token operator">*</span>的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在静态语句块可以赋值，凡是不能访问。<span class="token operator">&lt;</span><span class="token operator">/</span>u<span class="token operator">></span>
+
+  ```java
+  <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+      <span class="token keyword">static</span><span class="token punctuation">&#123;</span>
+          i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//i 后面定义，可以在static语句块中进行赋值</span>
+          <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//“非法向前引用”，编译器提示</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">static</span> <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p><code>&lt;clinit&gt;()</code>方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static{}块）中的语句合并产生的，<u>编译器收集的顺序是由语句在源文件中<strong>出现的顺序决定</strong>的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在静态语句块可以赋值，凡是不能访问。</u></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">static</span><span class="token punctuation">&#123;</span>
-        i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>   <span class="token comment">//i 后面定义，可以在static语句块中进行赋值</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//“非法向前引用”，编译器提示</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">static</span> <span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>不需要显式地调用父类构造器，Java虚拟机保证在子类的<code>&lt;clinit&gt;()</code>方法执行前，父类的<code>&lt;clinit&gt;()</code>方法已经执行完毕（父类定义的静态语句块优于子类的变量赋值操作</p>
 </li>
 <li><p><code>&lt;clinit&gt;()</code>方法对于类或接口不是非必须的，类中没有静态语句块，也没有对变量的赋值操作，编译器可以不为这个类生成<code>&lt;clinit&gt;()</code>方法</p>
@@ -672,8 +681,7 @@
 <p><img src="java%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%9D%A2%E7%BB%8F/image-20201215205024685.png" alt="image-20201215205024685"></p>
 <p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器（父子关系一般不是以继承的关系来实现，而是通常使用组合关系复用父加载器代码）</p>
 <p><strong>工作过程</strong>：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此。因此，所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。</p>
-<p>好处：</p>
-<h1 id="Java内存模型-Java-Memory-Mode-JMM"><a href="#Java内存模型-Java-Memory-Mode-JMM" class="headerlink" title="Java内存模型 Java Memory Mode, JMM"></a>Java内存模型 Java Memory Mode, JMM</h1><p>本身是一种抽象的概念，并不真实存在，它描述的是一组规范或规则，通过这组规范<strong>定义了程序中各个变量（包括实例字段、静态字段和构成数组对象的元素，不包括线程私有的局部变量和方法参数）的访问方式</strong>。</p>
+<h1 id="Java内存模型-JMM"><a href="#Java内存模型-JMM" class="headerlink" title="Java内存模型 JMM"></a>Java内存模型 JMM</h1><p>Java Memory Mode，本身是一种抽象的概念，并不真实存在，它描述的是一组规范或规则，通过这组规范<strong>定义了程序中各个变量（包括实例字段、静态字段和构成数组对象的元素，不包括线程私有的局部变量和方法参数）的访问方式</strong>。</p>
 <p><u>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存</u>(有些地方称为栈空间)，用于存储线程私有的数据，而<u>Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作(读取赋值等)必须在工作内存中进行</u>，首先要将变量从主内存拷贝的自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，工作内存中存储着主内存中的变量副本拷贝，前面说过，工作内存是每个线程的私有数据区域，因此<u>不同的线程间无法访问对方的工作内存，线程间的通信(传值)必须通过主内存来完成</u>，其简要访问过程如下图：</p>
 <img src="/2021/03/04/java-xu-ni-ji-mian-jing/20170608221857890" class="">
 
@@ -992,11 +1000,11 @@ LockSupport::parkUntil()方法。
           
       <div class="tabs tabs-comment">
         <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
             <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
+            <div class="tab-pane disqus" id="comment-disqus">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1005,7 +1013,7 @@ LockSupport::parkUntil()方法。
   </div>
   
             </div>
-            <div class="tab-pane disqus" id="comment-disqus">
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
               
   <div class="comments">
     <div id="disqus_thread">
@@ -1062,7 +1070,7 @@ LockSupport::parkUntil()方法。
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BAJVM"><span class="nav-number">1.</span> <span class="nav-text">虚拟机JVM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E8%99%9A%E6%8B%9F%E6%9C%BA-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-%E4%B8%8D%E5%90%8C%E4%BA%8EJava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">Java虚拟机 运行时数据区域 不同于Java内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">程序计数器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E6%89%80%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E8%A1%8C%E5%8F%B7%E6%8C%87%E7%A4%BA%E5%99%A8%E3%80%82%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E5%99%A8%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%B0%B1%E6%98%AF%E9%80%9A%E8%BF%87%E6%94%B9%E5%8F%98%E8%BF%99%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8%E7%9A%84%E5%80%BC%E6%9D%A5%E9%80%89%E5%8F%96%E4%B8%8B%E4%B8%80%E6%9D%A1%E9%9C%80%E8%A6%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%EF%BC%8C%E5%AE%83%E6%98%AF%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E6%B5%81%E7%9A%84%E6%8C%87%E7%A4%BA%E5%99%A8%EF%BC%8C%E5%88%86%E6%94%AF%E3%80%81%E5%BE%AA%E7%8E%AF%E3%80%81%E8%B7%B3%E8%BD%AC%E3%80%81%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E3%80%81%E7%BA%BF%E7%A8%8B%E6%81%A2%E5%A4%8D%E7%AD%89%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E9%83%BD%E9%9C%80%E8%A6%81%E4%BE%9D%E8%B5%96%E8%BF%99%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8%E6%9D%A5%E5%AE%8C%E6%88%90%E3%80%82"><span class="nav-number">2.1.0.0.0.1.</span> <span class="nav-text">当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">2.2.</span> <span class="nav-text">Java虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">2.3.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">2.4.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%A0%86-Java-Heap"><span class="nav-number">2.5.</span> <span class="nav-text">Java堆 Java Heap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA-Method-Area%EF%BC%8C%E9%9D%9E%E5%A0%86Non-Heap"><span class="nav-number">2.6.</span> <span class="nav-text">方法区 Method Area，非堆Non-Heap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">2.6.1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">垃圾收集器与内存分配策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E7%A1%AE%E8%AE%A4-%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB"><span class="nav-number">3.1.</span> <span class="nav-text">垃圾确认 确定对象是否存活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%90%86%E8%AE%BA"><span class="nav-number">3.2.1.</span> <span class="nav-text">分代收集理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">标记-复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.4.</span> <span class="nav-text">标记-整理算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%80%81%E5%B9%B4%E4%BB%A3%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E5%B9%B4%E8%BD%BB%E4%BB%A3%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B9%B4%E8%BD%BB%E4%BB%A3%E5%AF%B9%E8%B1%A1%E4%B8%8D%E4%BC%9A%E8%A2%AB%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">3.3.</span> <span class="nav-text">如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">虚拟机类加载机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-number">4.1.</span> <span class="nav-text">类加载的时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">验证</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.0.2.1.</span> <span class="nav-text">文件格式验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.0.2.2.</span> <span class="nav-text">元数据验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.0.2.3.</span> <span class="nav-text">字节码验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.0.2.4.</span> <span class="nav-text">符号引用验证</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">4.2.0.3.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.0.4.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.2.0.5.</span> <span class="nav-text">初始化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">4.3.1.</span> <span class="nav-text">类与类加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.3.2.</span> <span class="nav-text">双亲委派模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-Java-Memory-Mode-JMM"><span class="nav-number">5.</span> <span class="nav-text">Java内存模型 Java Memory Mode, JMM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JMM%E5%AD%98%E5%9C%A8%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">JMM存在的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMM%E6%8F%90%E4%BE%9B%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.2.</span> <span class="nav-text">JMM提供的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">5.2.1.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">5.2.2.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#happens-before%E5%8E%9F%E5%88%99"><span class="nav-number">5.2.3.</span> <span class="nav-text">happens-before原则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">Java与线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">线程安全与锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">7.1.1.</span> <span class="nav-text">互斥同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">7.1.2.</span> <span class="nav-text">非阻塞同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="nav-number">7.1.3.</span> <span class="nav-text">无同步方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E4%BC%98%E5%8C%96"><span class="nav-number">7.2.</span> <span class="nav-text">锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%97%8B%E9%94%81%E4%B8%8E%E8%87%AA%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B"><span class="nav-number">7.2.1.</span> <span class="nav-text">自旋锁与自适应自旋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E6%B6%88%E9%99%A4"><span class="nav-number">7.2.2.</span> <span class="nav-text">锁消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E7%B2%97%E5%8C%96"><span class="nav-number">7.2.3.</span> <span class="nav-text">锁粗化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">7.2.4.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="nav-number">7.2.5.</span> <span class="nav-text">偏向锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E4%BB%8E%E7%94%9F%E6%88%90%E5%88%B0%E5%9B%9E%E6%94%B6"><span class="nav-number">8.</span> <span class="nav-text">对象从生成到回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">8.2.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">9.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">10.</span> <span class="nav-text">对象的访问定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">11.</span> <span class="nav-text">对象的分配策略</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BAJVM"><span class="nav-number">1.</span> <span class="nav-text">虚拟机JVM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="nav-number">2.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E6%A0%88"><span class="nav-number">2.2.</span> <span class="nav-text">JVM栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">2.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%A0%86"><span class="nav-number">2.4.</span> <span class="nav-text">Java堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA-Method-Area"><span class="nav-number">2.5.</span> <span class="nav-text">方法区 Method Area</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">2.5.1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">垃圾收集器与内存分配策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E7%A1%AE%E8%AE%A4-%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB"><span class="nav-number">3.1.</span> <span class="nav-text">垃圾确认 确定对象是否存活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%90%86%E8%AE%BA"><span class="nav-number">3.2.1.</span> <span class="nav-text">分代收集理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">标记-复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-number">3.2.4.</span> <span class="nav-text">标记-整理算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E8%80%81%E5%B9%B4%E4%BB%A3%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E5%B9%B4%E8%BD%BB%E4%BB%A3%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B9%B4%E8%BD%BB%E4%BB%A3%E5%AF%B9%E8%B1%A1%E4%B8%8D%E4%BC%9A%E8%A2%AB%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">3.3.</span> <span class="nav-text">如果老年代对象引用年轻代对象，年轻代对象不会被垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">虚拟机类加载机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-number">4.1.</span> <span class="nav-text">类加载的时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.2.1.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.2.</span> <span class="nav-text">验证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">文件格式验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">元数据验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.2.3.</span> <span class="nav-text">字节码验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8%E9%AA%8C%E8%AF%81"><span class="nav-number">4.2.2.4.</span> <span class="nav-text">符号引用验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">4.2.3.</span> <span class="nav-text">准备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%B8%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">4.3.1.</span> <span class="nav-text">类与类加载器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.3.2.</span> <span class="nav-text">双亲委派模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-JMM"><span class="nav-number">5.</span> <span class="nav-text">Java内存模型 JMM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JMM%E5%AD%98%E5%9C%A8%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">JMM存在的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JMM%E6%8F%90%E4%BE%9B%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.2.</span> <span class="nav-text">JMM提供的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">5.2.1.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">5.2.2.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#happens-before%E5%8E%9F%E5%88%99"><span class="nav-number">5.2.3.</span> <span class="nav-text">happens-before原则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">Java与线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">线程安全与锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">线程安全的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">7.1.1.</span> <span class="nav-text">互斥同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5"><span class="nav-number">7.1.2.</span> <span class="nav-text">非阻塞同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="nav-number">7.1.3.</span> <span class="nav-text">无同步方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E4%BC%98%E5%8C%96"><span class="nav-number">7.2.</span> <span class="nav-text">锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%97%8B%E9%94%81%E4%B8%8E%E8%87%AA%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B"><span class="nav-number">7.2.1.</span> <span class="nav-text">自旋锁与自适应自旋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E6%B6%88%E9%99%A4"><span class="nav-number">7.2.2.</span> <span class="nav-text">锁消除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E7%B2%97%E5%8C%96"><span class="nav-number">7.2.3.</span> <span class="nav-text">锁粗化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">7.2.4.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="nav-number">7.2.5.</span> <span class="nav-text">偏向锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E4%BB%8E%E7%94%9F%E6%88%90%E5%88%B0%E5%9B%9E%E6%94%B6"><span class="nav-number">8.</span> <span class="nav-text">对象从生成到回收</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">8.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">8.2.</span> <span class="nav-text">垃圾回收</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">9.</span> <span class="nav-text">对象的内存布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">10.</span> <span class="nav-text">对象的访问定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">11.</span> <span class="nav-text">对象的分配策略</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1199,23 +1207,6 @@ LockSupport::parkUntil()方法。
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : '' || 'https://disqus.com/api/',
-      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
-      shortname : 'https-tinghl-com',
-      url       : "http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/",
-      identifier: "2021/03/04/java-xu-ni-ji-mian-jing/",
-      title     : "java虚拟机面经",
-    });
-  }, window.DisqusJS);
-});
-</script>
-
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -1245,6 +1236,23 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : '' || 'https://disqus.com/api/',
+      apikey    : '7TXwQDm2SxU7NfAXe6hq8uOZYV5OWGu88rY2xlKOXMZVQWAqGeLTDGZccpE3z4WS',
+      shortname : 'https-tinghl-com',
+      url       : "http://tinghl.github.io/2021/03/04/java-xu-ni-ji-mian-jing/",
+      identifier: "2021/03/04/java-xu-ni-ji-mian-jing/",
+      title     : "java虚拟机面经",
+    });
+  }, window.DisqusJS);
+});
 </script>
 
 </body>
