@@ -11597,4 +11597,474 @@ history_bt<span class="token punctuation">.</span><span class="token function">s
         <tag>Java</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Pro Git notes</title>
+    <url>/2021/03/16/pro-git-notes/</url>
+    <content><![CDATA[<p>参考链接：</p>
+<ul>
+<li><a href="https://git-scm.com/book">https://git-scm.com/book</a></li>
+</ul>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><h2 id="The-Difference-between-Git-and-other-VCS"><a href="#The-Difference-between-Git-and-other-VCS" class="headerlink" title="The Difference between Git and other VCS"></a>The Difference between Git and other VCS</h2><p>Most other systems store information as a list of file-based changes. These other systems think of the information they store as a set of files and the changes made to each file over time (this is commonly described as delta-based version control).</p>
+<p>Git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.  To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.</p>
+<img src="/2021/03/16/pro-git-notes/image-20210316162215022.png" class="">
+
+<img src="/2021/03/16/pro-git-notes/image-20210316162241726.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210316162215022.png" alt="image-20210316162215022"></p>
+<p><img src="Pro-Git-notes/image-20210316162241726.png" alt="image-20210316162241726"></p>
+<h2 id="The-Three-States"><a href="#The-Three-States" class="headerlink" title="The Three States"></a>The Three States</h2><p>Git has three main states that your files can reside in: <strong>modified, staged, and commited</strong>.</p>
+<ul>
+<li><code>Modified</code> means that you have changed the file but have not commited it to your database yet.</li>
+<li><code>Staged</code> means that you have marked a modified file in its current version to go into your next commit snapshot.</li>
+<li><code>Commited</code> means that the data is safely stored in your local database.</li>
+</ul>
+<p>This leads to thress main sections of a Git project: <strong>the working tree, the staging tree, and the Git directory</strong>.</p>
+<p><strong>The working tree</strong> is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.<br><strong>The staging area</strong> is a file, generally contained in your Git directory, that stores information about what will go into your next commit. Its technical name in Git parlance is the “index”, but the phrase “staging area” works just as well.<br><strong>The Git directory</strong> is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.</p>
+<img src="/2021/03/16/pro-git-notes/image-20210316170647119.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210316170647119.png" alt="image-20210316170647119"></p>
+<h2 id="The-basic-Git-workflow"><a href="#The-basic-Git-workflow" class="headerlink" title="The basic Git workflow"></a>The basic Git workflow</h2><p>The basic Git workflow goes something like this:</p>
+<ol>
+<li>You modified files in your working tree.</li>
+<li>You selectively stage just those changes you want to be part of your next commit, which adds only those changes to the staging area.</li>
+<li>You do a commit, which takes the files as they are in the staging area and stores that snapshot permanent to your Git directory. </li>
+</ol>
+<h2 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h2><p>a tool called <code>git config</code> that lets you get and set configuration variables that control all aspects of how Git looks and operates. These variables can be stored in three different places:</p>
+<ol>
+<li><code>[path]/etc/gitconfig</code> file: contains values applied to every user on the system and all their repositories. This is a system configuration file. If you pass the option <code>--system</code> to git config, it reads and writes from this file specifically.</li>
+<li><code>~/.gitconfig</code> or <code>~/.config/git/config</code> file: Values specific personally to you, the user. You can make make Git read and write to this file specifically by passing the <code>--global</code> option, and this affects all of the repositories you work with on your system.</li>
+<li><code>config</code> file in the Git directory of whatever repository you’re currently using: Specific to that single repository. You can force Git to read from and write to this file with the –local option, but that is in fact the default. Unsurprisingly, you need to be located somewhere in a Git repository for this option to work properly.</li>
+</ol>
+<p>Each level overrides values in the previous level, so values in <code>.git/config</code> trump those in <code>[path]/etc/gitconfig.</code></p>
+<h2 id="Default-Branch-Name"><a href="#Default-Branch-Name" class="headerlink" title="Default Branch Name"></a>Default Branch Name</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git config <span class="token operator">--</span>global init<span class="token punctuation">.</span>defaultBranch main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Checking-Your-Settings"><a href="#Checking-Your-Settings" class="headerlink" title="Checking Your Settings"></a>Checking Your Settings</h2><p>show all configurations</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git config <span class="token operator">--</span>list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>show the specific value</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git config &lt;key><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="Git-Basic"><a href="#Git-Basic" class="headerlink" title="Git Basic"></a>Git Basic</h1><h2 id="Clone-an-Existing-Repository"><a href="#Clone-an-Existing-Repository" class="headerlink" title="Clone an Existing Repository"></a>Clone an Existing Repository</h2><p>If you want to clone the repository into a directory named something other than <code>libgit2</code>, you can specify the new directory name as an additional argument:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git clone https:<span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>libgit2<span class="token operator">/</span>libgit2 mylibgit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>The <code>git clone</code> command automatically sets up your local <code>master</code> branch to track the remote <code>master</code> branch (or whatever the default branch is called) on the server you cloned from.</p>
+<h2 id="Recording-Changes-to-the-Repository"><a href="#Recording-Changes-to-the-Repository" class="headerlink" title="Recording Changes to the Repository"></a>Recording Changes to the Repository</h2><p>the each file in working directory can be in one of two stages: <code>tracked</code> and <code>untracked</code>. </p>
+<p>Tracked files are files that were in the last snapshot; <u>they can be unmodified, modified, or staged.</u></p>
+<p>Untracked files are everything else - any files in working directory that were not in your last snapshot and are not in your staging area. When you first clone a repository, all of your files will be tracked and unmodified because Git just checked them out and you haven’t edited anything.</p>
+<img src="/2021/03/16/pro-git-notes/image-20210316205012937.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210316205012937.png" alt="image-20210316205012937"></p>
+<h3 id="checking-the-status-of-your-file"><a href="#checking-the-status-of-your-file" class="headerlink" title="checking the status of your file"></a>checking the status of your file</h3><p>The main tool you use to determine which files are in which state is the <code>git status</code> command.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Tracking-new-files"><a href="#Tracking-new-files" class="headerlink" title="Tracking new files"></a>Tracking new files</h3><p>In order to begin tracking a new file, you use the command <code>git add</code>.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git add file_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Staging-Modified-Files"><a href="#Staging-Modified-Files" class="headerlink" title="Staging Modified Files"></a>Staging Modified Files</h3><p>To staged the file that is tracked has been modified in the working directory but not yet staged. To stage it, you run the <code>git add</code> command.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git add file_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>git add</code> is a multipurpose command – you use it to began tracking new files, to stage files, and to do other things like marking merge-conflicted files as resolved.</p>
+<h3 id="Short-Status"><a href="#Short-Status" class="headerlink" title="Short Status"></a>Short Status</h3><p>If you run <code>git status -s</code> or <code>git status --short</code> you get a far more simplified output from the command:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git status <span class="token operator">-</span>s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>??</code> – new files that aren’t tracked have a <code>??</code> next to them</p>
+<p><code>A</code> – new files that have been added to the staging area have an <code>A</code></p>
+<p><code>M</code> – modified files have an <code>M</code></p>
+<img src="/2021/03/16/pro-git-notes/image-20210317200431941.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210317200431941.png" alt="image-20210317200431941"></p>
+<h3 id="Ignoring-Files"><a href="#Ignoring-Files" class="headerlink" title="Ignoring Files"></a>Ignoring Files</h3><p>The rules for the patterns in the <code>.gitignore</code> file as follows:</p>
+<ul>
+<li>Blank lines or lines starting with <code>#</code> are ignored.</li>
+<li>Standard glob patterns work, and will be applied recursively throughout the entire working tree.</li>
+<li>You can start patterns with <code>a forward slash (/)</code> to avoid recursivity.</li>
+<li>You can end patterns with <code>a forward slash (/)</code> to specify a directory.</li>
+<li>You can negate a pattern by starting it with <code>an exclamation point (!)</code>.</li>
+</ul>
+<p>An <code>asterisk (*)</code> matches zero or more characters; <code>[abc]</code> matches any character inside the brackets (in this case a, b, or c); a question mark (<code>?</code>) matches a single character; and brackets enclosing characters separated by a hyphen (<code>[0-9]</code>) matches any character between them (in this case 0 through 9). You can also use two asterisks to match nested directories; <code>a/**/z</code> would match <code>a/z</code>, <code>a/b/z</code>, <code>a/b/c/z</code>, and so on.</p>
+<h3 id="Viewing-Your-staged-and-Unstaged-Changes"><a href="#Viewing-Your-staged-and-Unstaged-Changes" class="headerlink" title="Viewing Your staged and Unstaged Changes"></a>Viewing Your staged and Unstaged Changes</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#This command only compares what is in your working directory with what is in your staging area.</span>
+git <span class="token function">diff</span>
+
+<span class="token comment">#This command compares your staged changes to your last commit.</span>
+git <span class="token function">diff</span> <span class="token operator">--</span>staged
+
+<span class="token comment">#This command to see what you've staged so far (--staged and --cached are synonyms)</span>
+git <span class="token function">diff</span> <span class="token operator">--</span>cached<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Skipping-the-Staging-Area"><a href="#Skipping-the-Staging-Area" class="headerlink" title="Skipping the Staging Area"></a>Skipping the Staging Area</h3><p>Adding the <code>-a</code> option to the <code>git commit</code> command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the <code>git add</code> part: </p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git commit <span class="token operator">-</span>a <span class="token operator">-</span>m <span class="token string">"xxxx"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Removing-Files"><a href="#Removing-Files" class="headerlink" title="Removing Files"></a>Removing Files</h3><p>If you simply remove the file from your working directory, it shows up under the “Changes not staged for commit” (that is, unstaged) area of your git status output.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#This command removes the file from your tracked files (more accurately, remove it from your staging area) and then commit. And it also removes the file from your working directory. The next time you commit, the file will be gone and no longer tracked.</span>
+git <span class="token function">rm</span> file_name
+
+<span class="token comment"># -f option </span>
+<span class="token comment"># If you modified the file or had already added it to the staging area, you must force the removal with -f option</span>
+git <span class="token function">rm</span> <span class="token operator">-</span>f file_name
+
+<span class="token comment">#--cached option</span>
+<span class="token comment">#The command will keep the file in your working tree but remove it from your staging area.</span>
+git <span class="token function">rm</span> <span class="token operator">--</span>cached file_name<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Viewing-the-Commit-History"><a href="#Viewing-the-Commit-History" class="headerlink" title="Viewing the Commit History"></a>Viewing the Commit History</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#-p or --patch shows the difference(the patch output) introduced in each commit.</span>
+git log <span class="token operator">-</span>p 
+
+<span class="token comment">#limit the number of log entries displayed, such as using -2 to show the last two entries</span>
+git log <span class="token operator">-</span>p <span class="token operator">-</span>2
+
+<span class="token comment"># --stat option can be used to see some abbreviated stats for each commit.</span>
+<span class="token comment"># the --stat option prints below each commit entry a list of modified files, how may files were changed, and how many lines in those files were added and removed.</span>
+git log <span class="token operator">--</span>stat
+
+<span class="token comment"># --format allows you to specify your own log output format</span>
+git log <span class="token operator">--</span>pretty=format:<span class="token string">"%h - %an, %ar:%s"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210318141343575.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210318141343575.png" alt="image-20210318141343575"></p>
+<p>Common options to <code>git log</code> as follows:</p>
+<img src="/2021/03/16/pro-git-notes/image-20210318142014811.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210318142014811.png" alt="image-20210318142014811"></p>
+<h3 id="Limiting-Log-Output"><a href="#Limiting-Log-Output" class="headerlink" title="Limiting Log Output"></a>Limiting Log Output</h3><ul>
+<li><p><code>--since</code> and <code>--until</code> are the time-limiting options. For example:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># this command gets the list of commits made in the last two weeks</span>
+git log <span class="token operator">--</span>since=2<span class="token punctuation">.</span>weeks<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p><code>-author</code> option allows you to filter on a specific author</p>
+</li>
+<li><p><code>-grep</code> option lets you search for keywords in the commit messages.</p>
+</li>
+<li><p><code>-S</code> option which takes a string and shows only those commits that changed the number of occurrences of that string.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git log <span class="token operator">-</span>S function_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210318150302718.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210318150302718.png" alt="image-20210318150302718"></p>
+</li>
+<li><p><code>--</code> the path as a filter pass to <code>git log</code></p>
+<p>This is always the last option and is generally preceded by double dashes(–) to separate the paths from the options:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git log <span class="token operator">--</span> path<span class="token operator">/</span>to<span class="token operator">/</span>file<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>Options to limit the output of <code>git log</code></p>
+<img src="/2021/03/16/pro-git-notes/image-20210318150949754.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210318150949754.png" alt="image-20210318150949754"></p>
+</li>
+<li></li>
+</ul>
+<h2 id="Undoing-Things"><a href="#Undoing-Things" class="headerlink" title="Undoing Things"></a>Undoing Things</h2><h3 id="amend"><a href="#amend" class="headerlink" title="amend"></a>amend</h3><ul>
+<li><p><code>git commit --amend</code> </p>
+<p>When you commit too early and possibly forget to add some files, or you mess up your commit message. If you want to redo that commit, make the additional changes you forgot, stage them, and commit again using the <code>--amend</code> option.</p>
+<p>Only amend commits that are still local and have not been pushed somewhere.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># This command takes your staging area and uses it for the commit</span>
+git commit <span class="token operator">--</span>amend
+
+<span class="token comment"># for example:</span>
+git commit <span class="token operator">-</span>m <span class="token string">'Initial commit'</span>
+git add forgotten_file
+git commit <span class="token operator">-</span>amend<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li></li>
+</ul>
+<h3 id="Unstaging-a-Staged-File"><a href="#Unstaging-a-Staged-File" class="headerlink" title="Unstaging a Staged File"></a>Unstaging a Staged File</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git reset HEAD filename<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210318193211289.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210318193211289.png" alt="image-20210318193211289"></p>
+<h3 id="Unmodifying-a-Modified-File"><a href="#Unmodifying-a-Modified-File" class="headerlink" title="Unmodifying a Modified File"></a>Unmodifying a Modified File</h3><ul>
+<li><p><code>git checkout -- file_name</code> </p>
+<p>  Any local changes you made to that file are gone.</p>
+  <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git checkout <span class="token operator">--</span> file_name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+  <img src="/2021/03/16/pro-git-notes/image-20210318193458384.png" class="">
+<p>  <img src="Pro-Git-notes/image-20210318193458384.png" alt="image-20210318193458384"></p>
+</li>
+<li></li>
+</ul>
+<h3 id="Undoing-things-with-git-restore"><a href="#Undoing-things-with-git-restore" class="headerlink" title="Undoing things with git restore"></a>Undoing things with git restore</h3><h4 id="Unstaging-a-Staged-File-with-git-restore"><a href="#Unstaging-a-Staged-File-with-git-restore" class="headerlink" title="Unstaging a Staged File with git restore"></a>Unstaging a Staged File with git restore</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git restore <span class="token operator">--</span>staged &lt;file><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="Unmodifying-a-Modified-File-with-git-restore"><a href="#Unmodifying-a-Modified-File-with-git-restore" class="headerlink" title="Unmodifying a Modified File with git restore"></a>Unmodifying a Modified File with git restore</h4><p>Any local changes you made to that file are gone – Git just replaced that file with the last staged or commited version.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git restore &lt;file><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Working-with-Rmotes"><a href="#Working-with-Rmotes" class="headerlink" title="Working with Rmotes"></a>Working with Rmotes</h2><h3 id="Showing-Your-Remotes"><a href="#Showing-Your-Remotes" class="headerlink" title="Showing Your Remotes"></a>Showing Your Remotes</h3><p>Git要求每个远程主机都必须指定一个主机名。<code>git remote</code>命令用于管理主机名。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># It lists the shortname of each remote handle you've specified. If you've cloned your respository, you should at least see origin. origin is the default name Git gives to the server you cloned from:</span>
+git remote<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210320103500747.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210320103500747.png" alt="image-20210320103500747"></p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># This command shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote</span>
+git remote <span class="token operator">-</span>v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210320104429744.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210320104429744.png" alt="image-20210320104429744"></p>
+<h3 id="Adding-Remote-Repositories"><a href="#Adding-Remote-Repositories" class="headerlink" title="Adding Remote Repositories"></a>Adding Remote Repositories</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git remote add &lt;主机名> &lt;网址><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>for example:</p>
+<img src="/2021/03/16/pro-git-notes/image-20210320121530799.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210320121530799.png" alt="image-20210320121530799"></p>
+<h3 id="Delete-Remote-Repositories"><a href="#Delete-Remote-Repositories" class="headerlink" title="Delete Remote Repositories"></a>Delete Remote Repositories</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git remote <span class="token function">rm</span> &lt;主机名><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Rename-Remote-Repositories"><a href="#Rename-Remote-Repositories" class="headerlink" title="Rename Remote Repositories"></a>Rename Remote Repositories</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git remote rename &lt;原主机名> &lt;新主机名><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Fetching-and-Pulling-from-Your-Remotes"><a href="#Fetching-and-Pulling-from-Your-Remotes" class="headerlink" title="Fetching and Pulling from Your Remotes"></a>Fetching and Pulling from Your Remotes</h3><p>先行概念：</p>
+<ul>
+<li><code>FETCH_HEAD</code>：版本链接，记录在本地的一个文件中，指向目前已经从远程仓库取下来的分支的末端版本</li>
+<li><code>commit-id</code>：每次本地工作完成后，使用<code>git commit</code>操作来保存当前工作到本地的<code>repo</code>，此时会产生一个<code>commit-id</code>，这是一个能唯一标识一个版本的序列号。在使用<code>git push</code>后，这个序列号还会同步到远程仓库</li>
+</ul>
+<ol>
+<li><p>**git fetch ** – 不会自动合并</p>
+<p>将更新<code>git remote</code> 中所有的远程仓库所包含分支的最新的<code>commit-id</code>，并将其记录到<code>.git/FETCH_HEAD    </code>文件中</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#Step one:</span>
+<span class="token comment">#将某个远程主机的更新全部取回本地，默认情况下，取回所有分支的更新</span>
+git fetch &lt;远程主机名>
+
+<span class="token comment"># 取回特定分支的更新，指定分支名</span>
+git fetch &lt;远程主机名> &lt;分支名>
+
+<span class="token comment">#A power move which fetches all registered remotes and their branches.</span>
+git fetch <span class="token operator">--</span>all
+
+<span class="token comment">#Step Two</span>
+<span class="token comment"># Using the git checkout command to checkout the newly downloaded remote branch. </span>
+git checkout &lt;分支名>
+
+<span class="token comment">#Step Three</span>
+<span class="token comment">#We could create a new branch to develop from the latest remote content.</span>
+git checkout <span class="token operator">-</span>b &lt;新分支名>
+
+
+
+
+<span class="token comment">#在本地新建一个tmp分支，并将远程origin仓库的master分支代码下载到本地temp分支</span>
+git fetch origin master:tmp
+<span class="token comment">#来比较本地代码与刚刚从远程下载下来的代码的区别</span>
+git <span class="token function">diff</span> tmp
+<span class="token comment">#合并temp分支到本地的master分支</span>
+git merge tmp
+<span class="token comment">#如果不想保留temp分支 可以使用此步删除</span>
+git branch <span class="token operator">-</span>d temp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>git pull</strong> – 自动合并</p>
+<p><code>git pull</code> == <code>git fetch</code> +  <code>git merge</code></p>
+<p>首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后<code>git fetch</code>获取当前指向的远程分支的后续版本的数据，然后再利用<code>git merge</code>将其与本地的当前分支合并。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#取回远程主机某个分支的更新，再与本地的指定分支合并</span>
+git pull &lt;远程主机名> &lt;远程分支名>:&lt;本地分支名>
+
+<span class="token comment">#for example</span>
+<span class="token comment">#将远程分支的next分支与本地的master分支合并</span>
+git pull origin next:master
+<span class="token comment">#如果远程分支是与当前分支合并，则冒号后的部分可以省略(同理，取回origin/next分支，再与当前分支合并)</span>
+git pull origin next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li></li>
+</ol>
+<h3 id="Pushing-to-Your-Remotes"><a href="#Pushing-to-Your-Remotes" class="headerlink" title="Pushing to Your Remotes"></a>Pushing to Your Remotes</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git push &lt;远程主机名> &lt;本地分支名>:&lt;远程分支名>
+
+<span class="token comment"># for example</span>
+<span class="token comment"># If you want to push your master branch to your origin server</span>
+git push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Inspecting-a-Remote"><a href="#Inspecting-a-Remote" class="headerlink" title="Inspecting a Remote"></a>Inspecting a Remote</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#To see a more information about a particular remote</span>
+<span class="token comment">#It lists the URL for the remote repository as well as the tracking branch information.</span>
+git remote show &lt;remote><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210322163703998.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210322163703998.png" alt="image-20210322163703998"></p>
+<p>手动建立追踪关系</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#指定master分支追踪origin/next分支</span>
+git branch <span class="token operator">--</span><span class="token function">set-upstream</span> master origin<span class="token operator">/</span>next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="Renaming-and-Removing-Remotes"><a href="#Renaming-and-Removing-Remotes" class="headerlink" title="Renaming and Removing Remotes"></a>Renaming and Removing Remotes</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#To change a remote's shortname</span>
+<span class="token comment">#this also changes all your remote-tracking branch names</span>
+git remote rename &lt;old_remote_name> &lt;new_remote_name>
+
+<span class="token comment">#Remove a remote for some reason</span>
+<span class="token comment">#Once you delete the reference to a remote this way, all remote-tracking branches and configuration settings associated with that remote  are also deleted.</span>
+git remote remove &lt;remote><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Tagging"><a href="#Tagging" class="headerlink" title="Tagging"></a>Tagging</h2><h3 id="Listing-Tags"><a href="#Listing-Tags" class="headerlink" title="Listing Tags"></a>Listing Tags</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#The command lists the tags in alphabetical order</span>
+git tag
+
+<span class="token comment">#Search for tags that match a particular pattern</span>
+git tag <span class="token operator">-</span>l &lt;pattern><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Creating-Tags"><a href="#Creating-Tags" class="headerlink" title="Creating Tags"></a>Creating Tags</h3><p>Two types of tags: <em>lightweight</em> and <em>annotated</em>.</p>
+<p>A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit.</p>
+<p>Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG).</p>
+<h3 id="Annotated-Tags"><a href="#Annotated-Tags" class="headerlink" title="Annotated Tags"></a>Annotated Tags</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># -m specifies a tagging message, which is sorted with the tag</span>
+git tag <span class="token operator">-</span>a &lt;version tags> <span class="token operator">-</span>m &lt;comment>
+<span class="token comment"># for example</span>
+git tag <span class="token operator">-</span>a v1<span class="token punctuation">.</span>4 <span class="token operator">-</span>m <span class="token string">"my version 1.4"</span>
+git tag <span class="token operator">--</span>annotate v1<span class="token punctuation">.</span>4 <span class="token operator">-</span>m <span class="token string">"my version 1.4"</span>
+
+
+<span class="token comment"># See the tag data along with the commit that was tagged</span>
+git show &lt;tag_name>
+<span class="token comment"># for example</span>
+git show v1<span class="token punctuation">.</span>4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210322194403240.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210322194403240.png" alt="image-20210322194403240"></p>
+<h3 id="Lightweight-Tags"><a href="#Lightweight-Tags" class="headerlink" title="Lightweight Tags"></a>Lightweight Tags</h3><p><strong>This is basically the commit checksum stored in a file</strong> – no other information is kept. To create a lightweight tag, don’t supply any of the <code>-a</code>, <code>-s</code>, or <code>-m</code> options, just provide a tag name:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git tag &lt;tag_name>
+<span class="token comment"># for example</span>
+git tag v1<span class="token punctuation">.</span>4<span class="token operator">-</span>lw<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Tagging-Latter"><a href="#Tagging-Latter" class="headerlink" title="Tagging Latter"></a>Tagging Latter</h3><p>Tag commits after you’ve moved pass them.</p>
+<img src="/2021/03/16/pro-git-notes/image-20210322205556744.png" class="">
+
+<img src="/2021/03/16/pro-git-notes/image-20210322205609204.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210322205556744.png" alt="image-20210322205556744"></p>
+<p><img src="Pro-Git-notes/image-20210322205609204.png" alt="image-20210322205609204"></p>
+<h3 id="Sharing-Tags"><a href="#Sharing-Tags" class="headerlink" title="Sharing Tags"></a>Sharing Tags</h3><p>By default, the <code>git push</code> command dosen’t transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them. You can run <code>git push origin &lt;tagname&gt;</code></p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git push origin &lt;tagname>
+<span class="token comment"># for example</span>
+git push origin v1<span class="token punctuation">.</span>5
+
+<span class="token comment"># If you have a lot of tags that you want to push up at once, you can also use the --tags option to git push command</span>
+git push origin <span class="token operator">--</span>tags
+
+<span class="token comment"># git push pushes both types of tags</span>
+<span class="token comment"># There is currently no option to push only lightweight tags, but if you use `git push &lt;remote> --follow-tags` only annotated tags will be pushed to the remote.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Deleting-Tags"><a href="#Deleting-Tags" class="headerlink" title="Deleting Tags"></a>Deleting Tags</h3><p>We could remove lightweight tag above as follows:</p>
+<ul>
+<li><p>Step One，but this does not remove the tag from any remote servers<br>git tag -d <tagname></p>
+<pre class="line-numbers language-none"><code class="language-none">git tag -d v1.4-lw<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>Step Two: There are two common variations for deleting a tag from a remote server.</p>
+<ul>
+<li><p>first variation: <code>git push &lt;remote&gt; :refs/tags/&lt;tagname&gt;</code></p>
+<pre class="line-numbers language-none"><code class="language-none">git push origin :refs&#x2F;tags&#x2F;v1.4-lw<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>second variation: <code>git push origin --delete &lt;tagname&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Checking-out-Tags"><a href="#Checking-out-Tags" class="headerlink" title="Checking out Tags"></a>Checking out Tags</h3><p>If you want to view the versions of files a tag is pointing to, you can do a <code>git checkout</code> of that tag.</p>
+<pre class="line-numbers language-none"><code class="language-none">git checkout &lt;tagname&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>If you want to make changes, you will generally want to create a branch:</p>
+<pre class="line-numbers language-none"><code class="language-none">git checkout -b &lt;new branch name&gt; &lt;tag name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="Git-Aliases"><a href="#Git-Aliases" class="headerlink" title="Git Aliases"></a>Git Aliases</h2><p>You can easily set up an alias for each command using <code>git config</code>. Here are a couple of examples you may want to set up:</p>
+<pre class="line-numbers language-none"><code class="language-none">#git co resprensent checkout
+git config --global alisa.co checkout
+git config --global alisa.br branch
+git config --global alias.ci commit  
+git config --global alias.st status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="Git-Branching"><a href="#Git-Branching" class="headerlink" title="Git Branching"></a>Git Branching</h1><h2 id="Branches-in-Nutshell"><a href="#Branches-in-Nutshell" class="headerlink" title="Branches in Nutshell"></a>Branches in Nutshell</h2><h3 id="creating-a-new-branch"><a href="#creating-a-new-branch" class="headerlink" title="creating a new branch"></a>creating a new branch</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 创建新的分支 </span>
+<span class="token comment"># This creates a new pointer to the same commit you're currently on </span>
+<span class="token comment"># It didn't switch to that branch.</span>
+git branch &lt;new_branch_name>
+
+<span class="token comment"># This command will shows you where the branch poniter are pointing.</span>
+git log <span class="token operator">--</span>oneline <span class="token operator">--</span>decorate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Git keeps a special pointer called <code>HEAD</code>. In Git, this is a pointer to the local branch you’re currently on.</p>
+<img src="/2021/03/16/pro-git-notes/image-20210330164806205.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210330164806205.png" alt="image-20210330164806205"></p>
+<h3 id="Switching-Branches"><a href="#Switching-Branches" class="headerlink" title="Switching Branches"></a>Switching Branches</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#To switch an exsiting branch, you run the git check command.</span>
+<span class="token comment">#This command moves HEAD to target_branch_name</span>
+git checkout &lt;target_branch_name>
+
+<span class="token comment">#for example</span>
+git checkout testing
+vim test<span class="token punctuation">.</span>rb
+git commit <span class="token operator">-</span>a <span class="token operator">-</span>m <span class="token string">"made a change"</span>
+<span class="token comment"># When the before command finished, your testing branch has moved forward, but your master branch still points to the commit you were on when you ran git checkout to switch branches.</span>
+
+<span class="token comment">#After you used 'git checkout master' and 'git log', you might wonder where the "testing" branch you just created went, as it would not appear in the output.</span>
+<span class="token comment">#`git log` will only show commit history below the branch you've checked out.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2021/03/16/pro-git-notes/image-20210330165459567.png" class="">
+
+<img src="/2021/03/16/pro-git-notes/image-20210330165815391.png" class="">
+
+<img src="/2021/03/16/pro-git-notes/image-20210330172411230.png" class="">
+
+<p><img src="Pro-Git-notes/image-20210330165459567.png" alt="image-20210330165459567"></p>
+<p><img src="Pro-Git-notes/image-20210330165815391.png" alt="image-20210330165815391"></p>
+<p><img src="Pro-Git-notes/image-20210330172411230.png" alt="image-20210330172411230"></p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">#creating a new branch and switching to it at the same time</span>
+git checkout <span class="token operator">-</span>b &lt;new branch name>
+
+<span class="token comment">#From git version 2.23 onwards you can use git switch instead of git checkout to:</span>
+<span class="token comment">#switch to an exsiting branch</span>
+git <span class="token keyword">switch</span> testing<span class="token operator">-</span>branch
+<span class="token comment">#create a new branch and switch to it</span>
+git <span class="token keyword">switch</span> <span class="token operator">-</span>c <span class="token function">new-branch</span>
+git <span class="token keyword">switch</span> <span class="token operator">-</span>create <span class="token function">new-branch</span>
+<span class="token comment">#Return to your previously checked out branch</span>
+git <span class="token keyword">switch</span> <span class="token operator">-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Basic-Branching-and-Merging"><a href="#Basic-Branching-and-Merging" class="headerlink" title="Basic Branching and Merging"></a>Basic Branching and Merging</h2><h3 id="Basic-Merging"><a href="#Basic-Merging" class="headerlink" title="Basic Merging"></a>Basic Merging</h3><h3 id="Basic-Merge-Conflicts"><a href="#Basic-Merge-Conflicts" class="headerlink" title="Basic Merge Conflicts"></a>Basic Merge Conflicts</h3><p>If you want to use a graphical tool to resolve these issues, you can run <code>git mergetool</code>, which fires up an appropriate visual merge tool and walks you through the conflicts.</p>
+<h2 id="Branch-Management"><a href="#Branch-Management" class="headerlink" title="Branch Management"></a>Branch Management</h2><p><code>git branch</code> command can be used to create, delete branches. It also can be used to list your current branches:</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git branch <span class="token operator">-</span>v
+git branch &lt;new_branch_name>
+git branch <span class="token operator">-</span>d &lt;branch_name><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Changing-a-branch-name"><a href="#Changing-a-branch-name" class="headerlink" title="Changing a branch name"></a>Changing a branch name</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># rename the branch locally</span>
+git branch <span class="token operator">--</span><span class="token function">move</span> &lt;old_branch_name> &lt;new_branch_name>
+
+<span class="token comment"># To let others see the new branch name on the remote,push it:</span>
+git push <span class="token operator">--</span><span class="token function">set-upstream</span> origin &lt;new_branch_name>
+
+<span class="token comment"># To delte the old branch name on the remote</span>
+git push origin <span class="token operator">--</span>delete &lt;old_branch_name><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Changing-the-master-branch-name"><a href="#Changing-the-master-branch-name" class="headerlink" title="Changing the master branch name"></a>Changing the master branch name</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># remane local `master` branch into `main` </span>
+git branch <span class="token operator">--</span><span class="token function">move</span> master main
+
+<span class="token comment"># push the main branch to the remote</span>
+git push <span class="token operator">--</span><span class="token function">set-upstream</span> origin main
+
+<span class="token comment">#Now you have a few more tasks in front of you to complete the transition:</span>
+<span class="token comment"># Any projects that depend on this one will need to update their code and/or configuration.</span>
+<span class="token comment"># Update any test-runner configuration files.</span>
+<span class="token comment"># Adjust build and release scripts.</span>
+<span class="token comment"># Redirect settings on your repo host for things like the repo’s default branch, merge rules, and other things that match branch names.</span>
+<span class="token comment"># Update references to the old branch in documentation.</span>
+<span class="token comment"># Close or merge any pull requests that target the old branch.</span>
+
+<span class="token comment"># Delete the master branch</span>
+git push origin <span class="token operator">--</span>delete master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Branching-Workflows"><a href="#Branching-Workflows" class="headerlink" title="Branching Workflows"></a>Branching Workflows</h2><h2 id="Remote-Branches"><a href="#Remote-Branches" class="headerlink" title="Remote Branches"></a>Remote Branches</h2><h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><h1 id="Git-on-the-Server"><a href="#Git-on-the-Server" class="headerlink" title="Git on the Server"></a>Git on the Server</h1><h2 id="The-Protocols"><a href="#The-Protocols" class="headerlink" title="The Protocols"></a>The Protocols</h2><h2 id="Getting-Git-on-a-Server"><a href="#Getting-Git-on-a-Server" class="headerlink" title="Getting Git on a Server"></a>Getting Git on a Server</h2><h2 id="Generating-Your-SSH-Public"><a href="#Generating-Your-SSH-Public" class="headerlink" title="Generating Your SSH Public"></a>Generating Your SSH Public</h2><h2 id="Setting-Up-the-Server"><a href="#Setting-Up-the-Server" class="headerlink" title="Setting Up the Server"></a>Setting Up the Server</h2><h2 id="Git-Daemon"><a href="#Git-Daemon" class="headerlink" title="Git Daemon"></a>Git Daemon</h2><h2 id="Smart-HTTP"><a href="#Smart-HTTP" class="headerlink" title="Smart HTTP"></a>Smart HTTP</h2><h2 id="GitWeb"><a href="#GitWeb" class="headerlink" title="GitWeb"></a>GitWeb</h2><h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><h2 id="Third-Party-Hosted-Options"><a href="#Third-Party-Hosted-Options" class="headerlink" title="Third Party Hosted Options"></a>Third Party Hosted Options</h2><h1 id="Distributed-Git"><a href="#Distributed-Git" class="headerlink" title="Distributed Git"></a>Distributed Git</h1><h2 id="Distributed-Workflows"><a href="#Distributed-Workflows" class="headerlink" title="Distributed Workflows"></a>Distributed Workflows</h2><h2 id="Contributing-to-a-Project"><a href="#Contributing-to-a-Project" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project"><a href="#Maintaining-a-Project" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="Account-Setup-and-Configuration"><a href="#Account-Setup-and-Configuration" class="headerlink" title="Account Setup and Configuration"></a>Account Setup and Configuration</h2><h2 id="Contributing-to-a-Project-1"><a href="#Contributing-to-a-Project-1" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project-1"><a href="#Maintaining-a-Project-1" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h2 id="Scripting-GitHub"><a href="#Scripting-GitHub" class="headerlink" title="Scripting GitHub"></a>Scripting GitHub</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>水煮蛋</title>
+    <url>/2021/03/20/shui-zhu-dan/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>蛋炒饭</title>
+    <url>/2021/03/20/dan-chao-fan/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>菜单</category>
+      </categories>
+      <tags>
+        <tag>做饭</tag>
+      </tags>
+  </entry>
 </search>
