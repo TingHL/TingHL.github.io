@@ -6,7 +6,7 @@
   <link href="http://tinghl.github.io/atom.xml" rel="self"/>
   
   <link href="http://tinghl.github.io/"/>
-  <updated>2021-03-20T14:10:42.369Z</updated>
+  <updated>2021-03-31T15:20:31.649Z</updated>
   <id>http://tinghl.github.io/</id>
   
   <author>
@@ -15,38 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>水煮蛋</title>
-    <link href="http://tinghl.github.io/2021/03/20/shui-zhu-dan/"/>
-    <id>http://tinghl.github.io/2021/03/20/shui-zhu-dan/</id>
-    <published>2021-03-20T14:10:42.000Z</published>
-    <updated>2021-03-20T14:10:42.369Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>蛋炒饭</title>
-    <link href="http://tinghl.github.io/2021/03/20/dan-chao-fan/"/>
-    <id>http://tinghl.github.io/2021/03/20/dan-chao-fan/</id>
-    <published>2021-03-20T14:10:31.000Z</published>
-    <updated>2021-03-20T14:11:33.642Z</updated>
-    
-    
-    <summary type="html">蛋炒饭菜单</summary>
-    
-    
-    
-    <category term="菜单" scheme="http://tinghl.github.io/categories/%E8%8F%9C%E5%8D%95/"/>
-    
-    
-    <category term="做饭" scheme="http://tinghl.github.io/tags/%E5%81%9A%E9%A5%AD/"/>
-    
-  </entry>
   
   <entry>
     <title>Pro Git notes</title>
