@@ -12043,12 +12043,172 @@ git push <span class="token operator">--</span><span class="token function">set-
 <span class="token comment"># Delete the master branch</span>
 git push origin <span class="token operator">--</span>delete master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Branching-Workflows"><a href="#Branching-Workflows" class="headerlink" title="Branching Workflows"></a>Branching Workflows</h2><h2 id="Remote-Branches"><a href="#Remote-Branches" class="headerlink" title="Remote Branches"></a>Remote Branches</h2><h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><h1 id="Git-on-the-Server"><a href="#Git-on-the-Server" class="headerlink" title="Git on the Server"></a>Git on the Server</h1><h2 id="The-Protocols"><a href="#The-Protocols" class="headerlink" title="The Protocols"></a>The Protocols</h2><h2 id="Getting-Git-on-a-Server"><a href="#Getting-Git-on-a-Server" class="headerlink" title="Getting Git on a Server"></a>Getting Git on a Server</h2><h2 id="Generating-Your-SSH-Public"><a href="#Generating-Your-SSH-Public" class="headerlink" title="Generating Your SSH Public"></a>Generating Your SSH Public</h2><h2 id="Setting-Up-the-Server"><a href="#Setting-Up-the-Server" class="headerlink" title="Setting Up the Server"></a>Setting Up the Server</h2><h2 id="Git-Daemon"><a href="#Git-Daemon" class="headerlink" title="Git Daemon"></a>Git Daemon</h2><h2 id="Smart-HTTP"><a href="#Smart-HTTP" class="headerlink" title="Smart HTTP"></a>Smart HTTP</h2><h2 id="GitWeb"><a href="#GitWeb" class="headerlink" title="GitWeb"></a>GitWeb</h2><h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><h2 id="Third-Party-Hosted-Options"><a href="#Third-Party-Hosted-Options" class="headerlink" title="Third Party Hosted Options"></a>Third Party Hosted Options</h2><h1 id="Distributed-Git"><a href="#Distributed-Git" class="headerlink" title="Distributed Git"></a>Distributed Git</h1><h2 id="Distributed-Workflows"><a href="#Distributed-Workflows" class="headerlink" title="Distributed Workflows"></a>Distributed Workflows</h2><h2 id="Contributing-to-a-Project"><a href="#Contributing-to-a-Project" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project"><a href="#Maintaining-a-Project" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="Account-Setup-and-Configuration"><a href="#Account-Setup-and-Configuration" class="headerlink" title="Account Setup and Configuration"></a>Account Setup and Configuration</h2><h2 id="Contributing-to-a-Project-1"><a href="#Contributing-to-a-Project-1" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project-1"><a href="#Maintaining-a-Project-1" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h2 id="Scripting-GitHub"><a href="#Scripting-GitHub" class="headerlink" title="Scripting GitHub"></a>Scripting GitHub</h2>]]></content>
+<h2 id="Branching-Workflows"><a href="#Branching-Workflows" class="headerlink" title="Branching Workflows"></a>Branching Workflows</h2><h2 id="Remote-Branches"><a href="#Remote-Branches" class="headerlink" title="Remote Branches"></a>Remote Branches</h2><h3 id="Deleting-Remote-Branches"><a href="#Deleting-Remote-Branches" class="headerlink" title="Deleting Remote Branches"></a>Deleting Remote Branches</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">git push &lt;remote> <span class="token operator">--</span>delete &lt;branch_name><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><p>In Git, there are two main ways to integerate changes from one branch into another: the <code>merge</code> and the <code>rebase</code>.</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># Take the client branch, figure out the patches since it diverged from the server branch, and replay these patches in the client branch as if it was based directly off the master branch instead.</span>
+git rebase <span class="token operator">--</span>onto master server client<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="Git-on-the-Server"><a href="#Git-on-the-Server" class="headerlink" title="Git on the Server"></a>Git on the Server</h1><h2 id="The-Protocols"><a href="#The-Protocols" class="headerlink" title="The Protocols"></a>The Protocols</h2><h2 id="Getting-Git-on-a-Server"><a href="#Getting-Git-on-a-Server" class="headerlink" title="Getting Git on a Server"></a>Getting Git on a Server</h2><h2 id="Generating-Your-SSH-Public"><a href="#Generating-Your-SSH-Public" class="headerlink" title="Generating Your SSH Public"></a>Generating Your SSH Public</h2><h2 id="Setting-Up-the-Server"><a href="#Setting-Up-the-Server" class="headerlink" title="Setting Up the Server"></a>Setting Up the Server</h2><h2 id="Git-Daemon"><a href="#Git-Daemon" class="headerlink" title="Git Daemon"></a>Git Daemon</h2><h2 id="Smart-HTTP"><a href="#Smart-HTTP" class="headerlink" title="Smart HTTP"></a>Smart HTTP</h2><h2 id="GitWeb"><a href="#GitWeb" class="headerlink" title="GitWeb"></a>GitWeb</h2><h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><h2 id="Third-Party-Hosted-Options"><a href="#Third-Party-Hosted-Options" class="headerlink" title="Third Party Hosted Options"></a>Third Party Hosted Options</h2><h1 id="Distributed-Git"><a href="#Distributed-Git" class="headerlink" title="Distributed Git"></a>Distributed Git</h1><h2 id="Distributed-Workflows"><a href="#Distributed-Workflows" class="headerlink" title="Distributed Workflows"></a>Distributed Workflows</h2><h2 id="Contributing-to-a-Project"><a href="#Contributing-to-a-Project" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project"><a href="#Maintaining-a-Project" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="Account-Setup-and-Configuration"><a href="#Account-Setup-and-Configuration" class="headerlink" title="Account Setup and Configuration"></a>Account Setup and Configuration</h2><h2 id="Contributing-to-a-Project-1"><a href="#Contributing-to-a-Project-1" class="headerlink" title="Contributing to a Project"></a>Contributing to a Project</h2><h2 id="Maintaining-a-Project-1"><a href="#Maintaining-a-Project-1" class="headerlink" title="Maintaining a Project"></a>Maintaining a Project</h2><h2 id="Scripting-GitHub"><a href="#Scripting-GitHub" class="headerlink" title="Scripting GitHub"></a>Scripting GitHub</h2>]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青岛旅行</title>
+    <url>/2021/04/27/qing-dao-lu-xing/</url>
+    <content><![CDATA[<h1 id="时间"><a href="#时间" class="headerlink" title="时间"></a><strong>时间</strong></h1><p>2021年4月26日–2021年4月30日</p>
+<h1 id="携带物品"><a href="#携带物品" class="headerlink" title="携带物品"></a><strong>携带物品</strong></h1><ul>
+<li>药品：感冒药、止泻药</li>
+<li>证件：学生证、身份证</li>
+<li>化妆品、防晒霜</li>
+<li>衣物<ul>
+<li>添加衣物，青岛季节比内地晚2月左右</li>
+<li>舒适 适合远足的鞋子 软跟 跟脚</li>
+</ul>
+</li>
+</ul>
+<h1 id="D1-26号"><a href="#D1-26号" class="headerlink" title="D1 26号"></a><strong>D1 26号</strong></h1><ul>
+<li>下午达到青岛，回到酒店收拾完成，预约崂山风景区</li>
+<li>栈桥（1小时左右 栈桥灯光十点后熄灭）<ul>
+<li>尽头 回澜阁 内有一个无字碑</li>
+<li>尽头远眺小青岛</li>
+</ul>
+</li>
+<li>圣弥厄尔教堂（1小时–2小时 开放时间 周一至周六 8:30-18:00 ）<ul>
+<li>浙江路天主教堂</li>
+</ul>
+</li>
+<li>劈柴院吃饭  王姐烧烤 – 现金</li>
+<li>夜晚栈桥 海边走走</li>
+<li>回酒店休息 早睡</li>
+</ul>
+<h1 id="D2-27号"><a href="#D2-27号" class="headerlink" title="D2 27号"></a><strong>D2 27号</strong></h1><p>6点起床</p>
+<p>1小时30分钟的路程</p>
+<p>崂山风景区（1天 07:00-17:30 ）</p>
+<ul>
+<li><p>崂山主要由巨峰、流清、太清、棋盘石、仰口、北九水、华楼七大风景游览区组成。游览线路共有四条，其中陆路三条（南线、东线、中线），水路一条。这些景区的风光：巨峰旭照、太清水月、海峤仙墩、华楼叠石、九水明漪等共同组成崂山十二景。</p>
+</li>
+<li><p>流清-仰口 南线  </p>
+<ul>
+<li><p>流清风景区</p>
+<ul>
+<li>观海</li>
+<li>天门峰、青蛙石、鲍鱼岛、流清河沙滩、大福岛、小福岛等</li>
+</ul>
+</li>
+<li><p>太清风景区</p>
+<ul>
+<li>流清浏览区往东</li>
+<li>前往八水河，沿山而上，路径潭瀑水库、上清宫，继续登上达到“明霞洞”</li>
+<li>往上太清宫：崂山道士、蒲松龄笔下崂山道士穿墙越壁的墙</li>
+</ul>
+</li>
+<li><p>棋盘山游览区</p>
+<ul>
+<li>太清游览区往北到达</li>
+<li>棋盘石、那罗延窟</li>
+<li>清代华严寺</li>
+<li>以观音广场为起点，途径山门-莲花路-塔院-华严寺-鱼鼓石-那罗延窟。</li>
+</ul>
+</li>
+<li><p>仰口游览区</p>
+<ul>
+<li><p>棋盘山游览区往北</p>
+</li>
+<li><p>以仙山、寺院、海湾沙滩为主</p>
+</li>
+<li><p>仰口湾金沙滩–&gt; 西南方向 –&gt; 狮子峰、绵羊石、太平宫、狄龙东、仙桃、寿字峰、觅天洞</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>公交</strong></p>
+<ol>
+<li><p>仰口、华严:</p>
+<p>公交可乘坐109路、110路、383路、615路、616路至崂山（仰口）游客服务中心；</p>
+<p>地铁可乘坐11号线至浦里站下车，乘坐交运接驳专线或109路、620路、926路公交车至崂山（仰口）游客服务中心。</p>
+</li>
+<li><p>巨峰、太清：</p>
+<p>乘坐630路、旅游1号线至【大河东停车场】站下车。</p>
+<p>公交可乘坐104路、113路、304路至崂山旅游集散中心（崂山游客服务中心），换乘观光车进入。</p>
+</li>
+</ol>
+<h1 id="D3-28号"><a href="#D3-28号" class="headerlink" title="D3 28号"></a><strong>D3 28号</strong></h1><p>7:30 起床</p>
+<ul>
+<li><p>海军博物馆观（2小时左右 开放时间8:30–17:30)</p>
+</li>
+<li><p>小青岛公园（0.5–1小时）</p>
+<p>延贝壳亭顺时针方向进入步行道，环绕小岛一周</p>
+<img src="/2021/04/27/qing-dao-lu-xing/08f790529822720e499a2b731cbb9d40f31fab5e.jpeg" class="">
+
+<p><img src="%E9%9D%92%E5%B2%9B%E6%97%85%E8%A1%8C/08f790529822720e499a2b731cbb9d40f31fab5e.jpeg" alt="img"></p>
+</li>
+<li><p>八大关风景区（3小时左右 全天开放）</p>
+<ul>
+<li>花石楼 蒋介石故居</li>
+<li>公主楼 </li>
+<li>元帅楼</li>
+<li>八大关小礼堂</li>
+<li>宾客楼</li>
+<li>钓鱼台</li>
+<li>第二海水浴场（赶海 9:00–17:00）<ul>
+<li>八大关附近海域赶海（2小时）</li>
+<li>具体时间待当天爱青岛APP推荐的赶海时间确定 一般为下午1点 2点 左右）</li>
+<li>涨潮前确保从礁石上撤离</li>
+<li>确保安全</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>五四广场（1小时）</p>
+<ul>
+<li>青岛地标建筑 红色雕塑“五月的风”</li>
+<li>流浪歌手 艺人</li>
+<li>广场喷泉 海上喷泉</li>
+</ul>
+</li>
+<li><p>奥帆中心（2小时 - 3小时 21:30 停止进入）</p>
+<ul>
+<li>北京奥运火炬 奥运五环 帆船 私家游艇</li>
+<li>落日 夕阳</li>
+<li>奥帆博物馆</li>
+<li>奥帆中心最南端 情人坝 酒吧 咖啡店 餐厅；栈道尽头是一座白色的灯塔</li>
+</ul>
+</li>
+<li><p>青岛夜市 市北区台东步行街（2小时）</p>
+</li>
+<li><p>回酒店休息</p>
+</li>
+</ul>
+<h1 id="D4-29号"><a href="#D4-29号" class="headerlink" title="D4 29号"></a><strong>D4 29号</strong></h1><h1 id="D5-30号"><a href="#D5-30号" class="headerlink" title="D5 30号"></a><strong>D5 30号</strong></h1><h1 id="待补充"><a href="#待补充" class="headerlink" title="待补充"></a><strong>待补充</strong></h1><p>青岛啤酒博物馆 （1小时–2小时）</p>
+<p>信号山公园</p>
+<p>黄岛金沙滩</p>
+<p>石老人海水浴场 （1小时-2小时）</p>
+<ul>
+<li>教堂往走东基督教堂（时间8:30–16:30)</li>
+<li>教堂往东走信号山公园等</li>
+</ul>
+<p>鲁迅公园（1小时 全天开放）</p>
+<p>德国监狱旧址博物馆 （1个小时 8:30–17:30）</p>
+<p>鲁迅公园 – 德国监狱旧址博物馆 （1个小时 8:30–17:30 ）</p>
+<p> 第一天：栈桥——小青岛——信号山公园——江苏路基督教堂——总督府——浙江路天主教堂——劈柴院——台东步行街</p>
+<p> 第二天：八大关——花石楼——第二海水浴场——五四广场——奥帆中心 </p>
+]]></content>
+      <categories>
+        <category>旅行</category>
+      </categories>
+      <tags>
+        <tag>青岛</tag>
       </tags>
   </entry>
 </search>
