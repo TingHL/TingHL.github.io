@@ -4,20 +4,24 @@
     <title>HEXO manual</title>
     <url>/2021/08/08/HEXO-manual/</url>
     <content><![CDATA[<h1 id="HEXO博客备份"><a href="#HEXO博客备份" class="headerlink" title="HEXO博客备份"></a>HEXO博客备份</h1><p>由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。</p>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><strong>参考链接</strong></h2><ul>
 <li><a href="https://mupceet.com/2019/09/backup-hexo-blog/">https://mupceet.com/2019/09/backup-hexo-blog/</a></li>
 </ul>
-<p><strong>步骤</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git init</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git submodule https://github.com/theme-next/hexo-theme-next.git themes/next</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">&quot;init blog backup&quot;</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git branch -m master hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git remote add origin https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git push -u origin hexo:hexo</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a><strong>步骤</strong></h2><h3 id="初次备份"><a href="#初次备份" class="headerlink" title="初次备份"></a><strong>初次备份</strong></h3><p>按照以下步骤，详情可以看一下参考链接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git init</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git submodule https://github.com/theme-next/hexo-theme-next.git themes/next</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">&quot;init blog backup&quot;</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为了便于记忆 将main分支重命名为hexo分支 对应github.io中的备份分支hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git branch -m master hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git remote add origin https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git push -u origin hexo:hexo</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="初次备份后"><a href="#初次备份后" class="headerlink" title="初次备份后"></a><strong>初次备份后</strong></h3><ul>
+<li><p><strong>博客网页部署</strong>按照<code>hexo g,  hexo s,   hexo d</code>等命令进行生成，浏览，部署</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>博客源代码备份</strong> <code>hexo</code>分支按照日常使用的<code>git</code>命令，推送到<code>github</code>的<code>hexo</code>分支上</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add xxx</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push origin hexo:hexo</span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
         <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>manual</tag>
       </tags>
   </entry>
 </search>
