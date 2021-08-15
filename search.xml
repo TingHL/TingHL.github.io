@@ -24,4 +24,19 @@
         <tag>hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Spring Framework Documentation 5.3.9 Notes</title>
+    <url>/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/</url>
+    <content><![CDATA[<h1 id="控制反转-IoC"><a href="#控制反转-IoC" class="headerlink" title="控制反转 IoC"></a>控制反转 IoC</h1><p>控制反转（IoC，Inversion of Control )，也被称为依赖注入（DI，dependency injection）。</p>
+<p>基础类：<code>org.springframework.beans</code>和<code>org.springframework.context</code></p>
+<p>BeanFactory接口 –  public interface ListableBeanFactory extends BeanFactory –  子接口 ApplicationContext  interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,<br>        MessageSource, ApplicationEventPublisher, ResourcePatternResolver</p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Notes</tag>
+      </tags>
+  </entry>
 </search>
