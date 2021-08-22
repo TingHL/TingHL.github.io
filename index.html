@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/20/git-fetch-git-pull/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/" class="post-title-link" itemprop="url">Spring Framework Documentation 5.3.9 Notes</a>
+            <a href="/2021/08/20/git-fetch-git-pull/" class="post-title-link" itemprop="url">git fetch git pull</a>
         </h2>
 
         <div class="post-meta">
@@ -216,14 +216,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-11 08:02:35" itemprop="dateCreated datePublished" datetime="2021-08-11T08:02:35+08:00">2021-08-11</time>
+              <time title="创建时间：2021-08-20 23:05:06" itemprop="dateCreated datePublished" datetime="2021-08-20T23:05:06+08:00">2021-08-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-12 08:02:30" itemprop="dateModified" datetime="2021-08-12T08:02:30+08:00">2021-08-12</time>
+                <time title="修改时间：2021-08-22 11:20:25" itemprop="dateModified" datetime="2021-08-22T11:20:25+08:00">2021-08-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,12 +231,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Framework Documentation 5.3.9 Notes" title="阅读次数">
+            <span id="/2021/08/20/git-fetch-git-pull/" class="post-meta-item leancloud_visitors" data-flag-title="git fetch git pull" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -251,8 +251,123 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/11/Spring-Framework-Documentation-5-3-9-Notes/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/08/20/git-fetch-git-pull/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/20/git-fetch-git-pull/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Venom/p/5477367.html">https://www.cnblogs.com/Venom/p/5477367.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a5c4d2f99807">https://www.jianshu.com/p/a5c4d2f99807</a></li>
+<li><a target="_blank" rel="noopener" href="https://ruby-china.org/topics/4768">https://ruby-china.org/topics/4768</a></li>
+<li></li>
+</ul>
+<h1 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h1><p>理解 <code>fetch</code> 的关键， 是理解 <code>FETCH_HEAD</code>。</p>
+<p><code>FETCH_HEAD</code>指的是： <code>某个branch在服务器上的最新状态</code>。每一个执行过fetch操作的项目都会存在一个<code>FETCH_HEAD</code>列表，<br>这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中， 其中<code>每一行对应于远程服务器的一个分支</code>。<br><code>FETCH_HEAD</code>当前指向的远程分支就是这个文件第一行对应的那个分支。如下图所示，当前FETCH_HEAD 指向远程分支 3.0.x。</p>
+<p><img src="/2021/08/20/git-fetch-git-pull/image-20210822110945856.png" alt="image-20210822110945856"></p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>常见的<code>git fetch</code> 使用方式包含以下四种：</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a><strong><code>git fetch</code></strong></h3><p>这一步其实是执行了两个关键操作：<br>第一步：创建并更新所有远程分支的本地远程分支。即创建并更新<code>origin/xxx</code>分支，拉取代码到<code>origin/xxx</code>分支上。<br>第二步：设定<code>FETCH_HEAD</code>为远程服务器的<code>origin/当前分支</code>。例如，当前分支为main 分支，<code>git fetch</code>命令后，<code>FETCH_HEAD</code>对应<code>origin/main</code>。后期可以使用<code>git merge FETCH_HEAD</code>命令，合并本地main 分支和FETCH_HEAD远程拉取下来的origin/main。</p>
+<p>需要注意的是： 和push不同， fetch会自动获取远程新加入的分支，拉取当前项目的所有分支的commit。</p>
+<p><img src="/2021/08/20/git-fetch-git-pull/image-20210822103443321.png" alt="image-20210822103443321"></p>
+<h3 id="git-fetch-origin"><a href="#git-fetch-origin" class="headerlink" title="git fetch origin"></a><strong><code>git fetch origin</code></strong></h3><p>同上， 只不过手动指定了remote。</p>
+<p><img src="/2021/08/20/git-fetch-git-pull/image-20210822111609139.png" alt="image-20210822111609139"></p>
+<h3 id="git-fetch-origin-branch1"><a href="#git-fetch-origin-branch1" class="headerlink" title="git fetch origin branch1"></a><strong><code>git fetch origin branch1</code></strong></h3><p>设定当前分支的 <code>FETCH_HEAD</code> 为远程服务器的branch1分支。</p>
+<p>注意： 在这种情况下， 不会在本地创建<code>本地远程分支</code>， 这是因为：</p>
+<p>这个操作是<code>git pull origin branch1</code>的第一步， 而对应的pull操作，并不会在本地创建新的branch。</p>
+<p>一个附加效果是：</p>
+<p>这个命令可以用来测试远程主机的远程分支branch1是否存在， 如果存在， 返回0， 如果不存在， 返回128， 抛出一个异常。</p>
+<p><img src="/2021/08/20/git-fetch-git-pull/image-20210822104901851.png" alt="image-20210822104901851"></p>
+<h3 id="git-fetch-origin-branch1-branch2"><a href="#git-fetch-origin-branch1-branch2" class="headerlink" title="git fetch origin branch1:branch2"></a><strong><code>git fetch origin branch1:branch2</code></strong></h3><p>只要明白了上面的含义， 这个就很简单了，</p>
+<ul>
+<li><p>首先执行上面的fetch操作</p>
+</li>
+<li><p>使用远程branch1分支在本地创建branch2(但不会切换到该分支)，<br>如果本地不存在branch2分支， 则会自动创建一个新的branch2分支，<br>如果本地存在branch2分支， 并且是<code>fast forward</code>， 则自动合并两个分支， 否则， 会阻止以上操作。</p>
+<p><img src="/2021/08/20/git-fetch-git-pull/image-20210822105955364.png" alt="image-20210822105955364"></p>
+</li>
+</ul>
+<h1 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h1><p>只要理解了git fetch， git pull就太简单了。</p>
+<p>git pull 等价于以下两步：</p>
+<ul>
+<li>经命令中的pull换成fetch， 执行</li>
+<li>git merge FETCH_HEAD</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/15/Spring-Framework-Documentation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="TingHL">
+      <meta itemprop="description" content="路漫漫其修远兮 吾将上下而求索">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/15/Spring-Framework-Documentation/" class="post-title-link" itemprop="url">Spring Framework Documentation</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-15 16:31:51 / 修改时间：20:58:30" itemprop="dateCreated datePublished" datetime="2021-08-15T16:31:51+08:00">2021-08-15</time>
+            </span>
+
+          
+            <span id="/2021/08/15/Spring-Framework-Documentation/" class="post-meta-item leancloud_visitors" data-flag-title="Spring Framework Documentation" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/08/15/Spring-Framework-Documentation/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/15/Spring-Framework-Documentation/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,6 +385,13 @@
           <h1 id="控制反转-IoC"><a href="#控制反转-IoC" class="headerlink" title="控制反转 IoC"></a>控制反转 IoC</h1><p>控制反转（IoC，Inversion of Control )，也被称为依赖注入（DI，dependency injection）。</p>
 <p>基础类：<code>org.springframework.beans</code>和<code>org.springframework.context</code></p>
 <p>BeanFactory接口 –  public interface ListableBeanFactory extends BeanFactory –  子接口 ApplicationContext  interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,<br>        MessageSource, ApplicationEventPublisher, ResourcePatternResolver</p>
+<p>ApplicationContext是BeanFactory的superset</p>
+<p>Spring, In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. .</p>
+<p>A bean is an object that is instantiated, assembled, and managed by a Spring IoC container.</p>
+<p>org.springframework.context.ApplicationContext 接口代表了IoC容器，负责实例化、配置和装配beans.</p>
+<p>在stand-alone应用中，一般使用<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/5.3.9/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html"><code>ClassPathXmlApplicationContext</code></a> or <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/5.3.9/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html"><code>FileSystemXmlApplicationContext</code></a></p>
+<p>支持XML、Java Annotation等方式，可以通过少量 XML方式来说明支持注解方式。</p>
+<p><img src="/2021/08/15/Spring-Framework-Documentation/container-magic.png" alt="container magic"></p>
 
       
     </div>
@@ -454,7 +576,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
