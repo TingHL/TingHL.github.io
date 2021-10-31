@@ -192,6 +192,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/LinkedCaseInsensitveMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="TingHL">
+      <meta itemprop="description" content="路漫漫其修远兮 吾将上下而求索">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/29/LinkedCaseInsensitveMap/" class="post-title-link" itemprop="url">LinkedCaseInsensitveMap</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-29 07:56:57" itemprop="dateCreated datePublished" datetime="2021-10-29T07:56:57+08:00">2021-10-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-31 15:28:28" itemprop="dateModified" datetime="2021-10-31T15:28:28+08:00">2021-10-31</time>
+              </span>
+
+          
+            <span id="/2021/10/29/LinkedCaseInsensitveMap/" class="post-meta-item leancloud_visitors" data-flag-title="LinkedCaseInsensitveMap" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/10/29/LinkedCaseInsensitveMap/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/29/LinkedCaseInsensitveMap/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="LinkedCaseInsensitiveMap"><a href="#LinkedCaseInsensitiveMap" class="headerlink" title="LinkedCaseInsensitiveMap"></a><code>LinkedCaseInsensitiveMap</code></h1><h2 id="LinkedCaseInsensitiveMap-大小写不敏感"><a href="#LinkedCaseInsensitiveMap-大小写不敏感" class="headerlink" title="LinkedCaseInsensitiveMap 大小写不敏感"></a><code>LinkedCaseInsensitiveMap</code> 大小写不敏感</h2><p>在公司<code>debug</code>的时候，发现<code>Map&lt;String,Object&gt;</code> 类型的<code>Map</code> 对于大小写不敏感，后来看到<code>IDEA</code> 中对象的类型是<code>LinkedCaseInsensitiveMap</code>类型。<code>LinkedCaseInsensitiveMap</code>继承于<code>LinkedHashMap</code>，<code>LinkedCaseInsensitiveMap</code>可以检测关键字（不区分大小写）的唯一性，源码如下。</p>
+<p><img src="/2021/10/29/LinkedCaseInsensitveMap/image-20211029081040884.png" alt="image-20211029081040884"></p>
+<p><code>LinkedCaseInsensitiveMap</code>中有两个属性<code>LinkedHashMap&lt;String,V&gt; targetMap</code>和<code>HashMap&lt;String,String&gt; caseInsensitiveMap</code>。</p>
+<p>输入值<code>Key,Value</code>， <code>CaseInsensitveMap</code>存储<code>小写Key, Key</code>，<code>targetMap</code> 存储<code>Key,Value</code>。</p>
+<p><strong>源码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedCaseInsensitiveMap</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">String</span>, <span class="title">V</span>&gt;, <span class="title">Serializable</span>, <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> LinkedHashMap&lt;String, V&gt; targetMap;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HashMap&lt;String, String&gt; caseInsensitiveKeys;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Locale locale;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;String&gt; keySet;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Collection&lt;V&gt; values;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;Entry&lt;String, V&gt;&gt; entrySet;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys(HashMap类型) 将Key转换为小写，caseInsensitiveKeys存储 小写key -- Key</span></span><br><span class="line"><span class="comment">    * targetMap(LinkedHashMap类型) Key -- Value</span></span><br><span class="line"><span class="comment">    * 实例： </span></span><br><span class="line"><span class="comment">    * put(&quot;ABCDEF&quot;,2)</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys: abcdef--&gt;ABCDEF</span></span><br><span class="line"><span class="comment">    * targetMap: ABCDEF--&gt; 2</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(String key, <span class="meta">@Nullable</span> V value)</span> </span>&#123;</span><br><span class="line">		String oldKey = <span class="keyword">this</span>.caseInsensitiveKeys.put(convertKey(key), key);</span><br><span class="line">		V oldKeyValue = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span> (oldKey != <span class="keyword">null</span> &amp;&amp; !oldKey.equals(key)) &#123;</span><br><span class="line">			oldKeyValue = <span class="keyword">this</span>.targetMap.remove(oldKey);</span><br><span class="line">		&#125;</span><br><span class="line">		V oldValue = <span class="keyword">this</span>.targetMap.put(key, value);</span><br><span class="line">		<span class="keyword">return</span> (oldKeyValue != <span class="keyword">null</span> ? oldKeyValue : oldValue);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (key <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">			String caseInsensitiveKey = <span class="keyword">this</span>.caseInsensitiveKeys.get(convertKey((String) key));</span><br><span class="line">			<span class="keyword">if</span> (caseInsensitiveKey != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.targetMap.get(caseInsensitiveKey);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">convertKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> key.toLowerCase(getLocale());</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/20/git-fetch-git-pull/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +315,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:20:49" itemprop="dateModified" datetime="2021-08-22T11:20:49+08:00">2021-08-22</time>
+                <time title="修改时间：2021-10-31 15:43:40" itemprop="dateModified" datetime="2021-10-31T15:43:40+08:00">2021-10-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,33 +367,33 @@
 <li></li>
 </ul>
 <h1 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h1><p>理解 <code>fetch</code> 的关键， 是理解 <code>FETCH_HEAD</code>。</p>
-<p><code>FETCH_HEAD</code>指的是： <code>某个branch在服务器上的最新状态</code>。每一个执行过fetch操作的项目都会存在一个<code>FETCH_HEAD</code>列表，<br>这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中， 其中<code>每一行对应于远程服务器的一个分支</code>。<br><code>FETCH_HEAD</code>当前指向的远程分支就是这个文件第一行对应的那个分支。如下图所示，当前FETCH_HEAD 指向远程分支 3.0.x。</p>
+<p><code>FETCH_HEAD</code>指的是： <code>某个branch在服务器上的最新状态</code>。每一个执行过<code>fetch</code>操作的项目都会存在一个<code>FETCH_HEAD</code>列表，<br>这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中， 其中每一行对应于远程服务器的一个分支。<br><strong><code>FETCH_HEAD</code>当前指向的远程分支就是这个文件第一行对应的那个分支</strong>。如下图所示，当前<code>FETCH_HEAD</code> 指向远程分支 <code>3.0.x</code>。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822110945856.png" alt="image-20210822110945856"></p>
 <h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>常见的<code>git fetch</code> 使用方式包含以下四种：</p>
-<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a><strong><code>git fetch</code></strong></h3><p>这一步其实是执行了两个关键操作：<br>第一步：创建并更新所有远程分支的本地远程分支。即创建并更新<code>origin/xxx</code>分支，拉取代码到<code>origin/xxx</code>分支上。<br>第二步：设定<code>FETCH_HEAD</code>为远程服务器的<code>origin/当前分支</code>。例如，当前分支为main 分支，<code>git fetch</code>命令后，<code>FETCH_HEAD</code>对应<code>origin/main</code>。后期可以使用<code>git merge FETCH_HEAD</code>命令，合并本地main 分支和FETCH_HEAD远程拉取下来的origin/main。</p>
-<p>需要注意的是： 和push不同， fetch会自动获取远程新加入的分支，拉取当前项目的所有分支的commit。</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a><strong><code>git fetch</code></strong></h3><p>这一步其实是执行了两个关键操作：<br>第一步：创建并更新所有远程分支的本地远程分支。即创建并更新<code>origin/xxx</code>分支，拉取代码到<code>origin/xxx</code>分支上。<br>第二步：设定<code>FETCH_HEAD</code>为远程服务器的<code>origin/当前分支</code>。例如，当前分支为<code>main</code> 分支，<code>git fetch</code>命令后，<code>FETCH_HEAD</code>对应<code>origin/main</code>。后期可以使用<code>git merge FETCH_HEAD</code>命令，合并本地<code>main</code> 分支和<code>FETCH_HEAD</code>远程拉取下来的<code>origin/main</code>。</p>
+<p>需要注意的是： 和<code>push</code>不同， <code>fetch</code>会自动获取远程新加入的分支，拉取当前项目的所有分支的<code>commit</code>。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822103443321.png" alt="image-20210822103443321"></p>
 <h3 id="git-fetch-origin"><a href="#git-fetch-origin" class="headerlink" title="git fetch origin"></a><strong><code>git fetch origin</code></strong></h3><p>同上， 只不过手动指定了remote。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822111609139.png" alt="image-20210822111609139"></p>
-<h3 id="git-fetch-origin-branch1"><a href="#git-fetch-origin-branch1" class="headerlink" title="git fetch origin branch1"></a><strong><code>git fetch origin branch1</code></strong></h3><p>设定当前分支的 <code>FETCH_HEAD</code> 为远程服务器的branch1分支。</p>
-<p>注意： 在这种情况下， 不会在本地创建<code>本地远程分支</code>， 这是因为：</p>
-<p>这个操作是<code>git pull origin branch1</code>的第一步， 而对应的pull操作，并不会在本地创建新的branch。</p>
+<h3 id="git-fetch-origin-branch1"><a href="#git-fetch-origin-branch1" class="headerlink" title="git fetch origin branch1"></a><strong><code>git fetch origin branch1</code></strong></h3><p>设定当前分支的 <code>FETCH_HEAD</code> 为远程服务器的<code>branch1</code>分支。</p>
+<p>注意： 在这种情况下， 不会在本地创建本地远程分支， 这是因为：</p>
+<p>这个操作是<code>git pull origin branch1</code>的第一步， 而对应的<code>pull</code>操作，并不会在本地创建新的<code>branch</code>。</p>
 <p>一个附加效果是：</p>
-<p>这个命令可以用来测试远程主机的远程分支branch1是否存在， 如果存在， 返回0， 如果不存在， 返回128， 抛出一个异常。</p>
+<p>这个命令可以用来测试远程主机的远程分支<code>branch1</code>是否存在， 如果存在， 返回0， 如果不存在， 返回128， 抛出一个异常。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822104901851.png" alt="image-20210822104901851"></p>
 <h3 id="git-fetch-origin-branch1-branch2"><a href="#git-fetch-origin-branch1-branch2" class="headerlink" title="git fetch origin branch1:branch2"></a><strong><code>git fetch origin branch1:branch2</code></strong></h3><p>只要明白了上面的含义， 这个就很简单了，</p>
 <ul>
-<li><p>首先执行上面的fetch操作</p>
+<li><p>首先执行上面的<code>fetch</code>操作</p>
 </li>
-<li><p>使用远程branch1分支在本地创建branch2(但不会切换到该分支)，<br>如果本地不存在branch2分支， 则会自动创建一个新的branch2分支，<br>如果本地存在branch2分支， 并且是<code>fast forward</code>， 则自动合并两个分支， 否则， 会阻止以上操作。</p>
+<li><p>使用远程<code>branch1</code>分支在本地创建<code>branch2</code>(但不会切换到该分支)，<br>如果本地不存在<code>branch2</code>分支， 则会自动创建一个新的<code>branch2</code>分支，<br>如果本地存在<code>branch2</code>分支， 并且是<code>fast forward</code>， 则自动合并两个分支， 否则， 会阻止以上操作。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822105955364.png" alt="image-20210822105955364"></p>
 </li>
 </ul>
-<h1 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h1><p>只要理解了git fetch， git pull就太简单了。</p>
-<p>git pull 等价于以下两步：</p>
+<h1 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h1><p>只要理解了<code>git fetch</code>， <code>git pull</code>就太简单了。</p>
+<p><code>git pull</code> 等价于以下两步：</p>
 <ul>
-<li>经命令中的pull换成fetch， 执行</li>
-<li>git merge FETCH_HEAD</li>
+<li>经命令中的<code>pull</code>换成<code>fetch</code>， 执行</li>
+<li><code>git merge FETCH_HEAD</code></li>
 </ul>
 
       
@@ -576,7 +668,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -589,7 +681,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

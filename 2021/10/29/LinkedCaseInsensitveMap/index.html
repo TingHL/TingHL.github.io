@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="HEXO博客备份由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。 参考链接 https:&#x2F;&#x2F;mupceet.com&#x2F;2019&#x2F;09&#x2F;backup-hexo-blog&#x2F;  步骤初次备份按照以下步骤，详情可以看一下参考链接 123456789101112$cd blog$git init$git submodule https:&#x2F;&#x2F;github.com&#x2F;t">
+  <meta name="description" content="LinkedCaseInsensitiveMapLinkedCaseInsensitiveMap 大小写不敏感在公司debug的时候，发现Map&lt;String,Object&gt; 类型的Map 对于大小写不敏感，后来看到IDEA 中对象的类型是LinkedCaseInsensitiveMap类型。LinkedCaseInsensitiveMap继承于LinkedHashMap，Linked">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO manual">
-<meta property="og:url" content="http://example.com/2021/08/08/HEXO-manual/index.html">
+<meta property="og:title" content="LinkedCaseInsensitveMap">
+<meta property="og:url" content="http://example.com/2021/10/29/LinkedCaseInsensitveMap/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="HEXO博客备份由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。 参考链接 https:&#x2F;&#x2F;mupceet.com&#x2F;2019&#x2F;09&#x2F;backup-hexo-blog&#x2F;  步骤初次备份按照以下步骤，详情可以看一下参考链接 123456789101112$cd blog$git init$git submodule https:&#x2F;&#x2F;github.com&#x2F;t">
+<meta property="og:description" content="LinkedCaseInsensitiveMapLinkedCaseInsensitiveMap 大小写不敏感在公司debug的时候，发现Map&lt;String,Object&gt; 类型的Map 对于大小写不敏感，后来看到IDEA 中对象的类型是LinkedCaseInsensitiveMap类型。LinkedCaseInsensitiveMap继承于LinkedHashMap，Linked">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-08T12:55:34.000Z">
-<meta property="article:modified_time" content="2021-08-08T13:13:55.603Z">
+<meta property="og:image" content="http://example.com/2021/10/29/LinkedCaseInsensitveMap/image-20211029081040884.png">
+<meta property="article:published_time" content="2021-10-28T23:56:57.000Z">
+<meta property="article:modified_time" content="2021-10-31T07:28:28.545Z">
 <meta property="article:author" content="TingHL">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/10/29/LinkedCaseInsensitveMap/image-20211029081040884.png">
 
-<link rel="canonical" href="http://example.com/2021/08/08/HEXO-manual/">
+<link rel="canonical" href="http://example.com/2021/10/29/LinkedCaseInsensitveMap/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>HEXO manual | Hexo</title>
+  <title>LinkedCaseInsensitveMap | Hexo</title>
   
 
 
@@ -196,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/08/HEXO-manual/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/LinkedCaseInsensitveMap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -209,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HEXO manual
+          LinkedCaseInsensitveMap
         </h1>
 
         <div class="post-meta">
@@ -218,22 +220,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-08 20:55:34 / 修改时间：21:13:55" itemprop="dateCreated datePublished" datetime="2021-08-08T20:55:34+08:00">2021-08-08</time>
+              <time title="创建时间：2021-10-29 07:56:57" itemprop="dateCreated datePublished" datetime="2021-10-29T07:56:57+08:00">2021-10-29</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-31 15:28:28" itemprop="dateModified" datetime="2021-10-31T15:28:28+08:00">2021-10-31</time>
+              </span>
 
           
-            <span id="/2021/08/08/HEXO-manual/" class="post-meta-item leancloud_visitors" data-flag-title="HEXO manual" title="阅读次数">
+            <span id="/2021/10/29/LinkedCaseInsensitveMap/" class="post-meta-item leancloud_visitors" data-flag-title="LinkedCaseInsensitveMap" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -248,8 +247,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/08/08/HEXO-manual/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/08/HEXO-manual/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/10/29/LinkedCaseInsensitveMap/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/29/LinkedCaseInsensitveMap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,19 +263,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="HEXO博客备份"><a href="#HEXO博客备份" class="headerlink" title="HEXO博客备份"></a>HEXO博客备份</h1><p>由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><strong>参考链接</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://mupceet.com/2019/09/backup-hexo-blog/">https://mupceet.com/2019/09/backup-hexo-blog/</a></li>
-</ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a><strong>步骤</strong></h2><h3 id="初次备份"><a href="#初次备份" class="headerlink" title="初次备份"></a><strong>初次备份</strong></h3><p>按照以下步骤，详情可以看一下参考链接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git init</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git submodule https://github.com/theme-next/hexo-theme-next.git themes/next</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">&quot;init blog backup&quot;</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为了便于记忆 将main分支重命名为hexo分支 对应github.io中的备份分支hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git branch -m master hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git remote add origin https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git push -u origin hexo:hexo</span></span><br></pre></td></tr></table></figure>
+        <h1 id="LinkedCaseInsensitiveMap"><a href="#LinkedCaseInsensitiveMap" class="headerlink" title="LinkedCaseInsensitiveMap"></a><code>LinkedCaseInsensitiveMap</code></h1><h2 id="LinkedCaseInsensitiveMap-大小写不敏感"><a href="#LinkedCaseInsensitiveMap-大小写不敏感" class="headerlink" title="LinkedCaseInsensitiveMap 大小写不敏感"></a><code>LinkedCaseInsensitiveMap</code> 大小写不敏感</h2><p>在公司<code>debug</code>的时候，发现<code>Map&lt;String,Object&gt;</code> 类型的<code>Map</code> 对于大小写不敏感，后来看到<code>IDEA</code> 中对象的类型是<code>LinkedCaseInsensitiveMap</code>类型。<code>LinkedCaseInsensitiveMap</code>继承于<code>LinkedHashMap</code>，<code>LinkedCaseInsensitiveMap</code>可以检测关键字（不区分大小写）的唯一性，源码如下。</p>
+<p><img src="/2021/10/29/LinkedCaseInsensitveMap/image-20211029081040884.png" alt="image-20211029081040884"></p>
+<p><code>LinkedCaseInsensitiveMap</code>中有两个属性<code>LinkedHashMap&lt;String,V&gt; targetMap</code>和<code>HashMap&lt;String,String&gt; caseInsensitiveMap</code>。</p>
+<p>输入值<code>Key,Value</code>， <code>CaseInsensitveMap</code>存储<code>小写Key, Key</code>，<code>targetMap</code> 存储<code>Key,Value</code>。</p>
+<p><strong>源码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedCaseInsensitiveMap</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">String</span>, <span class="title">V</span>&gt;, <span class="title">Serializable</span>, <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> LinkedHashMap&lt;String, V&gt; targetMap;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HashMap&lt;String, String&gt; caseInsensitiveKeys;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Locale locale;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;String&gt; keySet;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Collection&lt;V&gt; values;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;Entry&lt;String, V&gt;&gt; entrySet;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys(HashMap类型) 将Key转换为小写，caseInsensitiveKeys存储 小写key -- Key</span></span><br><span class="line"><span class="comment">    * targetMap(LinkedHashMap类型) Key -- Value</span></span><br><span class="line"><span class="comment">    * 实例： </span></span><br><span class="line"><span class="comment">    * put(&quot;ABCDEF&quot;,2)</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys: abcdef--&gt;ABCDEF</span></span><br><span class="line"><span class="comment">    * targetMap: ABCDEF--&gt; 2</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(String key, <span class="meta">@Nullable</span> V value)</span> </span>&#123;</span><br><span class="line">		String oldKey = <span class="keyword">this</span>.caseInsensitiveKeys.put(convertKey(key), key);</span><br><span class="line">		V oldKeyValue = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span> (oldKey != <span class="keyword">null</span> &amp;&amp; !oldKey.equals(key)) &#123;</span><br><span class="line">			oldKeyValue = <span class="keyword">this</span>.targetMap.remove(oldKey);</span><br><span class="line">		&#125;</span><br><span class="line">		V oldValue = <span class="keyword">this</span>.targetMap.put(key, value);</span><br><span class="line">		<span class="keyword">return</span> (oldKeyValue != <span class="keyword">null</span> ? oldKeyValue : oldValue);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (key <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">			String caseInsensitiveKey = <span class="keyword">this</span>.caseInsensitiveKeys.get(convertKey((String) key));</span><br><span class="line">			<span class="keyword">if</span> (caseInsensitiveKey != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.targetMap.get(caseInsensitiveKey);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">convertKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> key.toLowerCase(getLocale());</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="初次备份后"><a href="#初次备份后" class="headerlink" title="初次备份后"></a><strong>初次备份后</strong></h3><ul>
-<li><p><strong>博客网页部署</strong>按照<code>hexo g,  hexo s,   hexo d</code>等命令进行生成，浏览，部署</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>博客源代码备份</strong> <code>hexo</code>分支按照日常使用的<code>git</code>命令，推送到<code>github</code>的<code>hexo</code>分支上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add xxx</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push origin hexo:hexo</span><br></pre></td></tr></table></figure></li>
-</ul>
 
     </div>
 
@@ -286,7 +279,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
         
@@ -294,11 +287,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/08/15/Spring-Framework-Documentation/" rel="next" title="Spring Framework Documentation">
-      Spring Framework Documentation <i class="fa fa-chevron-right"></i>
+    <a href="/2021/08/20/git-fetch-git-pull/" rel="prev" title="git fetch git pull">
+      <i class="fa fa-chevron-left"></i> git fetch git pull
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -358,7 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HEXO%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">HEXO博客备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD"><span class="nav-number">1.2.1.</span> <span class="nav-text">初次备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD%E5%90%8E"><span class="nav-number">1.2.2.</span> <span class="nav-text">初次备份后</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedCaseInsensitiveMap"><span class="nav-number">1.</span> <span class="nav-text">LinkedCaseInsensitiveMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedCaseInsensitiveMap-%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-number">1.1.</span> <span class="nav-text">LinkedCaseInsensitiveMap 大小写不敏感</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

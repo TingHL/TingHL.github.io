@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/2021/08/20/git-fetch-git-pull/image-20210822104901851.png">
 <meta property="og:image" content="http://example.com/2021/08/20/git-fetch-git-pull/image-20210822105955364.png">
 <meta property="article:published_time" content="2021-08-20T15:05:06.000Z">
-<meta property="article:modified_time" content="2021-08-22T03:20:49.583Z">
+<meta property="article:modified_time" content="2021-10-31T07:43:40.995Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 11:20:49" itemprop="dateModified" datetime="2021-08-22T11:20:49+08:00">2021-08-22</time>
+                <time title="修改时间：2021-10-31 15:43:40" itemprop="dateModified" datetime="2021-10-31T15:43:40+08:00">2021-10-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,33 +284,33 @@
 <li></li>
 </ul>
 <h1 id="Git-Fetch"><a href="#Git-Fetch" class="headerlink" title="Git Fetch"></a>Git Fetch</h1><p>理解 <code>fetch</code> 的关键， 是理解 <code>FETCH_HEAD</code>。</p>
-<p><code>FETCH_HEAD</code>指的是： <code>某个branch在服务器上的最新状态</code>。每一个执行过fetch操作的项目都会存在一个<code>FETCH_HEAD</code>列表，<br>这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中， 其中<code>每一行对应于远程服务器的一个分支</code>。<br><code>FETCH_HEAD</code>当前指向的远程分支就是这个文件第一行对应的那个分支。如下图所示，当前FETCH_HEAD 指向远程分支 3.0.x。</p>
+<p><code>FETCH_HEAD</code>指的是： <code>某个branch在服务器上的最新状态</code>。每一个执行过<code>fetch</code>操作的项目都会存在一个<code>FETCH_HEAD</code>列表，<br>这个列表保存在 <code>.git/FETCH_HEAD</code> 文件中， 其中每一行对应于远程服务器的一个分支。<br><strong><code>FETCH_HEAD</code>当前指向的远程分支就是这个文件第一行对应的那个分支</strong>。如下图所示，当前<code>FETCH_HEAD</code> 指向远程分支 <code>3.0.x</code>。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822110945856.png" alt="image-20210822110945856"></p>
 <h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>常见的<code>git fetch</code> 使用方式包含以下四种：</p>
-<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a><strong><code>git fetch</code></strong></h3><p>这一步其实是执行了两个关键操作：<br>第一步：创建并更新所有远程分支的本地远程分支。即创建并更新<code>origin/xxx</code>分支，拉取代码到<code>origin/xxx</code>分支上。<br>第二步：设定<code>FETCH_HEAD</code>为远程服务器的<code>origin/当前分支</code>。例如，当前分支为main 分支，<code>git fetch</code>命令后，<code>FETCH_HEAD</code>对应<code>origin/main</code>。后期可以使用<code>git merge FETCH_HEAD</code>命令，合并本地main 分支和FETCH_HEAD远程拉取下来的origin/main。</p>
-<p>需要注意的是： 和push不同， fetch会自动获取远程新加入的分支，拉取当前项目的所有分支的commit。</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a><strong><code>git fetch</code></strong></h3><p>这一步其实是执行了两个关键操作：<br>第一步：创建并更新所有远程分支的本地远程分支。即创建并更新<code>origin/xxx</code>分支，拉取代码到<code>origin/xxx</code>分支上。<br>第二步：设定<code>FETCH_HEAD</code>为远程服务器的<code>origin/当前分支</code>。例如，当前分支为<code>main</code> 分支，<code>git fetch</code>命令后，<code>FETCH_HEAD</code>对应<code>origin/main</code>。后期可以使用<code>git merge FETCH_HEAD</code>命令，合并本地<code>main</code> 分支和<code>FETCH_HEAD</code>远程拉取下来的<code>origin/main</code>。</p>
+<p>需要注意的是： 和<code>push</code>不同， <code>fetch</code>会自动获取远程新加入的分支，拉取当前项目的所有分支的<code>commit</code>。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822103443321.png" alt="image-20210822103443321"></p>
 <h3 id="git-fetch-origin"><a href="#git-fetch-origin" class="headerlink" title="git fetch origin"></a><strong><code>git fetch origin</code></strong></h3><p>同上， 只不过手动指定了remote。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822111609139.png" alt="image-20210822111609139"></p>
-<h3 id="git-fetch-origin-branch1"><a href="#git-fetch-origin-branch1" class="headerlink" title="git fetch origin branch1"></a><strong><code>git fetch origin branch1</code></strong></h3><p>设定当前分支的 <code>FETCH_HEAD</code> 为远程服务器的branch1分支。</p>
-<p>注意： 在这种情况下， 不会在本地创建<code>本地远程分支</code>， 这是因为：</p>
-<p>这个操作是<code>git pull origin branch1</code>的第一步， 而对应的pull操作，并不会在本地创建新的branch。</p>
+<h3 id="git-fetch-origin-branch1"><a href="#git-fetch-origin-branch1" class="headerlink" title="git fetch origin branch1"></a><strong><code>git fetch origin branch1</code></strong></h3><p>设定当前分支的 <code>FETCH_HEAD</code> 为远程服务器的<code>branch1</code>分支。</p>
+<p>注意： 在这种情况下， 不会在本地创建本地远程分支， 这是因为：</p>
+<p>这个操作是<code>git pull origin branch1</code>的第一步， 而对应的<code>pull</code>操作，并不会在本地创建新的<code>branch</code>。</p>
 <p>一个附加效果是：</p>
-<p>这个命令可以用来测试远程主机的远程分支branch1是否存在， 如果存在， 返回0， 如果不存在， 返回128， 抛出一个异常。</p>
+<p>这个命令可以用来测试远程主机的远程分支<code>branch1</code>是否存在， 如果存在， 返回0， 如果不存在， 返回128， 抛出一个异常。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822104901851.png" alt="image-20210822104901851"></p>
 <h3 id="git-fetch-origin-branch1-branch2"><a href="#git-fetch-origin-branch1-branch2" class="headerlink" title="git fetch origin branch1:branch2"></a><strong><code>git fetch origin branch1:branch2</code></strong></h3><p>只要明白了上面的含义， 这个就很简单了，</p>
 <ul>
-<li><p>首先执行上面的fetch操作</p>
+<li><p>首先执行上面的<code>fetch</code>操作</p>
 </li>
-<li><p>使用远程branch1分支在本地创建branch2(但不会切换到该分支)，<br>如果本地不存在branch2分支， 则会自动创建一个新的branch2分支，<br>如果本地存在branch2分支， 并且是<code>fast forward</code>， 则自动合并两个分支， 否则， 会阻止以上操作。</p>
+<li><p>使用远程<code>branch1</code>分支在本地创建<code>branch2</code>(但不会切换到该分支)，<br>如果本地不存在<code>branch2</code>分支， 则会自动创建一个新的<code>branch2</code>分支，<br>如果本地存在<code>branch2</code>分支， 并且是<code>fast forward</code>， 则自动合并两个分支， 否则， 会阻止以上操作。</p>
 <p><img src="/2021/08/20/git-fetch-git-pull/image-20210822105955364.png" alt="image-20210822105955364"></p>
 </li>
 </ul>
-<h1 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h1><p>只要理解了git fetch， git pull就太简单了。</p>
-<p>git pull 等价于以下两步：</p>
+<h1 id="Git-Pull"><a href="#Git-Pull" class="headerlink" title="Git Pull"></a>Git Pull</h1><p>只要理解了<code>git fetch</code>， <code>git pull</code>就太简单了。</p>
+<p><code>git pull</code> 等价于以下两步：</p>
 <ul>
-<li>经命令中的pull换成fetch， 执行</li>
-<li>git merge FETCH_HEAD</li>
+<li>经命令中的<code>pull</code>换成<code>fetch</code>， 执行</li>
+<li><code>git merge FETCH_HEAD</code></li>
 </ul>
 
     </div>
@@ -333,7 +333,10 @@
     <a href="/2021/08/15/Spring-Framework-Documentation/" rel="prev" title="Spring Framework Documentation">
       <i class="fa fa-chevron-left"></i> Spring Framework Documentation
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/29/LinkedCaseInsensitveMap/" rel="next" title="LinkedCaseInsensitveMap">
+      LinkedCaseInsensitveMap <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -409,7 +412,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,7 +425,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
