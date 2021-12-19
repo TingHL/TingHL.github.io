@@ -5,6 +5,7 @@ tags:
 - hexo
 categories:
 - hexo
+description: hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失
 ---
 
 # HEXO博客备份

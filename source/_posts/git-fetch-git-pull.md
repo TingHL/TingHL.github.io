@@ -6,6 +6,7 @@ tags:
 - Git 
 categories: 
 - git 
+description: 简单总结了git fetch和git pull的区别与联系
 ---
 
 参考链接：

@@ -3,6 +3,7 @@ title: Spring Framework Documentation
 date: 2021-08-15 16:31:51
 tags:
 - Spring
+description: Spring官网手册笔记
 ---
 
 # 控制反转 IoC

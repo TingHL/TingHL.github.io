@@ -3,6 +3,8 @@ title: LinkedCaseInsensitveMap
 date: 2021-10-29 07:56:57
 tags: 
 - java
+categories: 
+description: LinkedCaseInsensitiveMap 对与大小写消息不敏感
 ---
 
 # `LinkedCaseInsensitiveMap` 
