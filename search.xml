@@ -75,7 +75,18 @@
   <entry>
     <title>Kafka_The_Definitive_Guide-2nd_Edition</title>
     <url>/2021/12/30/Kafka-The-Definitive-Guide-2nd-Edition/</url>
-    <content><![CDATA[<object data="Kafka_The_Definitive_Guide_2nd_Edition.pdf" type="application/pdf" width="100%" height="877px"></object>]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d57910974c7a07b544b44120fc5102dd9c14f86e6de4c0ec7a49c41278ab7810">665ad7826e98d6c1d01fcd7edabb31540e9dd478c5b3373b022179024c3c91dd23eeb20dfdf0eea04457376a1abc81cb20ac812ca850348e5729c95944f8a10695648b82fa8249bfe29f8fff7686653cdd6ad9f8fd2b13ac7ee76256644653b5dfd2539f1c8bd0c6c66da52556607223bfbba3033ffdf7b1d6295dcda8092582f7297046952584af8050a7d2526085b77794ed341749681f0d4c518522f136e605fbbfdd4a2a786ce4d79dc0a871fb555597bb38c4865525208d2a042304dcb14fdd825ecba16935d8b744796f20ae812ccd6acd3722fd984d372dc1640ffb49caed952d42956449d7e389709631f8b18c1ec418f90de18c40d98d3edcf04d3a2759629993dd0eb1d23e45127183cf53db2db39666ee808231b3217dff90a31a3e7bebc71bd84fd636985d5ee44e354159f078464bd391d3526b4d779b464c73ff041189a350340f520d7ca04b4cf540e5744fa3153692449e12fdbb7a4f272f</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
     <title>LinkedCaseInsensitveMap</title>
