@@ -1,5 +1,5 @@
 ---
-title: HEXO manual
+title: HEXO 自建博客备份GitHub
 date: 2021-08-08 20:55:34
 tags:
 - hexo
