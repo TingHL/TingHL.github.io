@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2022 《畅游上海一票通》品质版</title>
+    <title>2022年《畅游上海一票通》品质版相关景点地图标点</title>
     <url>/2021/12/12/2022-shanghai-tutorial/</url>
-    <content><![CDATA[<p>2022 《畅游上海一票通》品质版 地图标点</p>
+    <content><![CDATA[<p>为了更好规划2022 《畅游上海一票通》品质版使用体验，预约景点，使用谷歌地图地图标点</p>
 <p><strong>注意</strong></p>
 <p>· 需要能够访问谷歌地图</p>
 <p>· 地图标点不包括：热门景区（五选一） 标杆景区（五选一）</p>
@@ -11,7 +11,7 @@
 <iframe src="https://www.google.com/maps/d/embed?mid=1oYic3aNvTNa81_bkHGq8asLDlHg9Lxyo&ehbc=2E312F" width="640" height="480"></iframe>]]></content>
   </entry>
   <entry>
-    <title>Arrays-Array</title>
+    <title>Arrays.asList() ArrayList.addAll() Collection.addAll()简单分析</title>
     <url>/2021/12/18/Arrays-Array/</url>
     <content><![CDATA[<p>参考链接：</p>
 <p>· <a href="https://www.jianshu.com/p/2b113f487e5e">Arrays.asList使用指南</a></p>
@@ -73,7 +73,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Kafka The Definitive Guide 2ndEdition</title>
+    <title>《Kafka The Definitive Guide 2nd Edition》 PDF</title>
     <url>/2021/12/30/Kafka-The-Definitive-Guide-2nd-Edition/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="609d1ccf2611176bf684f9b568b1937af1ea2a25bbc2a14a5b2e379e26a2704d">b96ea2d34b1964c9b8d9ae3e4fcb836e766111610f30d5bdb3e44f23bf95a801798e4039618c7309b3a40a11d2eb1b657ded753e12adf6517693155a4bfb4b7d6c08eefd2b9c2304b0c2043836f3ad2de7b284b51f41b8e710767855fe7d34e72f8c74910e44762e8099e42f6c3cb0c19c3e5e1f7dda7a6157d84a68482bc4ca105d9aa5efa747163794207f7ddf996fdb31e497bcaf8e27e6ea7bdccc313612580feba680c785dc842213595273a96f47b6dc18c7b7228df846cb58375ad372e15602bea7f163c8d8ce25b03cf85ccf13345782026dc4b5cea8c4f65f2cb233d7f8e0ca62c15c90a86b6e9d5deadcb423362e23481269947c356c5222d7f3aeb6053a1c6d39e250ff443bb7a1b4378b98e588f28b8d101410bd88e44e221de84f8869b2a0111d320dd8ebd915b4af775310e42a12a78094155aa8ff44915cf99884518dfe61fc7da071e642c2193eac632f1476b31f208813badb618e140372</script>
@@ -89,7 +89,7 @@
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
-    <title>LinkedCaseInsensitveMap</title>
+    <title>LinkedCaseInsensitveMap 大小写不敏感，用于数据库数据查询</title>
     <url>/2021/10/29/LinkedCaseInsensitveMap/</url>
     <content><![CDATA[<h1 id="LinkedCaseInsensitiveMap"><a href="#LinkedCaseInsensitiveMap" class="headerlink" title="LinkedCaseInsensitiveMap"></a><code>LinkedCaseInsensitiveMap</code></h1><h2 id="LinkedCaseInsensitiveMap-大小写不敏感"><a href="#LinkedCaseInsensitiveMap-大小写不敏感" class="headerlink" title="LinkedCaseInsensitiveMap 大小写不敏感"></a><code>LinkedCaseInsensitiveMap</code> 大小写不敏感</h2><p>在公司<code>debug</code>的时候，发现<code>Map&lt;String,Object&gt;</code> 类型的<code>Map</code> 对于大小写不敏感，后来看到<code>IDEA</code> 中对象的类型是<code>LinkedCaseInsensitiveMap</code>类型。<code>LinkedCaseInsensitiveMap</code>继承于<code>LinkedHashMap</code>，<code>LinkedCaseInsensitiveMap</code>可以检测关键字（不区分大小写）的唯一性，源码如下。</p>
 <p><img src="/2021/10/29/LinkedCaseInsensitveMap/image-20211029081040884.png" alt="image-20211029081040884"></p>
@@ -122,7 +122,7 @@
       </tags>
   </entry>
   <entry>
-    <title>git fetch git pull</title>
+    <title>git fetch git pull 对比</title>
     <url>/2021/08/20/git-fetch-git-pull/</url>
     <content><![CDATA[<p>参考链接：</p>
 <ul>
@@ -169,7 +169,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis DevOps</title>
+    <title>《Redis开发与运维》PDF</title>
     <url>/2021/12/31/Redis-DevOps/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="0a81862bd2db6007cecc77b9621d21f394799141c603d91dfb60c88a798f3ff0">b96ea2d34b1964c9b8d9ae3e4fcb836ebda2eb645f9f733ceaa8bfc3f6f380960260492b5f64123347f1bd016fafd8787c1a261bbca7ca4484469cc9178e2a35fa147b99d7dbc82671460758d7ae122962ef862eb98d067c32681d79b0c0581e360c41aef5082019ad34216c86f4990c2732756ae6948856045b96e4cc9bfd2a</script>
@@ -186,5 +186,20 @@
       <tags>
         <tag>books</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>HEXO 博客显示PDF，并控制博客访问权限</title>
+    <url>/2021/12/31/hexo-pdf-security/</url>
+    <content><![CDATA[<h1 id="HEXO博客中插入PDF"><a href="#HEXO博客中插入PDF" class="headerlink" title="HEXO博客中插入PDF"></a>HEXO博客中插入PDF</h1><h2 id="config-yml文件修改"><a href="#config-yml文件修改" class="headerlink" title="_config.yml文件修改"></a>_config.yml文件修改</h2><p>将hexo博客根目录下<code>_config.yml</code>配置文件中的<code>post_asset_folder</code>选项设置为<code>true</code>  </p>
+<p>该选项的功能说明如下:<br><code>当设置post_asset_folder为true参数后，在建立文件时，Hexo会自动建立一个与文章同名的文件夹，可以把与该文章相关的所有资源都放到那个文件夹，更方便的使用资源。</code></p>
+<h2 id="新建一篇文章并插入PDF"><a href="#新建一篇文章并插入PDF" class="headerlink" title="新建一篇文章并插入PDF"></a>新建一篇文章并插入PDF</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;article name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>source/_post</code>文件夹下，会生成<code>&lt;article name&gt;.md</code>和<code>&lt;article name&gt;</code>文件夹。将想要显示的PDF 放到<code>&lt;article name&gt;</code>文件夹下，并在<code>&lt;article name&gt;.md</code> 文章，插入如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;object data=<span class="string">&quot;XXX.pdf&quot;</span>  type=<span class="string">&quot;application/pdf&quot;</span> width=<span class="string">&quot;100%&quot;</span> height=<span class="string">&quot;877px&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后通过<code>hexo g </code>和<code>hexo s</code>查看显示效果。</p>
+<h1 id="HEXO设置文章访问密码"><a href="#HEXO设置文章访问密码" class="headerlink" title="HEXO设置文章访问密码"></a>HEXO设置文章访问密码</h1><p>因为有一些PDF涉及版权，或者自己有一些文章不便于面向互联网发布。可以通过设置访问密码的方式控制文章的访问权限。  </p>
+<p>主要用到的是<code>hexo-blog-encrypt</code> ，开源项目地址链接为：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md">https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md</a></p>
+]]></content>
   </entry>
 </search>
