@@ -1,5 +1,5 @@
 ---
-title: Redis DevOps
+title: 《Redis开发与运维》PDF
 date: 2021-12-31 12:42:32
 tags: books
 password: rootLi!

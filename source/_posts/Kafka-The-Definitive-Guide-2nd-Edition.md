@@ -1,5 +1,5 @@
 ---
-title: Kafka The Definitive Guide 2ndEdition
+title: 《Kafka The Definitive Guide 2nd Edition》 PDF
 date: 2021-12-30 08:09:24
 tags:
 description: Kafka The Definitive　Guide　2nd　Edition
