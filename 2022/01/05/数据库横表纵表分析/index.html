@@ -21,19 +21,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失">
+  <meta name="description" content="参考链接：    纵表和横表的概念及其相互转换 数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考 概念横表普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。  12345678910CREATE TABLE &#96;horizontal_table&#96; (  &#96;员工编号&#96; char(6) NOT NULL,  &#96;基本工资&#96; i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO 自建博客备份GitHub">
-<meta property="og:url" content="http://example.com/2021/08/08/HEXO-manual/index.html">
+<meta property="og:title" content="数据库横表纵表分析">
+<meta property="og:url" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失">
+<meta property="og:description" content="参考链接：    纵表和横表的概念及其相互转换 数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考 概念横表普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。  12345678910CREATE TABLE &#96;horizontal_table&#96; (  &#96;员工编号&#96; char(6) NOT NULL,  &#96;基本工资&#96; i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-08T12:55:34.000Z">
-<meta property="article:modified_time" content="2022-01-05T04:35:59.604Z">
+<meta property="og:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
+<meta property="og:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8.png">
+<meta property="article:published_time" content="2022-01-05T10:49:37.000Z">
+<meta property="article:modified_time" content="2022-01-05T14:08:53.840Z">
 <meta property="article:author" content="TingHL">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
 
-<link rel="canonical" href="http://example.com/2021/08/08/HEXO-manual/">
+<link rel="canonical" href="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
 
 
 <script id="page-configurations">
@@ -46,7 +50,7 @@
   };
 </script>
 
-  <title>HEXO 自建博客备份GitHub | Hexo</title>
+  <title>数据库横表纵表分析 | Hexo</title>
   
 
 
@@ -201,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/08/HEXO-manual/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
@@ -214,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HEXO 自建博客备份GitHub
+          数据库横表纵表分析
         </h1>
 
         <div class="post-meta">
@@ -223,28 +227,26 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-08 20:55:34" itemprop="dateCreated datePublished" datetime="2021-08-08T20:55:34+08:00">2021-08-08</time>
+              <time title="创建时间：2022-01-05 18:49:37 / 修改时间：22:08:53" itemprop="dateCreated datePublished" datetime="2022-01-05T18:49:37+08:00">2022-01-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-05 12:35:59" itemprop="dateModified" datetime="2022-01-05T12:35:59+08:00">2022-01-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/object-Object/" itemprop="url" rel="index"><span itemprop="name">[object Object]</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/08/08/HEXO-manual/" class="post-meta-item leancloud_visitors" data-flag-title="HEXO 自建博客备份GitHub" title="阅读次数">
+            <span id="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/" class="post-meta-item leancloud_visitors" data-flag-title="数据库横表纵表分析" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -259,13 +261,12 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/08/08/HEXO-manual/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/08/HEXO-manual/" itemprop="commentCount"></span>
+    <a title="valine" href="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
   
-            <div class="post-description">hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失</div>
 
         </div>
       </header>
@@ -276,18 +277,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="HEXO博客备份"><a href="#HEXO博客备份" class="headerlink" title="HEXO博客备份"></a>HEXO博客备份</h1><p>由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><strong>参考链接</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://mupceet.com/2019/09/backup-hexo-blog/">https://mupceet.com/2019/09/backup-hexo-blog/</a></li>
+        <p>参考链接：  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangzeyuaaa/article/details/50675058">纵表和横表的概念及其相互转换</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wy123/p/6677073.html">数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考</a></li>
+<li><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="横表"><a href="#横表" class="headerlink" title="横表"></a>横表</h2>普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。</li>
 </ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a><strong>步骤</strong></h2><h3 id="初次备份"><a href="#初次备份" class="headerlink" title="初次备份"></a><strong>初次备份</strong></h3><p>按照以下步骤，详情可以看一下参考链接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git init</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git submodule https://github.com/theme-next/hexo-theme-next.git themes/next</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">&quot;init blog backup&quot;</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为了便于记忆 将main分支重命名为hexo分支 对应github.io中的备份分支hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git branch -m master hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git remote add origin https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git push -u origin hexo:hexo</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="初次备份后"><a href="#初次备份后" class="headerlink" title="初次备份后"></a><strong>初次备份后</strong></h3><ul>
-<li><p><strong>博客网页部署</strong>按照<code>hexo g,  hexo s,   hexo d</code>等命令进行生成，浏览，部署</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>博客源代码备份</strong> <code>hexo</code>分支按照日常使用的<code>git</code>命令，推送到<code>github</code>的<code>hexo</code>分支上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add xxx</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push origin hexo:hexo</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `horizontal_table` (</span><br><span class="line">  `员工编号` <span class="type">char</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `基本工资` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `加班工资` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `报销费用` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `社保扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `公积金扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `个税扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`员工编号`)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png" alt="横表"></p>
+<h2 id="纵表"><a href="#纵表" class="headerlink" title="纵表"></a>纵表</h2><p>纵表后，则表结构为： 主键、字段代码、字段值。而字段代码则为字段1、字段2、字段3…。  特点是每行进存储某一个实体记录的某一个字段的值，以行的形式Key-Value进行存储。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `vertical_table` (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `员工编号` <span class="type">varchar</span>(<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `款项` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `金额` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">5</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8.png" alt="纵表"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>横表</th>
+<th>纵表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表结构</td>
+<td>主键、字段1、字段2、字段3…</td>
+<td>主键、字段代码、字段值</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>一条表示一个实体记录，清晰</td>
+<td>给表新增字段，只需要新增一些记录。灵活拓展存储的内容，具有一定的共用性</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>给表新增字段，必须重构表结构，不方便拓展和公用</td>
+<td>数据描述比横表不清晰。如果需要分组统计，需要先group by，较繁琐</td>
+</tr>
+<tr>
+<td>形式</td>
+<td>Key-Value1-Value2-…（一条）</td>
+<td>Key-Value1（多条）</td>
+</tr>
+<tr>
+<td></td>
+<td>各个字段的值是自由的</td>
+<td>字段的类型是固定的，类型要兼容</td>
+</tr>
+<tr>
+<td></td>
+<td>表中不存储描述性字段本身（相对于纵表）</td>
+<td>表中需要存储描述性字段本身（相比横表）</td>
+</tr>
+<tr>
+<td></td>
+<td>存储同样多的数据，行数要少（相对于纵表）</td>
+<td>存储同样多的数据，行数要多（相对于横表）</td>
+</tr>
+</tbody></table>
+<h2 id="横表转纵表"><a href="#横表转纵表" class="headerlink" title="横表转纵表"></a>横表转纵表</h2><p>结论：  </p>
+<ul>
+<li><strong>把不容易改动表结构的设计成横表，把容易经常改动不确定的表结构设计成纵表。</strong></li>
+<li></li>
 </ul>
 
     </div>
@@ -297,17 +345,20 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/08/15/Spring-Framework-Documentation/" rel="next" title="Spring Framework Documentation">
-      Spring Framework Documentation <i class="fa fa-chevron-right"></i>
+    <a href="/2022/01/05/mysql/" rel="prev" title="mysql">
+      <i class="fa fa-chevron-left"></i> mysql
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -367,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HEXO%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">HEXO博客备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD"><span class="nav-number">1.2.1.</span> <span class="nav-text">初次备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD%E5%90%8E"><span class="nav-number">1.2.2.</span> <span class="nav-text">初次备份后</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%AA%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">横表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%B5%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">纵表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%AA%E8%A1%A8%E8%BD%AC%E7%BA%B5%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">横表转纵表</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

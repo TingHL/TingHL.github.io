@@ -21,32 +21,30 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HEXO 自建博客备份GitHub">
-<meta property="og:url" content="http://example.com/2021/08/08/HEXO-manual/index.html">
+  <meta name="description" content="路漫漫其修远兮 吾将上下而求索">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失">
+<meta property="og:description" content="路漫漫其修远兮 吾将上下而求索">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-08T12:55:34.000Z">
-<meta property="article:modified_time" content="2022-01-05T04:35:59.604Z">
 <meta property="article:author" content="TingHL">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/08/08/HEXO-manual/">
+<link rel="canonical" href="http://example.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>HEXO 自建博客备份GitHub | Hexo</title>
+  <title>Hexo</title>
   
 
 
@@ -194,10 +192,9 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -213,9 +210,10 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          HEXO 自建博客备份GitHub
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/08/HEXO-manual/" class="post-title-link" itemprop="url">HEXO 自建博客备份GitHub</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -265,7 +263,6 @@
   </span>
   
   
-            <div class="post-description">hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失</div>
 
         </div>
       </header>
@@ -276,51 +273,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="HEXO博客备份"><a href="#HEXO博客备份" class="headerlink" title="HEXO博客备份"></a>HEXO博客备份</h1><p>由于自己换了电脑，忘记博客备份，只能重新搭建。为防止以后发生同样的情况，特将相关笔记记录一下。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><strong>参考链接</strong></h2><ul>
-<li><a target="_blank" rel="noopener" href="https://mupceet.com/2019/09/backup-hexo-blog/">https://mupceet.com/2019/09/backup-hexo-blog/</a></li>
-</ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a><strong>步骤</strong></h2><h3 id="初次备份"><a href="#初次备份" class="headerlink" title="初次备份"></a><strong>初次备份</strong></h3><p>按照以下步骤，详情可以看一下参考链接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git init</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git submodule https://github.com/theme-next/hexo-theme-next.git themes/next</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash">git add .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git commit -m <span class="string">&quot;init blog backup&quot;</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 为了便于记忆 将main分支重命名为hexo分支 对应github.io中的备份分支hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git branch -m master hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git remote add origin https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash">git push -u origin hexo:hexo</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="初次备份后"><a href="#初次备份后" class="headerlink" title="初次备份后"></a><strong>初次备份后</strong></h3><ul>
-<li><p><strong>博客网页部署</strong>按照<code>hexo g,  hexo s,   hexo d</code>等命令进行生成，浏览，部署</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>博客源代码备份</strong> <code>hexo</code>分支按照日常使用的<code>git</code>命令，推送到<code>github</code>的<code>hexo</code>分支上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add xxx</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push origin hexo:hexo</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <p>hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/08/HEXO-manual/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-
       <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/2021/08/15/Spring-Framework-Documentation/" rel="next" title="Spring Framework Documentation">
-      Spring Framework Documentation <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
 
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -367,7 +352,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HEXO%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">HEXO博客备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD"><span class="nav-number">1.2.1.</span> <span class="nav-text">初次备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%A4%87%E4%BB%BD%E5%90%8E"><span class="nav-number">1.2.2.</span> <span class="nav-text">初次备份后</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
