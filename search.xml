@@ -9,6 +9,12 @@
 <p>· 地图标点不包括：热门景区（五选一） 标杆景区（五选一）</p>
 <p>· 景点位置根据高德地图获得，最新位置请根据爱文亿景点详情确定 图中地点仅作参考</p>
 <iframe src="https://www.google.com/maps/d/embed?mid=1oYic3aNvTNa81_bkHGq8asLDlHg9Lxyo&ehbc=2E312F" width="640" height="480"></iframe>]]></content>
+      <categories>
+        <category>tutorial</category>
+      </categories>
+      <tags>
+        <tag>shanghai</tag>
+      </tags>
   </entry>
   <entry>
     <title>Arrays.asList() ArrayList.addAll() Collection.addAll()简单分析</title>
@@ -40,12 +46,12 @@
 <p>· Collections.addAll()比arrays.addAll()方法快得多！</p>
 ]]></content>
       <categories>
-        <category>Notes</category>
+        <category>java</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>Arrays</tag>
         <tag>ArrayList</tag>
+        <tag>Collection</tag>
       </tags>
   </entry>
   <entry>
@@ -68,9 +74,6 @@
       <categories>
         <category>hexo</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>《Kafka The Definitive Guide 2nd Edition》 PDF</title>
@@ -87,6 +90,13 @@
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>kafka</category>
+      </categories>
+      <tags>
+        <tag>kafka</tag>
+        <tag>pdf</tag>
+      </tags>
   </entry>
   <entry>
     <title>LinkedCaseInsensitveMap 大小写不敏感，用于数据库数据查询</title>
@@ -99,9 +109,9 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedCaseInsensitiveMap</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">String</span>, <span class="title">V</span>&gt;, <span class="title">Serializable</span>, <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> LinkedHashMap&lt;String, V&gt; targetMap;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HashMap&lt;String, String&gt; caseInsensitiveKeys;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Locale locale;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;String&gt; keySet;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Collection&lt;V&gt; values;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Set&lt;Entry&lt;String, V&gt;&gt; entrySet;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys(HashMap类型) 将Key转换为小写，caseInsensitiveKeys存储 小写key -- Key</span></span><br><span class="line"><span class="comment">    * targetMap(LinkedHashMap类型) Key -- Value</span></span><br><span class="line"><span class="comment">    * 实例： </span></span><br><span class="line"><span class="comment">    * put(&quot;ABCDEF&quot;,2)</span></span><br><span class="line"><span class="comment">    * caseInsensitiveKeys: abcdef--&gt;ABCDEF</span></span><br><span class="line"><span class="comment">    * targetMap: ABCDEF--&gt; 2</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(String key, <span class="meta">@Nullable</span> V value)</span> </span>&#123;</span><br><span class="line">		String oldKey = <span class="keyword">this</span>.caseInsensitiveKeys.put(convertKey(key), key);</span><br><span class="line">		V oldKeyValue = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span> (oldKey != <span class="keyword">null</span> &amp;&amp; !oldKey.equals(key)) &#123;</span><br><span class="line">			oldKeyValue = <span class="keyword">this</span>.targetMap.remove(oldKey);</span><br><span class="line">		&#125;</span><br><span class="line">		V oldValue = <span class="keyword">this</span>.targetMap.put(key, value);</span><br><span class="line">		<span class="keyword">return</span> (oldKeyValue != <span class="keyword">null</span> ? oldKeyValue : oldValue);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (key <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">			String caseInsensitiveKey = <span class="keyword">this</span>.caseInsensitiveKeys.get(convertKey((String) key));</span><br><span class="line">			<span class="keyword">if</span> (caseInsensitiveKey != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.targetMap.get(caseInsensitiveKey);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">convertKey</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> key.toLowerCase(getLocale());</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>java</category>
+      </categories>
   </entry>
   <entry>
     <title>Spring Framework Documentation</title>
@@ -117,8 +127,11 @@
 <p>支持XML、Java Annotation等方式，可以通过少量 XML方式来说明支持注解方式。</p>
 <p><img src="/2021/08/15/Spring-Framework-Documentation/container-magic.png" alt="container magic"></p>
 ]]></content>
+      <categories>
+        <category>spring</category>
+      </categories>
       <tags>
-        <tag>Spring</tag>
+        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -165,7 +178,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>git</tag>
+        <tag>manual</tag>
       </tags>
   </entry>
   <entry>
@@ -183,8 +197,12 @@
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
       <tags>
-        <tag>books</tag>
+        <tag>redis</tag>
+        <tag>pdf</tag>
       </tags>
   </entry>
   <entry>
@@ -201,5 +219,23 @@
 <h1 id="HEXO设置文章访问密码"><a href="#HEXO设置文章访问密码" class="headerlink" title="HEXO设置文章访问密码"></a>HEXO设置文章访问密码</h1><p>因为有一些PDF涉及版权，或者自己有一些文章不便于面向互联网发布。可以通过设置访问密码的方式控制文章的访问权限。  </p>
 <p>主要用到的是<code>hexo-blog-encrypt</code> ，开源项目地址链接为：<a href="https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md">https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md</a></p>
 ]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>manual</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql</title>
+    <url>/2022/01/05/mysql/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>notes</tag>
+      </tags>
   </entry>
 </search>
