@@ -18,26 +18,26 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"tinghl.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="参考链接：    纵表和横表的概念及其相互转换 数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考 概念横表普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。  12345678910CREATE TABLE &#96;horizontal_table&#96; (  &#96;员工编号&#96; char(6) NOT NULL,  &#96;基本工资&#96; i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库横表纵表分析">
-<meta property="og:url" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/index.html">
+<meta property="og:url" content="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="参考链接：    纵表和横表的概念及其相互转换 数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考 概念横表普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。  12345678910CREATE TABLE &#96;horizontal_table&#96; (  &#96;员工编号&#96; char(6) NOT NULL,  &#96;基本工资&#96; i">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
-<meta property="og:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8.png">
+<meta property="og:image" content="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
+<meta property="og:image" content="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8.png">
 <meta property="article:published_time" content="2022-01-05T10:49:37.000Z">
 <meta property="article:modified_time" content="2022-01-05T14:08:53.840Z">
 <meta property="article:author" content="TingHL">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
+<meta name="twitter:image" content="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png">
 
-<link rel="canonical" href="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
+<link rel="canonical" href="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
 
 
 <script id="page-configurations">
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="https://tinghl.com/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.jpg">
