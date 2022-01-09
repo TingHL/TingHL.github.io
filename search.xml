@@ -245,11 +245,11 @@
 <ul>
 <li><a href="https://blog.csdn.net/zhangzeyuaaa/article/details/50675058">纵表和横表的概念及其相互转换</a></li>
 <li><a href="https://www.cnblogs.com/wy123/p/6677073.html">数据库设计—关于建表的时候选择横表和竖表(纵表)的一点思考</a></li>
-<li><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="横表"><a href="#横表" class="headerlink" title="横表"></a>横表</h2>普通的建表方式，如表结构：主键、字段1、字段2、字段3…。以Key-value1-value2-value3的形式存储。</li>
+<li><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="横表"><a href="#横表" class="headerlink" title="横表"></a>横表</h2>普通的建表方式，如表结构：<code>主键、字段1、字段2、字段3...</code>。类似于以<code>Key-value1-value2-value3</code>的形式存储。</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `horizontal_table` (</span><br><span class="line">  `员工编号` <span class="type">char</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `基本工资` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `加班工资` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `报销费用` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `社保扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `公积金扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `个税扣款` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`员工编号`)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png" alt="横表"></p>
-<h2 id="纵表"><a href="#纵表" class="headerlink" title="纵表"></a>纵表</h2><p>纵表后，则表结构为： 主键、字段代码、字段值。而字段代码则为字段1、字段2、字段3…。  特点是每行进存储某一个实体记录的某一个字段的值，以行的形式Key-Value进行存储。</p>
+<h2 id="纵表"><a href="#纵表" class="headerlink" title="纵表"></a>纵表</h2><p>纵表后，则表结构为：<code>主键、字段代码、字段值</code>。而字段代码则为字段1、字段2、字段3…。  特点是每行进存储某一个实体记录的某一个字段的值，类似于以行的形式<code>Key-Value</code>进行存储。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `vertical_table` (</span><br><span class="line">  `id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `员工编号` <span class="type">varchar</span>(<span class="number">6</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `款项` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `金额` <span class="type">int</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">5</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8.png" alt="纵表"></p>
 <table>
@@ -296,15 +296,26 @@
 <td>存储同样多的数据，行数要多（相对于横表）</td>
 </tr>
 </tbody></table>
-<h2 id="横表转纵表"><a href="#横表转纵表" class="headerlink" title="横表转纵表"></a>横表转纵表</h2><p>结论：  </p>
-<ul>
-<li><strong>把不容易改动表结构的设计成横表，把容易经常改动不确定的表结构设计成纵表。</strong></li>
-<li></li>
-</ul>
+<p><strong>把不容易改动表结构的设计成横表，把容易经常改动不确定的表结构设计成纵表。</strong> </p>
+<h1 id="横表纵表转换"><a href="#横表纵表转换" class="headerlink" title="横表纵表转换"></a>横表纵表转换</h1><h2 id="横表转纵表"><a href="#横表转纵表" class="headerlink" title="横表转纵表"></a>横表转纵表</h2><p>以下图横表为例转换为纵表。</p>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8.png" alt="待转换横表"></p>
+<p>转换后的纵表如下图所示：</p>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E6%A8%AA%E8%A1%A8%E8%BD%AC%E7%BA%B5%E8%A1%A8.png" alt="横表转纵表"></p>
+<p>使用的转换语句如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select h.`员工编号`,</span><br><span class="line">&#x27;基本工资&#x27; as `类别`,</span><br><span class="line">h.`基本工资` as `金额`</span><br><span class="line">from horizontal_table h</span><br><span class="line"></span><br><span class="line">union all</span><br><span class="line"></span><br><span class="line">select `员工编号`,</span><br><span class="line">&#x27;加班工资&#x27; as `类别`,</span><br><span class="line">`加班工资` as `金额`</span><br><span class="line">from horizontal_table</span><br><span class="line"></span><br><span class="line">union all</span><br><span class="line"></span><br><span class="line">select `员工编号`,</span><br><span class="line">&#x27;报销费用&#x27; as `类别`,</span><br><span class="line">`报销费用` as `金额`</span><br><span class="line">from horizontal_table</span><br><span class="line"></span><br><span class="line">union all</span><br><span class="line"></span><br><span class="line">select `员工编号`,</span><br><span class="line">&#x27;社保扣款&#x27; as `类别`,</span><br><span class="line">`社保扣款` as `金额`</span><br><span class="line">from horizontal_table</span><br><span class="line"></span><br><span class="line">union all</span><br><span class="line"></span><br><span class="line">select `员工编号`,</span><br><span class="line">&#x27;公积金扣款&#x27; as `类别`,</span><br><span class="line">`公积金扣款` as `金额`</span><br><span class="line">from horizontal_table</span><br><span class="line"></span><br><span class="line">union all</span><br><span class="line"></span><br><span class="line">select `员工编号`,</span><br><span class="line">&#x27;个税扣款&#x27; as `类别`,</span><br><span class="line">`个税扣款` as `金额`</span><br><span class="line">from horizontal_table</span><br><span class="line"></span><br><span class="line">order by `员工编号`</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="纵表转横表"><a href="#纵表转横表" class="headerlink" title="纵表转横表"></a>纵表转横表</h2><p>以下图纵表为例转换为横表。</p>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E5%BE%85%E8%BD%AC%E6%8D%A2%E7%BA%B5%E8%A1%A8.png" alt="代转换纵表"></p>
+<p>转换为横表的结果如下图所示：</p>
+<p><img src="/2022/01/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%AA%E8%A1%A8%E7%BA%B5%E8%A1%A8%E5%88%86%E6%9E%90/%E7%BA%B5%E8%A1%A8%E8%BD%AC%E6%A8%AA%E8%A1%A8.png" alt="纵表转横表"></p>
+<p>使用的SQL语句如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> v.`员工编号`,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> v.`款项` <span class="keyword">when</span> <span class="string">&#x27;基本工资&#x27;</span> <span class="keyword">then</span> v.`金额` <span class="keyword">end</span>) <span class="keyword">as</span> 基本工资,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> v.`款项` <span class="keyword">when</span> <span class="string">&#x27;加班工资&#x27;</span> <span class="keyword">then</span> v.`金额` <span class="keyword">end</span>) <span class="keyword">as</span> 加班工资,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> v.`款项` <span class="keyword">when</span> <span class="string">&#x27;报销费用&#x27;</span> <span class="keyword">then</span> v.`金额` <span class="keyword">end</span>) <span class="keyword">as</span> 报销费用,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> v.`款项` <span class="keyword">when</span> <span class="string">&#x27;社保费用&#x27;</span> <span class="keyword">then</span> v.`金额` <span class="keyword">end</span>) <span class="keyword">as</span> 社保费用</span><br><span class="line"><span class="keyword">from</span> vertical_table v</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> v.`员工编号`</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>mysql</category>
-        <category>[object Object]</category>
       </categories>
       <tags>
         <tag>mysql</tag>
