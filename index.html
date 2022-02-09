@@ -323,10 +323,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-05 10:54:24 / 修改时间：18:42:09" itemprop="dateCreated datePublished" datetime="2022-01-05T10:54:24+08:00">2022-01-05</time>
+              <time title="创建时间：2022-01-05 10:54:24" itemprop="dateCreated datePublished" datetime="2022-01-05T10:54:24+08:00">2022-01-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-08 07:56:32" itemprop="dateModified" datetime="2022-02-08T07:56:32+08:00">2022-02-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -369,7 +375,552 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>参考资料：</p>
+<ul>
+<li><code>MySQL</code>必知必会</li>
+</ul>
+<h1 id="Mysql-基本概念"><a href="#Mysql-基本概念" class="headerlink" title="Mysql 基本概念"></a>Mysql 基本概念</h1><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库（database） 保存有组织的数据的容器（通常是一个文件或一组文件）。</p>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><p>表（table） 某种特定类型数据的结构化清单。</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>模式（schema） 关于数据库和表的布局及特性的信息。</p>
+<h2 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h2><p>主键（primary key）：一列（或一组列），其值能够唯一区分表中每个行。表中的任何列都可以作为主键，只要它满足以下条件：</p>
+<ul>
+<li>任意两行都不具有相同的主键值；</li>
+<li><strong>每个行都必须具有一个主键值（主键列不允许NULL值）。</strong></li>
+</ul>
+<p>应该坚持的几个普遍认可的最好习惯为：</p>
+<ul>
+<li>不更新主键列中的值；</li>
+<li>不重用主键列的值；</li>
+<li>不在主键列中使用可能会更改的值。（例如，如果使用一个名字作为主键以标识某个供应商，当该供应商合并和更改其名字时，必须更改这个主键。）</li>
+</ul>
+<h1 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h1><p>数据的所有存储、检索、管理和处理实际上是由数据库软件——DBMS（数据库管理系统）完成的。MySQL是一种DBMS，即它是一种数据库软件。</p>
+<p>DBMS可分为两类：一类为基于共享文件系统的DBMS，另一类为基于客户机—服务器的DBMS。前者（包括诸如Microsoft Access和FileMaker）用于桌面用途，通常不用于高端或更关键的应用。MySQL、Oracle以及Microsoft SQL Server等数据库是基于客户机—服务器的数据库。客户机—服务器应用分为两个不同的部分。服务器部分是负责所有数据访问和处理的一个软件。这个软件运行在称为数据库服务器的计算机上。与数据文件打交道的只有服务器软件。关于数据、数据添加、删除和数据更新的所有请求都由服务器软件完成。这些请求或更改来自运行客户机软件的计算机。客户机是与用户打交道的软件。</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="显示所有数据库"><a href="#显示所有数据库" class="headerlink" title="显示所有数据库"></a>显示所有数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示所有表"><a href="#显示所有表" class="headerlink" title="显示所有表"></a>显示所有表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示具体一个表中的所有列"><a href="#显示具体一个表中的所有列" class="headerlink" title="显示具体一个表中的所有列"></a>显示具体一个表中的所有列</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show columns from &lt;table_name&gt;;</span><br><span class="line">describe &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<p>![](mysql/show columns from table_name.png)</p>
+<h2 id="显示服务器的状态信息"><a href="#显示服务器的状态信息" class="headerlink" title="显示服务器的状态信息"></a>显示服务器的状态信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show status;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示创建特定数据库或表的MySQL语句"><a href="#显示创建特定数据库或表的MySQL语句" class="headerlink" title="显示创建特定数据库或表的MySQL语句"></a>显示创建特定数据库或表的MySQL语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show create table &lt;table_name&gt;;</span><br><span class="line">show create database &lt;database_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示授予用户的安全权限"><a href="#显示授予用户的安全权限" class="headerlink" title="显示授予用户的安全权限"></a>显示授予用户的安全权限</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show grants;</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示服务器错误或警告信息"><a href="#显示服务器错误或警告信息" class="headerlink" title="显示服务器错误或警告信息"></a>显示服务器错误或警告信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show errors;</span><br><span class="line">show warnings;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><h2 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h2><p>不能部分使用DISTINCT，DISTINCT关键字应用于所有列而不仅仅是它的前置列。</p>
+<p>可以使用具有多个列的<code>DISTINCT</code>子句。 在这种情况下，<code>MySQL</code>使用所有列的组合来确定结果集中行的唯一性。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 取不同的column_1</span><br><span class="line">select distinct &lt;column_1&gt; from &lt;tbl_name&gt;;</span><br><span class="line"># 除非指定的两个列都不同，否则所有的行都会被检索出来</span><br><span class="line">select distinct &lt;column_1,column_2&gt; from &lt;tbl_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h2><p>根据查询条件查询一定数量的数据<strong>（limit 后只有一个参数）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 根据查询条件 检索出&lt;record_nums&gt;条数据 </span><br><span class="line">select &lt;column_name&gt; from &lt;table_name&gt; limit &lt;record_nums&gt;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>限定返回数据的位置，及其后面显示的行数。<strong>（limit后有两个参数）</strong></p>
+<p>start_position: 检索出来的第一行为第0行，开始检索的位置</p>
+<p>record_nums: 检索出的数据条数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 从行&lt;start_position&gt;开始 检索出&lt;record_nums&gt;行</span><br><span class="line">select &lt;column_name&gt;</span><br><span class="line">from &lt;table_name&gt; </span><br><span class="line">limit &lt;start_position&gt;,&lt;record_nums&gt;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><p>通常，ORDER BY子句中使用的列将是为显示所选择的列。但是，实际上并不一定要这样，用非检索的列排序数据是完全合法的。</p>
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><h3 id="空值检查NULL"><a href="#空值检查NULL" class="headerlink" title="空值检查NULL"></a>空值检查NULL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># IS NULL 子句</span><br><span class="line">select &lt;column_name&gt; from &lt;table_name&gt; where &lt;column_name&gt; IS NULL;</span><br></pre></td></tr></table></figure>
+
+<p><strong>NULL与不匹配</strong> 在通过过滤选择出不具有特定值的行时，你可能希望返回具有NULL值的行。但是，不行。因为未知具有特殊的含义，数据库不知道它们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。因此，在过滤数据时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。</p>
+<h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND OR"></a>AND OR</h3><p>AND的优先级高于OR优先级</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 优先处理AND操作符</span><br><span class="line"># 含义：由供应商1003制造的任何价格为10美元（含）以上的产品或者由供应商1002制造的任何产品</span><br><span class="line">select prod_name,prod_price</span><br><span class="line">from products</span><br><span class="line">where vend_id=1002 or vend_id = 1003 and prod_price&gt;=10;</span><br></pre></td></tr></table></figure>
+
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="% 通配符"></a>% 通配符</h2><ul>
+<li>除了一个或多个字符外，%还能匹配0个字符。%代表搜索模式中给定位置的0个、1个或多个字符。</li>
+<li>虽然似乎%通配符可以匹配任何东西，但有一个例外，即NULL。即使是WHERE prod_name LIKE ‘%’也不能匹配用值NULL作为产品名的行。</li>
+</ul>
+<h2 id="下划线-通配符"><a href="#下划线-通配符" class="headerlink" title="下划线_ 通配符"></a>下划线_ 通配符</h2><ul>
+<li>下划线的用途与%一样，但下划线只匹配单个字符而不是多个字符。</li>
+<li></li>
+</ul>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><strong>正则表达式匹配的是列值，LIKE匹配的是整个列</strong>，示例：</p>
+<p>prod_name全部数据，如下图所示：</p>
+<p>![正则表达式否定开始全量数据](mysql/regexp all datas.png)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 在列值中匹配具有非数字 非特殊字符. 的列</span><br><span class="line">select prod_name from products</span><br><span class="line">where prod_name regexp &#x27;[^0-9\\.]&#x27;</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/05/mysql/Users/TingHL/AppData/Roaming/Typora/typora-user-images/image-20220120213342814.png" alt="image-20220120213342814" style="zoom: 80%;">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 在列值中匹配 非数字非特殊字符. 开头的数字</span><br><span class="line">select prod_name</span><br><span class="line">from products where prod_name regexp &#x27;^[^0-9\\.]&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/01/05/mysql/%E5%BC%80%E5%A7%8B%E9%9D%9E0%E9%9D%9E9.png" alt="image-20220120213504774"></p>
+<h2 id="否定-开始"><a href="#否定-开始" class="headerlink" title="否定 / 开始  ^"></a>否定 / 开始  ^</h2><p>^有两种用法。在集合中（用[和]定义），用它来否定该集合，否则，用来指串的开始处。</p>
+<h2 id="匹配特殊字符-为前导"><a href="#匹配特殊字符-为前导" class="headerlink" title="匹配特殊字符 \\为前导"></a>匹配特殊字符 <code>\\</code>为前导</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查找 特殊字符 - </span><br><span class="line">select vend_name from venders where vend_name regexp &#x27;\\-&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="匹配字符类"><a href="#匹配字符类" class="headerlink" title="匹配字符类"></a>匹配字符类</h2><p><img src="/2022/01/05/mysql/%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E7%B1%BB.png" alt="匹配字符类"></p>
+<p><img src="/2022/01/05/mysql/%E9%87%8D%E5%A4%8D%E5%85%83%E5%AD%97%E7%AC%A6.png" alt="重复元字符"></p>
+<p>定位元字符匹配特定位置的文本。</p>
+<p><img src="/2022/01/05/mysql/%E5%AE%9A%E4%BD%8D%E5%85%83%E5%AD%97%E7%AC%A6.png" alt="image-20220120211750469"></p>
+<h1 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h1><h2 id="拼接字段"><a href="#拼接字段" class="headerlink" title="拼接字段"></a>拼接字段</h2><p>concat() 函数：一个或多个指定的串，各个串之间用逗号分隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select concat(vend_name,&#x27;(&#x27;,vend_country,&#x27;)&#x27;)</span><br><span class="line">from vendors order by vend_name;</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="文本函数"><a href="#文本函数" class="headerlink" title="文本函数"></a>文本函数</h2><table>
+<thead>
+<tr>
+<th>函 数</th>
+<th align="left">说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Left()</td>
+<td align="left">返回串左边的字符</td>
+</tr>
+<tr>
+<td>Length()</td>
+<td align="left">返回串的长度</td>
+</tr>
+<tr>
+<td>Locate()</td>
+<td align="left">找出串的一个子串</td>
+</tr>
+<tr>
+<td>Lower()</td>
+<td align="left">将串转换为小写</td>
+</tr>
+<tr>
+<td>LTrim()</td>
+<td align="left">去掉串左边的空格</td>
+</tr>
+<tr>
+<td>Right()</td>
+<td align="left">返回串右边的字符</td>
+</tr>
+<tr>
+<td>RTrim()</td>
+<td align="left">去掉串右边的空格</td>
+</tr>
+<tr>
+<td>Soundex()</td>
+<td align="left">返回串的SOUNDEX值，将任何文本字符串转换为描述其语音表示的字母数字模式的算法</td>
+</tr>
+<tr>
+<td>SubString()</td>
+<td align="left">返回子串的字符</td>
+</tr>
+<tr>
+<td>Upper()</td>
+<td align="left">将串转换为大写</td>
+</tr>
+</tbody></table>
+<h2 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h2><p>数值处理函数仅处理数值数据。这些函数一般主要用于代数、三角<br>或几何运算，因此没有串或日期—时间处理函数的使用那么频繁。</p>
+<table>
+<thead>
+<tr>
+<th>函 数</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Abs()</td>
+<td>返回一个数的绝对值</td>
+</tr>
+<tr>
+<td>Cos()</td>
+<td>返回一个角度的余弦</td>
+</tr>
+<tr>
+<td>Exp()</td>
+<td>返回一个数的指数值</td>
+</tr>
+<tr>
+<td>Mod()</td>
+<td>返回除操作的余数</td>
+</tr>
+<tr>
+<td>Pi()</td>
+<td>返回圆周率</td>
+</tr>
+<tr>
+<td>Rand()</td>
+<td>返回一个随机数</td>
+</tr>
+<tr>
+<td>Sin()</td>
+<td>返回一个角度的正弦</td>
+</tr>
+<tr>
+<td>Sqrt()</td>
+<td>返回一个数的平方根</td>
+</tr>
+<tr>
+<td>Tan()</td>
+<td>返回一个角度的正切</td>
+</tr>
+</tbody></table>
+<h2 id="日期和时间函数"><a href="#日期和时间函数" class="headerlink" title="日期和时间函数"></a>日期和时间函数</h2><p>日期和时间采用相应的数据类型和特殊的格式存储，以便能快速和有效地排序或过滤，并且节省物理存储空间。</p>
+<table>
+<thead>
+<tr>
+<th>函 数</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AddDate()</td>
+<td>增加一个日期（天、周等）</td>
+</tr>
+<tr>
+<td>AddTime()</td>
+<td>增加一个时间（时、分等）</td>
+</tr>
+<tr>
+<td>CurDate()</td>
+<td>返回当前日期</td>
+</tr>
+<tr>
+<td>CurTime()</td>
+<td>返回当前时间</td>
+</tr>
+<tr>
+<td>Date()</td>
+<td>返回日期时间的日期部分。例如Date(‘2005-09-01 11:30:05’) 取值为 ‘2005-09-01’。</td>
+</tr>
+<tr>
+<td>DateDiff()</td>
+<td>计算两个日期之差</td>
+</tr>
+<tr>
+<td>Date_Add()</td>
+<td>高度灵活的日期运算函数</td>
+</tr>
+<tr>
+<td>Date_Format()</td>
+<td>返回一个格式化的日期或时间串</td>
+</tr>
+<tr>
+<td>Day()</td>
+<td>返回一个日期的天数部分</td>
+</tr>
+<tr>
+<td>DayOfWeek()</td>
+<td>对于一个日期，返回对应的星期几</td>
+</tr>
+<tr>
+<td>Hour()</td>
+<td>返回一个时间的小时部分</td>
+</tr>
+<tr>
+<td>Minute()</td>
+<td>返回一个时间的分钟部分</td>
+</tr>
+<tr>
+<td>Month()</td>
+<td>返回一个日期的月份部分</td>
+</tr>
+<tr>
+<td>Now()</td>
+<td>返回当前日期和时间</td>
+</tr>
+<tr>
+<td>Second()</td>
+<td>返回一个时间的秒部分</td>
+</tr>
+<tr>
+<td>Time()</td>
+<td>返回一个日期时间的时间部分</td>
+</tr>
+<tr>
+<td>Year()</td>
+<td>返回一个日期的年份部分</td>
+</tr>
+</tbody></table>
+<h2 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h2><table>
+<thead>
+<tr>
+<th>函 数</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AVG()</td>
+<td>返回某列的平均值. AVG()通过对表中行数计数并计算特定列值之和，求得该列的平均值。AVG()可用来返回所有列的平均值，也可以用来返回特定列或行的平均值。AVG()函数忽略列值为NULL的行(不加和 不平均 忽略该行数据)。</td>
+</tr>
+<tr>
+<td>COUNT()</td>
+<td>返回某列的行数.<br>使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。<br>使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</td>
+</tr>
+<tr>
+<td>MAX()</td>
+<td>返回某列的最大值. MAX()函数忽略列值为NULL的行。</td>
+</tr>
+<tr>
+<td>MIN()</td>
+<td>返回某列的最小值. MIN()函数忽略列值为NULL的行。</td>
+</tr>
+<tr>
+<td>SUM()</td>
+<td>返回某列值之和. SUM()函数忽略列值为NULL的行。</td>
+</tr>
+</tbody></table>
+<p>利用标准的算术操作符，所有聚集函数都可用来执行多个列上的计算。</p>
+<p>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select sum(item_price*item_quantity) as total_price</span><br><span class="line">from orderitems</span><br><span class="line">where order_num=20005;</span><br></pre></td></tr></table></figure>
+
+<p>以上5个聚集函数都可以如下使用：</p>
+<ul>
+<li>对所有的行执行计算，指定ALL参数或不给参数（因为ALL是默认行为）；</li>
+<li>只包含不同的值，指定DISTINCT参数。</li>
+</ul>
+<h1 id="group-by-分组-having-过滤"><a href="#group-by-分组-having-过滤" class="headerlink" title="group by 分组, having 过滤"></a>group by 分组, having 过滤</h1><p>GROUP BY子句指示MySQL分组数据，然后对每个组而不是<br>整个结果集进行聚集。<br>在具体使用GROUP BY子句前，需要知道一些重要的规定。</p>
+<ul>
+<li>GROUP BY子句可以包含任意数目的列。这使得能对分组进行嵌套，为数据分组提供更细致的控制。</li>
+<li>如果在GROUP BY子句中嵌套了分组，数据将在最后规定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</li>
+<li>GROUP BY子句中列出的每个列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</li>
+<li><strong>除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子句中给出</strong>。</li>
+<li>如果分组列中具有NULL值，则NULL将作为一个分组返回。如果列中有多行NULL值，它们将分为一组。</li>
+<li>GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。</li>
+</ul>
+<p><strong>在MYSQL中使用GROUP BY对表中的数据进行分组时，</strong><br><strong>GROUP BY X意思是将所有具有相同X字段值的记录放到一个分组里，</strong><br><strong>GROUP BY X, Y意思是将所有具有相同X字段值和Y字段值的记录放到一个分组里。</strong></p>
+<p>ORDER BY与GROUP BY 差别</p>
+<table>
+<thead>
+<tr>
+<th>ORDER BY</th>
+<th>GROUP BY</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>排序产生的输出</td>
+<td>分组行。但输出可能不是分组的顺序</td>
+</tr>
+<tr>
+<td>任意列都可以使用（甚至非选择的列也可以使用）</td>
+<td><strong>只可能使用选择列或表达式列，而且必须使用每个选择列表达式</strong></td>
+</tr>
+<tr>
+<td>不一定需要</td>
+<td>如果与聚集函数一起使用列（或表达式），则必须使用</td>
+</tr>
+</tbody></table>
+<h1 id="联结"><a href="#联结" class="headerlink" title="联结"></a>联结</h1><p>联结：多个表之间关联</p>
+<p>笛卡儿积（cartesian product） 由没有联结条件的表关系返回的结果为笛卡儿积。检索出的行的数目将是第一个表中的行数乘以第二个表中的行数。</p>
+<h2 id="内部联结（等值连接）"><a href="#内部联结（等值连接）" class="headerlink" title="内部联结（等值连接）"></a>内部联结（等值连接）</h2><p>基于两个表之间的相等测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line">from &lt;table_name1&gt; inner join &lt;table_name1&gt; </span><br><span class="line">on &lt;table_name1&gt;.column = &lt;table_name2&gt;.column;</span><br><span class="line"></span><br><span class="line">select * from &lt;table_name1&gt;,&lt;table_name1&gt; </span><br><span class="line">where &lt;table_name1&gt;.column = &lt;table_name2&gt;.column;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自联结"><a href="#自联结" class="headerlink" title="自联结"></a>自联结</h2><h2 id="自然联结"><a href="#自然联结" class="headerlink" title="自然联结"></a>自然联结</h2><h2 id="外部联结"><a href="#外部联结" class="headerlink" title="外部联结"></a>外部联结</h2><h1 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h1><p>许执行多个查询（多条SELECT语句），并将结果作为单个查询结果集返回。有两种基本情况，其中需要使用组合查询：</p>
+<ul>
+<li>在单个查询中从不同的表返回类似结构的数据；</li>
+<li>对单个表执行多个查询，按单个查询返回数据。</li>
+</ul>
+<p>UNION的使用很简单。所需做的只是给出每条SELECT语句，在各条语句之间放上关键字UNION。</p>
+<p><strong>Union规则</strong></p>
+<ul>
+<li>UNION必须由两条或两条以上的SELECT语句组成，语句之间用关键字UNION分隔（因此，如果组合4条SELECT语句，将要使用3个UNION关键字）。</li>
+<li>UNION中的每个查询必须包含相同的列、表达式或聚集函数（不过各个列不需要以相同的次序列出）。</li>
+<li>列数据类型必须兼容：类型不必完全相同，但必须是DBMS可以隐含地转换的类型（例如，不同的数值类型或不同的日期类型）。</li>
+</ul>
+<p><strong>UNION ALL</strong></p>
+<p>使用UNION ALL，MySQL不取消重复的行。</p>
+<p><strong>组合查询结果排序</strong></p>
+<p>SELECT语句的输出用ORDER BY子句排序。在用UNION组合查询时，只能使用一条ORDER BY子句，它必须出现在最后一条SELECT语句之后。</p>
+<h1 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h1><p>为了进行全文索引，MySQL根据子句FULLTEXT(note_text)的指示对它进行索引。FULLTEXT 索引单个列，也可以指定多个列。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `productnotes2` (</span><br><span class="line">  `note_id` int NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `prod_id` char(10) NOT NULL,</span><br><span class="line">  `note_date` datetime NOT NULL,</span><br><span class="line">  `note_text` text,</span><br><span class="line">  PRIMARY KEY (`note_id`),</span><br><span class="line">  FULLTEXT KEY `note_text` (`note_text`)</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci</span><br></pre></td></tr></table></figure>
+
+<p>在定义之后，MySQL 自动维护改索引。在增加、更新或删除行时，索引随之自动更新。</p>
+<h2 id="Match-Against"><a href="#Match-Against" class="headerlink" title="Match() Against()"></a>Match() Against()</h2><p>使用Match()和Against() 执行全文搜索，Match() 指定被索引的列，Against()指定要使用的索引表达式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select note_text</span><br><span class="line">from productnotes</span><br><span class="line">where match(note_text) against(&#x27;rabit&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>使用完整的Match() 说明 传递给Match() 的值必须与FULLTEXT()定义中的相同。如果指定多个列，则必须列出它们（而且次序正确）。</p>
+<h2 id="拓展查询"><a href="#拓展查询" class="headerlink" title="拓展查询"></a>拓展查询</h2><p>在使用查询扩展时，MySQL对数据和索引进行两遍扫描来完成搜索：</p>
+<ul>
+<li>首先，进行一个基本的全文本搜索，找出与搜索条件匹配的所有行；</li>
+<li>其次，MySQL检查这些匹配行并选择所有有用的词。</li>
+<li>再其次，MySQL再次进行全文本搜索，这次不仅使用原来的条件，而且还使用所有有用的词。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select note_text</span><br><span class="line">from productnotes</span><br><span class="line">where match(note_text) against(&#x27;rabit&#x27;) with query expansion;</span><br></pre></td></tr></table></figure>
+
+<h2 id="布尔文本搜索"><a href="#布尔文本搜索" class="headerlink" title="布尔文本搜索"></a>布尔文本搜索</h2><p>以布尔方式，可以提供关于如下内容的细节：</p>
+<ul>
+<li>要匹配的词；</li>
+<li>要排斥的词（如果某行包含这个词，则不返回该行，即使它包含其他指定的词也是如此）；</li>
+<li>排列提示（指定某些词比其他词更重要，更重要的词等级更高）；</li>
+<li>表达式分组；</li>
+<li>另外一些内容。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select note_text</span><br><span class="line">from productnotes</span><br><span class="line">where match(note_text) Against(&#x27;heavy&#x27; IN BOOLEAN MODE);</span><br><span class="line"></span><br><span class="line"># 匹配heavey 但 -rope*明确地指示MySQL 排除包含rope*</span><br><span class="line">select note_text</span><br><span class="line">from productnotes</span><br><span class="line">where match(note_text) Against(&#x27;heavy -rope*&#x27; IN BOOLEAN MODE);</span><br></pre></td></tr></table></figure>
+
+
+<p>全文布尔操作符</p>
+<table>
+<thead>
+<tr>
+<th>布尔操作符</th>
+<th>说 明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>包含，词必须存在</td>
+</tr>
+<tr>
+<td>-</td>
+<td>排除，词必须不出现</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>包含，而且增加等级值</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>&lt; 包含，且减少等级值</td>
+</tr>
+<tr>
+<td>()</td>
+<td>把词组成子表达式（允许这些子表达式作为一个组被包含、排除、排列等）</td>
+</tr>
+<tr>
+<td>~</td>
+<td>取消一个词的排序值</td>
+</tr>
+<tr>
+<td>*</td>
+<td>词尾的通配符</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>定义一个短语（与单个词的列表不一样，它匹配整个短语以便包含或排除这个短语）</td>
+</tr>
+</tbody></table>
+<h1 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 普通</span><br><span class="line">INSERT INTO &lt;table_name&gt;(column1,column2,...)</span><br><span class="line">values(value1,value2,...),(value11,value22,...);</span><br><span class="line"></span><br><span class="line"># 有插入查询能力支持</span><br><span class="line">INSERT [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE]</span><br><span class="line">    [INTO] tbl_name</span><br><span class="line">    [PARTITION (partition_name [, partition_name] ...)]</span><br><span class="line">    [(col_name [, col_name] ...)]</span><br><span class="line">    &#123;SELECT ... | TABLE table_name&#125;</span><br><span class="line">    [ON DUPLICATE KEY UPDATE assignment_list]</span><br><span class="line"></span><br><span class="line">value:</span><br><span class="line">    &#123;expr | DEFAULT&#125;</span><br><span class="line"></span><br><span class="line">assignment:</span><br><span class="line">    col_name = value</span><br><span class="line"></span><br><span class="line">assignment_list:</span><br><span class="line">    assignment [, assignment] ...</span><br></pre></td></tr></table></figure>
+
+<p>INSERT SELECT中的列名 为简单起见，这个例子在INSERT和SELECT语句中使用了相同的列名。但是，不一定要求列名匹配。事实上，MySQL甚至不关心SELECT返回的列名。它使用的是列的位置，因此SELECT中的第一列（不管其列名）将用来填充表列中指定的第一个列，第二列将用来填充表列中指定的第二个列，如此等等。这对于从使用不同列名的表中导入数据是非常有用的。</p>
+<h1 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h1><p>基本的<br>UPDATE语句由3部分组成，分别是：</p>
+<ul>
+<li>要更新的表；</li>
+<li>列名和它们的新值；</li>
+<li>确定要更新行的过滤条件。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># single table Syntax</span><br><span class="line">UPDATE [LOW_PRIORITY] [IGNORE] table_reference</span><br><span class="line">    SET assignment_list</span><br><span class="line">    [WHERE where_condition]</span><br><span class="line">    [ORDER BY ...]</span><br><span class="line">    [LIMIT row_count]</span><br><span class="line"></span><br><span class="line">value:</span><br><span class="line">    &#123;expr | DEFAULT&#125;</span><br><span class="line"></span><br><span class="line">assignment:</span><br><span class="line">    col_name = value</span><br><span class="line"></span><br><span class="line">assignment_list:</span><br><span class="line">    assignment [, assignment] ...</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"># multiple-talbe syntax</span><br><span class="line">UPDATE [LOW_PRIORITY] [IGNORE] table_references</span><br><span class="line">    SET assignment_list</span><br><span class="line">    [WHERE where_condition]</span><br></pre></td></tr></table></figure>
+
+<p>IGNORE 关键字 如果用UPDATE语句更新多行，并且在更新这些行中的一行或多行时出一个现错误，则整个UPDATE操作被取消（错误发生前更新的所有行被恢复到它们原来的值）。为即使是发生错误，也继续进行更新，可使用IGNORE关键字，如下所示：<code>UPDATE IGNORE customers…</code></p>
+<h1 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h1><p>为了从一个表中删除（去掉）数据，使用DELETE语句。可以两种方式使用DELETE：</p>
+<ul>
+<li>从表中删除特定的行；</li>
+<li>从表中删除所有行。</li>
+</ul>
+<p>省略了WHERE子句，则UPDATE或DELETE将被应用到表中所有的行。换句话说，如果执行UPDATE而不带WHERE子句，则表中每个行都将用新值更新。类似地，如果执行DELETE语句而不带WHERE子句，表的所有数据都将被删除。</p>
+<p><strong>更快的删除</strong> 如果想从表中删除所有行，不要使用DELETE。可使用TRUNCATE TABLE语句，它完成相同的工作，但速度更快（TRUNCATE实际是删除原来的表并重新创建一个表，而不是逐行删除表中的数据）</p>
+<h1 id="更新表"><a href="#更新表" class="headerlink" title="更新表"></a>更新表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tbl_name</span><br><span class="line">    [alter_option [, alter_option] ...]</span><br><span class="line">    [partition_options]</span><br><span class="line"></span><br><span class="line">alter_option: &#123;</span><br><span class="line">    table_options</span><br><span class="line">  | ADD [COLUMN] col_name column_definition</span><br><span class="line">        [FIRST | AFTER col_name]</span><br><span class="line">  | ADD [COLUMN] (col_name column_definition,...)</span><br><span class="line">  | ADD &#123;INDEX | KEY&#125; [index_name]</span><br><span class="line">        [index_type] (key_part,...) [index_option] ...</span><br><span class="line">  | ADD &#123;FULLTEXT | SPATIAL&#125; [INDEX | KEY] [index_name]</span><br><span class="line">        (key_part,...) [index_option] ...</span><br><span class="line">  | ADD [CONSTRAINT [symbol]] PRIMARY KEY</span><br><span class="line">        [index_type] (key_part,...)</span><br><span class="line">        [index_option] ...</span><br><span class="line">  | ADD [CONSTRAINT [symbol]] UNIQUE [INDEX | KEY]</span><br><span class="line">        [index_name] [index_type] (key_part,...)</span><br><span class="line">        [index_option] ...</span><br><span class="line">  | ADD [CONSTRAINT [symbol]] FOREIGN KEY</span><br><span class="line">        [index_name] (col_name,...)</span><br><span class="line">        reference_definition</span><br><span class="line">  | ADD [CONSTRAINT [symbol]] CHECK (expr) [[NOT] ENFORCED]</span><br><span class="line">  | DROP &#123;CHECK | CONSTRAINT&#125; symbol</span><br><span class="line">  | ALTER &#123;CHECK | CONSTRAINT&#125; symbol [NOT] ENFORCED</span><br><span class="line">  | ALGORITHM [=] &#123;DEFAULT | INSTANT | INPLACE | COPY&#125;</span><br><span class="line">  | ALTER [COLUMN] col_name &#123;</span><br><span class="line">        SET DEFAULT &#123;literal | (expr)&#125;</span><br><span class="line">      | SET &#123;VISIBLE | INVISIBLE&#125;</span><br><span class="line">      | DROP DEFAULT</span><br><span class="line">    &#125;</span><br><span class="line">  | ALTER INDEX index_name &#123;VISIBLE | INVISIBLE&#125;</span><br><span class="line">  | CHANGE [COLUMN] old_col_name new_col_name column_definition</span><br><span class="line">        [FIRST | AFTER col_name]</span><br><span class="line">  | [DEFAULT] CHARACTER SET [=] charset_name [COLLATE [=] collation_name]</span><br><span class="line">  | CONVERT TO CHARACTER SET charset_name [COLLATE collation_name]</span><br><span class="line">  | &#123;DISABLE | ENABLE&#125; KEYS</span><br><span class="line">  | &#123;DISCARD | IMPORT&#125; TABLESPACE</span><br><span class="line">  | DROP [COLUMN] col_name</span><br><span class="line">  | DROP &#123;INDEX | KEY&#125; index_name</span><br><span class="line">  | DROP PRIMARY KEY</span><br><span class="line">  | DROP FOREIGN KEY fk_symbol</span><br><span class="line">  | FORCE</span><br><span class="line">  | LOCK [=] &#123;DEFAULT | NONE | SHARED | EXCLUSIVE&#125;</span><br><span class="line">  | MODIFY [COLUMN] col_name column_definition</span><br><span class="line">        [FIRST | AFTER col_name]</span><br><span class="line">  | ORDER BY col_name [, col_name] ...</span><br><span class="line">  | RENAME COLUMN old_col_name TO new_col_name</span><br><span class="line">  | RENAME &#123;INDEX | KEY&#125; old_index_name TO new_index_name</span><br><span class="line">  | RENAME [TO | AS] new_tbl_name</span><br><span class="line">  | &#123;WITHOUT | WITH&#125; VALIDATION</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">partition_options:</span><br><span class="line">    partition_option [partition_option] ...</span><br><span class="line"></span><br><span class="line">partition_option: &#123;</span><br><span class="line">    ADD PARTITION (partition_definition)</span><br><span class="line">  | DROP PARTITION partition_names</span><br><span class="line">  | DISCARD PARTITION &#123;partition_names | ALL&#125; TABLESPACE</span><br><span class="line">  | IMPORT PARTITION &#123;partition_names | ALL&#125; TABLESPACE</span><br><span class="line">  | TRUNCATE PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | COALESCE PARTITION number</span><br><span class="line">  | REORGANIZE PARTITION partition_names INTO (partition_definitions)</span><br><span class="line">  | EXCHANGE PARTITION partition_name WITH TABLE tbl_name [&#123;WITH | WITHOUT&#125; VALIDATION]</span><br><span class="line">  | ANALYZE PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | CHECK PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | OPTIMIZE PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | REBUILD PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | REPAIR PARTITION &#123;partition_names | ALL&#125;</span><br><span class="line">  | REMOVE PARTITIONING</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">key_part: &#123;col_name [(length)] | (expr)&#125; [ASC | DESC]</span><br><span class="line"></span><br><span class="line">index_type:</span><br><span class="line">    USING &#123;BTREE | HASH&#125;</span><br><span class="line"></span><br><span class="line">index_option: &#123;</span><br><span class="line">    KEY_BLOCK_SIZE [=] value</span><br><span class="line">  | index_type</span><br><span class="line">  | WITH PARSER parser_name</span><br><span class="line">  | COMMENT &#x27;string&#x27;</span><br><span class="line">  | &#123;VISIBLE | INVISIBLE&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table_options:</span><br><span class="line">    table_option [[,] table_option] ...</span><br><span class="line"></span><br><span class="line">table_option: &#123;</span><br><span class="line">    AUTOEXTEND_SIZE [=] value</span><br><span class="line">  | AUTO_INCREMENT [=] value</span><br><span class="line">  | AVG_ROW_LENGTH [=] value</span><br><span class="line">  | [DEFAULT] CHARACTER SET [=] charset_name</span><br><span class="line">  | CHECKSUM [=] &#123;0 | 1&#125;</span><br><span class="line">  | [DEFAULT] COLLATE [=] collation_name</span><br><span class="line">  | COMMENT [=] &#x27;string&#x27;</span><br><span class="line">  | COMPRESSION [=] &#123;&#x27;ZLIB&#x27; | &#x27;LZ4&#x27; | &#x27;NONE&#x27;&#125;</span><br><span class="line">  | CONNECTION [=] &#x27;connect_string&#x27;</span><br><span class="line">  | &#123;DATA | INDEX&#125; DIRECTORY [=] &#x27;absolute path to directory&#x27;</span><br><span class="line">  | DELAY_KEY_WRITE [=] &#123;0 | 1&#125;</span><br><span class="line">  | ENCRYPTION [=] &#123;&#x27;Y&#x27; | &#x27;N&#x27;&#125;</span><br><span class="line">  | ENGINE [=] engine_name</span><br><span class="line">  | ENGINE_ATTRIBUTE [=] &#x27;string&#x27;</span><br><span class="line">  | INSERT_METHOD [=] &#123; NO | FIRST | LAST &#125;</span><br><span class="line">  | KEY_BLOCK_SIZE [=] value</span><br><span class="line">  | MAX_ROWS [=] value</span><br><span class="line">  | MIN_ROWS [=] value</span><br><span class="line">  | PACK_KEYS [=] &#123;0 | 1 | DEFAULT&#125;</span><br><span class="line">  | PASSWORD [=] &#x27;string&#x27;</span><br><span class="line">  | ROW_FORMAT [=] &#123;DEFAULT | DYNAMIC | FIXED | COMPRESSED | REDUNDANT | COMPACT&#125;</span><br><span class="line">  | SECONDARY_ENGINE_ATTRIBUTE [=] &#x27;string&#x27;</span><br><span class="line">  | STATS_AUTO_RECALC [=] &#123;DEFAULT | 0 | 1&#125;</span><br><span class="line">  | STATS_PERSISTENT [=] &#123;DEFAULT | 0 | 1&#125;</span><br><span class="line">  | STATS_SAMPLE_PAGES [=] value</span><br><span class="line">  | TABLESPACE tablespace_name [STORAGE &#123;DISK | MEMORY&#125;]</span><br><span class="line">  | UNION [=] (tbl_name[,tbl_name]...)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">partition_options:</span><br><span class="line">    (see CREATE TABLE options)</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<ul>
+<li><p>给表添加一个列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table vendor add vend_phone char(20);</span><br></pre></td></tr></table></figure></li>
+<li><p>删掉表的列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table vendor drop vend_phone;</span><br></pre></td></tr></table></figure></li>
+<li><p>定义外键</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter table orderitems</span><br><span class="line">add constraint fk_orderitems_orders</span><br><span class="line">foreign key (order_num) references orders(order_item);</span><br></pre></td></tr></table></figure></li>
+<li></li>
+</ul>
+<h1 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop table table_names;</span><br></pre></td></tr></table></figure>
+
+<h1 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rename table old_table_name1 to new_table_name1,</span><br><span class="line">[old_table_name2 to new_table_name2,</span><br><span class="line">old_table_name3 to new_table_name3,...];</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><h2 id="使用视图的原因"><a href="#使用视图的原因" class="headerlink" title="使用视图的原因"></a>使用视图的原因</h2><ul>
+<li>重用SQL语句。</li>
+<li>简化复杂的SQL操作。在编写查询后，可以方便地重用它而不必知道它的基本查询细节。</li>
+<li>使用表的组成部分而不是整个表。</li>
+<li>保护数据。可以给用户授予表的特定部分的访问权限而不是整个表的访问权限。 </li>
+<li>更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据。</li>
+</ul>
+<h2 id="视图的规则和限制"><a href="#视图的规则和限制" class="headerlink" title="视图的规则和限制"></a>视图的规则和限制</h2><ul>
+<li>与表一样，视图必须唯一命名（不能给视图取与别的视图或表相同的名字）。</li>
+<li>对于可以创建的视图数目没有限制。</li>
+<li> 为了创建视图，必须具有足够的访问权限。这些限制通常由数据库管理人员授予。</li>
+<li>视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造一个视图。</li>
+<li>ORDER BY可以用在视图中，但如果从该视图检索数据SELECT中也含有ORDER BY，那么该视图中的ORDER BY将被覆盖。</li>
+<li>视图不能索引，也不能有关联的触发器或默认值。</li>
+<li>视图可以和表一起使用。例如，编写一条联结表和视图的SELECT语句。</li>
+</ul>
+<h2 id="视图使用"><a href="#视图使用" class="headerlink" title="视图使用"></a>视图使用</h2><ul>
+<li>视图用CREATE VIEW语句来创建。例子：<code>create view productcustomers as select cust_name,cust_constact,prod_id from customers,orders,orderitems where customers.cust_id=orders.cust_id and orderitems.order_num =orders.order_num;</code></li>
+<li>使用SHOW CREATE VIEW viewname；来查看创建视图的语句。</li>
+<li>用DROP删除视图，其语法为DROP VIEW viewname;。</li>
+<li>更新视图时，可以先用DROP再用CREATE，也可以直接用CREATE OR REPLACE VIEW。如果要更新的视图不存在，则第2条更新语句会创建一个视图；如果要更新的视图存在，则第2条更新语句会替换原有视图。</li>
+</ul>
+<h2 id="视图更新"><a href="#视图更新" class="headerlink" title="视图更新"></a>视图更新</h2><p>视图定义中有以下操作，则不能进行视图的更新：</p>
+<ul>
+<li>分组（使用GROUP BY和HAVING）；</li>
+<li>联结；</li>
+<li>子查询；</li>
+<li>并；</li>
+<li>聚集函数（Min()、Count()、Sum()等）；</li>
+<li>DISTINCT；</li>
+<li>导出（计算）列。</li>
+</ul>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>存储过程简单来说，就是为以后的使用而保存的一条或多条MySQL语句的集合。可将其视为批文件，虽然它们的作用不仅限于批处理。</p>
+<h2 id="执行存储过程"><a href="#执行存储过程" class="headerlink" title="执行存储过程"></a>执行存储过程</h2><p>MySQL称存储过程的执行为调用，因此MySQL执行存储过程的`语句为CALL。CALL接受存储过程的名字以及需要传递给它的任意参数。例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call productpricing(@pricelow,@pricehigh,@priceaverage);</span><br></pre></td></tr></table></figure>
+
+<p>其中，执行名为productpricing的存储过程，它计算并返回产<br>品的最低、最高和平均价格。</p>
+<h2 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h2><p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">create procedure productpricing()</span><br><span class="line">begin</span><br><span class="line">	select avg(prod_price) as priceaverage</span><br><span class="line">	from products;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line"># 存储过程接收3个参数 pl,ph,pa</span><br><span class="line"># 关键字OUT指出相应的参数用来从存储过程中传出一个值（返回给调用者）</span><br><span class="line"></span><br><span class="line">create procedure productpricing(</span><br><span class="line">    out pl decimal(8,2),</span><br><span class="line">    out ph decimal(8,2),</span><br><span class="line">    out pa decimal(8,2)</span><br><span class="line">)</span><br><span class="line">begin</span><br><span class="line">	select Min(prod_price)</span><br><span class="line">	into pl</span><br><span class="line">	from products;</span><br><span class="line">	select Max(prod_price)</span><br><span class="line">	into ph</span><br><span class="line">	from products;</span><br><span class="line">	select Avg(prod_price)</span><br><span class="line">	into pa</span><br><span class="line">	from products</span><br><span class="line">end;</span><br><span class="line"># 调用上述定义的存储过程</span><br><span class="line">call productpricing(@pricelow,@pricehigh,@priceaverage);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 使用IN 和OUT 参数</span><br><span class="line">create procedure ordertotal(</span><br><span class="line">    in onumber int,</span><br><span class="line">    out ototal decimal(8,2)</span><br><span class="line">)</span><br><span class="line">begin</span><br><span class="line">	select sum(item_price*quantity)</span><br><span class="line">	from orderitems</span><br><span class="line">	where order_num=onumber</span><br><span class="line">	into ototal;</span><br><span class="line">end;</span><br><span class="line"># 调用上述存储过程</span><br><span class="line">call ordertotal(20005,@total);</span><br><span class="line">select @total</span><br></pre></td></tr></table></figure>
+
+<p>如果存储过程接受参数，它们将在()中列举出来。此存储过程没有参数，但后跟的()仍然需要。BEGIN和END语句用来限定存储过程体。</p>
+<p>MySQL支持IN（传递给存储过程）、OUT（从存储过程传出，如这里所用）和INOUT（对存储过程传入和传出）类型的参数。</p>
+<p>所有MySQL的变量都必须以@开始。</p>
+<h2 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h2><p>例子，<code>drop procedure productpricing</code>。</p>
+<h2 id="智能存储过程"><a href="#智能存储过程" class="headerlink" title="智能存储过程"></a>智能存储过程</h2><p>情况：</p>
+<p>考虑这个场景。你需要获得与以前一样的订单合计，但需要对合计增加营业税，不过只针对某些顾客（或许是你所在州中那些顾客）。那么，你需要做下面几件事情：</p>
+<ul>
+<li>获得合计（与以前一样）；</li>
+<li>把营业税有条件地添加到合计；</li>
+<li>返回合计（带或不带税）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">create procedure ordertotal(</span><br><span class="line">    in onumber int,</span><br><span class="line">    in taxable boolean,</span><br><span class="line">    out ototal decimal(8,2)</span><br><span class="line">)comment &#x27;obtain order total,optionally adding tax&#x27;</span><br><span class="line">begin</span><br><span class="line">	--Declare variable for total</span><br><span class="line">	declare total decimal(8,2);</span><br><span class="line">	--declare tax percentage</span><br><span class="line">	declare taxrate int default 6;</span><br><span class="line">	</span><br><span class="line">	--get the order totaol</span><br><span class="line">	select sum(item_price*quantity)</span><br><span class="line">	from orderitems</span><br><span class="line">	where order_num=onumber</span><br><span class="line">	into total;</span><br><span class="line">	</span><br><span class="line">	--if this taxable</span><br><span class="line">	if taxable then</span><br><span class="line">		-- yes so add taxrate to the total</span><br><span class="line">		select total+(total/100*taxrate) into total</span><br><span class="line">	end if;</span><br><span class="line">		</span><br><span class="line">	-- And finally, save to out variable</span><br><span class="line">	select total into ototal;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查存储过程"><a href="#检查存储过程" class="headerlink" title="检查存储过程"></a>检查存储过程</h2><p><code>show create procedure ordertotal</code></p>
+<h1 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h1><p>游标（cursor）是一个存储在MySQL服务器上的数据库查询，它不是一条SELECT语句，而是被该语句检索出来的结果集。在存储了游标之后，应用程序可以根据需要滚动或浏览其中的数据。</p>
+<p>MySQL游标只能用于存储过程（和函数）。</p>
+<p>使用游标的步骤：</p>
+<ul>
+<li>在能够使用游标前，必须声明（定义）它。这个过程实际上没有检索数据，它只是定义要使用的SELECT语句。</li>
+<li>一旦声明后，必须打开游标以供使用。这个过程用前面定义的SELECT语句把数据实际检索出来。</li>
+<li>对于填有数据的游标，根据需要取出（检索）各行。</li>
+<li>在结束游标使用时，必须关闭游标。</li>
+</ul>
+<h2 id="创建游标"><a href="#创建游标" class="headerlink" title="创建游标"></a>创建游标</h2><p>游标使用DECLARE 语句创建。DECLARE命名游标，并定义<br>相应的SELECT语句，根据需要带WHERE和其他子句。例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create procedure processorders()</span><br><span class="line">begin</span><br><span class="line">    -- 定义了declare的游标</span><br><span class="line">	declare ordernumbers cursor</span><br><span class="line">	for </span><br><span class="line">	select order_num from orders;</span><br><span class="line">	</span><br><span class="line">	OPEN ordernumbers;</span><br><span class="line">	</span><br><span class="line">	CLOSE ordernumbers;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打开和关闭游标"><a href="#打开和关闭游标" class="headerlink" title="打开和关闭游标"></a>打开和关闭游标</h2><p>打开：<code>open ordernumbers</code></p>
+<p>关闭：<code>close ordernumbers</code></p>
+<p>如果你不明确关闭游标，MySQL将会在到达END语句时自动关闭它。</p>
+<h2 id="使用游标数据"><a href="#使用游标数据" class="headerlink" title="使用游标数据"></a>使用游标数据</h2><p>在一个游标被打开后，可以使用FETCH语句分别访问它的每一行。FETCH指定检索什么数据（所需的列），检索出来的数据存储在什么地方。它还向前移动游标中的内部行指针，使下一条FETCH语句检索下一行（不重复读取同一行）。</p>
+<ul>
+<li><p><strong>取单行数据</strong>（第一行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">create procedure processorders()</span><br><span class="line">begin</span><br><span class="line">	declare o int;</span><br><span class="line">	</span><br><span class="line">	declare ordernumbers cursor</span><br><span class="line">	for</span><br><span class="line">	select order_num from orders;</span><br><span class="line">	</span><br><span class="line">	open ordernumbers;</span><br><span class="line">	</span><br><span class="line">	fetch ordernumbers into o;</span><br><span class="line">	</span><br><span class="line">	close ordernumbers;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>循环检索数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">create procedure processorders()</span><br><span class="line">begin</span><br><span class="line">	declare done boolean default 0;</span><br><span class="line">	declare o int;</span><br><span class="line">	</span><br><span class="line">	declare ordernumbers cursor</span><br><span class="line">	for </span><br><span class="line">	select order_num from orders;</span><br><span class="line">	</span><br><span class="line">	open ordernumbers;</span><br><span class="line">	repeat</span><br><span class="line">		fetch ordernumbers into o;</span><br><span class="line">	until done end repeat;</span><br><span class="line">	</span><br><span class="line">	close ordernumbers;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>示例高级处理</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">create procedure processorders()</span><br><span class="line">begin</span><br><span class="line">	--Declare a local variable</span><br><span class="line">	declare ordernumbers cursor</span><br><span class="line">	for </span><br><span class="line">	select order_num from orders;</span><br><span class="line">	--declare continue handler</span><br><span class="line">	declare continue handler for sqlstate &#x27;02000&#x27; set done=1;</span><br><span class="line">	</span><br><span class="line">	--create table to store the results</span><br><span class="line">	create table if not exists ordertotals(order_num int,total decimal(8,2));</span><br><span class="line">	</span><br><span class="line">	--open the cursor</span><br><span class="line">	open ordernumbers;</span><br><span class="line">	</span><br><span class="line">	--loop through all rows</span><br><span class="line">	repeat</span><br><span class="line">		</span><br><span class="line">		--get order number</span><br><span class="line">		fetch ordernumbers into o;</span><br><span class="line">		--get the total for this order</span><br><span class="line">		call ordertotal(o,1,t);</span><br><span class="line">		</span><br><span class="line">		--insert order and total into ordertotals</span><br><span class="line">		insert into ordertotals(order_num,total)</span><br><span class="line">		values(o,t);</span><br><span class="line">		</span><br><span class="line">		--end of loop</span><br><span class="line">		until done end repeat;</span><br><span class="line">		</span><br><span class="line">		--close the cursor</span><br><span class="line">		close ordernumbers; </span><br><span class="line">end;</span><br></pre></td></tr></table></figure></li>
+<li></li>
+<li></li>
+</ul>
+<h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><p>Mysql 响应以下任意语句而自动执行的一条MySQL语句（或位于BEGIN 和END语句之间的一组语句）：</p>
+<ul>
+<li>DELETE</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+</ul>
+<h2 id="创建触发器"><a href="#创建触发器" class="headerlink" title="创建触发器"></a>创建触发器</h2><p>创建触发器时，需要给出4条信息：</p>
+<ul>
+<li>唯一的触发器名</li>
+<li>触发器关联的表</li>
+<li>触发器应该响应的活动（DELETE、INSERT和UPDATE）</li>
+<li>触发器何时执行（处理之前或之后）</li>
+</ul>
+<p><strong>保持每个数据库的触发器名唯一 在MySQL 5中，触发器名必须在每个表中唯一，但不是在每个数据库中唯一</strong>。这表示同一数据库中的两个表可具有相同名字的触发器。这在其他每个数据库触发器名必须唯一的DBMS中是不允许的，而且以后的MySQL版本很可能会使命名规则更为严格。因此，现在最好是在数据库范围内使用唯一的触发器名。</p>
+
       
     </div>
 
