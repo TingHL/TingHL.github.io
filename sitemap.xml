@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tinghl.com/2022/01/05/mysql/</loc>
+    
+    <lastmod>2022-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tinghl.com/2022/07/24/%E5%89%8D%E5%90%8E%E5%8F%B0%E4%BC%A0%E5%8F%82/</loc>
+    
+    <lastmod>2022-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tinghl.com/categories/index.html</loc>
+    
+    <lastmod>2022-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tinghl.com/2021/08/15/Spring-Framework-Documentation/</loc>
     
     <lastmod>2022-02-10</lastmod>
@@ -12,15 +39,6 @@
   
   <url>
     <loc>https://tinghl.com/2021/12/31/Redis-DevOps/</loc>
-    
-    <lastmod>2022-02-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tinghl.com/2022/01/05/mysql/</loc>
     
     <lastmod>2022-02-10</lastmod>
     
@@ -100,28 +118,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://tinghl.com/guestbook/index.html</loc>
-    
-    <lastmod>2021-08-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tinghl.com/categories/index.html</loc>
-    
-    <lastmod>2021-08-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://tinghl.com/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -131,56 +131,63 @@
   
   <url>
     <loc>https://tinghl.com/categories/tutorial/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/java/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/hexo/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/kafka/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/redis/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/spring/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/git/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tinghl.com/categories/mysql/</loc>
-    <lastmod>2022-02-10</lastmod>
+    <lastmod>2022-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://tinghl.com/categories/java/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

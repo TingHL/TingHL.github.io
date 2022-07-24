@@ -325,19 +325,17 @@
 <h2 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h2><p>根据查询条件查询一定数量的数据<strong>（limit 后只有一个参数）</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 根据查询条件 检索出&lt;record_nums&gt;条数据 </span><br><span class="line">select &lt;column_name&gt; from &lt;table_name&gt; limit &lt;record_nums&gt;;</span><br></pre></td></tr></table></figure>
 
-
-
 <p>限定返回数据的位置，及其后面显示的行数。<strong>（limit后有两个参数）</strong></p>
 <p>start_position: 检索出来的第一行为第0行，开始检索的位置</p>
 <p>record_nums: 检索出的数据条数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 从行&lt;start_position&gt;开始 检索出&lt;record_nums&gt;行</span><br><span class="line">select &lt;column_name&gt;</span><br><span class="line">from &lt;table_name&gt; </span><br><span class="line">limit &lt;start_position&gt;,&lt;record_nums&gt;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 从行&lt;start_position&gt;开始 检索出&lt;record_nums&gt;行</span><br><span class="line">select &lt;column_name&gt;</span><br><span class="line">from &lt;table_name&gt; </span><br><span class="line">limit &lt;start_position&gt;,&lt;record_nums&gt;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><p>通常，ORDER BY子句中使用的列将是为显示所选择的列。但是，实际上并不一定要这样，用非检索的列排序数据是完全合法的。</p>
 <h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><h3 id="空值检查NULL"><a href="#空值检查NULL" class="headerlink" title="空值检查NULL"></a>空值检查NULL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># IS NULL 子句</span><br><span class="line">select &lt;column_name&gt; from &lt;table_name&gt; where &lt;column_name&gt; IS NULL;</span><br></pre></td></tr></table></figure>
 
 <p><strong>NULL与不匹配</strong> 在通过过滤选择出不具有特定值的行时，你可能希望返回具有NULL值的行。但是，不行。因为未知具有特殊的含义，数据库不知道它们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。因此，在过滤数据时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。</p>
 <h3 id="AND-OR"><a href="#AND-OR" class="headerlink" title="AND OR"></a>AND OR</h3><p>AND的优先级高于OR优先级</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 优先处理AND操作符</span><br><span class="line"># 含义：由供应商1003制造的任何价格为10美元（含）以上的产品或者由供应商1002制造的任何产品</span><br><span class="line">select prod_name,prod_price</span><br><span class="line">from products</span><br><span class="line">where vend_id=1002 or vend_id = 1003 and prod_price&gt;=10;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 优先处理AND操作符</span><br><span class="line"># 含义：由供应商1003制造的任何价格为10美元（含）以上的产品或者由供应商1002制造的任何产品</span><br><span class="line">select prod_name,prod_price</span><br><span class="line">from products</span><br><span class="line">where vend_id=1002 or vend_id = 1003 and prod_price&gt;=10; </span><br><span class="line"># and 是一个二元运算符，相当于在and表达式的运算对象周围使用了小括号</span><br><span class="line"># where vend_id=1002 or (vend_id=1003 and prod_proce&gt;=10)</span><br></pre></td></tr></table></figure>
 
 <h2 id="通配符"><a href="#通配符" class="headerlink" title="% 通配符"></a>% 通配符</h2><ul>
 <li>除了一个或多个字符外，%还能匹配0个字符。%代表搜索模式中给定位置的0个、1个或多个字符。</li>
@@ -345,19 +343,18 @@
 </ul>
 <h2 id="下划线-通配符"><a href="#下划线-通配符" class="headerlink" title="下划线_ 通配符"></a>下划线_ 通配符</h2><ul>
 <li>下划线的用途与%一样，但下划线只匹配单个字符而不是多个字符。</li>
-<li></li>
 </ul>
-<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><strong>正则表达式匹配的是列值，LIKE匹配的是整个列</strong>，示例：</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><strong>正则表达式匹配的是列值，LIKE匹配的是整个列</strong>（列值从列值的某一个位置开始验证是否符合规则，整个列是从0验证是否匹配规则）。示例：</p>
 <p>prod_name全部数据，如下图所示：</p>
 <p>![正则表达式否定开始全量数据](mysql/regexp all datas.png)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在列值中匹配具有非数字 非特殊字符. 的列</span><br><span class="line">select prod_name from products</span><br><span class="line">where prod_name regexp &#x27;[^0-9\\.]&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在列值中匹配具有非数字 非特殊字符. 的列（显示列值中符合这个条件的数据，例如 .5 ton anvil）</span><br><span class="line">select prod_name from products</span><br><span class="line">where prod_name regexp &#x27;[^0-9\\.]&#x27;</span><br></pre></td></tr></table></figure>
 
-<img src="/2022/01/05/mysql/Users/TingHL/AppData/Roaming/Typora/typora-user-images/image-20220120213342814.png" alt="image-20220120213342814" style="zoom: 80%;">
+<img src="/2022/01/05/mysql/非0-9开头.png" alt="image-20220120213342814" style="zoom: 80%;">
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 在列值中匹配 非数字非特殊字符. 开头的数字</span><br><span class="line">select prod_name</span><br><span class="line">from products where prod_name regexp &#x27;^[^0-9\\.]&#x27;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/01/05/mysql/%E5%BC%80%E5%A7%8B%E9%9D%9E0%E9%9D%9E9.png" alt="image-20220120213504774"></p>
-<h2 id="否定-开始"><a href="#否定-开始" class="headerlink" title="否定 / 开始  ^"></a>否定 / 开始  ^</h2><p>^有两种用法。在集合中（用[和]定义），用它来否定该集合，否则，用来指串的开始处。</p>
+<h2 id="否定-开始"><a href="#否定-开始" class="headerlink" title="否定 / 开始  ^"></a>否定 / 开始  ^</h2><p>^有两种用法。在集合中（用<code>[</code> <code>]</code>定义），用它来否定该集合，否则，用来指串的开始处。</p>
 <h2 id="匹配特殊字符-为前导"><a href="#匹配特殊字符-为前导" class="headerlink" title="匹配特殊字符 \\为前导"></a>匹配特殊字符 <code>\\</code>为前导</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查找 特殊字符 - </span><br><span class="line">select vend_name from venders where vend_name regexp &#x27;\\-&#x27;</span><br></pre></td></tr></table></figure>
 
 <h2 id="匹配字符类"><a href="#匹配字符类" class="headerlink" title="匹配字符类"></a>匹配字符类</h2><p><img src="/2022/01/05/mysql/%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E7%B1%BB.png" alt="匹配字符类"></p>
@@ -574,7 +571,7 @@
 <li>对所有的行执行计算，指定ALL参数或不给参数（因为ALL是默认行为）；</li>
 <li>只包含不同的值，指定DISTINCT参数。</li>
 </ul>
-<h1 id="group-by-分组-having-过滤"><a href="#group-by-分组-having-过滤" class="headerlink" title="group by 分组, having 过滤"></a>group by 分组, having 过滤</h1><p>GROUP BY子句指示MySQL分组数据，然后对每个组而不是<br>整个结果集进行聚集。<br>在具体使用GROUP BY子句前，需要知道一些重要的规定。</p>
+<h1 id="group-by-分组-having-过滤"><a href="#group-by-分组-having-过滤" class="headerlink" title="group by 分组, having 过滤"></a>group by 分组, having 过滤</h1><p>GROUP BY子句指示MySQL分组数据，然后对每个组而不是整个结果集进行聚集。<br>在具体使用GROUP BY子句前，需要知道一些重要的规定。</p>
 <ul>
 <li>GROUP BY子句可以包含任意数目的列。这使得能对分组进行嵌套，为数据分组提供更细致的控制。</li>
 <li>如果在GROUP BY子句中嵌套了分组，数据将在最后规定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</li>
@@ -748,10 +745,14 @@
 <li>视图可以和表一起使用。例如，编写一条联结表和视图的SELECT语句。</li>
 </ul>
 <h2 id="视图使用"><a href="#视图使用" class="headerlink" title="视图使用"></a>视图使用</h2><ul>
-<li>视图用CREATE VIEW语句来创建。例子：<code>create view productcustomers as select cust_name,cust_constact,prod_id from customers,orders,orderitems where customers.cust_id=orders.cust_id and orderitems.order_num =orders.order_num;</code></li>
-<li>使用SHOW CREATE VIEW viewname；来查看创建视图的语句。</li>
-<li>用DROP删除视图，其语法为DROP VIEW viewname;。</li>
-<li>更新视图时，可以先用DROP再用CREATE，也可以直接用CREATE OR REPLACE VIEW。如果要更新的视图不存在，则第2条更新语句会创建一个视图；如果要更新的视图存在，则第2条更新语句会替换原有视图。</li>
+<li><p>视图用CREATE VIEW语句来创建。例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create view productcustomers </span><br><span class="line">as select cust_name,cust_constact,prod_id </span><br><span class="line">from customers,orders,orderitems </span><br><span class="line">where customers.cust_id=orders.cust_id and orderitems.order_num =orders.order_num;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用SHOW CREATE VIEW viewname；来查看创建视图的语句。</p>
+</li>
+<li><p>用DROP删除视图，其语法为DROP VIEW viewname;。</p>
+</li>
+<li><p>更新视图时，可以先用DROP再用CREATE，也可以直接用CREATE OR REPLACE VIEW。如果要更新的视图不存在，则第2条更新语句会创建一个视图；如果要更新的视图存在，则第2条更新语句会替换原有视图。</p>
+</li>
 </ul>
 <h2 id="视图更新"><a href="#视图更新" class="headerlink" title="视图更新"></a>视图更新</h2><p>视图定义中有以下操作，则不能进行视图的更新：</p>
 <ul>
@@ -828,9 +829,124 @@
 <li>触发器何时执行（处理之前或之后）</li>
 </ul>
 <p><strong>保持每个数据库的触发器名唯一 在MySQL 5中，触发器名必须在每个表中唯一，但不是在每个数据库中唯一</strong>。这表示同一数据库中的两个表可具有相同名字的触发器。这在其他每个数据库触发器名必须唯一的DBMS中是不允许的，而且以后的MySQL版本很可能会使命名规则更为严格。因此，现在最好是在数据库范围内使用唯一的触发器名。</p>
+<p>触发器<strong>仅支持表</strong>。视图、临时表不支持触发器</p>
+<p>触发器创建语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE</span><br><span class="line">    [DEFINER = user]</span><br><span class="line">    TRIGGER [IF NOT EXISTS] trigger_name</span><br><span class="line">    trigger_time trigger_event</span><br><span class="line">    ON tbl_name FOR EACH ROW</span><br><span class="line">    [trigger_order]</span><br><span class="line">    trigger_body</span><br><span class="line"></span><br><span class="line">trigger_time: &#123; BEFORE | AFTER &#125;</span><br><span class="line"></span><br><span class="line">trigger_event: &#123; INSERT | UPDATE | DELETE &#125;</span><br><span class="line"></span><br><span class="line">trigger_order: &#123; FOLLOWS | PRECEDES &#125; other_trigger_name</span><br></pre></td></tr></table></figure>
+
+<p>触发器按每个表每个事件每次地定义，每个表每个事件每次只允许一个触发器。因此，每个表最多支持6个触发器（每条INSERT、UPDATE和DELETE的之前和之后）</p>
+<h2 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h2><p>触发器删除语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP TRIGGER [IF EXISTS] [schema_name.]trigger_name</span><br></pre></td></tr></table></figure>
+
+<h2 id="触发器-NEW与OLD"><a href="#触发器-NEW与OLD" class="headerlink" title="触发器 NEW与OLD"></a>触发器 NEW与OLD</h2><p>MySQL 中定义了 NEW 和 OLD，用来表示触发器的所在表中，触发了触发器的那一行数据。</p>
+<p>具体地：<br>在 INSERT 型触发器中，NEW 用来表示将要（BEFORE）或已经（AFTER）插入的新数据；<br>在 UPDATE 型触发器中，OLD 用来表示将要或已经被修改的原数据，NEW 用来表示将要或已经修改为的新数据；<br>在 DELETE 型触发器中，OLD 用来表示将要或已经被删除的原数据；<br>使用方法： NEW.columnName （columnName 为相应数据表某一列名）<br>另外，OLD 是只读的，而 NEW 则可以在触发器中使用 SET 赋值，这样不会再次触发触发器，造成循环调用。</p>
+<h2 id="INSERT触发器"><a href="#INSERT触发器" class="headerlink" title="INSERT触发器"></a>INSERT触发器</h2><p>INSERT触发器在INSERT语句执行之前或之后执行。需要知道以下几点：</p>
+<ul>
+<li>在INSERT触发器代码内，可引用一个名为NEW的虚拟表，访问被插入的行；</li>
+<li>在BEFORE INSERT触发器中，NEW中的值也可以被更新（允许更改被插入的值）；</li>
+<li>对于AUTO_INCREMENT列，NEW在INSERT执行之前包含0，在INSERT执行之后包含新的自动生成值。</li>
+</ul>
+<p>​    示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create trigger neworder after insert on orders for each row select new.order_num;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE触发器"><a href="#DELETE触发器" class="headerlink" title="DELETE触发器"></a>DELETE触发器</h2><p>DELETE触发器在DELETE语句执行之前或之后执行。需要知道以下两点：</p>
+<ul>
+<li><p>在DELETE触发器代码内，你可以引用一个名为OLD的虚拟表，访<br>问被删除的行；</p>
+</li>
+<li><p>OLD中的值全都是只读的，不能更新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create trigger deletorder before delete on orders</span><br><span class="line">for each row</span><br><span class="line">begin</span><br><span class="line">	insert into archieve_orders(order_num,order_date,cust_id)</span><br><span class="line">	values(OLD.order_num,OLD.order_date,OLD.cust_id);</span><br><span class="line">end;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="UPDATE触发器"><a href="#UPDATE触发器" class="headerlink" title="UPDATE触发器"></a>UPDATE触发器</h2><ul>
+<li>在UPDATE触发器代码中，你可以引用一个名为OLD的虚拟表访问以前（UPDATE语句前）的值，引用一个名为NEW的虚拟表访问新更新的值；</li>
+<li> 在BEFORE UPDATE触发器中，NEW中的值可能也被更新（允许更改将要用于UPDATE语句中的值）；</li>
+<li>OLD中的值全都是只读的，不能更新。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 确保州名缩写都是大写的</span><br><span class="line">create trigger updatevendor before update on vendors</span><br><span class="line">for each row set NEW.vend_state=Upper(NEW.vend_state);</span><br></pre></td></tr></table></figure>
+
+<h1 id="管理事务处理"><a href="#管理事务处理" class="headerlink" title="管理事务处理"></a>管理事务处理</h1><ul>
+<li>事务（transaction）指一组SQL语句；</li>
+<li>回退（rollback）指撤销指定SQL语句的过程；</li>
+<li>提交（commit）指将未存储的SQL语句结果写入数据库表；</li>
+<li>保留点（savepoint）指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）。</li>
+</ul>
+<p>标识事务的开始：<code>start transaction</code></p>
+<p>回退（撤销）：<code>rollback</code></p>
+<p>事务管理用于管理INSERT、UPDATE和DELETE语句。不能回退CREATE或DROP操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 保留点 支持事务回退操作，可以回退到任意保留点位置。保留点在执行一次ROLLBACK或COMMIT之后释放</span><br><span class="line">savepoint delete1;</span><br><span class="line">rollback to delete1;</span><br></pre></td></tr></table></figure>
+
+<h1 id="全球化和本地化"><a href="#全球化和本地化" class="headerlink" title="全球化和本地化"></a>全球化和本地化</h1><ul>
+<li><strong>字符集</strong>为字母和符号的集合；</li>
+<li><strong>编码</strong>为某个字符集成员的内部表示；（字符集以什么样的形式编码）</li>
+<li><strong>校对</strong>为规定字符如何比较的指令。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看支持的字符集完整列表</span><br><span class="line">show character set;</span><br><span class="line"></span><br><span class="line">#查看支持的校对列表</span><br><span class="line">show collation;</span><br><span class="line"></span><br><span class="line">#查看默认的字符集和校对</span><br><span class="line">show variables like &#x27;character%&#x27;;</span><br><span class="line">show variables like &#x27;collation%&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>一般，MySQL如下确定使用什么样的字符集和校对。</p>
+<ul>
+<li>如果指定CHARACTER SET和COLLATE两者，则使用这些值。</li>
+<li>如果只指定CHARACTER SET，则使用此字符集及其默认的校对（如SHOW CHARACTER SET的结果中所示）。</li>
+<li>如果既不指定CHARACTER SET，也不指定COLLATE，则使用数据库默认。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#指定表使用何种字符集和校对</span><br><span class="line">create table mytable</span><br><span class="line">(</span><br><span class="line">	column1 INT,</span><br><span class="line">    column2 VARCHAR(10)</span><br><span class="line">)DEFAULT CHARACTER SET hebrew</span><br><span class="line">collation hebrew_general_ci;</span><br><span class="line"></span><br><span class="line">#使用查询语句时，使用不同的排序校对</span><br><span class="line">select * from customers</span><br><span class="line">order by lastname,firstname collation latin1_general_cs;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h1><p>MYSQL中有一个名为mysql的数据库，其有一个名为user的表，它包含所有的用户账号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建用户账号</span><br><span class="line">create user ben identified by &#x27;p@$$w0rd&#x27;;</span><br><span class="line"></span><br><span class="line"># 重新命名一个用户账号</span><br><span class="line">rename user ben to bforta;</span><br><span class="line"></span><br><span class="line">#删除用户账号</span><br><span class="line">drop user bforta;</span><br><span class="line"></span><br><span class="line">#查看账户权限</span><br><span class="line">show grants for bforta;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <categories>
         <category>mysql</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>前后台传参</title>
+    <url>/2022/07/24/%E5%89%8D%E5%90%8E%E5%8F%B0%E4%BC%A0%E5%8F%82/</url>
+    <content><![CDATA[<p><strong>参考链接：</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/m0_50333654/article/details/109632025">https://blog.csdn.net/m0_50333654/article/details/109632025</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.JsonNode;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020/9/26 16:04</span></span><br><span class="line"><span class="comment"> * describe: 记录常用的post的传参方式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 参数在请求头里的情况</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意: 这种方式PostMapping里的占位符’&#123;id&#125;’,要和接收时参数PathVariable后面括号内的字段一样</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test/34</span></span><br><span class="line"><span class="comment">     * 请求体:</span></span><br><span class="line"><span class="comment">     * 输出: 34</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test/&#123;Id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="meta">@PathVariable(&quot;Id&quot;)</span> String sid)</span> </span>&#123;</span><br><span class="line">        System.out.println(sid);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test/34/zhangsan</span></span><br><span class="line"><span class="comment">     * 请求体:</span></span><br><span class="line"><span class="comment">     * 输出: id:34,name:zhangsan</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test/&#123;Id&#125;/&#123;name&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="meta">@PathVariable(&quot;Id&quot;)</span> String sid, <span class="meta">@PathVariable(&quot;name&quot;)</span> String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;id:&quot;</span> + sid + <span class="string">&quot;,name:&quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 参数在请求体头和请求体中</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这是一种将请求体中的值封装成Map的方法</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test1</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;,&quot;zhangsan&quot;&#125;</span></span><br><span class="line"><span class="comment">     * 输出: zhangsan</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test1&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">        String name = map.get(<span class="string">&quot;name&quot;</span>).toString();</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test11</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;,&quot;zhangsan&quot;,&quot;age&quot;,13&#125;</span></span><br><span class="line"><span class="comment">     * 输出: zhangsan,13</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test11&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test11</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">        String name = map.get(<span class="string">&quot;name&quot;</span>).toString();</span><br><span class="line">        <span class="keyword">int</span> age = Integer.parseInt(map.get(<span class="string">&quot;age&quot;</span>).toString());</span><br><span class="line">        System.out.println(name+<span class="string">&quot;,&quot;</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意：这种方式请求体中的&quot;name&quot;要和接收时的参数名称不需要一样</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test2</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;</span></span><br><span class="line"><span class="comment">     * 输出: &#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test2&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">(<span class="meta">@RequestBody</span> String body)</span> </span>&#123;</span><br><span class="line">        System.out.println(body);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 引入依赖</span></span><br><span class="line"><span class="comment">     * &lt;dependency&gt;</span></span><br><span class="line"><span class="comment">     *   &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">     *   &lt;artifactId&gt;fastjson&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">     *   &lt;version&gt;1.2.72&lt;/version&gt;</span></span><br><span class="line"><span class="comment">     * &lt;/dependency&gt;</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test21</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:13&#125;</span></span><br><span class="line"><span class="comment">     * 输出: name,zhangsan</span></span><br><span class="line"><span class="comment">     * age,13</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test21&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test21</span><span class="params">(<span class="meta">@RequestBody</span> String body)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//所有内容都在body中，需要解析出来</span></span><br><span class="line">        Map map = (Map) JSON.parse(body);</span><br><span class="line">        Set set = map.keySet();</span><br><span class="line">        <span class="keyword">for</span> (Object k : set) &#123;</span><br><span class="line">            Object v = map.get(k);</span><br><span class="line">            System.out.println(k.toString() + <span class="string">&quot;,&quot;</span> + v.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用JsonNode来接收，取值时与map取值类似</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test22</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:13&#125;</span></span><br><span class="line"><span class="comment">     * 输出: zhangsan,13</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test22&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test22</span><span class="params">(<span class="meta">@RequestBody</span> JsonNode jsonNode)</span> </span>&#123;</span><br><span class="line">        String name = jsonNode.get(<span class="string">&quot;name&quot;</span>).asText();</span><br><span class="line">        <span class="keyword">int</span> age = jsonNode.get(<span class="string">&quot;age&quot;</span>).asInt();</span><br><span class="line">        System.out.println(name + <span class="string">&quot;,&quot;</span> + age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意：Json的自动转换，只能转换简单类，如果类中包含另一个类，则无法自动转换，传入的时候需要把内部类</span></span><br><span class="line"><span class="comment">     * 变成String，然后用JSON.parse()解析出来</span></span><br><span class="line"><span class="comment">     * person类的属性如下</span></span><br><span class="line"><span class="comment">     * private String name;</span></span><br><span class="line"><span class="comment">     * private Integer age;</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用实体类来封装，字段匹配上就赋值，没匹配上字段的值就为默认值，比如String的默认值就为null</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test23</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:13&#125;</span></span><br><span class="line"><span class="comment">     * 输出: Person(name=zhangsan, age=13)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test23&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test23</span><span class="params">(<span class="meta">@RequestBody</span> Person person)</span> </span>&#123;</span><br><span class="line">        System.out.println(person.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意：此为类中包含另一个类的解决办法</span></span><br><span class="line"><span class="comment">     * student类的属性如下</span></span><br><span class="line"><span class="comment">     * private String name;</span></span><br><span class="line"><span class="comment">     * private Integer age;</span></span><br><span class="line"><span class="comment">     * private String temporaryString;</span></span><br><span class="line"><span class="comment">     * private List&lt;Score&gt; scoreList;</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 思路：前台传值时把内部的对象转成字符串，类似于&quot;temporaryString&quot;:JSON.stringify(对象或对象数组)，我此次用的对象数组</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test24</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;: &quot;zhangsan&quot;,&quot;age&quot;: 13,&quot;temporaryString&quot;: &quot;[&#123;&#x27;grade&#x27;:&#x27;50&#x27;&#125;,&#123;&#x27;grade&#x27;:&#x27;60&#x27;&#125;]&quot;&#125;</span></span><br><span class="line"><span class="comment">     * 输出: Student(name=zhangsan, age=13, temporaryString=[&#123;&#x27;grade&#x27;:&#x27;50&#x27;&#125;,&#123;&#x27;grade&#x27;:&#x27;60&#x27;&#125;],</span></span><br><span class="line"><span class="comment">     * scoreList=[Score(grade=50), Score(grade=60)])</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test24&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test24</span><span class="params">(<span class="meta">@RequestBody</span> Student student)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 拿到字符串，转成Score数组，再塞回Student对象</span></span><br><span class="line">        String temporaryString = student.getTemporaryString();</span><br><span class="line">        List&lt;Score&gt; scores = JSON.parseArray(temporaryString, Score.class);</span><br><span class="line">        student.setScoreList(scores);</span><br><span class="line">        System.out.println(student.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * PathVariable和RequestBody混合使用</span></span><br><span class="line"><span class="comment">     * 请求头: http://127.0.0.1:8080/test3/3</span></span><br><span class="line"><span class="comment">     * 请求体: &#123;&quot;name&quot;: &quot;zhangsan&quot;&#125;</span></span><br><span class="line"><span class="comment">     * 输出:</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test3/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> String id,  <span class="meta">@RequestBody</span> JsonNode jsonNode)</span> </span>&#123;</span><br><span class="line">        String name = jsonNode.get(<span class="string">&quot;name&quot;</span>).asText();</span><br><span class="line">        System.out.println(id+<span class="string">&quot;,&quot;</span>+name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意文件上传比较特殊，它并不是以json形式来传递的</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;uploadFile&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">upLoadFile</span><span class="params">(MultipartFile file, String dest)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取文件名</span></span><br><span class="line">        String fileName = file.getOriginalFilename();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>网络</category>
       </categories>
   </entry>
 </search>
