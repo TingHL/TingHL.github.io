@@ -1,8 +1,6 @@
 ---
 title: HEXO 自建博客备份GitHub
 date: 2021-08-08 20:55:34
-tags:
-- hexo
 categories:
 - hexo
 description: hexo 搭建博客过程中备份到GitHub上，以备更换电脑时环境丢失

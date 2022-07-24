@@ -1,7 +1,8 @@
 ---
 title: HEXO 博客显示PDF，并控制博客访问权限
 date: 2021-12-31 22:08:46
-tags: 
+categories: 
+- hexo
 description: hexo 博客中插入PDF，设置密码控制访问权限
 ---
 # HEXO博客中插入PDF 

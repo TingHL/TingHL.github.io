@@ -1,9 +1,8 @@
 ---
 title: LinkedCaseInsensitveMap 大小写不敏感，用于数据库数据查询
 date: 2021-10-29 07:56:57
-tags: 
-- java
 categories: 
+- java
 description: LinkedCaseInsensitiveMap 对与大小写消息不敏感
 ---
 

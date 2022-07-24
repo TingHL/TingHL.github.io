@@ -1,8 +1,8 @@
 ---
 title: Spring Framework Documentation
 date: 2021-08-15 16:31:51
-tags:
-- Spring
+categories:
+- spring
 description: Spring官网手册笔记
 ---
 

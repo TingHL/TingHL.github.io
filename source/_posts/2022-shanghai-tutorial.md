@@ -1,7 +1,8 @@
 ---
 title: 2022年《畅游上海一票通》品质版相关景点地图标点
 date: 2021-12-12 10:33:17
-tags:
+categories:
+- tutorial
 description: 2022 《畅游上海一票通》品质版 地图标点
 ---
 
